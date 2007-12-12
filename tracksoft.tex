@@ -1,0 +1,120 @@
+\documentclass{beamer}
+
+\usepackage{epsfig}
+\usetheme{Boadilla}
+
+\title{Tracking Software Thoughts}
+\author[M.\ Ito]{Mark M.\ Ito}
+\date{December 12, 2007}
+\institute[JLab]{Jefferson Lab}
+
+\newcommand{\bitem}{\begin{itemize}}
+\newcommand{\eitem}{\end{itemize}}
+\newcommand{\benum}{\begin{enumerate}}
+\newcommand{\eenum}{\end{enumerate}}
+\newcommand{\bcent}{\begin{center}}
+\newcommand{\ecent}{\end{center}}
+
+\begin{document}
+
+\frame{
+\frametitle{tracking software thoughts}
+\bitem
+\item what i've been working on
+  \bitem
+  \item trajectory class
+  \item fitter class
+  \eitem
+\item what our current goals should be
+\item what we need to do for the technology review
+\item what we need to do for the drift chamber review
+\eitem
+}
+\frame{
+  \frametitle{trajectory class}
+    \bitem
+    \item swimming (straight, helix, general B)
+    \item distance-of-closest-approach services
+      \bitem
+      \item to a line
+      \item to a point
+      \item et cetera
+      \eitem     
+    \item energy loss (not started)
+      \bitem
+      \item read in HDDS
+      \item put in dE/dx
+      \eitem
+    \eitem
+}
+\frame{
+  \frametitle {fitter class}
+    \bitem
+    \item takes as input:
+      \bitem
+      \item trajectory generator
+      \item residual function
+      \eitem
+    \item uses GNU Scientific library
+    \item uses Levenberg-Marquardt algorithm
+    \item works on general set of statistically independent residuals
+      \bitem
+      \item pseudo-points
+      \item drift distances
+      \item cathode center-of-gravity's
+      \eitem
+    \item works with general trajectory (in progress)
+    \eitem
+}
+\frame {
+\frametitle{what our current goals should be}
+  \bitem
+  \item robust general track finder and fitter
+    \bitem
+    \item good efficiency
+    \item good resolution
+    \item not necessarily great on either, may not include
+      \bitem
+      \item correlations of hits due to multiple scattering
+      \item microscopic energy loss correction
+      \eitem
+    \eitem
+  \item usable for studies of other detectors
+  \item usable for studying effect of background
+  \item usable for studying efficiencies of signals
+  \item combine CDC and FDC
+  \item fitter should be quasi-independent of chamber geometry/configuration
+  \item track finder necessarily geometry dependent
+  \eitem
+}
+\frame{
+\frametitle{what we need to do for technology review}
+  \bitem
+  \item FDC design well-advanced
+  \item tests on this technology have been done
+  \item that cathodes help with pattern recognition should be stipulated
+  \item need to find a reason it won't work at this point
+    \bitem
+    \item too much multiple scattering?
+    \item Lorentz effect correction intractable?
+    \eitem
+  \item variations on current theme are do-able
+  \item what if we make the ``wrong'' technology decision?
+    \bitem
+    \item change request post-CD3?
+    \item build it and live with it?
+    \eitem
+  \eitem
+}
+\frame{
+\frametitle{what we need to do for the drift chamber review}
+  \bitem
+  \item robust tracker as mentioned above under goals
+  \item demonstrates a complete handle on the fundamentals of the problem
+  \item enables better context for other studies
+  \eitem
+}
+
+\end{document}
+
+%%% end of latex file %%%%
