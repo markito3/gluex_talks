@@ -66,15 +66,64 @@ facility...in the medium-range future. --- Eberhard Klempt
   \ft{lattice mass predictions}
   Lowest mass expected to be $\pi_1(1^{−+})$ at $1.9 \pm 0.2$~GeV
 $$
-  \includegraphics[height=3in]{hybrids_lattice.png}
+  \includegraphics[height=2.5in]{hybrids_lattice.png}
 $$
 }
+
 \f{
   \ft{representative kinematics}
-$$
-  \includegraphics[height=3in]{kinematics.png}
-$$
+  \begin{columns}[c]
+    \begin{column}{1.0in}
+      pions
+      \bi
+      \I $p < 5$~GeV
+      \I $\theta < 20^\circ$
+      \ei
+    \end{column}
+    \begin{column}{2.5in}
+      $$
+      \includegraphics[height=2.5in]{pion_kinematics.jpg}
+      $$
+    \end{column}
+  \end{columns}
 }
+
+\f{
+  \ft{representative kinematics}
+  \begin{columns}[c]
+    \begin{column}{1.0in}
+      protons
+      \bi
+      \I $p < 1$~GeV
+      \I $10^\circ < \theta < 60^\circ$
+      \ei
+    \end{column}
+    \begin{column}{2.5in}
+      $$
+      \includegraphics[height=2.5in]{proton_kinematics.jpg}
+      $$
+    \end{column}
+  \end{columns}
+}
+
+\f{
+  \ft{representative kinematics}
+  \begin{columns}[c]
+    \begin{column}{1.0in}
+      photons
+      \bi
+      \I $p < 4$~GeV
+      \I $\theta < 60^\circ$
+      \ei
+    \end{column}
+    \begin{column}{2.5in}
+      $$
+      \includegraphics[height=2.5in]{photon_kinematics.jpg}
+      $$
+    \end{column}
+  \end{columns}
+}
+
 \f{
   \ft{anything else?}
   \bi
@@ -130,7 +179,15 @@ $$
 \f{
   \ft{Drift Chamber Review, Hall B and D, March 2007}
 
-  Recommendations (Hall D)
+  Comment (excerpted)
+
+  \bi
+  \I In preparation for future reviews, the collaboration should
+  better articulate how the performance requirements of the tracking
+  detectors are derived from the goals of the experimental program.
+  \ei
+
+  Recommendations (complete)
 
   \begin{enumerate}
 
@@ -145,6 +202,35 @@ $$
 
   \end{enumerate}
 }
+
+\f{
+\ft{material reduction program}
+\small
+\begin{tabular}{|llrrr|}
+\hline
+&&& Mar.\ '07 & Feb.\ '08 \\
+Layer & Material & Density	(g/cm$^3$) & \multicolumn{2}{c|}{$x/X_0$} \\
+\hline
+Ground	plane & mylar & 1.3900 & 0.00000 & 0.00000 \\
+Rohacell & Rohacell & 0.0320 & 0.00039 & 0.00016 \\
+Cathode & epoxy & 1.0000 & 0.00006 & 0.00005 \\
+Cathode & Kapton & 1.4200 & 0.00017 & 0.00009 \\
+Cathode & Cu & 8.9600 & 0.00035 & 0.00014 \\
+Gas & Ar/CO2 & 0 & 0.00007 & 0.00007 \\
+Wires sense & W & 0 & 0.00001 & 0.00001 \\
+Wires field & Al & 0 & 0.00001 & 0.00001 \\
+Cathode & Cu & 8.9600 & 0.00035 & 0.00014 \\
+Cathode & Kapton & 1.4200 & 0.00017 & 0.00009 \\
+Cathode & epoxy & 1.0000 & 0.00006 & 0.00005 \\
+Rohacell & Rohacell & 0.0320 & 0.00039 & 0.00016 \\
+\hline				
+Thickness per plane &&& 0.00204 & 0.00095 \\
+Thickness per package &&& 0.01224 & 0.00569 \\			
+Thickness for 4 packages &&& 0.04897 & 0.02276 \\
+\hline
+\end{tabular}
+}
+
 \f{
   \centerline{\Large design considerations}
 }
@@ -165,33 +251,69 @@ $$
     \I sharpens results from the partial-wave analysis
     \I surprises, unintended benefits, etc.
     \ei
+  \I low-mass counts
+    \bi
+      \I reduce multiple scattering contribution to resolution
+      \I reduce production of secondaries (especially photon conversions)
+    \ei
   \I robust pattern recognition
     \bi
     \I robustness $\Leftrightarrow$ simplicity $\Leftrightarrow$
     speed of reconstruction
-    \I implications for
-      \bi
-      \I online level 3 trigger
-      \I offline processing speed
-      \ei
     \ei
   \ei
 }
+
 \f{
-  \ft{$\forall$ FDC's}
+\ft{photon conversions}
+$$
+\includegraphics[height=2.0in]{all_particles_stop_A_geomcd3dualcathode.jpg}
+$$
+\centerline{photon conversion points, minimum bias events (PYTHIA)}
+}
+
+\f{
+\ft{event display}
+\begin{columns}[t]
+  \begin{column}{1.2in}
+    FDC reconstruction particularly challenging
+    \bi
+    \I many forward going tracks
+    \I possible ambiguities correlating layers
+    \ei
+  \end{column}
+  \begin{column}{3.0in}
+    $$
+    \includegraphics[width=3.0in]{event_display.png}
+    $$
+  \end{column}
+\end{columns}
+}
+
+\f{
+  \ft{background zoology}
+  \bi
+    \I electronic noise $\rightarrow$ isolated hits
+    \I e\&m $\rightarrow$ isolated hits and tracks
+    \I hadronic $\rightarrow$ non-signal physics events
+    \I combinatoric $\rightarrow$ false decay particle attribution
+  \ei
+}
+
+\f{
+  \ft{common features of all FDC options}
   \bi
   \I drift chambers
   \I 4 packages
-  \I no structural segmentation in azimuth (no $phi$ sectors)
+  \I no structural segmentation in azimuth (no $\phi$ sectors)
   \I pipeline readout
-  \I variations on design work already done for the reference design  
-  \I aside: preserve $dE/dx$ for particle ID as an option if possible
+  \I variations on design work already done for the two-cathode design  
   \ei
 }
 \f{
   \ft{design options}
   \be
-  \I two cathode strip planes per wire plane (reference)
+  \I two cathode strip planes per wire plane (two cathode)
     \bi
     \I six anode wire planes per package
     \I twelve cathode strip planes
@@ -202,23 +324,24 @@ $$
     \ei
   \I no cathode strips (wires only)
     \bi
-    \I twelve(?) anode wire planes per package
+    \I twelve anode wire planes per package
     \I orientation options
       \be
-      \I each plane rotated $60^\circ$ from previous
+      \I each plane rotated $60^\circ$ from previous (subject of studies)
       \I pairs of planes with half-cell offset, pairs rotated
       $60^\circ$ from previous
       \ee
     \ei
-  \I one cathode strip plane per anode wire plane (hybrid)
+  \I one cathode strip plane per anode wire plane (one cathode)
   \ee
 }
 \f{
   \ft{pro's and con's}
   \bi
-  \I reference design
+  \I two-cathode design
     \be
     \I position resolution of cathodes in a layer good enough to select single wire in anode plane
+    \I Lorenz effect introduces L-R ambiguity in cathode strip information
     \I cathodes strips and anode wires see the same avalanche
       \bi
       \I can use timing to correlate strips with wires
@@ -237,6 +360,19 @@ $$
     \ee
   \ei
 }
+
+\f{
+  \ft{Lorentz effect}
+  \includegraphics[height=1.9in]{Lorentz_effect.png}
+  \includegraphics[height=1.9in]{FDC_cell.jpg}
+  \bi
+    \I cathodes image avalanche
+    \I avalanche displaced from ionization location in dimension along anode
+    wire
+    \I sign of displacement goes as the left-right choice
+  \ei 
+}
+
 \f{
   \centerline{\Large specifications}
 }
