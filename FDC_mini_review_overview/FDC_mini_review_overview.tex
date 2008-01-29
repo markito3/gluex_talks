@@ -28,7 +28,6 @@
   \I reviews: past, present and future
   \I design considerations
   \I specifications
-  \I resolution estimates
   \I conclusions
   \ei
 }
@@ -39,16 +38,10 @@
 \f{
   \ft{goals and requirements}
 
-The search for exotic mesons is at a turning
-point...experiments...which have reported evidence for exotic mesons
-have terminated data taking...new experiments are ahead of
-us...[including] the Hall-D experiment at the upgraded JLab
-facility...in the medium-range future. --- Eberhard Klempt
-
   \bi
   \I Map the spectrum of hybrid mesons (gluonic excitations)
     \bi
-    \I Start with those with exotic quantum numbers
+    \I Start search with those with exotic quantum numbers
     \I Make contact with spectroscopy of non-exotic states
     \ei
 
@@ -147,17 +140,14 @@ $$
 }
 \f{
   \centerline{\Large GlueX detector}
-}
-\f{
-  \ft{the detector}
   $$
-  \includegraphics[height=3in]{gluex_detector_3d.png}
+  \includegraphics[height=2.9in]{gluex_in_hall_d.png}
   $$
 }
 \f{
   \ft{elevation view}
   $$
-  \includegraphics[height=3in]{gluex_detector.png}
+  \includegraphics[height=2.9in]{gluex_detector.png}
   $$
 }
 \f{
@@ -376,6 +366,38 @@ $$
 \f{
   \centerline{\Large specifications}
 }
+
+\f{
+\ft{benchmark study}
+\small
+two conventional reactions simulated:
+\begin{equation}
+\gamma p \rightarrow X^+ n \rightarrow \pi^+\pi^+\pi^-n
+\end{equation}
+\begin{equation}
+\gamma p \rightarrow Y^+ n \rightarrow \pi^+\pi^0\pi^0n \rightarrow \pi^+\gamma\gamma\gamma\gamma n
+\end{equation}
+\begin{columns}[t]
+\begin{column}{2.3in}
+\bi
+\I 9 million events generated
+\I detector response simulated
+\I partial-wave analysis performed
+\I exotic signal searched for
+\I none found (good!) at the 1\% level
+\ei
+\normalsize
+FDC: \textcolor{blue}{$\sigma=150~\mu$m, $x/X_0=1.7\%$, 24~planes}
+\end{column}
+\begin{column}{2.5in}
+$$
+\includegraphics[height=2.2in]{leakage.jpg}
+$$
+\end{column}
+\end{columns}
+
+}
+
 \f{
   \ft{nominal specs}
   \begin{center}
@@ -383,25 +405,29 @@ $$
       polar angle coverage         &  $1^\circ < \theta < 140^\circ$ \\
       azimuthal angle coverage         & $2\pi$ \\
       momentum resolution &  $\sigma_p/p = 1-3\%$ \\
-      position resolution &  $\sigma\approx 150-200 \mu m$
+      position resolution &  $\sigma\approx 150 \mu$m
     \end{tabular}
   \end{center}
-}
-\f{
-  \centerline{\Large resolution estimates}
-}
-\f{
-  \ft{placeholder plot: $\sigma_p/p$ vs.\ p (GeV/$c$)}
-  $$
-  \includegraphics[height=3in]{rezest_1t_4m.jpg}
-  $$
 }
 \f{
   \centerline{\Large conclusions}
 }
 \f{
-  \ft{let me end with...}
-  hmmmmm......
+  \ft{concluding remarks}
+  \bi
+  \I Material has been reduced significantly since March 2007
+    \bi
+    \I active volume
+    \I frames and support
+    \ei
+  \I Design very far advanced: Dan's talk
+  \I Prototype has been tested: Simon's talk
+  \I Reconstruction software coming online: David's talk
+  \I Full-scale prototype is on the way
+  \I Variations on wire/cathode arrangement still possible without
+  additional major engineering effort
+  \I Need unambiguous configuration for March 2008 Drift Chamber Review
+  \ei
 }
 
 \end{document}
