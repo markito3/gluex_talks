@@ -64,62 +64,62 @@ $$
 }
 
 \f{
-\ft{representative kinematics}
-\bi
-\I $t$-channel meson photoproduction
-\I $\gamma$ incident with 8-9~GeV
-\I exclusive kinematics
-\ei
-  \begin{columns}[c]
-    \begin{column}{1.0in}
-      pions
-      \bi
-      \I $p < 5$~GeV
-      \I $\theta < 20^\circ$
-      \ei
-    \end{column}
-    \begin{column}{2.5in}
-      $$
-      \includegraphics[height=2.5in]{pion_kinematics.jpg}
-      $$
-    \end{column}
-  \end{columns}
-}
-
-\f{
   \ft{representative kinematics}
-  \begin{columns}[c]
-    \begin{column}{1.0in}
-      protons
-      \bi
-      \I $p < 1$~GeV
-      \I $10^\circ < \theta < 60^\circ$
-      \ei
-    \end{column}
-    \begin{column}{2.5in}
-      $$
-      \includegraphics[height=2.5in]{proton_kinematics.jpg}
-      $$
-    \end{column}
-  \end{columns}
-}
-
-\f{
-  \ft{representative kinematics}
-  \begin{columns}[c]
-    \begin{column}{1.0in}
-      photons
-      \bi
-      \I $p < 4$~GeV
-      \I $\theta < 60^\circ$
-      \ei
-    \end{column}
-    \begin{column}{2.5in}
-      $$
-      \includegraphics[height=2.5in]{photon_kinematics.jpg}
-      $$
-    \end{column}
-  \end{columns}
+  \onslide<1->{
+    \bi
+    \I $t$-channel meson photoproduction: $\sigma(t)\propto e^{-\alpha t}$
+    \I $\gamma$ incident with 8-9~GeV
+    \I exclusive kinematics
+    \ei
+  }
+  \only<1>{
+    \begin{columns}[c]
+      \begin{column}{1.0in}
+        pions
+        \bi
+        \I $p < 5$~GeV
+        \I $\theta < 20^\circ$
+        \ei
+      \end{column}
+      \begin{column}{2.5in}
+        $$
+        \includegraphics[height=2.5in]{pion_kinematics.jpg}
+        $$
+      \end{column}
+    \end{columns}
+  }
+  \only<2>{
+    \begin{columns}[c]
+      \begin{column}{1.0in}
+        protons
+        \bi
+        \I $p < 1$~GeV
+        \I $10^\circ < \theta < 60^\circ$
+        \ei
+      \end{column}
+      \begin{column}{2.5in}
+        $$
+        \includegraphics[height=2.5in]{proton_kinematics.jpg}
+        $$
+      \end{column}
+    \end{columns}
+  }
+  \only<3>{
+    \begin{columns}[c]
+      \begin{column}{1.0in}
+        photons
+        \bi
+        \I $p < 4$~GeV
+        \I $\theta < 60^\circ$
+        \ei
+      \end{column}
+      \begin{column}{2.5in}
+        $$
+        \includegraphics[height=2.5in]{photon_kinematics.jpg}
+        $$
+      \end{column}
+    \end{columns}
+  }
 }
 
 \f{
@@ -199,6 +199,39 @@ $$
 }
 
 \f{
+  \centerline{\Large design considerations}
+}
+\frame<1-3>[label=general-stuff]{
+  \ft{really general stuff}
+  \bi
+  \item<alert@1> characteristics of the acceptance
+    \bi
+    \I must be large
+    \I must be smooth
+    \I must be well understood
+    \I driven by need to do a partial-wave analysis
+    \ei
+  \I<alert@2> resolution counts
+    \bi
+    \I needed for missing mass identification
+    \I reduces combinatoric background under narrow resonances
+    \I sharpens results from the partial-wave analysis
+    \I surprises, unintended benefits, etc.
+    \ei
+  \I \alert<3,4>{low mass counts}
+    \bi
+      \I<alert@3> reduce multiple scattering contribution to resolution
+      \I<alert@4> reduce production of secondaries (especially photon conversions)
+    \ei
+  \I<alert@5> robust pattern recognition
+    \bi
+    \I robustness $\Leftrightarrow$ simplicity $\Leftrightarrow$
+    speed of reconstruction
+    \ei
+  \ei
+}
+
+\f{
 \ft{material reduction program}
 \small
 \begin{tabular}{|llrrr|}
@@ -227,47 +260,57 @@ Thickness for 4 packages &&& 0.04897 & 0.02276 \\
 }
 
 \f{
-  \centerline{\Large design considerations}
-}
-\frame<1-3>[label=general-stuff]{
-  \ft{really general stuff}
-  \bi
-  \item<alert@1> characteristics of the acceptance
-    \bi
-    \I must be large
-    \I must be smooth
-    \I must be well understood
-    \I driven by need to do a partial-wave analysis
-    \ei
-  \I<alert@2> resolution counts
-    \bi
-    \I needed for missing mass identification
-    \I reduces combinatoric background under narrow resonances
-    \I sharpens results from the partial-wave analysis
-    \I surprises, unintended benefits, etc.
-    \ei
-  \I<alert@3> low-mass counts
-    \bi
-      \I reduce multiple scattering contribution to resolution
-      \I reduce production of secondaries (especially photon conversions)
-    \ei
-  \I<alert@4> robust pattern recognition
-    \bi
-    \I robustness $\Leftrightarrow$ simplicity $\Leftrightarrow$
-    speed of reconstruction
-    \ei
-  \ei
-}
-
-\f{
-\ft{photon conversions}
-$$
-\includegraphics[height=2.0in]{all_particles_stop_A_geomcd3dualcathode.jpg}
-$$
-\centerline{photon conversion points, minimum bias events (PYTHIA)}
+\ft{simon's table}
+\tiny
+\begin{tabular}{lrrrcrr}
+\multicolumn{7}{c}{Material budget per package}\\\hline
+Material & Thickness & Number & Density  & Total & Radiation & X/X$_0$ \\
+& (cm) & of layers & (g/cm$^3$) & thickness & length (X$_0$) &  \\
+& & & & (g/cm$^2$) & (g/cm$^2$) & \\
+\hline
+Rohacell  & 0.20000 & 12 & 0.032 & 0.077 & 41.04  & 0.00187 \\
+Epoxy         & 0.00200 & 12 & 1.08 & 0.026 & 40 & 0.00065  \\
+Kapton        & 0.00250 & 12 & 1.42 & 0.043 & 40.56 &  0.00106\\
+Copper        & 0.00020 & 12 & 8.96 & 0.022 & 12.86 &  0.00168\\
+Ground planes &         &    &      &       &       &         \\
+(Mylar)       & 0.00063 &  5 & 1.39 & 0.004 & 39.95  & 0.00011 \\
+Gas windows   &         &    &      &       &       &          \\
+(Mylar)       & 0.00250 &  2 & 1.39 & 0.007 & 39.95 & 0.00017 \\
+Argon       & 12.7$\times$0.4 & 1 & 1.65$\times 10^{-3}\dag$ & 0.008 &
+19.55 &
+0.00043 \\
+CO$_2$       & 12.7$\times$0.6 & 1 & 1.83$\times 10^{-3}\dag$ & 0.014 &
+36.20 &
+0.00039\\
+\hline
+Total       &     &      &   &  0.185 & & 0.00636\\
+Total (4 packages) & & & & {\bf 0.740}& &{\bf 0.0254} \\\hline
+& & & \dag 70$^\circ$F, 1 atm &  &  &
+\end{tabular}
 }
 
 \againframe<4>{general-stuff}
+
+\f{
+  \ft{photon conversions}
+  \onslide<1->{
+    \centerline{photon conversion points, minimum bias events (PYTHIA)}
+  }
+  \only<1>{
+    $$
+    \includegraphics[height=2.0in]{all_particles_stop_A_geommarch07.jpg}
+    $$
+    \centerline{March 2007 Geometry, dual cathode FDC, frame $\rightarrow$ $76\%\times X_0$}
+  }
+  \only<2>{
+    $$
+    \includegraphics[height=2.0in]{all_particles_stop_A_geomcd3dualcathode.jpg}
+    $$
+    \centerline{February 2008 Geometry, dual cathode FDC, frame $\rightarrow$ $39\%\times X_0$}
+  }
+}
+
+\againframe<5>{general-stuff}
 
 \f{
 \ft{event display}
