@@ -1,6 +1,7 @@
 \documentclass{beamer}
 
 \usetheme{Boadilla}
+\usecolortheme{seahorse}
 
 \newcommand{\bi}{\begin{itemize}}
 \newcommand{\ei}{\end{itemize}}
@@ -224,29 +225,29 @@ Thickness for 4 packages &&& 0.04897 & 0.02276 \\
 \f{
   \centerline{\Large design considerations}
 }
-\f{
+\frame<1-3>[label=general-stuff]{
   \ft{really general stuff}
   \bi
-  \I characteristics of the acceptance
+  \item<alert@1> characteristics of the acceptance
     \bi
     \I must be large
     \I must be smooth
     \I must be well understood
     \I driven by need to do a partial-wave analysis
     \ei
-  \I resolution counts
+  \I<alert@2> resolution counts
     \bi
     \I needed for missing mass identification
     \I reduces combinatoric background under narrow resonances
     \I sharpens results from the partial-wave analysis
     \I surprises, unintended benefits, etc.
     \ei
-  \I low-mass counts
+  \I<alert@3> low-mass counts
     \bi
       \I reduce multiple scattering contribution to resolution
       \I reduce production of secondaries (especially photon conversions)
     \ei
-  \I robust pattern recognition
+  \I<alert@4> robust pattern recognition
     \bi
     \I robustness $\Leftrightarrow$ simplicity $\Leftrightarrow$
     speed of reconstruction
@@ -261,6 +262,8 @@ $$
 $$
 \centerline{photon conversion points, minimum bias events (PYTHIA)}
 }
+
+\againframe<4>{general-stuff}
 
 \f{
 \ft{event display}
@@ -378,7 +381,7 @@ two conventional reactions simulated:
 \gamma p \rightarrow Y^+ n \rightarrow \pi^+\pi^0\pi^0n \rightarrow \pi^+\gamma\gamma\gamma\gamma n
 \end{equation}
 \begin{columns}[t]
-\begin{column}{2.3in}
+\begin{column}{2.0in}
 \bi
 \I 9 million events generated
 \I detector response simulated
@@ -387,11 +390,11 @@ two conventional reactions simulated:
 \I none found (good!) at the 1\% level
 \ei
 \normalsize
-FDC: \textcolor{blue}{$\sigma=150~\mu$m, $x/X_0=1.7\%$, 24~planes}
+FDC: \textcolor{blue}{$\sigma=150~\mu$m, $x/X_0=1.7\%$}
 \end{column}
-\begin{column}{3.0in}
+\begin{column}{2.0in}
 $$
-\includegraphics[height=3.0in]{leakage.jpg}
+\includegraphics[width=2.0in]{leakage.jpg}
 $$
 \end{column}
 \end{columns}
