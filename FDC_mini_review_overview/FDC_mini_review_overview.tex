@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[xcolor=dvipsnames]{beamer}
 
 \usetheme{Boadilla}
 
@@ -27,7 +27,7 @@
   \I GlueX detector
   \I reviews: past, present and future
   \I design considerations
-  \I specifications
+  \I performance
   \I conclusions
   \ei
 }
@@ -324,7 +324,7 @@ Thickness for 4 packages &&& 0.04897 & 0.02276 \\
         \I drift chambers and/or cathode strip chamber technology
         \I no structural segmentation in azimuth (no $\phi$ sectors)
         \I pipeline readout
-        \I variations on design work already done for the two-cathode design  
+        \I variations on design work already done for the default dual-cathode design  
         \ei
     \end{column}
     \begin{column}{1in}
@@ -337,7 +337,7 @@ Thickness for 4 packages &&& 0.04897 & 0.02276 \\
 \f{
   \ft{default design}
 
-  two cathode strip planes per wire plane (dual cathode)
+  two cathode strip planes per wire plane (dual-cathode design)
     \bi
     \I six anode wire planes per package
     \I twelve cathode strip planes
@@ -347,43 +347,42 @@ Thickness for 4 packages &&& 0.04897 & 0.02276 \\
     \I FADC readout for cathodes
     \ei
 }
-\f{alternate design options}
+\f{
+  \ft{alternate design options}
   \be
-    \I no cathode strips (wires only)
+    \I no cathode strips (wires-only design)
     \bi
       \I twelve anode wire planes per package
-      \I orientation options
+      \I orientation options:
       \be
-      \I each plane rotated $60^\circ$ from previous (subject of studies)
-      \I pairs of planes with half-cell offset, pairs rotated
-      $60^\circ$ from previous
+        \I each plane rotated $60^\circ$ from previous (subject of studies)
+        \I pairs of planes with half-cell offset, pairs rotated
+        $60^\circ$ from previous
       \ee
     \ei
-    \I one cathode strip plane per anode wire plane (one cathode)
+    \I one cathode strip plane per anode wire plane (single-cathode design)
   \ee
 }
-\f{
-  \ft{pro's and con's}
+\frame<1->[label=pros-cons]{
+  \ft{\textcolor{ForestGreen}{pro's} and \textcolor{red}{con's}}
   \bi
   \I two-cathode design
     \be
-    \I position resolution of cathodes in a layer good enough to select single wire in anode plane
-    \I Lorenz effect introduces L-R ambiguity in cathode strip information
-    \I cathodes strips and anode wires see the same avalanche
+      \I \textcolor{ForestGreen}{position resolution of cathodes in a layer good enough to select single wire in anode plane}
+      \I \textcolor{ForestGreen}{cathodes strips and anode wires see the same avalanche}
       \bi
-      \I can use timing to correlate strips with wires
-      \I FADC's on cathode strips give a time measurement
-      \I time resolution should be sufficient
-      \I especially useful in eliminating isolated single-cell hits
+        \I \textcolor{ForestGreen}{can use timing to correlate strips with wires}
+        \I \textcolor{ForestGreen}{FADC's on cathode strips give a time measurement}
+        \I \textcolor{ForestGreen}{time resolution should be sufficient}
+        \I \textcolor{ForestGreen}{especially useful in eliminating isolated single-cell hits}
       \ei
-    \I momentum resolution is multiple-scattering dominated
+    \I \textcolor{red}{Lorentz effect introduces L-R ambiguity in cathode strip information}
     \ee
   \I wires-only design
     \be
-    \I cathode strip planes replaced with thin cathode sheets
-    \I much less material
-    \I tried and true
-    \I cost savings due to fewer electronics channels
+    \I \textcolor{ForestGreen}{cathode strip planes replaced with thin cathode sheets; much less material}
+    \I \textcolor{ForestGreen}{cost savings due to fewer electronics channels and/or replacement of FADC's with TDC's}
+    \I \textcolor{red}{puts pressure on pattern recognition because of crossing ambiguities}
     \ee
   \ei
 }
@@ -397,27 +396,30 @@ Thickness for 4 packages &&& 0.04897 & 0.02276 \\
     \I avalanche displaced from ionization location in dimension along anode
     wire
     \I sign of displacement goes as the left-right choice
-  \ei 
+  \ei
 }
 
+\againframe<1>{pros-cons}
+
 \f{
-  \centerline{\Large specifications}
+  \centerline{\Large performance}
 }
 
 \f{
 \ft{benchmark study}
 \small
-two conventional reactions simulated:
+two conventional reactions simulated
 \begin{equation}
 \gamma p \rightarrow X^+ n \rightarrow \pi^+\pi^+\pi^-n
 \end{equation}
 \begin{equation}
 \gamma p \rightarrow Y^+ n \rightarrow \pi^+\pi^0\pi^0n \rightarrow \pi^+\gamma\gamma\gamma\gamma n
 \end{equation}
+with appropriate resonant sub-structure
 \begin{columns}[t]
-\begin{column}{2.0in}
+\begin{column}{2.2in}
 \bi
-\I 9 million events generated
+\I 200~k events accepted in each reaction (a few weeks of running at turn on)
 \I detector response simulated
 \I partial-wave analysis performed
 \I exotic signal searched for
@@ -462,16 +464,24 @@ $$
 }
 
 \f{
-  \ft{nominal specs}
-  \begin{center}
-    \begin{tabular}{ll}
-      polar angle coverage         &  $1^\circ < \theta < 140^\circ$ \\
-      azimuthal angle coverage         & $2\pi$ \\
-      momentum resolution &  $\sigma_p/p = 1-3\%$ \\
-      position resolution &  $\sigma\approx 150 \mu$m
-    \end{tabular}
-  \end{center}
+\ft{comparison of options}
+\begin{center}
+\small
+\begin{tabular}{|lrrrr|}
+\hline
+& \# meas & \# meas & $\sigma_x$ & $X_0$ \\
+design & anode & cathode & ($\mu$m) & (\%) \\
+\hline
+dual cathode, Mar.\ '07           & 48 & 24 & 200 & 5.50 \\
+dual cathode, Feb.\ '08 (default) & 48 & 24 & 200 & 2.83 \\
+dual cathode, 3 pkgs.             & 36 & 18 & 200 & 2.26 \\
+single cathode                    & 24 & 24 & 200 & 2.03 \\
+wires only                        &  0 & 48 & 200 & 1.49 \\
+\hline
+\end{tabular}
+\end{center}
 }
+
 \f{
   \centerline{\Large conclusions}
 }
