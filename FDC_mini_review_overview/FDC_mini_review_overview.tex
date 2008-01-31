@@ -67,7 +67,7 @@ $$
   \ft{representative kinematics}
   \onslide<1->{
     \bi
-    \I $t$-channel meson photoproduction: $\sigma(t)\propto e^{-\alpha t}$
+    \I $t$-channel meson photoproduction: $\sigma(t)\propto e^{\beta t}$, $\beta = 5$~GeV$^{-2}$
     \I $\gamma$ incident with 8-9~GeV
     \I exclusive kinematics
     \ei
@@ -259,36 +259,6 @@ Thickness for 4 packages &&& 0.04897 & 0.02276 \\
 \end{tabular}
 }
 
-\f{
-\ft{simon's table}
-\tiny
-\begin{tabular}{lrrrcrr}
-\multicolumn{7}{c}{Material budget per package}\\\hline
-Material & Thickness & Number & Density  & Total & Radiation & X/X$_0$ \\
-& (cm) & of layers & (g/cm$^3$) & thickness & length (X$_0$) &  \\
-& & & & (g/cm$^2$) & (g/cm$^2$) & \\
-\hline
-Rohacell  & 0.20000 & 12 & 0.032 & 0.077 & 41.04  & 0.00187 \\
-Epoxy         & 0.00200 & 12 & 1.08 & 0.026 & 40 & 0.00065  \\
-Kapton        & 0.00250 & 12 & 1.42 & 0.043 & 40.56 &  0.00106\\
-Copper        & 0.00020 & 12 & 8.96 & 0.022 & 12.86 &  0.00168\\
-Ground planes &         &    &      &       &       &         \\
-(Mylar)       & 0.00063 &  5 & 1.39 & 0.004 & 39.95  & 0.00011 \\
-Gas windows   &         &    &      &       &       &          \\
-(Mylar)       & 0.00250 &  2 & 1.39 & 0.007 & 39.95 & 0.00017 \\
-Argon       & 12.7$\times$0.4 & 1 & 1.65$\times 10^{-3}\dag$ & 0.008 &
-19.55 &
-0.00043 \\
-CO$_2$       & 12.7$\times$0.6 & 1 & 1.83$\times 10^{-3}\dag$ & 0.014 &
-36.20 &
-0.00039\\
-\hline
-Total       &     &      &   &  0.185 & & 0.00636\\
-Total (4 packages) & & & & {\bf 0.740}& &{\bf 0.0254} \\\hline
-& & & \dag 70$^\circ$F, 1 atm &  &  &
-\end{tabular}
-}
-
 \againframe<4>{general-stuff}
 
 \f{
@@ -300,13 +270,15 @@ Total (4 packages) & & & & {\bf 0.740}& &{\bf 0.0254} \\\hline
     $$
     \includegraphics[height=2.0in]{all_particles_stop_A_geommarch07.jpg}
     $$
-    \centerline{March 2007 Geometry, dual cathode FDC, frame $\rightarrow$ $76\%\times X_0$}
+    \centerline{March 2007 Geometry, dual cathode FDC,
+      frame $\rightarrow$ $76\% of X_0$}
   }
   \only<2>{
     $$
     \includegraphics[height=2.0in]{all_particles_stop_A_geomcd3dualcathode.jpg}
     $$
-    \centerline{February 2008 Geometry, dual cathode FDC, frame $\rightarrow$ $39\%\times X_0$}
+    \centerline{February 2008 Geometry, dual cathode FDC,
+      frame $\rightarrow$ $39\% of X_0$}
   }
 }
 
@@ -323,6 +295,10 @@ Total (4 packages) & & & & {\bf 0.740}& &{\bf 0.0254} \\\hline
     \ei
   \end{column}
   \begin{column}{3.0in}
+    $\gamma p \rightarrow \pi^+ \pi^- \pi^+ \pi^- p$ \\
+    \hspace{0.15in} via $\gamma p \rightarrow \eta_c p$ \\
+    \hspace{0.30in} $\eta_c \rightarrow \rho^0 \rho^0$ \\
+    \hspace{0.45in} $\rho^0 \rightarrow \pi^+\pi^-$ \\
     $$
     \includegraphics[width=3.0in]{event_display.png}
     $$
@@ -342,13 +318,21 @@ Total (4 packages) & & & & {\bf 0.740}& &{\bf 0.0254} \\\hline
 
 \f{
   \ft{common features of all FDC options}
-  \bi
-  \I drift chambers
-  \I 4 packages
-  \I no structural segmentation in azimuth (no $\phi$ sectors)
-  \I pipeline readout
-  \I variations on design work already done for the two-cathode design  
-  \ei
+  \begin{columns}[c]
+    \begin{column}{2.5in}
+        \bi
+        \I drift chambers and/or cathode strip chamber technology
+        \I no structural segmentation in azimuth (no $\phi$ sectors)
+        \I pipeline readout
+        \I variations on design work already done for the two-cathode design  
+        \ei
+    \end{column}
+    \begin{column}{1in}
+      $$
+      \includegraphics[width=1.0in]{event_display_zview.png}
+      $$
+    \end{column}
+  \end{columns}
 }
 \f{
   \ft{design options}
@@ -449,19 +433,27 @@ $$
 }
 
 \f{
-  \ft{momentum resolution}
+  \ft{momentum resolution: $\sigma_{p_t}/p_t$ for various designs}
 \begin{columns}[t]
   \begin{column}{1.8in}
   \bi
-  \I $\sigma_{p_t}/p_t$ for various designs
-  \I double-cathode design assumes 24 wire planes + 48 cathode planes
-  \I wires-only design assumes 72 measurement planes
+  \I dual-cathode design assumes 24 wire planes + 48 cathode planes
+  \I wires-only design assumes 48 measurement planes
+  \I<2-> dual cathode, 3 packages: drops one package, overall $z$-distance preserved
+  \I<2-> single cathode: drop one cathode plane, 24 wire, 24 cathodes
   \ei
   \end{column}
   \begin{column}{2.8in}
-    $$
-    \includegraphics[width=2.8in]{FDC_resolution.jpg}
-    $$
+    \only<1>{
+      $$
+      \includegraphics[width=2.8in]{FDC_resolution_partial.png}
+      $$
+    }
+    \only<2>{
+      $$
+      \includegraphics[width=2.8in]{FDC_resolution.png}
+      $$
+    }
   \end{column}
 \end{columns}
 }
@@ -485,8 +477,9 @@ $$
   \bi
   \I Material has been reduced significantly since March 2007
     \bi
-    \I active volume
-    \I frames and support
+    \I active volume: $1.4 \rightarrow 0.6\%$ $X_0$
+    \I beam area: $1.4 \rightarrow 0.2\%$ $X_0$
+    \I frames and support: $76 \rightarrow 39\%$ $X_0$
     \ei
   \I Design very far advanced: Dan's talk
   \I Prototype has been tested: Simon's talk
