@@ -9,43 +9,62 @@
 \title{GlueX Charged Track Reconstruction Status}
 \author[M.\ Ito]{Mark M.\ Ito}
 \date{February 27, 2009}
+
 \institute[JLab]{Jefferson Lab}
 
 \f{\titlepage}
 
-\f{
-\ft{Track Reconstruction: Basic Interface}
-    \be
-    \I to get a set of tracks in an event you call the appropriate get function
-    \I returned a vector of track objects
-    \I each object contains information as follows
-    \ee
-}
-
-\f{
-\ft {Track Reconstruction: Components}
+\begin{frame}[fragile]
+\ft{Track Reconstruction}
   \be
-  \I Track Finding
-    \be
-    \I here are your options: circle fit, hough transform, cluster finder???
-    \ee
-  \I Track Fitting
-    \be
-    \I here are your options: ALT1 ALT2 Simon Mark????
-    \ee
+  \I Ask for the appropriate vector of objects:
+\begin{verbatim}
+  vector<const DParticle*>particles;
+  eventLoop->Get(particles);
+\end{verbatim}
+  \I {\tt DParticle} is derived from {\tt DKinematicData}
+  \I Both can be found in the {\tt src/libraries/PID} directory
   \I Future work
     \be
     \I multiple track events
     \I improvement in calculation measurement errors
     \ee
   \ee
-}
+\end{frame}
 
 \f{
 \ft{Parametric Monte Carlo}
   \be
-  \I documentation
-  \I usage example
+  \I Motivation: detector simulation complicated and expensive
+  \I Approach
+    \be
+    \I calculate tables of efficiency and resolution as a function of momentum
+    and angles, for charged and neutrals, using full Monte Carlo, in advance
+    (experts)
+    \I smear ideal 4-vectors by tabulated resolution (user)
+    \I fill analyzed vectors with results (user)
+    \ee
+  \I Main Resource: Wiki page ``HOWTO run the semi-parametric Monte Carlo''
+  \ee
+}
+
+\f{
+\ft{Parametric Monte Carlo: getting started}
+  \be
+  \I What you need
+    \be
+    \I Hall D build
+    \I checkout and build hdparsim plug-in (see wiki for Subversion repository
+    location)
+    \I checkout and build any other plug-ins you need (example below)
+    \ee
+  \I How to run
+    \be
+    \I generate Monte Carlo events, do not run them through the detector
+    simulation ({\tt my\_mc.hddm})
+    \I example: {\tt hd\_root --plugin=hdparsim --plugin=invariant\_mass\_hists
+      -PDEFTAG:DParticle=HDParSim -PDEFTAG:DPhoton=HDParSim my\_mc.hddm}
+    \ee
   \ee
 }
 
