@@ -1,6 +1,6 @@
 all: tutorial_tracking_mmi.pdf
 
-%.aux: %.tex
+%.aux: %.tex DParticle.png
 	pdflatex $*
 
 %.pdf: %.aux
