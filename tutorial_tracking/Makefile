@@ -1,8 +1,10 @@
 all: tutorial_tracking_mmi.pdf
 
-%.pdf: %.tex
-	pdflatex $<
-	pdflatex $<
+%.aux: %.tex
+	pdflatex $*
+
+%.pdf: %.aux
+	pdflatex $*
 
 display: tutorial_tracking_mmi.pdf
 	evince tutorial_tracking_mmi.pdf &

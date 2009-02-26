@@ -4,37 +4,49 @@
 
 \include{commands}
 
-\title{GlueX Tracking Status}
-\author[M.\ Ito]{Mark M.\ Ito}
-\date{February 24, 2009}
-\institute[JLab]{Jefferson Lab}
-
 \begin{document}
 
-\f{
-\ft{Outline}
+\title{GlueX Charged Track Reconstruction Status}
+\author[M.\ Ito]{Mark M.\ Ito}
+\date{February 27, 2009}
+\institute[JLab]{Jefferson Lab}
 
-\be
-\I Track Reconstruction
-  \be
-  \I Basic Interface
+\f{\titlepage}
+
+\f{
+\ft{Track Reconstruction: Basic Interface}
     \be
     \I to get a set of tracks in an event you call the appropriate get function
     \I returned a vector of track objects
     \I each object contains information as follows
     \ee
+}
+
+\f{
+\ft {Track Reconstruction: Components}
+  \be
   \I Track Finding
+    \be
+    \I here are your options: circle fit, hough transform, cluster finder???
+    \ee
   \I Track Fitting
-  \I Implementation
+    \be
+    \I here are your options: ALT1 ALT2 Simon Mark????
+    \ee
   \I Future work
+    \be
+    \I multiple track events
+    \I improvement in calculation measurement errors
+    \ee
   \ee
-\I Parametric Monte Carlo
+}
+
+\f{
+\ft{Parametric Monte Carlo}
   \be
   \I documentation
   \I usage example
   \ee
-\ee
-
 }
 
 \end{document}
