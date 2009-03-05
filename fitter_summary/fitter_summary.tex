@@ -15,7 +15,11 @@
 \ft{Least-Squares Track Fitter}
 \bi
 \I Uses Levenberg-Marquardt algorithm from GNU Scientific Library (from MINPACK)
+\I Not a finder
+\I Initial parameters estimated from hit list
+\I Swim particles through magnetic field
 \I Works with FDC hits, CDC hits, or any combination
+\I CDC: time residuals, FDC: pseudopoint space residual
 \I Constant errors, CDC: $150~\mu$m, FDC: $200~\mu$m
 \I Track parameters:
   \be
@@ -52,6 +56,7 @@ $$
 \f{
 \ft{Issues}
 \be
+\I Non-converging events: few percent
 \I What is the source of anomalous probability distribution?
   \be
   \I FDC? CDC? Both?
