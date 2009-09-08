@@ -1,0 +1,16 @@
+Tasks:
+
+HDParSim maintenance
+GEANT4: straightforward first-step
+Event Viewer: well-defined interface
+Formal testing
+PWA
+Calibration database:
+Run parameters database
+Trigger Simulation
+Kinematic fitting
+Particle ID: subsystem integration
+
+avoid situation where ad-hoc solutions become instituionalized
+  poor-design propagation
+

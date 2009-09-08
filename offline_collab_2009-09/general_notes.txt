@@ -1,0 +1,56 @@
+formal schedule p3e or whatever
+
+nightly build
+
+studies for detector optimization
+  looking at global parameters
+  results depends on suble parts of algorithm
+  may not be ready for some years
+
+multi-track events as a goal
+
+data format: raw vs. hddm
+
+geometry spec.
+  c++ interface
+  ease of use
+  documentation
+  split it off
+
+64-bit builds: David
+
+Documentation discussion
+  eugene mentioned
+
+speeding up tracking
+
+escaping local minima
+
+formalizing/documenting basic classes used in reconstruction
+
+locking tagged releases: subversion upgrade
+  waiting on new webserver: halldweb1.jlab.org
+
+design phase should be there
+
+===from action items===
+
+coding conventions: CLEO model?
+
+===from brainstorming list===
+
+alternate tracker
+
+===from email lists===
+
+structure for storing MC results
+
+JLab farm issues
+
+new platforms: 
+ centos
+ fedora
+ ubuntu
+
+
+

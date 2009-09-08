@@ -1,0 +1,57 @@
+8/26
+
+FDC-half cell stagger study: 
+Alternate B-field studies
+  Ansys?
+  Poisson
+position dependent smearing will be added
+
+8/12
+
+GPU effort at JLab
+Action item list an active activity
+
+7/29
+
+BCAL and mcsmear changes
+Hall D Unix groups
+Tracking libraries removed from HDGeant
+Organizing work: offline vs. detector group
+
+7/15? Renee out of town
+
+7/1
+
+2 GB file size limit resolved
+multi-threading the DRootGeom class
+
+6/17
+
+mcsmear should contain all random number processes
+missing FDC and CDC hits, richard fixed
+kalman filter progress
+
+6/3? Primex collaboration meeting
+
+5/20
+
+Cerenkov dropped from default geometry
+event.xml made the authoritative file
+FDC geometry changes
+CDC geometry changes
+
+5/13: collaboration meeting
+
+5/6
+
+Monte Carlo changes
+    *  FFREAD cards for controlling:
+          o supression of events with no detector hits
+          o EM shower generation in the beam collimator 
+    * Adding start counter truth information to the data model
+    * Adding a command-line option to genr8_2_hddm to allow a range for the z-vertex position 
+
+4/22
+
+Software brainstorming
+

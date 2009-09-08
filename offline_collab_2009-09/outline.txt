@@ -1,0 +1,22 @@
+I. Introduction
+ A. emphasis: summarize state of the offline
+ B. management transition
+  1. Thanks to David
+  2. Never say never again
+II. Recent Work
+III. Selected Tasks
+IV. Random Topics
+V. Conclusions/Summary
+ A. Lots of work
+ B. Overall goal: beginning-to-end framework for reconstruction and analysis
+ C. Organizing the effort
+   1. political units
+     a. Institutions
+     b. Detector subsystems
+   2. design responsibility
+   3. implementation manpower
+   4. Dangers
+      a. ad hoc y ness
+      b. duplication of effort
+
+
