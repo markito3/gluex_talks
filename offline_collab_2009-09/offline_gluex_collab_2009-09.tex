@@ -48,7 +48,7 @@
 \bi
 \I Monte Carlo changes from Sascha S.
   \bi
-  \I supression of events with no detector hits
+  \I suppression of events with no detector hits
   \I EM shower generation in the beam collimator 
   \I Add start counter truth information to the data model
   \I Adding option to {\tt genr8\_2\_hddm} to allow a range for the $z$-vertex position
@@ -167,13 +167,13 @@ In random order:
   \ei
 \I Speeding up tracking\bi\I current programs run at several Hertz, do the math\ei
 \I Escaping local minima\bi\I there will be local minima\I research needed\ei
-\I Designing/formalizing/documenting basic classes used in reconstruction\bi\I in an ideal world this would be done first\ei
 \ei
 }
 
 \f{\ft{Random topics (3)}
 
 \bi
+\I Designing/formalizing/documenting basic classes used in reconstruction\bi\I in an ideal world this would be done first\ei
 \I Locking tagged releases: need a subversion upgrade
   \bi
   \I waiting on new webserver: halldweb1.jlab.org
@@ -187,42 +187,52 @@ In random order:
   \I How do we ramp up our resource demands to JLab Scientific Computing?
   \I What is the role of university-based computing resources?
   \ei
-\I new platforms: what do we want to support?
+\ei
+}
+
+\f{\ft{Random topics (4)}
+
+\bi
+\I Operating systems: what do we want to support?
  \bi
  \I RedHat Enterprise
- \I CentOS
  \I Fedora
+ \I CentOS
  \I Ubuntu
  \I Solaris
  \I Cygwin
  \I Snow Leopard
  \ei
-\I Organizing work: offline vs. detector group
-\I Action item list an active activity
-\I Design phase should be there
-\I General comment: avoid situation where ad-hoc solutions become instituionalized
-  poor-design propagation
 \ei
 
 }
 
 \f{\ft{Conclusions}
 \bi
-\I Lots of work done, lots to do
 \I Overall goal: beginning-to-end framework for reconstruction and analysis
 \I Organizing the effort
   \bi
   \I political units
     \bi
     \I Institutions
-    \I Detector subsystems
+    \I Working Groups
     \ei
-  \I design responsibility
-  \I implementation manpower
-  \I Dangers
+  \I What work should be done under the Offline Working Group?
+  \I How to staff the tasks?
+  \ei
+\I Need to strengthen design and documentation
+  \bi
+  \I Dangers if not done
     \bi
-    \I ad hoc y ness
+    \I code that does not play well with others
+    \I idiosyncrasies which propagate: ``package X does it this way so I guess should too''
     \I duplication of effort
+    \ei
+  \I Benefits
+    \bi
+    \I robustness
+    \I maintainability
+    \I shallow learning curve
     \ei
   \ei
 \ei
