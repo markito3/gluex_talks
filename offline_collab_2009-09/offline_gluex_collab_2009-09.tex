@@ -130,45 +130,76 @@ A few items from the newly-updated task list:
 
 \f{\ft{Random topics}
 
+In random order:
 \bi
 \I Formal 12~GeV project schedule and milestones\bi\I ${\rm MMI} \Rightarrow$ $\overline{\rm clue}$\ei
 \I Nightly build\bi\I Still not there\ei
 \I Studies for detector optimization
   \bi
-  \I When looking at global parameters, results may depend on suble parts of algorithm
+  \I When looking at global parameters, results may depend on subtle parts of algorithm
   \I May not be ready for some years
+  \I Should we do these studies? Of course we should. Just a caveat.
   \ei
-\I Multi-track events an important goal
-\I Data format: EVIO (raw) vs.\ HDDM
+\I Multi-track events an important goal for an end-to-end solution
+\I Data format: EVIO vs.\ HDDM
+  \bi
+  \I raw data will be in EVIO format
+  \I offline uses HDDM
+  \I need post-reconstruction event format (or not?)
+  \ei
+\ei
+}
+
+\f{\ft{Random topics (2)}
+
+\bi
 \I Geometry specification (HDDS)
   \bi
-  \I Needs another round of development: ease of use: C++ API(?)
-  \I split it off: simulation, reconstruction, display should all use same API
+  \I Needs another round of development for ease of use: C++ API(?)
+  \I Split it off: simulation, reconstruction, display should all use same API
+  \I $\Rightarrow$ no need to copy around derived source code
   \ei
-\I 64-bit builds: David
+\I 64-bit operating systems\bi\I David has a build for CentOS\ei
 \I Documentation discussion
   \bi
-  \I eugene mentioned
+  \I What should we require?
+  \I Form: Wiki? GlueX Notes? Software Notes?
   \ei
-\I speeding up tracking
-\I escaping local minima
-\I formalizing/documenting basic classes used in reconstruction
-\I locking tagged releases: subversion upgrade
+\I Speeding up tracking\bi\I current programs run at several Hertz, do the math\ei
+\I Escaping local minima\bi\I there will be local minima\I research needed\ei
+\I Designing/formalizing/documenting basic classes used in reconstruction\bi\I in an ideal world this would be done first\ei
+\ei
+}
+
+\f{\ft{Random topics (3)}
+
+\bi
+\I Locking tagged releases: need a subversion upgrade
   \bi
   \I waiting on new webserver: halldweb1.jlab.org
   \ei
-\I design phase should be there
-\I coding conventions: CLEO model?
-\I structure for storing MC events
-\I JLab farm issues
-\I new platforms: 
+\I Coding conventions\bi\I Is there an appropriate model out there? CLEO, ATLAS, {\it etc.}?\ei
+\I Structure for organizing MC events\bi\I we should have one\ei
+\I Computing infrastructure issues
+  \bi
+  \I current processing crunch for CLAS at JLab
+  \I How do we estimate our resource needs?
+  \I How do we ramp up our resource demands to JLab Scientific Computing?
+  \I What is the role of university-based computing resources?
+  \ei
+\I new platforms: what do we want to support?
  \bi
- \I centos
- \I fedora
- \I ubuntu
+ \I RedHat Enterprise
+ \I CentOS
+ \I Fedora
+ \I Ubuntu
+ \I Solaris
+ \I Cygwin
+ \I Snow Leopard
  \ei
 \I Organizing work: offline vs. detector group
 \I Action item list an active activity
+\I Design phase should be there
 \I General comment: avoid situation where ad-hoc solutions become instituionalized
   poor-design propagation
 \ei
