@@ -69,11 +69,11 @@
   \bi
   \I policy decision
   \I Suggestion from Matt
-  \I Renders reconstruction code is deterministic
+  \I Renders reconstruction code deterministic
   \I No dependence of results for particular event on history of job
   \ei
 \I problem with missing FDC and CDC hits\bi\I Richard implemented fix\ei
-\I Kalman filter progress\bi\I see Simon's talk\ei
+\I Kalman filter progress\bi\I see Simon's slides in David's talk\ei
 \I 2 GB file size limit\bi\I reported by Blake, resolved by Richard\ei
 \I multi-threading the DRootGeom class\bi\I David has implemented a solution\ei
 \I BCAL and mcsmear changes\bi\I implemented by David\ei
@@ -87,7 +87,7 @@
 \I GPU effort at JLab
   \bi
   \I Jie Chen talked about use in lattice QCD farm
-  \I possible applications for us (PWA: see Richard)
+  \I possible applications for us (PWA: see Richard, Matt, Curtis)
   \ei
 \I FDC-half cell stagger study\bi\I See Simon's talk\ei 
 \I Alternate B-field studies
@@ -115,7 +115,6 @@ A few items from the newly-updated task list:
 
 \f{\ft{Selected tasks (2)}
 \bi
-\I PWA\bi\I Getting-started guide perhaps?\ei
 \I Calibration database\bi\I Start by taking over CLAS/PrimEx system\ei
 \I Run/Beam parameters database
   \bi
@@ -193,6 +192,7 @@ In random order:
 \f{\ft{Random topics (4)}
 
 \bi
+\I Charge division in the CDC\bi\I We need a study\ei
 \I Operating systems: what do we want to support?
  \bi
  \I RedHat Enterprise
@@ -209,7 +209,7 @@ In random order:
 
 \f{\ft{Conclusions}
 \bi
-\I Overall goal: beginning-to-end framework for reconstruction and analysis
+\I Overall goal: beginning-to-end framework for reconstruction and analysis\bi\I Support high-level analysis collaboration wide in a common framework\ei
 \I Organizing the effort
   \bi
   \I political units
@@ -225,14 +225,14 @@ In random order:
   \I Dangers if not done
     \bi
     \I code that does not play well with others
-    \I idiosyncrasies which propagate: ``package X does it this way so I guess should too''
+    \I work-arounds which propagate
     \I duplication of effort
     \ei
   \I Benefits
     \bi
     \I robustness
     \I maintainability
-    \I shallow learning curve
+    \I shallow learning curve for new collaborators and students
     \ei
   \ei
 \ei
