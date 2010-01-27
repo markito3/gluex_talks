@@ -41,178 +41,53 @@
 
 
 \f{
+\bi
+\I How Timing Is Done in GlueX: Craig Bookwalter working on this
+\I New scheme for smearing FCAL hits: from David
+  \bi
+  \I now done in mcsmear rather than in the reconstruction
+  \I BCAL smearing not migrated yet
+  \ei
+\I JLab batch farm priority:
+  \bi
+  \I negotiated an agreement with Hall B and the JLab Scientific computing
+  \I Hall D gets increased priority on the JLab batch farm: 5\% $\rightarrow$ 20\%
+  \I period of a week upon our request
+  \ei
+\I Coding Standards:
+  \bi
+  \I discussed and adopted
+  \I enforcement regime not yet formalized
+  \ei
+\I Offline Task Priorities
+  \bi
+  \I Priorities noted on task list
+  \I figure???
+  \ei
+\I Nightly builds are running: RHEL5, Fedora 8, CentOS 5
+\I Geometry (HDDS) separated from src tree
+  \bi
+  \I Simplifies build scheme
+  \I Exists as an extra package (a complication)
+  \ei
+\ei
+}
+
+\f{
+\bi
+\I Re-organization of high-level particle classes: see Simon's talk
+\I Hall D Group Membership: old list cleaned up, Elliott
+\I Parameterized B-field: David has started on this
+\I Warning-Free Code Policy: adopted
+\I New Subversion server
+  \bi
+  \I http service running on a new virtual machine
+  \I running modern version of Subversion: v1.4
+  \ei
+\ei
+}
+
 %%%%%%%%%%%%inserted text file%%%%%%%%%%%%%%
-
-
-
-==How Timing Is Done in GlueX==
-
-Craig gave us his thoughts on [[Media:20090923_event_start_time.pdf|how we should handle timing for GlueX]], in particular how we should determine the global event start both at low intensity with the start counter present and at high intensity without it. In the latter case, Sascha reminded us that there will be a 20% probability of having two tagger hits in the microscope from the same RF bucket. We agreed that a global approach, where all available information from charged and neutral particles was considered at the same time, seemed the most promising.
-
-==FCAL Smearing==
-
-Dave presented his [[Media:20090923_fcal_smearing.pdf|new scheme for smearing FCAL hits]]. This is now done in mcsmear rather than in the reconstruction. Subsequent to the meeting he announced a [https://mailman.jlab.org/pipermail/halld-offline/2009-September/000038.html change to his class naming approach], based on feed-back received during the meeting. Basically, do not change the name of the truth.
-
-'''FCAL Smearing''': We noted that BCAL smearing has not been migrated; it is still in the reconstruction code. David pointed out that the "reproducibility" problem that we are trying to solve with migration exists on a system-by-system basis. In other words "non-reproducible"
-BCAL simulated data does not affect the "reproducibility" of FCAL data.
-
-===JLab batch farm priority===
-
-We have negotiated an [[Memo on Hall D Priority on the JLab Batch Farm|agreement]] with Hall B and the JLab Scientific computing to allow Hall D increased priority on the JLab batch farm for a period of a week immediately upon our request. If you are in need of this enhanced priority, please contact Mark.
-
-==Coding Standards==
-
-We discussed adopting coding standards for GlueX. We started by briefly reviewing a [[Coding Standards of HENP Experiments|set of standards]] from other experiments and discussed how to proceed in writing ours. We formed a consensus around using the [http://www.jlab.org/Hall-D/offline/cleo_std.html CLEO standards] that Matt Shepherd provided previously as a base and adding most of what is already written in the [[Coding Conventions|GlueX standards]], as well as items from other sources as seem appropriate.
-
-Mark mentioned that we will have to grandfather in all of our existing code base, but we would have to think of a way to cajole, coerce, or otherwise punish authors so that they bring their code up to code.
-
-We agreed that we should form a small committee to come up with a draft for discussion.
-
-==Offline Task Priorities==
-
-We discussed having a [[Task Prioritization Ideas|priority system]] for offline tasks and/or sub-tasks. The proposal is that we add an extra column to the existing [http://www.jlab.org/Hall-D/offline/Software_tasks.php task list] and use priority rating as a guide in assigning manpower. Input from the collaboration on appropriate ratings is solicited.
-
-* Nightly builds are running again.
-
-==Separating HDDS (geometry definition) in the builds==
-
-Mark led us through [[Why Separate HDDS?|issues involved in separating our geometry code]] from the main source code tree. We agreed that this was a good thing to do and that Mark will work on it.
-
-==Renaming of DTrack, DParticle classes==
-
-Simon reviewed the recent [https://mailman.jlab.org/pipermail/halld-offline/2009-October/000069.html reorganization of some of our reconstruction classes] so that their names more accurately reflect their functions.
-He has modified hdview2 to follow this change, but there are other programs that will need changes.
-
-==Hall D Group Membership==
-
-Elliott led us through the [https://halldweb1.jlab.org/talks/2009-11/halld.txt list of members of the "halld"] Unix group at JLab. IT Division has suggested that we review the list and drop those users who do not need the associated privileges. Elliott will drop the obvious candidates from the list.
-
-==GlueX Coding Conventions==
-
-David presented the [http://www.jlab.org/Hall-D/software/GlueXCodingStandard.html results of his editorial work] on the CLEO conventions that we agreed to use as a starting point for our own conventions. We went over on a few items that David, Richard and Elliott flagged as requiring discussion. We came to some conclusions on most of them:
-
-* drop namespace requirement for variables in a library
-* drop prohibition against inline constructor
-* "at least one constructor" not "defined default constructor"
-* c not k for constants
-* lack of virtual destructor causes compiler errors, drop the rule
-* "if (!p)" where p is a pointer, is not that bad
-* go ahead and declare more than one variable per line
-* "use doxygen style comments" not "use //"
-* drop the integer less than greater than thing for testing intervals
-* scripts for skeletal template should include link to coding standards[?]
-* there was significant controversy over tabs vs. spaces for indenting code
-* there was controversy over the capitalization of function names
-
-Alex and Mark asked what constitutes thread safe code. The answer is not simple.
-
-We did not decide what to do from here on what to do with these rules.
-
-==Parameterized B-field==
-
-David presented his work on [[Media:20091104_parameterized_bfield.pdf|parametrizing the magnetic field]]. He does a series of fits to a set of orthogonal polynomials resulting in a two-dimensional functional form for the field in r and z. The using the parametrization saves in start up time and memory usage but access to the field values is slower compared to using a field map. Suggestions were made on how things could be speeded up.
-
-==Action Item Review==
-
-We went over the list. Some things need crossing off. We decided to drop the trajectory curvature correction in HDGeant from the list and add it back should need for it arise.
-
-==New Action Items==
-
-# Schedule a presentation on OSG from Richard -> Mark
-# Schedule discussion of a "warning-free code" policy -> Craig
-
-==Next Action on Coding Rules==
-
-David reported that he incorporated all suggestions made at the last meeting, with the exception of the suggestion to drop the "virtual destructor" rule. He could not generate a compiler error when the rule is violated, and so the rule has been retained.
-
-We decided to vote on formal adoption of the rules at the next meeting. David will write to the email list announcing this.
-
-==Warning-Free Code Policy==
-
-Craig proposed that we make it a policy that code build without warnings. There was some discussion:
-
-* David noted that when the code is tried on a new platform, warnings may arise. Often the original developer will have difficulty getting access to the new platform, a complication if warning-free code is the policy. We thought that if a good-faith effort is made in these cases the collaboration would be satisfied.
-* There may be cases where the warnings on some platforms require a substantial amount of effort to fix while causing no real problem in code excecution. Mark thought that in those cases, an exception to the policy could be made. This would have to be noted in the comments inside the code. This addresses the concern in the previous bullet (to some extent).
-
-With these caveats in mind, we adopted the policy.
-
-# '''Nightly builds''': The builds are now going on now building without errors, on three platforms: RHEL5 (32-bit only), Fedora 8 32-bit, and CentOS 5 64-bit. Both debug and non-debug versions are created.
-#* We discussed whether we want to do the builds on other platforms, especially MacOS. For that we would need hardware. No clear path forward presented itself, but we will think about it.
-#*We also discussed whether we should have automatic notification of errors and warnings. One idea is to have a dedicated email list so people could subscribe the error message stream. Again, on this there was not a consensus; we will raise it again later.
-#*David noted that a couple of feature that used to be present in the nightly builds have been lost: doxygen documentation tree generation and svn statistics. Mark will look into restoring them.
-
-# '''New Subversion server''' The CNI group is building us a new subversion server. It will be a new virtual machine running subversion 1.4 vs. 1.1 on the old server. The new version will allow locking of tagged releases: i. e., no new check-in's will be allowed for the locked files. Cut-over is scheduled for two weeks from today.
-
-==DPhoton, DParticle and how to unify high-level objects==
-
-Simon outlined the philosophy behind his recent work on the DParticle factory.
-
-* BCAL clusters, FCAL clusters and charged tracks are all represented as particles
-* track matching is done to the outer detectors
-* beta is calculated from time of flight
-* particle ID is done; a mass is assigned
-* time-based tracking results are used
-* the DParticle name used to be used by the object now known as DTrackTimeBased
-
-Sascha thought there should be a way to go back to the original low-level objects. David mentioned that this could be accomplished via associated objects.
-
-Matt then led us through the structure of the DPhoton object as illustrated on his [[Media:Calo_recon.jpg|chart]].
-
-* It inherits from DKinematicData
-* DPhoton calculates the error matrix for its kinematic quantities in standard global coordinates.
-* It would benefit from a event vertex factory.
-* At present the center of the target is assumed and the resultant uncertainty is folded into the error matrix.
-* Matching with charged tracks is done to identify neutral clusters (photons).
-
-Clearly there is some redundancy in the current services provided by DParticle and DPhoton. General discussion:
-
-* Sasha thought that any particle ID likelihoods should be available.
-* Related to that Mark pointed out that different analyses will want to cut on particle ID criteria differently, depending on the requirements of each analysis on purity. One size will not fit all.
-* Matt remarked that on CLEO fits to pi, K, and proton hypotheses were always done during reconstruction and the results of all three saved.
-* Matt also mentioned that both "entrance fits" and "exit fits" were done, the former doing the Kalman algorithm from the outside in to get good resolution on momentum at the event vertex, the latter going from the inside out to get good resolution on momentum at the RICH detector.
-* It was pointed that the DPhoton should now use DTrackTimeBased for charged-particle vetoing.
-* There was some question about whether wire-based was adequate for neutral cluster identification. Most felt that is was, but this should be studied.
-
-David and Simon agreed to present a plan for modifying the current class structure taking into account the discussion we had and present it at the next meeting.
-
-Finally Matt showed us the documentation he wrote on [[HOWTO extract photons or pi0%27s from the framework]].
-
-==Coding Conventions vote==
-
-We dicussed the [[Coding Conventions]] a bit before voting. David mentioned that there were still some modifications based on discussion at the last meeting that need to be incorportated. Mark express that the requirement that code be thread-safe was a bit vague and might be hard to support. David and Elliott said a specific definition was hard to state concisely; that in this case the proof of the pudding is in the eating [not their exact words].
-
-We voted. The conventions were adopted unanimously.
-
-==Action Item Review==
-
-We skipped this item. We will review [[Action Items From Hall-D Software Meetings|the list]] next time.
-
-==New Action Items==
-
-# Explore options for a MacOS build.
-# Implement a system for auto-notification of errors from nightly build. -> Mark
-# Look into restoring doxygen generation and subversion statistics generation to the nightly build. -> Mark
-# Use DTrackTimeBased in DPhoton for neutral cluster identification. -> Matt
-# Study whether wire-based tracking is adequate for neutral identification.
-# Propose a new high-level class structure for charged particles and photons. -> David, Simon
-
-==Announcements==
-
-# The '''[https://mailman.jlab.org/pipermail/halld-offline/2009-December/000123.html subversion server replacement]''' is underway. Changes should be transparent to users.
-
-# David has ordered a new '''Mac Mini'''. It should arrive in a few weeks. It will be used to test builds of our software on Mac OS 10.6 (Snow Leopard). The total cost (including $300 for a three-year JLab-IT-Division-mandated care plan) was about $1000.
-
-==HDDS directory re-organization==
-
-Mark described some of the details of the HDDS directory location change that we decided on at the [[GlueX Offline Meeting, October 21, 2009|October 21 Offline Meeting]]. He has posted a [[HOWTO use the stand-alone HDDS system|wiki page]] that describes how to convert to the new system.
-
-==New tracking/photon class organization==
-
-Simon presented recent work that he and David have done to reorganize our high-level "particle" classes based on discussions we had at the [[GlueX Offline Meeting, December 1, 2009#Minutes|previous Offline Meeting]]. See [http://halldweb1.jlab.org/talks/2009-12/tracking_reorg_121509.pdf his slides] for details. He presented:
-* Outline of the overall scheme
-* Reconstruction flow diagram for charged tracks
-* Reconstruction flow diagram for both charged and neutral particles
-* Changes to Event Viewer
 
 ==Accessing the start counter geometry in reconstruction==
 
@@ -249,7 +124,6 @@ David presented [[Media:20100112_jana_0.6.0.pdf|new features present in JANA 0.6
 * Other misc.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-}
 
 \end{document}
 
