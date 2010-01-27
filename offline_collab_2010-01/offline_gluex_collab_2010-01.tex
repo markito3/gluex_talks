@@ -22,11 +22,10 @@
 
 \f{
 \bi
-\I FDC Half-Cell Stagger Study: see Simon's talk
 \I Alternate B-Field Studies: see David's talk
 \I Position-Dependent Position Resolution: Yves calculated the effect, David has implemented it
 \I Multi-particle/multi-photon events: largely done, documentation needed
-\I 12 GeV Project Schedule, Offline Computing
+\I 12 GeV Project Schedule, Offline Computing\cite{project}
   \bi
   \I a Gantt chart
   \I the list of tasks and their attributes including work required and cost
@@ -35,6 +34,12 @@
   \I a manpower profile for both Lab staff and contributed labor
   \ei
 \ei
+}
+
+\f{
+$$
+  \includegraphics[height=3.2in]{HallDOfflineComputing.png}
+$$
 }
 
 
@@ -61,12 +66,10 @@
   \I discussed and adopted
   \I enforcement regime not yet formalized
   \ei
-\I Offline Task Priorities
+\I Nightly builds are running: RHEL5, Fedora 8, CentOS 5\cite{nightly}
   \bi
-  \I Priorities noted on task list
-  \I figure???
+  \I error reports mailed out once a week
   \ei
-\I Nightly builds are running: RHEL5, Fedora 8, CentOS 5
 \I Geometry (HDDS) separated from src tree
   \bi
   \I Simplifies build scheme
@@ -74,6 +77,16 @@
   \ei
 \ei
 }
+
+\f{
+\ft{Offline Task Priorities}
+Priorities noted on task list\cite{tasks}
+$$
+\includegraphics[height=3.0in]{SoftwareTaskList.png}
+$$
+}
+
+
 
 \f{
 \bi
@@ -86,11 +99,21 @@
   \I http service running on a new virtual machine
   \I running modern version of Subversion: v1.4
   \ei
-\I Quick-start software builds: build automation
+\I Quick-start software builds: build automation\cite{quick-start}
 \I Changes in dependency generation in the make scheme
 \I Environment variable checking in the makefiles
 \I New JANA version: many new features, see David's talk
 \ei
+}
+\f{
+\ft{References}
+\begin{thebibliography}{99}
+\tiny
+\bibitem{tasks}http://www.jlab.org/Hall-D/offline/Software\_tasks.php
+\bibitem{project}http://www.jlab.org/Hall-D/software/wiki/index.php/Offline\_Computing\_Project\_Management
+\bibitem{nightly}http://www.jlab.org/Hall-D/software/wiki/index.php/Nightly\_Builds\_of\_GlueX\_Software
+\bibitem{quick-start}http://www.jlab.org/Hall-D/software/wiki/index.php/Quick\_Start\_Guide\_to\_building\_GlueX\_Software
+\end{thebibliography}
 }
 
 \end{document}
