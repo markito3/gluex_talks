@@ -26,16 +26,14 @@
 \I Alternate B-Field Studies: see David's talk
 \I Position-Dependent Position Resolution: Yves calculated the effect, David has implemented it
 \I Multi-particle/multi-photon events: largely done, documentation needed
-\ei
-}
-\f{
-\ft{12 GeV Project Schedule, Offline Computing}
-\bi
-\I a Gantt chart
-\I the list of tasks and their attributes including work required and cost
-\I ``steps'' for offline activities
-\I a cost comparison between the old plan and the new
-\I a manpower profile for both Lab staff and contributed labor
+\I 12 GeV Project Schedule, Offline Computing
+  \bi
+  \I a Gantt chart
+  \I the list of tasks and their attributes including work required and cost
+  \I ``steps'' for offline activities
+  \I a cost comparison between the old plan and the new
+  \I a manpower profile for both Lab staff and contributed labor
+  \ei
 \ei
 }
 
@@ -43,6 +41,10 @@
 \f{
 \bi
 \I How Timing Is Done in GlueX: Craig Bookwalter working on this
+  \bi
+  \I prompted discussion on accessing the start counter geometry in reconstruction
+  \I prompted changes in geometry interface: see David's talk
+  \ei
 \I New scheme for smearing FCAL hits: from David
   \bi
   \I now done in mcsmear rather than in the reconstruction
@@ -84,46 +86,12 @@
   \I http service running on a new virtual machine
   \I running modern version of Subversion: v1.4
   \ei
+\I Quick-start software builds: build automation
+\I Changes in dependency generation in the make scheme
+\I Environment variable checking in the makefiles
+\I New JANA version: many new features, see David's talk
 \ei
 }
-
-%%%%%%%%%%%%inserted text file%%%%%%%%%%%%%%
-
-==Accessing the start counter geometry in reconstruction==
-
-Craig asked the group for guidance on this issue. He is trying to determine a start time for the event based on hits in the start counter and needs to correlate hits with charged tracks and find the point where the track crosses the counter. He has been trying to use the utility for accessing the hdds xml information. It turns out that the start counter geometry, as implemented in HDDS, a bit on the complicated side. We agreed that Craig, for now, should devise an approximate geometry in order to proceed with his work, e. g., a simple barrel counter joined to a simple forward section. This topic will have to be revisited.
-
-==Quick-start software builds==
-
-Mark presented a [[Quick Start Guide to building GlueX Software|wiki page]] that describes a simplified method for building the Hall D software, including the recent introduction of a separate HDDS directory. The method boils down to:
-
-* four environment variable definitions
-* five command-line commands (or one shell script invocation)
-
-to build the JANA, HDDS and GlueX-simulation-and-reconstruction source tree.
-
-* dependency generation in the make scheme
-
-* environment variable checking in the makefiles
-
-* The Mac-Mini that David ordered has arrived. He is setting it up now.
-
-* Mark has expanded the [[Quick Start Guide to building GlueX Software|quick-start-software-build wiki page]] to include an example of running the Monte Carlo and reconstructing the resulting events. Also instructions for building additional packages such as Xerces-C and ROOT have been added.
-
-==New JANA version==
-
-David presented [[Media:20100112_jana_0.6.0.pdf|new features present in JANA 0.6]]. His topics:
-
-* JStreamLog and JStreamLogBuﬀer
-* JCalibraIon now has PutCalib() method
-* jcalibcopy utility
-* GetMultiple() method added to JGeometry
-* Add log function to JObject
-* janaroot plugin honors WRITEOUT conﬁguration parameter 
-* Monitoring and Control with janactl 
-* Other misc.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \end{document}
 
