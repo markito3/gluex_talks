@@ -22,8 +22,12 @@
 
 \f{
 \bi
-\I Alternate B-Field Studies: see David's talk
-\I Position-Dependent Position Resolution: Yves calculated the effect, David has implemented it
+\I FDC Half-Cell Stagger Study\cite{half-cell}: Simon
+  \bi
+  \I Conclude that planes with half-cell wire stagger not necessary
+  \ei
+\I Alternate B-Field maps available\cite{alt-B}: David (slide)
+\I Position-Dependent Position Resolution\cite{pos-res-dep}: Yves calculated the effect, David has implemented it
 \I Multi-particle/multi-photon events: largely done, documentation needed
 \I 12 GeV Project Schedule, Offline Computing\cite{project}
   \bi
@@ -38,14 +42,21 @@
 
 \f{
 $$
+  \includegraphics[height=3.2in]{20100129_lawrence_reduced_field_offline.png}
+$$
+}
+
+\f{previous bullet slide again}
+
+\f{
+$$
   \includegraphics[height=3.2in]{HallDOfflineComputing.png}
 $$
 }
 
-
 \f{
 \bi
-\I How Timing Is Done in GlueX: Craig Bookwalter working on this
+\I Timing scheme/design: Craig Bookwalter working on this
   \bi
   \I prompted discussion on accessing the start counter geometry in reconstruction
   \I prompted changes in geometry interface: see David's talk
@@ -55,13 +66,13 @@ $$
   \I now done in mcsmear rather than in the reconstruction
   \I BCAL smearing not migrated yet
   \ei
-\I JLab batch farm priority:
+\I JLab batch farm priority\cite{farm-priority}:
   \bi
   \I negotiated an agreement with Hall B and the JLab Scientific computing
   \I Hall D gets increased priority on the JLab batch farm: 5\% $\rightarrow$ 20\%
   \I period of a week upon our request
   \ei
-\I Coding Standards:
+\I Coding Standards\cite{coding-stds}:
   \bi
   \I discussed and adopted
   \I enforcement regime not yet formalized
@@ -70,7 +81,7 @@ $$
   \bi
   \I error reports mailed out once a week
   \ei
-\I Geometry (HDDS) separated from src tree
+\I Geometry (HDDS) separated from src tree\cite{hdds}
   \bi
   \I Simplifies build scheme
   \I Exists as an extra package (a complication)
@@ -109,9 +120,15 @@ $$
 \ft{References}
 \begin{thebibliography}{99}
 \tiny
-\bibitem{tasks}http://www.jlab.org/Hall-D/offline/Software\_tasks.php
+\bibitem{half-cell} ???
+\bibitem{alt-B} ???
+\bibitem{pos-res-dep} ???
 \bibitem{project}http://www.jlab.org/Hall-D/software/wiki/index.php/Offline\_Computing\_Project\_Management
+\bibitem{farm-priority} ???
+\bibitem{coding-stds} ???
 \bibitem{nightly}http://www.jlab.org/Hall-D/software/wiki/index.php/Nightly\_Builds\_of\_GlueX\_Software
+\bibitem{hdds} ???
+\bibitem{tasks}http://www.jlab.org/Hall-D/offline/Software\_tasks.php
 \bibitem{quick-start}http://www.jlab.org/Hall-D/software/wiki/index.php/Quick\_Start\_Guide\_to\_building\_GlueX\_Software
 \end{thebibliography}
 }
