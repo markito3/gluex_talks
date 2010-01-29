@@ -25,13 +25,18 @@
 \I Alternate B-Field maps available: David (slide)
 \I Position-Dependent Position Resolution: Yves calculated the effect, David has implemented it
 \I Multi-particle/multi-photon events: largely done, documentation needed
-\I 12 GeV Project Schedule, Offline Computing\cite{project}
+\I 12 GeV Project Schedule, Offline Computing\cite{project} (slide)
   \bi
   \I a Gantt chart
   \I the list of tasks and their attributes including work required and cost
   \I ``steps'' for offline activities
   \I a cost comparison between the old plan and the new
   \I a manpower profile for both Lab staff and contributed labor
+  \ei
+\I Timing scheme/design: Craig Bookwalter working on this
+  \bi
+  \I prompted discussion on accessing the start counter geometry in reconstruction
+  \I prompted changes in geometry interface: see David's talk
   \ei
 \ei
 }
@@ -50,13 +55,10 @@ $$
 $$
 }
 
+\againframe<3>{someitems}
+
 \f{
 \bi
-\I Timing scheme/design: Craig Bookwalter working on this
-  \bi
-  \I prompted discussion on accessing the start counter geometry in reconstruction
-  \I prompted changes in geometry interface: see David's talk
-  \ei
 \I New scheme for smearing FCAL hits: from David
   \bi
   \I now done in mcsmear rather than in the reconstruction
@@ -73,7 +75,7 @@ $$
   \I discussed and adopted
   \I enforcement regime not yet formalized
   \ei
-\I Nightly builds are running: RHEL5, Fedora 8, CentOS 5\cite{nightly}
+\I Nightly builds are running\cite{nightly}: RHEL5, Fedora 8, CentOS 5
   \bi
   \I error reports mailed out once a week
   \ei
@@ -85,18 +87,9 @@ $$
 \ei
 }
 
-\f{
-\ft{Offline Task Priorities}
-Priorities noted on task list\cite{tasks}
-$$
-\includegraphics[height=3.0in]{SoftwareTaskList.png}
-$$
-}
-
-
-
-\f{
+\frame<1>[label=moreitems]{
 \bi
+\I Priorities for offline tasks noted on task list\cite{tasks} (slide)
 \I Re-organization of high-level particle classes: see Simon's talk
 \I Hall D Group Membership: old list cleaned up, Elliott
 \I Parameterized B-field: David has started on this
@@ -105,13 +98,24 @@ $$
   \bi
   \I http service running on a new virtual machine
   \I running modern version of Subversion: v1.4
+  \I allows locking files via http
   \ei
-\I Quick-start software builds: build automation\cite{quick-start}
+\I Quick-start software builds\cite{quick-start}: build automation
 \I Changes in dependency generation in the make scheme
 \I Environment variable checking in the makefiles
 \I New JANA version: many new features, see David's talk
 \ei
 }
+
+\f{
+\ft{Offline Task Priorities}
+$$
+\includegraphics[height=3.0in]{SoftwareTaskList.png}
+$$
+}
+
+\againframe<2>{moreitems}
+
 \f{
 \ft{References}
 \begin{thebibliography}{99}
