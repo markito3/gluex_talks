@@ -22,10 +22,10 @@
 
 \frame<1>[label=someitems]{
 \bi
-\I Alternate B-Field maps available: David (slide)
-\I Position-Dependent Position Resolution: Yves calculated the effect, David has implemented it
-\I Multi-particle/multi-photon events: largely done, documentation needed
-\I 12 GeV Project Schedule, Offline Computing\cite{project} (slide)
+\I<alert@1> Alternate B-Field maps available: David
+\I<alert@2> Position-Dependent Position Resolution for CDC: Yves calculated the effect, David has implemented it
+\I<alert@3> Multi-particle/multi-photon events: largely done, documentation needed
+\I<alert@4> 12 GeV Project Schedule, Offline Computing\cite{project}
   \bi
   \I a Gantt chart
   \I the list of tasks and their attributes including work required and cost
@@ -33,7 +33,7 @@
   \I a cost comparison between the old plan and the new
   \I a manpower profile for both Lab staff and contributed labor
   \ei
-\I Timing scheme/design: Craig Bookwalter working on this
+\I<alert@5> Timing scheme/design: Craig Bookwalter working on this
   \bi
   \I prompted discussion on accessing the start counter geometry in reconstruction
   \I prompted changes in geometry interface: see David's talk
@@ -47,7 +47,7 @@ $$
 $$
 }
 
-\againframe<2>{someitems}
+\againframe<2-4>{someitems}
 
 \f{
 $$
@@ -55,31 +55,31 @@ $$
 $$
 }
 
-\againframe<3>{someitems}
+\againframe<5>{someitems}
 
-\f{
+\f<1-5>{
 \bi
-\I New scheme for smearing FCAL hits: from David
+\I<alert@1> New scheme for smearing FCAL hits: from David
   \bi
   \I now done in mcsmear rather than in the reconstruction
   \I BCAL smearing not migrated yet
   \ei
-\I JLab batch farm priority\cite{farm-priority}:
+\I<alert@2> JLab batch farm priority\cite{farm-priority}:
   \bi
   \I negotiated an agreement with Hall B and the JLab Scientific computing
   \I Hall D gets increased priority on the JLab batch farm: 5\% $\rightarrow$ 20\%
   \I period of a week upon our request
   \ei
-\I Coding Standards\cite{coding-stds}:
+\I<alert@3> Coding Standards\cite{coding-stds}:
   \bi
   \I discussed and adopted
   \I enforcement regime not yet formalized
   \ei
-\I Nightly builds are running\cite{nightly}: RHEL5, Fedora 8, CentOS 5
+\I<alert@4> Nightly builds are running\cite{nightly}: RHEL5, Fedora 8, CentOS 5
   \bi
   \I error reports mailed out once a week
   \ei
-\I Geometry (HDDS) separated from src tree\cite{hdds}
+\I<alert@5> Geometry (HDDS) separated from src tree\cite{hdds}
   \bi
   \I Simplifies build scheme
   \I Exists as an extra package (a complication)
@@ -89,21 +89,21 @@ $$
 
 \frame<1>[label=moreitems]{
 \bi
-\I Priorities for offline tasks noted on task list\cite{tasks} (slide)
-\I Re-organization of high-level particle classes: see Simon's talk
-\I Hall D Group Membership: old list cleaned up, Elliott
-\I Parameterized B-field: David has started on this
-\I Warning-Free Code Policy: adopted
-\I New Subversion server
+\I<alert@1> Priorities for offline tasks noted on task list\cite{tasks}
+\I<alert@2> Re-organization of high-level particle classes: see Simon's talk
+\I<alert@3> Hall D Group Membership: old list cleaned up, Elliott
+\I<alert@4> Parameterized B-field: David has started on this
+\I<alert@5> Warning-Free Code Policy: adopted
+\I<alert@6> New Subversion server
   \bi
   \I http service running on a new virtual machine
   \I running modern version of Subversion: v1.4
   \I allows locking files via http
   \ei
-\I Quick-start software builds\cite{quick-start}: build automation
-\I Changes in dependency generation in the make scheme
-\I Environment variable checking in the makefiles
-\I New JANA version: many new features, see David's talk
+\I<alert@7> Quick-start software builds\cite{quick-start}: build automation
+\I<alert@8> Changes in dependency generation in the make scheme
+\I<alert@9> Environment variable checking in the makefiles
+\I<alert@10> New JANA version: many new features, see David's talk
 \ei
 }
 
@@ -114,7 +114,7 @@ $$
 $$
 }
 
-\againframe<2>{moreitems}
+\againframe<2-10>{moreitems}
 
 \f{
 \ft{References}
