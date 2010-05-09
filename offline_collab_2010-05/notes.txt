@@ -1,0 +1,1103 @@
+
+GlueX Offline Meeting, February 9, 2010
+From GlueXWiki
+Jump to: navigation, search
+
+GlueX Offline Meeting
+Tuesday, February 9, 2010
+2:00 pm EST
+JLab: CEBAF Center F326/7
+Contents
+[hide]
+
+    * 1 Telephone
+    * 2 Video Conferencing
+    * 3 Slides
+    * 4 Agenda
+    * 5 Minutes
+          o 5.1 Review of Minutes from the Last Meeting
+          o 5.2 Announcements
+          o 5.3 Need for New Release
+          o 5.4 APS practice talk on GlueX Rates
+          o 5.5 DANA-EVIO conversion
+          o 5.6 Tracking/PID Update
+          o 5.7 Action Items
+          o 5.8 New Action Items
+
+[edit]
+Telephone
+
+To connect by telephone:
+
+   1. dial:
+          * 800-377-8846 : US
+          * 888-276-7715 : Canada
+          * 302-709-8424 : International 
+   2. enter participant code: 77438230# (remember the "#") 
+
+[edit]
+Video Conferencing
+
+A) ESNet: 8542553
+B) EVO: direct meeting link
+[edit]
+Slides
+
+Talks can be deposited in the directory /group/halld/www/halldweb1/html/talks/2010-02 on the JLab CUE (you have to be a member of the "halld" Unix group). This directory is accessible from the web at https://halldweb1.jlab.org/talks/2010-02/ .
+[edit]
+Agenda
+
+   1. Review minutes from last meeting: all
+   2. Announcements
+         1. Dependency generation in the make scheme: Mark
+         2. Environment variable checking in the makefiles: Mark
+         3. Task priority ratings: Mark
+         4. Changes to makefiles, HDDM utilities, xstream library: Mark 
+   3. David: APS practice talk on GlueX Rates[PPTX] [PDF]
+   4. Elliott: DANA-EVIO conversion
+   5. Simon: Tracking/PID update
+   6. Action item review: all 
+
+[edit]
+Minutes
+
+JLab: Craig Bookwalter, Eugene Chudakov, Mark Ito (chair), David Lawrence, Yi Qiang, Elton Smith, Sascha Somov, Simon Taylor, Elliott Wolin, Beni Zihlmann
+[edit]
+Review of Minutes from the Last Meeting
+
+We went over them. No significant issues were raised.
+[edit]
+Announcements
+
+   1. Dependency generation in the make scheme: Mark has revised the scheme for making dependency files in the BMS system. See his notes for some of the problems addressed. These changes should reduce the instances of directories "locking" upon re-make attempts (requiring deletion of dependency files).
+   2. Task priority ratings: Mark added priority ratings to the items on the Task List. Please review the list and send comments to him.
+   3. Changes to makefiles in HDDM utilities, xstream library: Mark has been making changes to the makefiles in src/programs/Utilities/hddm and src/external/xstream. These changes were mainly to support multiple-platform builds from common source directories. 
+
+[edit]
+Need for New Release
+
+We decided that Mark should make a new release of the offline software. David has just fixed a problem that was causing problems when some plugins are unloaded at the end of JANA/DANA runs. We need a release that incorporates this change.
+
+Sasha pointed out that we should be testing programs regularly so that we don't create a release that has problems like these. Development of such tests is indeed on the task list. David volunteered to package his recent b1 analysis example so it can be used for testing the code.
+[edit]
+APS practice talk on GlueX Rates
+
+David gave us a preview of his talk on rates at the upcoming Spring APS meeting (being held in February). His slide titles:
+
+    * His submitted abstract
+    * GlueX Data Rates
+    * The GlueX Detector
+    * Level 1 Trigger
+    * Subsystem Processor: L1
+    * Electronics
+    * Detector Rates
+    * Event Building
+    * Level 3 Trigger and Monitoring Farm
+    * Online Monitoring with RootSpy
+    * Summary 
+
+Many comments were offered.
+[edit]
+DANA-EVIO conversion
+
+Elliott presented code and examples of writing out DANA object data in an EVIO stream and contrasted it with the structure of HDDM data. See the main difference is that HDDM uses a hierarchical structure while EVIO uses a flat set of arrays (though these characteristics are not dictated by the format itself in either case). The next step is to read in the EVIO version of the raw data into DANA for reconstruction.
+[edit]
+Tracking/PID Update
+
+Simon gave an update on recent work in tracking and developing a particle identification scheme. His slides:
+
+    * Kalman Filter Update
+    * Single-track efficiencies
+    * Transverse momentum pull distribution
+    * Tan λ pull distribution
+    * φ pull distribution
+    * D pull distribution
+    * Z pull distribution
+    * Probability distribution
+    * Particle Identification
+    * dE/dx in chambers
+    * Time-of-flight to BCAL
+    * Time-of-flight to ToF counters
+    * dE/dx in Start Counter
+    * PID purity (pions)
+    * PID purity (protons)
+    * Summary 
+
+[edit]
+Action Items
+
+We skipped a review of the action items. Folks should look at the list and remind themselves of work for which they are responsible.
+[edit]
+New Action Items
+
+    * New release of offline code. -> Mark
+    * Script to do b1 analysis automatically. -> David 
+
+Retrieved from "http://www.jlab.org/Hall-D/software/wiki/index.php/GlueX_Offline_Meeting%2C_February_9%2C_2010"
+Views
+
+    * Article
+    * Discussion
+    * Edit
+    * History
+
+Personal tools
+
+    * Log in / create account
+
+Navigation
+
+    * Main Page
+    * Community portal
+    * Current events
+    * Recent changes
+    * Random page
+    * Help
+    * Donations
+
+Search
+ 
+Toolbox
+
+    * What links here
+    * Related changes
+    * Upload file
+    * Special pages
+    * Printable version
+    * Permanent link
+    * Cite this article
+
+MediaWiki
+
+    * This page was last modified 15:08, 10 February 2010.
+    * This page has been accessed 1,081 times.
+    * Privacy policy
+    * About GlueXWiki
+    * Disclaimers
+
+
+GlueX Offline Meeting, February 23, 2010
+From GlueXWiki
+Jump to: navigation, search
+
+GlueX Offline Meeting
+Tuesday, February 23, 2010
+2:00 pm EST
+JLab: CEBAF Center F326/7
+Contents
+[hide]
+
+    * 1 Telephone
+    * 2 Video Conferencing
+    * 3 Slides
+    * 4 Agenda
+    * 5 Minutes
+          o 5.1 Review of Minutes
+          o 5.2 Announcements
+          o 5.3 Action Item Review
+          o 5.4 New Action Items
+
+[edit]
+Telephone
+
+To connect by telephone:
+
+   1. dial:
+          * 800-377-8846 : US
+          * 888-276-7715 : Canada
+          * 302-709-8424 : International 
+   2. enter participant code: 77438230# (remember the "#") 
+
+[edit]
+Video Conferencing
+
+A) ESNet: 8542553
+B) EVO: direct meeting link
+[edit]
+Slides
+
+Talks can be deposited in the directory /group/halld/www/halldweb1/html/talks/2010-02 on the JLab CUE (you have to be a member of the "halld" Unix group). This directory is accessible from the web at https://halldweb1.jlab.org/talks/2010-02/ .
+[edit]
+Agenda
+
+   1. Review minutes from last meeting: all
+   2. Announcements
+         1. New release, release-2010-02-11: Mark
+         2. Environment variable checking in the makefiles: Mark
+         3. hdgeant++ fixed: Mark/Beni
+         4. Auto-notification of build errors: Mark
+         5. The problem with named pipes: Beni/Richard 
+   3. Action item review: all 
+
+[edit]
+Minutes
+
+IU: Matt Shepherd
+JLab: Craig Bookwalter, Mark Ito (chair), David Lawrence, Lubomir Pentchev, Yi Qiang, Sascha Somov, Simon Taylor, Elliott Wolin, Beni Zihlmann
+[edit]
+Review of Minutes
+
+We went over them. Not much was said.
+[edit]
+Announcements
+
+   1. New release: Mark reminded us that release-2010-02-11 has been out for a week or so now. No problems have been reported so far.
+   2. Environment variable checking in the makefiles: Mark mentioned that one of the upper-level makefiles in the src tree (Makefile.dirs specifically) now performs a check for key environment variables and gives a simple error message on faults. This should avoid errors later in the build, errors that are likely harder to interpret.
+   3. hdgeant++ fixed: Mark reported that hdgeant++ will now pop the required windows on start-up. Beni was consulted to identify the fix. A change was made to the src/programs/Simulation/hdgeant Makefile.bms to support this. David reported that this caused a build error for him on MacOS (missing library). He will report back with more specifics.
+   4. Auto-notification of build errors: Mark pointed out that we are now getting email notices of errors and warnings from the nightly builds, on Mondays. David has already beaten back most of the warnings that we had some weeks ago. This feature of the nightly build system is documented on the Nightly Builds of GlueX Software wiki page.
+   5. The problem with named pipes: Beni had been in communication with Richard on a problem using a named pipe between hdgeant and mcsmear in order to avoid creating the intermediate HDDM file. The problem is that the a seek on the output stream is performed to write the bytecount for an event after the bytes are counted. Seeks on pipes do not work. The code could be modified to support pipes; Mark will consult with Richard on cost vs. benefit. 
+
+A couple of other items arose during discussion of the last announcement (not closely related):
+
+    * Truth and Hits: We decided to have a policy that the data structure should support the simultaneous existence of Monte Carlo "truth" information and detector generated "hit" information, to allow comparison. In particular, a scheme where the hits over-write the truth is discouraged. David volunteered to look into cases where this might be occurring.
+    * Noise Hits in mcsmear: We decided to change the default behavior of mcsmear from noise-hits-generated mode to skip-noise-hit-generation mode. The -n switch is currently used to select skip-noise-hit-generation. A new option will have to be implemented to select noise-hits-generated. David will work on this. 
+
+[edit]
+Action Item Review
+
+We went over the list. Discussion was generated.
+
+    * Moving bcal to mcsmear: The bcal smearing is presently done in the reconstruction and not in the smearing program. The structure of the "hits" is different than the "truth" in this case (double-ended readout) and the appropriate objects are created in the reconstruction. If the smearing is done in the smearing program however, that information must be transmitted in the HDDM file to the reconstruction. Matt asked about whether we need to modify data model to do this and if so, how to get started. We thought that this modification was best; David offered to help. Beni pointed out that the TOF must have the same issue; he volunteered to investigate and report back.
+    * MacOS Build: David has received and set up a new Mac-Mini to use as a testing platform. The main problem is getting a 64-bit build of CERNLIB for use by HDGeant. Another option is to try an all-32-bit build, not the natural choice for Snow Leopard. David and Mark are just getting started on this.
+    * GEANT4 for GlueX: The preceding discussion brought up the issue of migration to GEANT4. It seems likely that we need to spend some effort here.
+    * Adequacy of wire-based tracking for identifying neutral clusters: We decided to drop this item.
+    * Using a pre-built build: We need better documentation of the HALLD_MY scheme, where a small subset of the code can be checked out and modified and the bulk of the software can come from pre-built, public software. 
+
+[edit]
+New Action Items
+
+   1. Modify data model to allow simultaneous existence of truth info and hit info. -> David
+   2. Change the default behaviour of mcsmear to not generate noise hits. -> David
+   3. Understand smearing scheme for time-of-flight. -> Beni
+   4. Write some HALLD_MY documentation.
+   5. Review problems with hdgeant++ build on MacOS and report to group. -> David 
+
+Retrieved from "http://www.jlab.org/Hall-D/software/wiki/index.php/GlueX_Offline_Meeting%2C_February_23%2C_2010"
+Views
+
+    * Article
+    * Discussion
+    * Edit
+    * History
+
+Personal tools
+
+    * Log in / create account
+
+Navigation
+
+    * Main Page
+    * Community portal
+    * Current events
+    * Recent changes
+    * Random page
+    * Help
+    * Donations
+
+Search
+ 
+Toolbox
+
+    * What links here
+    * Related changes
+    * Upload file
+    * Special pages
+    * Printable version
+    * Permanent link
+    * Cite this article
+
+MediaWiki
+
+    * This page was last modified 21:57, 9 March 2010.
+    * This page has been accessed 2,009 times.
+    * Privacy policy
+    * About GlueXWiki
+    * Disclaimers
+
+
+GlueX Offline Meeting, March 9, 2010
+From GlueXWiki
+Jump to: navigation, search
+
+GlueX Offline Meeting
+Tuesday, March 9, 2010
+2:00 pm EST
+JLab: CEBAF Center F326/7
+Contents
+[hide]
+
+    * 1 Telephone
+    * 2 Video Conferencing
+    * 3 Slides
+    * 4 Agenda
+    * 5 Minutes
+          o 5.1 Reviewing minutes from last meeting
+          o 5.2 MacOS build work
+          o 5.3 Building a roof over src
+          o 5.4 ded, a new GlueX event display
+          o 5.5 Improvements in full event reconstruction
+          o 5.6 Time for a new build?
+          o 5.7 Generating FADC data
+          o 5.8 Offline Software and the 12 GeV Project Plan
+          o 5.9 New Action Items
+
+[edit]
+Telephone
+
+To connect by telephone:
+
+   1. dial:
+          * 800-377-8846 : US
+          * 888-276-7715 : Canada
+          * 302-709-8424 : International 
+   2. enter participant code: 77438230# (remember the "#") 
+
+[edit]
+Video Conferencing
+
+A) ESNet: 8542553
+B) EVO: direct meeting link
+[edit]
+Slides
+
+Talks can be deposited in the directory /group/halld/www/halldweb1/html/talks/2010-03 on the JLab CUE (you have to be a member of the "halld" Unix group). This directory is accessible from the web at https://halldweb1.jlab.org/talks/2010-03/ .
+[edit]
+Agenda
+
+   1. Review minutes from last meeting: all
+   2. Announcements
+          * Error and Warning auto-nofify: Mon. and Thu. 
+   3. MacOS build work: David
+   4. Building a roof over src: Mark
+   5. ded, a new GlueX event display: Elliott
+   6. Improvements in full event reconstruction : David
+   7. Time for new build?: all
+   8. Action item review: all 
+
+[edit]
+Minutes
+
+JLab: Craig Bookwalter, Eugene Chudakov, Mark Ito (chair), David Lawrence, Sascha Somov, Eliott Wolin, Beni Zihlmann
+[edit]
+Reviewing minutes from last meeting
+
+We skimmed last week's minutes:
+
+    * Truth and Hits: David implemented our new policy to allow simultaneous existence in the data model of truth information and smeared hit information. This required the introduction of new structures for truth information for the CDC wires, FDC cathodes, and FDC anodes. Mcsmear reads in the truth information into the new structure and outputs smeared values in the (pre-existing) corresponding ones.
+    * Noise Hits in mcsmear: David changed the default behaviour to have no noise generation. The -N switch was introduced to turn on noise generation. The -n switch implements the default behaviour, for backward compatibility. 
+
+[edit]
+MacOS build work
+
+David brought us up-to-date. He has been working on building the GlueX software on a recently acquired Mac-Mini running MacOS 10.6. Has been having problems with CERNLIB and with ROOT, both will compile, but programs using them crash. We all agreed that this should not be taking a huge amount of David's time; it will now be a background project for him.
+[edit]
+Building a roof over src
+
+Mark presented a proposal to make change in the top-level structure of our simulation and reconstruction code, in essence give it name ("sim-recon") less generic than the current one ("src"). See his wiki page for details.
+
+There was general agreement on the idea and the name sim-recon was endorsed. Details to follow in the coming days.
+[edit]
+ded, a new GlueX event display
+
+Elliott gave a report on ded, a new event display program written by Dave Heddle. A complete presentation will be given at the next Online Meeting but some features are:
+
+    * works under Dave's bcnu framework
+    * total code base roughly 40,000 lines of code
+    * 2,700 lines of coded needed to implement the GlueX-detector-specific geometry and event format
+    * 100% Pure Java
+    * CLAS12 implementation called ced 
+
+[edit]
+Improvements in full event reconstruction
+
+David presented recent changes in reconstruction and the current event display (hdview2) mainly having to do with calorimeter clusters and the resulting photon objects. See his slides for details. He has implemented an algorithm that combines adjacent clusters into photons. He has also added features to be able to display the photons as well as the projected intersection of charged tracks with the calorimeters.
+[edit]
+Time for a new build?
+
+Mark asked the question. David answered it (yes) in light of the changes in the previous discussion.
+[edit]
+Generating FADC data
+
+Beni is thinking about how we might want to generate raw FADC data (digital scope traces) in the smearing step of Monte Carlo generation. He is collecting ideas.
+[edit]
+Offline Software and the 12 GeV Project Plan
+
+See the Offline Software and the 12 GeV Project Plan wiki page.
+[edit]
+New Action Items
+
+   1. Make a new tagged release. -> Mark
+   2. PWA scope study -> Craig 
+
+Retrieved from "http://www.jlab.org/Hall-D/software/wiki/index.php/GlueX_Offline_Meeting%2C_March_9%2C_2010"
+Views
+
+    * Article
+    * Discussion
+    * Edit
+    * History
+
+Personal tools
+
+    * Log in / create account
+
+Navigation
+
+    * Main Page
+    * Community portal
+    * Current events
+    * Recent changes
+    * Random page
+    * Help
+    * Donations
+
+Search
+ 
+Toolbox
+
+    * What links here
+    * Related changes
+    * Upload file
+    * Special pages
+    * Printable version
+    * Permanent link
+    * Cite this article
+
+MediaWiki
+
+    * This page was last modified 18:05, 22 March 2010.
+    * This page has been accessed 1,756 times.
+    * Privacy policy
+    * About GlueXWiki
+    * Disclaimers
+
+
+GlueX Offline Meeting, March 23, 2010
+From GlueXWiki
+Jump to: navigation, search
+
+GlueX Offline Meeting
+Tuesday, March 23, 2010
+2:00 pm EDT
+JLab: CEBAF Center F326/7
+Contents
+[hide]
+
+    * 1 Telephone
+    * 2 Video Conferencing
+    * 3 Slides
+    * 4 Reference Material
+    * 5 Agenda
+    * 6 Minutes
+          o 6.1 Announcements
+          o 6.2 Review of minutes from the last meeting
+          o 6.3 Versioning of Calibration Constants
+          o 6.4 FCAL clustering
+          o 6.5 Material on Splitoffs
+          o 6.6 Pointers to cathode clusters in FDC pseudopoints
+          o 6.7 Documentation Structure
+          o 6.8 New Action Items
+
+[edit]
+Telephone
+
+To connect by telephone:
+
+   1. dial:
+          * 800-377-8846 : US
+          * 888-276-7715 : Canada
+          * 302-709-8424 : International 
+   2. enter participant code: 77438230# (remember the "#") 
+
+[edit]
+Video Conferencing
+
+A) ESNet: 8542553
+B) EVO: direct meeting link
+[edit]
+Slides
+
+Talks can be deposited in the directory /group/halld/www/halldweb1/html/talks/2010-03 on the JLab CUE (you have to be a member of the "halld" Unix group). This directory is accessible from the web at https://halldweb1.jlab.org/talks/2010-03/ .
+[edit]
+Reference Material
+
+Material on Splitoffs
+[edit]
+Agenda
+
+   1. Announcements
+         1. New src release, release-2010-03-10: Mark
+         2. New JANA release, version 0.6.1: David
+         3. src -> sim-recon transition made: Mark, Beni
+         4. BMS change: binaries depend on libraries: Mark
+         5. Partial wave analysis, initial contacts: Craig 
+   2. Review of minutes from the last meeting: all
+   3. Versioning of Calibration Constants: Mark
+   4. Clustering in the Calorimeters: FCAL clustering Mihajlo
+   5. Material on Splitoffs: Curtis
+   6. Filtering events from bggen: all
+   7. Pointers to cathode clusters in FDC pseudopoints: Mark
+   8. Documentation Structure: Mark
+   9. Action Item Review: all 
+
+[edit]
+Minutes
+
+IU: Mihajlo Kornicer, Ryan Mitchell, Matt Shepherd, Claire Tarbert
+JLab: Craig Bookwalter, Mark Ito (chair), David Lawrence, Yi Qiang, Sascha Somov, Simon Taylor, Elliott Wolin, Beni Zihlmann
+[edit]
+Announcements
+
+    * New src release, release-2010-03-10: Mark asked if anyone has had problems. None were reported.
+    * New JANA release, version 0.6.1: David told that some changes in this release were prompted by Elliott's work on the DANA-to-EVIO conversion packages. JANADOT (gives times spent in factories) has improved significicantly as well. Mark suggested some documentation on how to generate the JANADOT report. Elliott suggested a new release so he can access pre-built versions using this version.
+    * src -> sim-recon transition made: Mark noted that the change has been made. No problems were reported by the assembled. Beni has been working on updating documentation.
+    * BMS change: binaries depend on libraries: Mark mentioned the recent change made to the binary making makefile (Makefile.bin). Now binaries should automatically be remade when libraries, upon which they depend, have changed. The should largely remove the need for invoking make with the "relink" target.
+    * Partial wave analysis, initial contacts: Craig has been in contact with Matt and Curtis on this. Discussions are on-going. Matt and Craig agreed to get together to get Craig going with the IU PWA code. 
+
+[edit]
+Review of minutes from the last meeting
+
+We went over them. Elliott volunteered to check-out and run Dave Heddle's GlueX event display. He also mentioned that a summer student may be working on this.
+[edit]
+Versioning of Calibration Constants
+
+Mark reviewed the interim scheme (link above) that has been implemented. Elliott made a suggestion involving a service-oriented architecture. Details were not clear to the secretary.
+[edit]
+FCAL clustering
+
+See Mihajlo's slides (link above) for details. There is NIM paper written on this subject. We agreed that the paper should be linked from the FCAL detector page.
+
+Matt pointed out that the approach Mihajlo described is oriented toward electromagnetic showers. It might not work well for hadrons that interact.
+
+David told us that currently the extra photons are coming mainly from the BCAL. Matt reminded us that BCAL reconstruction was taken over from KLOE code. We do not have a GlueX "owner" for this code. A GlueX Note does exist on this subject.
+[edit]
+Material on Splitoffs
+
+We peeked at the page of collected references (link above) from Curtis and Matt. David has attempted the Dolby thing. This is work in progress.
+[edit]
+Pointers to cathode clusters in FDC pseudopoints
+
+Mark discovered recently that these are not in the DFDCPsuedo class. Simon volunteered to put them in.
+[edit]
+Documentation Structure
+
+Mark outlined some ideas about documenting our software (see link above). The overall question is whether we should have a formal policy about documentation and if so, what should be in it. We had a discussion:
+
+    * Beni pointed out that documentation can also be put into code as comments, and can be extensive.
+    * Matt thought that Notes should include the definitions of external, tunable parameters as well as describing algorithms.
+    * Mark will likely make a proposal to the group at a future meeting. 
+
+[edit]
+New Action Items
+
+   1. Document on JANADOT -> David
+   2. "RedHat 5.3" link to "CentOS" for JLab builds -> Mark
+   3. Check-out and run ded. -> Elliott
+   4. Provide description of SOA for calibration constant versioning for the minutes. -> Elliott
+   5. Link the FCAL algorithm NIM article from the FCAL page. -> Mihajlo
+   6. Find an "owner" for the BCAL reconstruction code -> Mark, Matt
+   7. Schedule a discussion of filtering events from bggen.
+   8. Put pointers to cathode clusters in the DFDCPseudo class. -> Simon
+   9. Re-raise the issue of a documentation policy at a future meeting. -> Mark 
+
+Retrieved from "http://www.jlab.org/Hall-D/software/wiki/index.php/GlueX_Offline_Meeting%2C_March_23%2C_2010"
+Views
+
+    * Article
+    * Discussion
+    * Edit
+    * History
+
+Personal tools
+
+    * Log in / create account
+
+Navigation
+
+    * Main Page
+    * Community portal
+    * Current events
+    * Recent changes
+    * Random page
+    * Help
+    * Donations
+
+Search
+ 
+Toolbox
+
+    * What links here
+    * Related changes
+    * Upload file
+    * Special pages
+    * Printable version
+    * Permanent link
+    * Cite this article
+
+MediaWiki
+
+    * This page was last modified 13:25, 25 March 2010.
+    * This page has been accessed 1,928 times.
+    * Privacy policy
+    * About GlueXWiki
+    * Disclaimers
+
+
+GlueX Offline Meeting, April 6, 2010
+From GlueXWiki
+Jump to: navigation, search
+
+GlueX Offline Meeting
+Tuesday, April 6, 2010
+2:00 pm EDT
+JLab: CEBAF Center F326/7
+Contents
+[hide]
+
+    * 1 Telephone
+    * 2 Video Conferencing
+    * 3 Slides
+    * 4 Agenda
+    * 5 Minutes
+          o 5.1 Announcements
+          o 5.2 Review of Minutes from the Last Meeting
+          o 5.3 Filtering events from bggen
+          o 5.4 BCAL Reconstruction
+          o 5.5 DANA-to-EVIO conversion
+          o 5.6 Action Item Review
+          o 5.7 FCAL reconstruction update
+          o 5.8 New Action Items
+
+[edit]
+Telephone
+
+To connect by telephone:
+
+   1. dial:
+          * 800-377-8846 : US
+          * 888-276-7715 : Canada
+          * 302-709-8424 : International 
+   2. enter participant code: 77438230# (remember the "#") 
+
+[edit]
+Video Conferencing
+
+    * ESNet: 8542553
+    * EVO:
+          o Meeting URL: http://evo.caltech.edu/evoGate/koala.jnlp?meeting=eleBevvlvDatasaeIl
+          o Phone Bridge ID: 56083 
+
+[edit]
+Slides
+
+Talks can be deposited in the directory /group/halld/www/halldweb1/html/talks/2010-04 on the JLab CUE (you have to be a member of the "halld" Unix group). This directory is accessible from the web at https://halldweb1.jlab.org/talks/2010-04/ .
+[edit]
+Agenda
+
+   1. Announcements
+         1. New src release, sim-recon-2010-03-29: Mark
+         2. "RedHat 5.3" link to "CentOS" for JLab builds: Mark
+         3. New: HOWTO add private code to a DANA application: Mark 
+   2. Review of minutes from the last meeting: all
+   3. Filtering events from bggen: all
+   4. BCAL Reconstruction: David
+   5. DANA-to-EVIO conversion: Elliott
+   6. FCAL: gamma vs pi+ reconstruction: Mihajlo
+   7. Action Item Review: all 
+
+[edit]
+Minutes
+
+    * IU: Mihajlo Kornicer, Ryan Mitchell, Matt Shepherd
+    * JLab: Mark Ito (chair), David Lawrence, Lubomir Pentchev, Elton Smith, Sascha Somov, Simon Taylor, Elliott Wolin, Beni Zihlmann 
+
+[edit]
+Announcements
+
+   1. New src release, sim-recon-2010-03-29: Mark mentioned that this was the first release using the new sim-recon structure and the first using JANA 0.6.1. No problems have been reported thus far.
+   2. "RedHat 5.3" link to "CentOS" for JLab builds: Mark reported that this has been done for existing releases. It still needs to be automated.
+   3. New HOWTO add private code to a DANA application: Mark and David wrote one. See the email announcement. During discussion we identified two new HOWTO's that we would like to see:
+         1. HOWTO enable multiple threads: David will write this one.
+         2. HOWTO write thread-safe code: Elliott suggested this; he will help David write one. 
+   4. JANA 0.6.1 required for new code: David warned us that due to check-in's done this week, JANA 0.6.1 is required to build the latest version of sim-recon.
+   5. Make system fixed to re-make on include file changes: In trying to fix another feature, Mark broke this basic function of the depends files. He has fixed it now. It had been broken for several months. 
+
+[edit]
+Review of Minutes from the Last Meeting
+
+They were reviewed; no notable comments were offered.
+[edit]
+Filtering events from bggen
+
+This was a recent thread on the offline mailing list. Will Levine was "looking for a way to filter out all events of a specific final state from bggen/pythia output." He got several responses from several collaborators describing various methods. David remarked, and we all agreed, that this was an example of successful communication within the group.
+[edit]
+BCAL Reconstruction
+
+David gave us a succinct outline of the reconstruction algorithm we have been using for the BCAL including a historical time-line of its genesis at KLOE and GlueX-based development, along with relevant references. This paralleled the presentation by Mihajlo at the last meeting on FCAL reconstruction. See his slides for details.
+
+Sascha raised the question of who is responsible for this code. Mark reported that this issue will be discussed at the next Calorimeter Meeting, on Thursday, April 15.
+[edit]
+DANA-to-EVIO conversion
+
+Elliott presented his recent efforts, in collaboration with David, on a plug-in that serializes a selection of DANA objects in EVIO format. The selection only reflects current state of development; more classes can be added. The latest version allows output of DANA associated objects (more specifically, the associations themselves). See his slides for details.
+
+In the discussion, Mark remarked at the recent development seems to be evolving toward an HDDM-like feature set and if so he wondered why not just use HDDM, to conserve manpower. Elliott stated that it makes sense in the context of the online to keep things in the realm of EVIO, and output of the level 3 farm, which would be generated from DANA objects, would therefore need to be expressed in EVIO.
+[edit]
+Action Item Review
+
+We went over the list. Some items need to be marked as done. Some of us were reminded of things we have to do.
+
+We had a short discussion of tracking action items in an issue-tracking software system rather than on a wiki page. The time has probably come to do this.
+[edit]
+FCAL reconstruction update
+
+We did not have time to get to this item. Mihajlo will present this material at the next Physics Meeting.
+[edit]
+New Action Items
+
+   1. Automate links from CentOS5 to RHEL5, 64-bit. -> Mark
+   2. HOWTO enable multiple threads-> David
+   3. HOWTO write thread-safe code-> Elliott, David
+   4. Explore action item tracking software. -> Mark 
+
+Retrieved from "http://www.jlab.org/Hall-D/software/wiki/index.php/GlueX_Offline_Meeting%2C_April_6%2C_2010"
+Views
+
+    * Article
+    * Discussion
+    * Edit
+    * History
+
+Personal tools
+
+    * Log in / create account
+
+Navigation
+
+    * Main Page
+    * Community portal
+    * Current events
+    * Recent changes
+    * Random page
+    * Help
+    * Donations
+
+Search
+ 
+Toolbox
+
+    * What links here
+    * Related changes
+    * Upload file
+    * Special pages
+    * Printable version
+    * Permanent link
+    * Cite this article
+
+MediaWiki
+
+    * This page was last modified 14:15, 7 April 2010.
+    * This page has been accessed 833 times.
+    * Privacy policy
+    * About GlueXWiki
+    * Disclaimers
+
+
+GlueX Offline Meeting, April 20, 2010
+From GlueXWiki
+Jump to: navigation, search
+
+GlueX Offline Meeting
+Tuesday, April 20, 2010
+2:00 pm EDT
+JLab: CEBAF Center F326/7
+Contents
+[hide]
+
+    * 1 Telephone
+    * 2 Video Conferencing
+    * 3 Slides
+    * 4 Agenda
+    * 5 Minutes
+          o 5.1 Announcements
+          o 5.2 Review of Minutes from the Last Meeting
+          o 5.3 New Fine-Mesh B-field Option
+          o 5.4 Action Item Review
+          o 5.5 Construction and Wiring Database
+          o 5.6 New Action Items
+
+[edit]
+Telephone
+
+To connect by telephone:
+
+   1. dial:
+          * 800-377-8846 : US
+          * 888-276-7715 : Canada
+          * 302-709-8424 : International 
+   2. enter participant code: 77438230# (remember the "#") 
+
+[edit]
+Video Conferencing
+
+    * ESNet: 8542553
+    * EVO:
+          o Meeting URL: http://evo.caltech.edu/evoGate/koala.jnlp?meeting=eleBevvlvDatasaeIl
+          o Phone Bridge ID: 56083 
+
+[edit]
+Slides
+
+Talks can be deposited in the directory /group/halld/www/halldweb1/html/talks/2010-04 on the JLab CUE (you have to be a member of the "halld" Unix group). This directory is accessible from the web at https://halldweb1.jlab.org/talks/2010-04/ .
+[edit]
+Agenda
+
+   1. Announcements
+   2. Collaboration Meeting Agenda: Mark
+   3. Review of minutes from the last meeting: all
+   4. Information about the new FineMesh B-field option: Simon
+   5. Action Item Review: all 
+
+[edit]
+Minutes
+
+    * IU: Ryan Mitchell, Matt Shepherd
+    * JLab: Craig Bookwalter, Mark Ito (chair), David Lawrence, Sascha Somov, Simon Taylor, Elliott Wolin, Beni Zihlmann 
+
+[edit]
+Announcements
+
+   1. Elliott announced that the DANA-to-EVIO conversion module is 99% done. He is waiting on a new release of JANA (0.6.2) to do final tests. Some changes were necessary in EVIO to support the latest features.
+          * This raised the issue of getting an official release of EVIO from the Data Acquisition group so that we can have a stable code base. No such official release seems to exist. David will talk to Graham Heyes and try to work out a solution. 
+   2. David announced that the mysterious factor of two he has been seeing in the energy loss correction in tracking has been found and fixed (simple typo).
+   3. David identified a bug in hit generation in HDGeant in the rare case where a particle ranges out in the gas of a CDC straw. In that case the drift time is essentially indeterminate. He found this when looking at low energy protons. A fix has been implemented in HDGEANT. Protections against this case have not been introduced into the tracking code.
+   4. Elliott reported that Dave Heddle has hired a CNU undergraduate to work on the GlueX event display this summer. His name is Andrew.
+   5. Elliott mentioned that there will be a workshop on CLAS12 software, May 25 and 26, at the University of Richmond. He and David will be talking.
+   6. Mark reminded us that the Collaboration Meeting is approaching and encouraged us to think about talks we might want to give in the offline software session. 
+
+[edit]
+Review of Minutes from the Last Meeting
+
+We reviewed the minutes from the April 6 meeting.
+
+Matt reported that new graduate student, Dan Bennett, will be joining the IU group and will start working on the general problem of "extra" cluster generation in the calorimeters.
+[edit]
+New Fine-Mesh B-field Option
+
+Simon described recent work in trying to speed up the tracking code. The code spends a lot of time in interpolation of the B-field and its derivatives. He tried an approach where the interpolation was done in advance and the results stored as a map with a much smaller grid spacing. Some comments:
+
+    * Matt asked about whether profiling had been tried. He has used "sampler" on Mac with success in the past. Simon has tried gprof on the code, but the results were inconclusive.
+    * David tried Simon's approach with the ALT1 fitter and had good results.
+    * There are some global makefiles that need to be modified to use this approach generally.
+    * Craig referred us to "cachegrind", a KDE gui-based wrapper for gprof. 
+
+[edit]
+Action Item Review
+
+We reviewed the action items. There are still some items outstanding that should not be so difficult to complete. We should make an effort to address them.
+[edit]
+Construction and Wiring Database
+
+Beni wondered out loud about whether we should create a database to track construction and generate wiring maps, in particular for the CDC. David mentioned that he produced a simple application for PrimEx. Mark noted that Matt has done something for the FCAL in this regard and that there is also the PANSOPHY programs used the the RF group at the Lab. Beni will pursue options.
+[edit]
+New Action Items
+
+   1. Talk to Graham about getting a release of EVIO. -> David 
+
+Retrieved from "http://www.jlab.org/Hall-D/software/wiki/index.php/GlueX_Offline_Meeting%2C_April_20%2C_2010"
+Views
+
+    * Article
+    * Discussion
+    * Edit
+    * History
+
+Personal tools
+
+    * Log in / create account
+
+Navigation
+
+    * Main Page
+    * Community portal
+    * Current events
+    * Recent changes
+    * Random page
+    * Help
+    * Donations
+
+Search
+ 
+Toolbox
+
+    * What links here
+    * Related changes
+    * Upload file
+    * Special pages
+    * Printable version
+    * Permanent link
+    * Cite this article
+
+MediaWiki
+
+    * This page was last modified 13:21, 21 April 2010.
+    * This page has been accessed 407 times.
+    * Privacy policy
+    * About GlueXWiki
+    * Disclaimers
+
+
+GlueX Offline Meeting, May 4, 2010
+From GlueXWiki
+Jump to: navigation, search
+
+GlueX Offline Meeting
+Tuesday, May 4, 2010
+2:00 pm EDT
+JLab: CEBAF Center F326/7
+Contents
+[hide]
+
+    * 1 Telephone
+    * 2 Video Conferencing
+    * 3 Slides
+    * 4 Agenda
+    * 5 Minutes
+          o 5.1 Announcements
+          o 5.2 Review of Minutes from the Previous Meeting
+          o 5.3 Collaboration Meeting Agenda
+          o 5.4 Tests of a SIMD version of DVector3
+          o 5.5 Action Item Review
+          o 5.6 New Action Items
+
+[edit]
+Telephone
+
+To connect by telephone:
+
+   1. dial:
+          * 800-377-8846 : US
+          * 888-276-7715 : Canada
+          * 302-709-8424 : International 
+   2. enter participant code: 77438230# (remember the "#") 
+
+[edit]
+Video Conferencing
+
+    * ESNet: 8542553
+    * EVO:
+          o Meeting URL: http://evo.caltech.edu/evoGate/koala.jnlp?meeting=eleBevvlvDatasaeIl
+          o Phone Bridge ID: 56083 
+
+[edit]
+Slides
+
+Talks can be deposited in the directory /group/halld/www/halldweb1/html/talks/2010-05 on the JLab CUE (you have to be a member of the "halld" Unix group). This directory is accessible from the web at https://halldweb1.jlab.org/talks/2010-05/ .
+[edit]
+Agenda
+
+   1. Announcements
+         1. Project Management: Offline Computing Change Request: re-do 
+   2. Review of minutes from the last meeting: all
+   3. Collaboration Meeting Agenda: Mark
+   4. Tests of a SIMD version of DVector3: Simon
+   5. Action Item Review: all 
+
+[edit]
+Minutes
+
+    * IU: Ryan Mitchell, Matt Shepherd
+    * JLab: Craig Bookwalter, Mark Ito (chair), David Lawrence, Simon Taylor, Elliott Wolin, Beni Zihlmann 
+
+[edit]
+Announcements
+
+   1. Mark reported that the change request, which was recently submitted to the project, for Offline Computing will have to be redone. The current version references last year's baseline BIA schedule. The request must reference the current revised schedule.
+   2. Elliott told us that Yelena Prok from CNU has summer students looking for projects. He would like to get a feeling for our need for students by the end of the week. Please contact him if you have ideas.
+          * On a related note, David expressed concern that our plan to assign work to a new collaborator on the calibration database might result in a product incompatible with the current framework. He agreed to write a specification for the system to guide prospective work. Mark agreed to set up a meeting with David and Eugene Chudakov to discuss this issue. 
+   3. David has successfully run our reconstruction on MacOS 10.6 (HDGEANT is still problematic on this platform). Changes to support this have been checked in on the trunk.
+   4. On a topic possibly related to the offline, Elliott reports that Labview talking on EPICS appears to work.
+   5. Beni reported on a new system to edit an existing relational database, using MySQL and PHP.
+          * Elliott urged caution using this combination; he has heard reports that it is vulnerable to cyber attack. 
+
+[edit]
+Review of Minutes from the Previous Meeting
+
+    * We agreed that Mark should make a new release of sim-recon. 
+
+[edit]
+Collaboration Meeting Agenda
+
+Mark walked us through the Offline and Physics section of the agenda for next week's Collaboration meeting. This agenda was developed consultation with Ryan, David, Simon, Elton.
+[edit]
+Tests of a SIMD version of DVector3
+
+Simon described his recent re-write of the DVector3 class to take advantage of the SSE hardware present on many x86 processors. See his wiki page for details. Speed increases of a factor of two to three were seen for most member functions. The goal is to increase the speed of charged particle tracking.
+
+Items from the discussion:
+
+    * Matt mentioned trying the Intel compiler. It takes advantage of the SSE hardware functionality and does not require custom code.
+    * Craig argued against investing too much time in optimizing matrix operations before consulting experts in the field. A lot of research has been done in this area.
+    * Mark noted that optimization might be different for different choices of our standard scientific library.
+    * Ryan wondered if there was a way to save the results of tracking so that work devoted to that step could be re-used while working on other parts of the reconstruction. Elliott noted that the DANA-to-EVIO package could be modified to save tracking information. Mark pointed out that unfortunately, currently data written in EVIO format cannot be used as input to the reconstruction code without significant development (although Elliott contested the word "significant" in this point). David agreed to modify the data model and the relevant input/output routines for HDDM to accommodate summary information from charged particle tracking. 
+
+[edit]
+Action Item Review
+
+We went over the list.
+
+    * Elliott volunteered to install an instance of Mantis for us to try out (after the Collaboration meeting).
+    * David reported that the script to run the "b1pi" analysis is done. Mark will incorporate it into a weekly cron job. 
+
+[edit]
+New Action Items
+
+    * Write a specification for the calibration database. -> David
+    * Arrange a meeting with Eugene to discuss database work. -> Mark
+    * Make a new release of sim-recon. -> Mark
+    * Write out summary tracking information in HDDM -> David
+    * Run b1pi script in a weekly cron job. -> Mark
+    * Install Mantis -> Elliott 
+
+Retrieved from "http://www.jlab.org/Hall-D/software/wiki/index.php/GlueX_Offline_Meeting%2C_May_4%2C_2010"
+Views
+
+    * Article
+    * Discussion
+    * Edit
+    * History
+
+Personal tools
+
+    * Log in / create account
+
+Navigation
+
+    * Main Page
+    * Community portal
+    * Current events
+    * Recent changes
+    * Random page
+    * Help
+    * Donations
+
+Search
+ 
+Toolbox
+
+    * What links here
+    * Related changes
+    * Upload file
+    * Special pages
+    * Printable version
+    * Permanent link
+    * Cite this article
+
+MediaWiki
+
+    * This page was last modified 21:41, 4 May 2010.
+    * This page has been accessed 76 times.
+    * Privacy policy
+    * About GlueXWiki
+    * Disclaimers
+
