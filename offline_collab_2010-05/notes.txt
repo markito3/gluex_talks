@@ -1,9 +1,5 @@
 NOTES
 
-elton, b1pi, omega analysis
-MacOS
-new CR needed for offline computing
-BCAL reconstruction responsibility
 
 GlueX Offline Meeting, February 9, 2010
 
@@ -36,6 +32,8 @@ ded, a new GlueX event display, Dave Heddle
 
 Improvements in full event reconstruction calorimeter clusters and the resulting photon objects
 
+b1pi/omega analysis Elton
+
 GlueX Offline Meeting, March 23, 2010
 
     * BMS change: binaries depend on libraries: Mark mentioned the recent change made to the binary making makefile (Makefile.bin). Now binaries should automatically be remade when libraries, upon which they depend, have changed.
@@ -63,6 +61,8 @@ Elliott presented his recent efforts, in collaboration with David, on a plug-in 
    4. Explore action item tracking software. -> Mark 
 
 GlueX Offline Meeting, April 20, 2010
+
+BCAL reconstruction responsibility
 
 New Fine-Mesh B-field Option, Simon described recent work in trying to speed up the tracking code. The code spends a lot of time in interpolation of the B-field and its derivatives. He tried an approach where the interpolation was done in advance and the results stored as a map with a much smaller grid spacing.
 
