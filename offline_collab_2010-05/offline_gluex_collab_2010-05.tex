@@ -31,53 +31,25 @@
 \I Noise Hits in mcsmear: default behavior of mcsmear now skip-noise-hit-generation mode (David)
 \I GEANT4 for GlueX: sentiment for re-raising this issue
 \I Top-level structure of our simulation and reconstruction code: ``sim-recon'' is the new name, ``src'' a child directory (Mark)
+\I ded, a new GlueX event display (Dave Heddle)
+\I Improvements in full event reconstruction calorimeter clusters and the resulting photon objects (David)
+\I $b_1\pi$/$\omega$ analysis (Elton)
+\ei
+}
 
-ded, a new GlueX event display, Dave Heddle
+\f{
+\bi
 
-Improvements in full event reconstruction calorimeter clusters and the resulting photon objects
-
-b1pi/omega analysis Elton
-
-GlueX Offline Meeting, March 23, 2010
-
-    * BMS change: binaries depend on libraries: Mark mentioned the recent change made to the binary making makefile (Makefile.bin). Now binaries should automatically be remade when libraries, upon which they depend, have changed.
-
-    * Partial wave analysis, initial contacts: Craig has been in contact with Matt and Curtis on this.
-
-Versioning of Calibration Constants
-
-Mark reviewed the interim scheme (link above)
-
-FCAL clustering, See Mihajlo's slides
-
-Material on Splitoffs from Curtis and Matt
-
-Documentation Structure Mark outlined some ideas
-
-GlueX Offline Meeting, April 6, 2010
-
-BCAL Reconstruction, David gave us a succinct outline of the reconstruction algorithm we have been using for the BCAL
-
-DANA-to-EVIO conversion
-
-Elliott presented his recent efforts, in collaboration with David, on a plug-in that serializes a selection of DANA objects in EVIO format.
-
-   4. Explore action item tracking software. -> Mark 
-
-GlueX Offline Meeting, April 20, 2010
-
-BCAL reconstruction responsibility
-
-New Fine-Mesh B-field Option, Simon described recent work in trying to speed up the tracking code. The code spends a lot of time in interpolation of the B-field and its derivatives. He tried an approach where the interpolation was done in advance and the results stored as a map with a much smaller grid spacing.
-
-GlueX Offline Meeting, May 4, 2010
-Minutes
-
-   1. Mark reported that the change request, which was recently submitted to the project, for Offline Computing will have to be redone. The current version references last year's baseline BIA schedule. The request must reference the current revised schedule.
-
-   3. David has successfully run our reconstruction on MacOS 10.6 (HDGEANT is still problematic on this platform). Changes to support this have been checked in on the trunk.
-
-Tests of a SIMD version of DVector3
+\I Make system change: binaries depend on libraries (Mark)
+\I Partial wave analysis, initial contacts: Craig has been in contact with Matt and Curtis on this.
+\I Interim scheme for versioning of Calibration Constants (Mark)
+\I Material on Splitoffs from Curtis and Matt
+\I Documentation Structure Mark outlined some ideas
+\I BCAL reconstruction software responsibility: IU for now, Regina will re-acquire the job eventually
+\I New Fine-Mesh B-field Option: interpolation was done in advance and the results stored as a map with a much smaller grid spacing (Simon)
+\I Change request to the Project plan for ``Offline Computing'' needs to be redone; a draft has been submitted (Mark)
+\I Successful build of reconstruction on MacOS 10.6 (David)
+\I Tests of a SIMD version of DVector3
 
 Simon described his recent re-write of the DVector3 class to take advantage of the SSE hardware present on many x86 processors. See his wiki page for details. Speed increases of a factor of two to three were seen for most member functions. The goal is to increase the speed of charged particle tracking.
 
