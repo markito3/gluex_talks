@@ -13,121 +13,76 @@
 \title{Status of the Offline Software}
 \subtitle{GlueX Collaboration Meeting}
 \author[M.\ Ito]{Mark M.\ Ito}
-\date{January 29, 2010}
+\date{May 11, 2010}
 \institute[JLab]{Jefferson Lab}
 
 \begin{document}
 
 \f{\titlepage}
 
-\frame<1>[label=someitems]{
+\f{
 \bi
-\I<alert@1> Alternate B-Field maps available: David
-\I<alert@2> Position-Dependent Position Resolution for CDC: Yves calculated the effect, David has implemented it
-\I<alert@3> Multi-particle/multi-photon events: largely done, documentation needed
-\I<alert@4> 12 GeV Project Schedule, Offline Computing\cite{project}
-  \bi
-  \I a Gantt chart
-  \I the list of tasks and their attributes including work required and cost
-  \I ``steps'' for offline activities
-  \I a cost comparison between the old plan and the new
-  \I a manpower profile for both Lab staff and contributed labor
-  \ei
-\I<alert@5> Timing scheme/design: Craig Bookwalter working on this
-  \bi
-  \I prompted discussion on accessing the start counter geometry in reconstruction
-  \I prompted changes in geometry interface: see David's talk
-  \ei
+\I Dependency generation in the make scheme: revised the scheme for making dependency files in the BMS system (Mark)
+\I Task priority ratings: priority ratings to the items on the Task List (Mark)
+\I DANA-EVIO conversion, almost complete (Elliott)
+\I PID scheme introduced (Simon)
+\I Environment variable checking in the makefiles (Mark)
+\I Auto-notification of build errors (Mark)
+\I Noise Hits in mcsmear: default behavior of mcsmear now skip-noise-hit-generation mode (David)
+\I GEANT4 for GlueX: sentiment for re-raising this issue
+\I Top-level structure of our simulation and reconstruction code: ``sim-recon'' is the new name, ``src'' a child directory (Mark)
+
+ded, a new GlueX event display, Dave Heddle
+
+Improvements in full event reconstruction calorimeter clusters and the resulting photon objects
+
+b1pi/omega analysis Elton
+
+GlueX Offline Meeting, March 23, 2010
+
+    * BMS change: binaries depend on libraries: Mark mentioned the recent change made to the binary making makefile (Makefile.bin). Now binaries should automatically be remade when libraries, upon which they depend, have changed.
+
+    * Partial wave analysis, initial contacts: Craig has been in contact with Matt and Curtis on this.
+
+Versioning of Calibration Constants
+
+Mark reviewed the interim scheme (link above)
+
+FCAL clustering, See Mihajlo's slides
+
+Material on Splitoffs from Curtis and Matt
+
+Documentation Structure Mark outlined some ideas
+
+GlueX Offline Meeting, April 6, 2010
+
+BCAL Reconstruction, David gave us a succinct outline of the reconstruction algorithm we have been using for the BCAL
+
+DANA-to-EVIO conversion
+
+Elliott presented his recent efforts, in collaboration with David, on a plug-in that serializes a selection of DANA objects in EVIO format.
+
+   4. Explore action item tracking software. -> Mark 
+
+GlueX Offline Meeting, April 20, 2010
+
+BCAL reconstruction responsibility
+
+New Fine-Mesh B-field Option, Simon described recent work in trying to speed up the tracking code. The code spends a lot of time in interpolation of the B-field and its derivatives. He tried an approach where the interpolation was done in advance and the results stored as a map with a much smaller grid spacing.
+
+GlueX Offline Meeting, May 4, 2010
+Minutes
+
+   1. Mark reported that the change request, which was recently submitted to the project, for Offline Computing will have to be redone. The current version references last year's baseline BIA schedule. The request must reference the current revised schedule.
+
+   3. David has successfully run our reconstruction on MacOS 10.6 (HDGEANT is still problematic on this platform). Changes to support this have been checked in on the trunk.
+
+Tests of a SIMD version of DVector3
+
+Simon described his recent re-write of the DVector3 class to take advantage of the SSE hardware present on many x86 processors. See his wiki page for details. Speed increases of a factor of two to three were seen for most member functions. The goal is to increase the speed of charged particle tracking.
+
+    * David reported that the script to run the "b1pi" analysis is done. Mark will incorporate it into a weekly cron job. 
 \ei
-}
-
-\f{
-$$
-  \includegraphics[height=3.2in]{20100129_lawrence_reduced_field_offline.png}
-$$
-}
-
-\againframe<2-4>{someitems}
-
-\f{
-$$
-  \includegraphics[height=3.2in]{HallDOfflineComputing.png}
-$$
-}
-
-\againframe<5>{someitems}
-
-\f<1-5>{
-\bi
-\I<alert@1> New scheme for smearing FCAL hits: from David
-  \bi
-  \I now done in mcsmear rather than in the reconstruction
-  \I BCAL smearing not migrated yet
-  \ei
-\I<alert@2> JLab batch farm priority\cite{farm-priority}:
-  \bi
-  \I negotiated an agreement with Hall B and the JLab Scientific computing
-  \I Hall D gets increased priority on the JLab batch farm: 5\% $\rightarrow$ 20\%
-  \I period of a week upon our request
-  \ei
-\I<alert@3> Coding Standards\cite{coding-stds}:
-  \bi
-  \I discussed and adopted
-  \I enforcement regime not yet formalized
-  \ei
-\I<alert@4> Nightly builds are running\cite{nightly}: RHEL5, Fedora 8, CentOS 5
-  \bi
-  \I error reports mailed out once a week
-  \ei
-\I<alert@5> Geometry (HDDS) separated from src tree\cite{hdds}
-  \bi
-  \I Simplifies build scheme
-  \I Exists as an extra package (a complication)
-  \ei
-\ei
-}
-
-\frame<1>[label=moreitems]{
-\bi
-\I<alert@1> Priorities for offline tasks noted on task list\cite{tasks}
-\I<alert@2> Re-organization of high-level particle classes: see Simon's talk
-\I<alert@3> Hall D Group Membership: old list cleaned up, Elliott
-\I<alert@4> Parameterized B-field: David has started on this
-\I<alert@5> Warning-Free Code Policy: adopted
-\I<alert@6> New Subversion server
-  \bi
-  \I http service running on a new virtual machine
-  \I running modern version of Subversion: v1.4
-  \I allows locking files via http
-  \ei
-\I<alert@7> Quick-start software builds\cite{quick-start}: build automation
-\I<alert@8> Changes in dependency generation in the make scheme
-\I<alert@9> Environment variable checking in the makefiles
-\I<alert@10> New JANA version: many new features, see David's talk
-\ei
-}
-
-\f{
-\ft{Offline Task Priorities}
-$$
-\includegraphics[height=3.0in]{SoftwareTaskList.png}
-$$
-}
-
-\againframe<2-10>{moreitems}
-
-\f{
-\ft{References}
-\begin{thebibliography}{99}
-\tiny
-\bibitem{project}http://www.jlab.org/Hall-D/software/wiki/index.php/Offline\_Computing\_Project\_Management
-\bibitem{farm-priority} http://www.jlab.org/Hall-D/software/wiki/index.php/Memo\_on\_Hall\_D\_Priority\_on\_the\_JLab\_Batch\_Farm
-\bibitem{coding-stds} http://www.jlab.org/Hall-D/software/wiki/index.php/Coding\_Conventions
-\bibitem{nightly}http://www.jlab.org/Hall-D/software/wiki/index.php/Nightly\_Builds\_of\_GlueX\_Software
-\bibitem{hdds} http://www.jlab.org/Hall-D/software/wiki/index.php/HOWTO\_use\_the\_stand-alone\_HDDS\_system
-\bibitem{tasks}http://www.jlab.org/Hall-D/offline/Software\_tasks.php
-\bibitem{quick-start}http://www.jlab.org/Hall-D/software/wiki/index.php/Quick\_Start\_Guide\_to\_building\_GlueX\_Software
-\end{thebibliography}
 }
 
 \end{document}
