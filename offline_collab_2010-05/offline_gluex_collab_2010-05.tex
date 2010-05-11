@@ -49,11 +49,8 @@
 \I New Fine-Mesh B-field Option: interpolation was done in advance and the results stored as a map with a much smaller grid spacing (Simon)
 \I Change request to the Project plan for ``Offline Computing'' needs to be redone; a draft has been submitted (Mark)
 \I Successful build of reconstruction on MacOS 10.6 (David)
-\I Tests of a SIMD version of DVector3
-
-Simon described his recent re-write of the DVector3 class to take advantage of the SSE hardware present on many x86 processors. See his wiki page for details. Speed increases of a factor of two to three were seen for most member functions. The goal is to increase the speed of charged particle tracking.
-
-    * David reported that the script to run the "b1pi" analysis is done. Mark will incorporate it into a weekly cron job. 
+\I Tests of a SIMD version of DVector3: re-write of the DVector3 class to take advantage of the SSE hardware present on many x86 processors (Simon)
+\I Script to run the ``b1pi" analysis is done. Will be incorporated into a weekly cron job (David)
 \ei
 }
 
