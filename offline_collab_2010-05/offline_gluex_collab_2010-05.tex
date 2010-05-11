@@ -21,6 +21,7 @@
 \f{\titlepage}
 
 \f{
+\ft{Progress 1}
 \bi
 \I Dependency generation in the make scheme: revised the scheme for making dependency files in the BMS system (Mark)
 \I Task priority ratings: priority ratings to the items on the Task List (Mark)
@@ -30,20 +31,25 @@
 \I Auto-notification of build errors (Mark)
 \I Noise Hits in mcsmear: default behavior of mcsmear now skip-noise-hit-generation mode (David)
 \I GEANT4 for GlueX: sentiment for re-raising this issue
+\ei
+}
+\f{
+\ft{Progress 2}
+\bi
 \I Top-level structure of our simulation and reconstruction code: ``sim-recon'' is the new name, ``src'' a child directory (Mark)
 \I ded, a new GlueX event display (Dave Heddle)
 \I Improvements in full event reconstruction calorimeter clusters and the resulting photon objects (David)
 \I $b_1\pi$/$\omega$ analysis (Elton)
-\ei
-}
-
-\f{
-\bi
-
 \I Make system change: binaries depend on libraries (Mark)
 \I Partial wave analysis, initial contacts: Craig has been in contact with Matt and Curtis on this.
 \I Interim scheme for versioning of Calibration Constants (Mark)
 \I Material on Splitoffs from Curtis and Matt
+\ei
+}
+
+\f{
+\ft{Progress 3}
+\bi
 \I Documentation Structure Mark outlined some ideas
 \I BCAL reconstruction software responsibility: IU for now, Regina will re-acquire the job eventually
 \I New Fine-Mesh B-field Option: interpolation was done in advance and the results stored as a map with a much smaller grid spacing (Simon)
@@ -51,6 +57,30 @@
 \I Successful build of reconstruction on MacOS 10.6 (David)
 \I Tests of a SIMD version of DVector3: re-write of the DVector3 class to take advantage of the SSE hardware present on many x86 processors (Simon)
 \I Script to run the ``b1pi" analysis is done. Will be incorporated into a weekly cron job (David)
+\ei
+}
+
+\f{
+\ft{Summary and Remarks}
+\bi
+\I Progress in many areas
+\I Major current challenges
+\be
+\I Extraneous clusters from hadronic interactions
+\I Speed of charged particle tracking
+\bi
+\I Technological fix?
+\I Algorithmic fix?
+\ei
+\ee
+\I Minor current challenges
+\be
+\I Output format? HDDM? EVIO? ROOT? All of the above?
+\I Global timing and PID
+\I Doing a native build on 64-bit OS's (e.\ g., Snow Leopard, Linux x86\_64)
+\ee
+\I Long-term challenges: see the Prioritized Task List
+\I Need for better documentation
 \ei
 }
 
