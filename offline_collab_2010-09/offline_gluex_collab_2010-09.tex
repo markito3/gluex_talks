@@ -31,12 +31,18 @@
 \I {\bf Offline Computing change request} has been entered in the official project software. (Mark, Eugene)
 \I {\bf GlueX Software Workshop}. Theme: parallel computing. Subcommittee formed David, Beni, Simon, and Sascha, Ed Brash, and Ole Hansen. To be held in December or January. Proposal to the JSA Initiative committee submitted. (David)
 \I {\bf GlueX Computing Plan}. Effort started to revise estimates of resource requirements. Early stages. (Mark)
-\I {\bf Custom matrix classes} to speed up tracking.\cite{Simon-on-tracking}{Simon's talk} (Simon)
+\I {\bf Custom matrix classes} to speed up tracking. See Simon's talk\cite{Simon-on-tracking}. (Simon)
+
+\I {\bf Warning-Free code}. New policy.
+
+\ei
+}
+\f{
+\ft{Progress 2}
+\bi
 
 % June 1, 2010
 
-\I {\bf Warning-Free code}. New policy.
-%#* David mentioned that the next step would be to create histograms. Right now a root tree is produced but the only information available is that the reconstruction ran to completion. He has a script that will produce histograms and mail out the results. He and Mark will create an example that runs on the cron job output.
 \I {\bf HOWTO do a kinematic fit for etapi0p events} written\cite{kinematic} (Blake)
 
 \I {\bf HOWTO use a pre-built release} writen (Mark)\cite{pre-built}
@@ -61,6 +67,13 @@
 \I {\bf JANA 0.6.2} A new version of JANA.\cite{new-jana} (David)
 
 \I {\bf Calibration and Conditions Database specification} Document exists\cite{ccdb} (David, Mark)
+
+\ei
+}
+\f{
+\ft{Progress 3}
+\bi
+
 \I {\bf Installation of Grid Client Tools at JLab} Agreement in principle. Still need to get Globus ports opened.\cite{grid-tools} (Richard, Mark)
 
 \I {\bf Grid certificates being granted} (Sandy Philpott)
@@ -71,13 +84,19 @@
 
 % July 13, 2010
 
-\I {Secrets of JANA plugins revealed} Nice talk.\cite{jana-plugin} (David)
+\I {\bf Secrets of JANA plugins revealed} Nice talk.\cite{jana-plugin} (David)
 
 % July 27, 2010
 
-\I {\bf Event Display}. See Elliott's talk. There is a HOWTO, ''ded: Install \& Run''\cite{ded-doc}(Andrew Blackburn)
+\I {\bf Event Display}. See Elliott's talk. There is a HOWTO, ``ded: Install \& Run''\cite{ded-doc}(Andrew Blackburn)
 
 \I {\bf Generalized particle gun}. Simple perl-based approach to a script driven single particle gun.\cite{perl-particles} (Mark)
+
+\ei
+}
+\f{
+\ft{Progress 4}
+\bi
 
 \I {\bf Documentation Policy} Written down, captures current practices, introduced FAQ\cite{doc-policy} (Mark)
 
@@ -89,7 +108,7 @@
 
 % August 24, 2010
 
-\I HDGEANT auto-smearing. New feature.\cite{auto-smear} (David)
+\I {\bf HDGEANT auto-smearing}. Run mcsmear automatically, new feature.\cite{auto-smear} (David)
 
 \ei
 
@@ -119,38 +138,31 @@
 \ei
 }
 
+\setbeamertemplate{bibliography item}[text]
+
 \f{
 \ft{References}
 \begin{thebibliography}{99}
 \tiny
 \bibitem{save-tracking}$[[$HOWTO save tracking results to an HDDM or EVIO file for later playback$]]$
-\bibitem{Simon-on-tracking} reference needed
-
-\end{thebibliography}
-
-}
-
-\end{document}
-
-
-
-\bibitem{kinematic}[[HOWTO do a kinematic fit for etapi0p events]]
-\bibitem{pre-built}[[HOWTO use a pre-built release]]
-\bibitem{uniform-field} ???
-\bibitem{sim-recon-wiki}[[Sim-Recon Tagged Releases]]
-\bibitem{[[How HDGeant defines time-zero for physics events]].}
-\bibitem{multi-core}{[[Media:20100615_48cores.pdf]]}
+\bibitem{Simon-on-tracking} http://argus.phys.uregina.ca/cgi-bin/private/DocDB/ShowDocument?docid=1576
+\bibitem{kinematic}$[[$HOWTO do a kinematic fit for etapi0p events$]]$
+\bibitem{pre-built}$[[$HOWTO use a pre-built release$]]$
+\bibitem{uniform-field} http://argus.phys.uregina.ca/cgi-bin/private/DocDB/ShowDocument?docid=1556
+\bibitem{sim-recon-wiki}$[[$Sim-Recon Tagged Releases$]]$
+\bibitem{time-zero}$[[$How HDGeant defines time-zero for physics events$]]$
+\bibitem{multi-core}$[[$Media:20100615\_48cores.pdf$]]$
 \bibitem{new-jana}https://mailman.jlab.org/pipermail/halld-offline/2010-June/000314.html
-\bibitem{ccdb} ???
-\bibitem{grid-tools}{[http://markito3.wordpress.com/2010/06/23/notes-on-grid-client-tools-meeting/], http://zeus.phys.uconn.edu/UConn-OSG/client-services.html
-\bibitem{bcal-smear}{http://argus.phys.uregina.ca/gluex/DocDB/0015/001552/001/BCAL_Software_progress_062910.pdf
-\bibitem{mantis}{https://halldnew.jlab.org/mantisbt/}
-\bibitem{jana-plugin}[[Media:20100713_plugins.pdf]]
-\bibitem{ded-doc}[[HOWTO ded: Install & Run]]
+\bibitem{ccdb} http://argus.phys.uregina.ca/cgi-bin/private/DocDB/ShowDocument?docid=1541
+\bibitem{grid-tools}http://markito3.wordpress.com/2010/06/23/notes-on-grid-client-tools-meeting/, http://zeus.phys.uconn.edu/UConn-OSG/client-services.html
+\bibitem{bcal-smear}http://argus.phys.uregina.ca/gluex/DocDB/0015/001552/001/BCAL\_Software\_progress\_062910.pdf
+\bibitem{mantis}https://halldnew.jlab.org/mantisbt/
+\bibitem{jana-plugin}$[[$Media:20100713\_plugins.pdf$]]$
+\bibitem{ded-doc}$[[$HOWTO ded: Install \& Run$]]$
 \bibitem{perl-particles}https://mailman.jlab.org/pipermail/halld-offline/2010-July/000330.html
-\bibitem{doc-policy}[[Software Documentation Structure]] and [[GlueX Offline FAQ]]
-\bibitem{b1pi-auto}???
-\bibitem{halld-file-format}[[GlueX Offline Meeting, August 10, 2010]] and [[GlueX Offline Meeting, August 24, 2010]]
+\bibitem{doc-policy}$[[$Software Documentation Structure$]]$ and $[[$GlueX Offline FAQ$]]$
+\bibitem{b1pi-auto}$[[$Weekly Tests of GlueX Software$]]$
+\bibitem{halld-file-format}$[[$GlueX Offline Meeting, August 10, 2010$]]$ and $[[$GlueX Offline Meeting, August 24, 2010$]]$
 \bibitem{auto-smear}https://mailman.jlab.org/pipermail/halld-offline/2010-August/000348.html
 \end{thebibliography}
 }
