@@ -1,0 +1,355 @@
+# May 18, 2010 
+
+%# '''New release''' Mark put together a new release, [https://halldsvn.jlab.org/repos/tags/sim-recon-2010-05-17/RELEASE sim-recon-2010-05-17], announced yesterday.
+%# '''Contact with Dmitri''' David and Mark have been in email contact with Dmitri Romanov about prospective work on a calibration database.
+\I {\bf Writing out tracking results}. Implemented. HOWTO save tracking results to an HDDM or EVIO file for later playback written. (David)\ref{[[HOWTO save tracking results to an HDDM or EVIO file for later playback]]}.
+\I {\bf Offline Computing change request} has been entered in the official project software. (Mark, Eugene)
+\I {\bf GlueX Software Workshop}. Theme: parallel computing. Subcommittee formed David, Beni, Simon, and Sascha. To be held in December or January. (David)
+\I {\bf GlueX Computing Plan}. Effort started to revise estimates of resource requirements. Early stages. (Mark)
+\I {\bf Custom matrix classes} to speed up tracking.\ref{Simon's talk} (Simon)
+
+# June 1, 2010
+
+%# '''Can we make binaries-in-path a requirement?''' Yes. See [https://mailman.jlab.org/pipermail/halld-offline/2010-May/000285.html Mark's email message]. This issue was raised by the desire to remove a hard-wired path reference in the makefile for sim-recon/src/libraries/HDDM.
+\I {\bf Warning-Free code}. It's the law.
+%# '''<math>b_1\pi</math> analysis being run in a cron job.''' Mark has David's script running weekly. It runs on all three platforms presently.
+%#* David mentioned that the next step would be to create histograms. Right now a root tree is produced but the only information available is that the reconstruction ran to completion. He has a script that will produce histograms and mail out the results. He and Mark will create an example that runs on the cron job output.
+\I {\bf HOWTO do a kinematic fit for etapi0p events} written (Blake)\ref{[[HOWTO do a kinematic fit for etapi0p events]]}
+# '''BMS document linked from software wiki page'''. David pointed Mark to the appropriate [http://argus.phys.uregina.ca/cgi-bin/public/DocDB/ShowDocument?docid=473 GlueX Doc] and it is now linked from [[Offline Software|the Offline Software wiki page]]. There are parts of this that need revision. No volunteers were found.
+# '''[[HOWTO use a pre-built release]]'''. This HOWTO was [https://mailman.jlab.org/pipermail/halld-offline/2010-May/000291.html announced last week] on the email list. It describes our "standard procedure" for using a release of sim-recon that someone else has built.
+# '''Release method for DAQ Group software is broken'''. Elliott told us that there are aspects of the current release method that cannot possibly work. This issue will be raised at the [[Trigger/DAQ/Monitoring/Controls Meetings|online meeting]] at some point.
+
+==Review of minutes from the last meeting==
+
+We reviewed [[GlueX Offline Meeting, May 18, 2010#Minutes|the minutes from the May 18 meeting]].
+
+* '''ROOTSpy'''. The student from CNU that was slotted to work on ROOTSpy has reported for work, although Mark opined that this was an announcement more appropriate for the Online Meeting.
+* '''[[HOWTO set up the GlueX environment|Setting up the GlueX software environment]]'''. We reached a consensus that Mark should decide on what to recommend to the Collaboration as a best practice.
+* '''[[Progress toward constructing our own matrix classes]]'''. Since the last meeting Simon has tried his new matrix classes in the Kalman fitter. He sees very nice improvement in execution times.
+* '''Hardware/Connection tracking database'''. Mark suggested that this issue should probably be taken up at the Online Meetings.
+
+==News from IU==
+
+As reported by Matt Shepherd:
+
+* Dan Bennett is making nice progress on the BCAL work.  The first goal is move the "MCResponse" to the mcsmear application and also handle summing electronics channels that is presently in the design.  That effort is somewhat complicated since it breaks the nice 1 to 1 or 1 to 2 (ends) mapping from GEANT to reconstruction.  We are handling this by renaming all objections in the data model:  sipmCell, sipmLayer, sipmSector, and fadcCell, fadcLayer, fadcSector.  This will undoubtedly take some refining, I'm sure you'll be hearing updates from us in future meetings.
+* On the amplitude analysis side of things, Matt Shepherd has a set of amplitudes from Adam Szczepaniak to do mock analysis on pi_1 -> rho pi channel.  Matt hopes to have an example in place by the end of the week.
+
+==GlueX Software Workshop==
+
+At the last meeting, the idea of a [[GlueX_Offline_Meeting%2C_May_18%2C_2010#GlueX_Software_Workshop|GlueX Software workshop]] was discussed. Since then the CLAS12 Workshop was held; there were about 45 participants on the first day, about 30 attended the tutorials on the second day. Also David called a meeting of the committee that was formed, and discussions of how the workshop might be organized has started with other parties, notably Eugene Chudakov, Ed Brash, and Ole Hansen. An expanded committee will meet this week. There are a lot of ideas being discussed at present; the meeting should sort some of them out.
+
+==Bug/issue tracking software==
+
+Elliott outlined our options:
+* [http://www.mantisbt.org/ Mantis]
+* [http://drupal.org/project/casetracker Drupal plug-in]
+* [http://trac.edgewall.org/ Trac]
+
+Mantis has been installed on halldnew.jlab.org, but is not currently visible off-site. We are waiting for Marty Wise of CNI to implement LDAP authentication before they will allow access from outside the Lab. Sherman White of CNI has installed a Drupal instance for us to test, but no one has messed with it yet. This is also only available inside the firewall.
+
+Right now it looks like Mantis is the leading candidate. It has a lot features, many more than we are actually looking for, but still has an intuitive user interface. So that leaves room for growth, while not defeating our purposes.
+
+==Effect of a more uniform field==
+
+David and Simon are doing studies aimed at developing requirements should we decide to re-design the solenoid magnet.
+
+* Simon is looking at using a smaller step size in the swimming, although he thinks that the effect of material dictates a smaller step size that dictated by the non-uniformity in magnetic field.
+* David will look at the efficiency of track finding with a more uniform field.
+
+Mark reported that he spoke with Eugene after the last GlueX Meeting. Mark thinks that Eugene wants to see whether a non-swimming approach to track fitting is useful, at least in some contexts, if the field was much more uniform. This would greatly increase reconstruction speed.
+
+==Action item review==
+
+We went over [[Action Items From Hall D Offline Meetings|the list]]. People were reminded of things that they signed up to do.
+
+==New Action Items==
+
+# Clean up coding conventions wiki page.
+# Add analysis of b1pi output to cron jobs -> Mark and David
+# Decide on best practice for environment set-up -> Mark
+# Find a volunteer to revise the BMS document.
+# Do studies of a more uniform magnetic field.
+
+----
+
+Recorded by [[User:Marki|Mark Ito]], 2 June 2010
+
+
+# June 15, 2010
+
+=Minutes=
+
+'''JLab''': Mark Ito (chair), David Lawrence, Sascha Somov, Simon Taylor, Elliott Wolin, Beni Zihlmann
+
+==Announcements==
+
+# We looked at the new [[Sim-Recon Tagged Releases]] wiki page.
+# We reviewed Richard's recent wiki page on [[How HDGeant defines time-zero for physics events]].
+
+==Review of minutes from the last meeting==
+
+We went over [[GlueX_Offline_Meeting%2C_June_1%2C_2010#Minutes|them]]. No significant comments.
+
+==GlueX Software Workshop==
+
+David told us that he has called an organizational meeting on Thursday. Ole Hansen, Ed Brash and David Heddle will attend. Simon, Beni, Sascha may also show up.
+
+==Bug/issue tracking software==
+
+The system is up and seems to be working. Elliott solicited feedback from non-JLab collaborators and got some: system looks OK, but there are too many emails. Elliott explained that that was kind of on purpose for the test.
+
+We will deploy the "real" version, with a less verbose email configuration, for use and testing among a small group.
+
+==Test of JANA on a 48-core machine==
+
+David showed some nice results he got from running multi-threaded analysis code on a demo unit that the Lab has obtained recently. See [[Media:20100615_48cores.pdf|his slides]] for details. Scaling of performance with large number of cores looks very, very promising. Some versions of the analysis code seem to scale better than others in this initial look. More work is needed to understand the behavior.
+
+==Standard math library, matrices, vectors, etc.==
+
+We discussed whether there was a need to pick a standard package for standard mathematical objects, much like CERNLIB in the old days. Mark has pointed out that we have already de-facto picked ROOT as the provider of these services, despite the fact that typedef'ed proxies are actually referenced in the code. CLHEP is another candidate for this function; it is used by GEANT4. The consensus was that an official stance on the issue was not necessary. As code that uses other packages (CLHEP in particular) is introduced, then the new service packages can be required as auxiliary software if the case is compelling.
+
+==New Action Items==
+
+# Add comments to sim-recon release page. -> Mark
+# Announce field-uniformity GlueX note. -> Simon
+# Give a plug-in tutorial to the group -> David
+# Release JANA 0.6.2 -> David
+# Put old action items into MantisBT. -> Sascha
+# Bring up DAQ software release method at an online meeting. -> Elliott
+# Configure MantisBT for real use. -> Elliott
+
+
+# June 29, 2010
+
+=Minutes=
+
+
+Present:
+* '''IU''': Dan Bennett, Ryan Mitchell;, Matt Shepherd
+* '''JLab''': Mark Ito (chair), David Lawrence, Lubomir Pentchev, Yi Qiang, Sascha Somov, Simon Taylor, Elliott Wolin, Beni Zihlmann
+
+==Announcements==
+
+# '''Action Item archive.''' Sascha created a [[Action Items Archive|wiki page]] that captures the already completed action items.
+# '''JANA 0.6.2.''' David has release a new version of JANA. See [https://mailman.jlab.org/pipermail/halld-offline/2010-June/000314.html his announcement] for details.
+# '''Calibration and Conditions Database specification.''' David has put a first draft on the DocDB. He and Mark will review it and release a draft to the collaboration.
+# '''Grid Client Tools Meeting.''' Mark reported in a meeting held to discuss the installation of OSG grid client tools at JLab. See [http://markito3.wordpress.com/2010/06/23/notes-on-grid-client-tools-meeting/ his notes] for details.
+# '''BCAL Software Update.''' Dan showed [http://argus.phys.uregina.ca/gluex/DocDB/0015/001552/001/BCAL_Software_progress_062910.pdf a slide] describing recent work on BCAL hit generation. This involved a structural reworking, moving the code from the reconstruction library to the smearing program.
+# '''CHEP abstracts accepted.''' David announced that all three of the abstracts he submitted to the Computing in High Energy Physics conference have been accepted for oral presentations. He will talk on an overview of GlueX software, ROOTSpy, and GlueX event reconstruction.
+
+==Review of minutes from the last meeting==
+
+We reviewed [[GlueX Offline Meeting, June 15, 2010#Minutes|the minutes]] from last time.
+
+* '''Software Workshop.''' David reported that the initial organizational meeting was held. A proposal to the JSA Initiative committee has been written up. The workshop will 
+be held between the semesters, sometime in December or January.
+* '''Test of JANA on a 48-core machine.''' David reported that work continues. There seems to be two modes of behavior with the Kalman filter code, one where scaling is observed and the other where only about 30% of the capacity is utilized.
+
+* '''Standard math library, matrices, vectors, etc.''' Elliott reported that Hall B is putting together a standard math library for Java.
+
+==MantisBT==
+
+Elliott announced that the [https://halldnew.jlab.org/mantisbt/ issue tracking software] is ready to go into production. JLab folks have been using it recently to test its behavior and provide feedback on how to configure the software. Elliott has imported all of the outstanding action items from the wiki page as issues in the new system. He will send out an announcement on how to register and access the system.
+
+==Action Item Review==
+
+We used Mantis to view recently resolved items and items still outstanding.
+
+
+# July 13, 2010
+
+=Minutes=
+
+* '''IU''': Dan Bennett, Jake Bennett, Ryan Mitchell, Matt Shepherd
+* '''JLab''': Hovanes Egiyan, Mark Ito (chair), David Lawrence, Lubomir Pentchev, Yi Qiang, Sascha Somov, Simon Taylor, Elliott Wolin, Beni Zihlmann
+
+==Announcements==
+
+# '''jlabm1.jlab.org'''. The Computer and Network Infrastructure (CNI) Group has deployed a Mac-Mini on the the JLab Common User Environment (CUE). It is running Darwin with an Intell processor. It is available for log-in just like other CUE systems.
+#* Mark will send around the email announcing this deployment.
+# '''Grid certificates granted'''. Sandy Philpott issued DOE grid certificates to Ryan and Jake recently, although there was a glitch in the details of Jake's.
+#* Mark will check into creation of computer accounts for Dan and Jake.
+# '''PID FOM'''. IU had reported some confusing in interpreting the particle ID figure of merit produced by the reconstruction. Simon remarked that the current code is not the final word on PID. Simon and David are looking at it now. IU may take an independent look at the problem as well.
+
+==Review of minutes from the last meeting==
+
+We went over [[GlueX_Offline_Meeting%2C_June_29%2C_2010#Minutes|the minutes]].
+
+* David has been talking to Ed Brash on further planning for the Software Workshop.
+* The 48-core machine on loan to the Lab will become available to us again soon. It will be here another two weeks.
+
+==JANA plugins==
+
+David gave a concise introduction to how plugins are used in the JANA framework. See [[Media:20100713_plugins.pdf|his slides]] for details. They are used extensively in several contexts in the current system and allow a way to manage different projects and code sets all without changing the fundamental executable.
+
+David will get back to us with the location of existing documentation (beyond the talk presented).
+
+==New Action Items==
+
+# Forward email announcing jlabm1 to offline group. -> Mark
+# Check into JLab computer account creation for Dan Bennett and Jake Bennett. -> Mark
+# Check into JANA plugin documentation. -> David
+
+
+# July 27, 2010
+
+=Minutes=
+
+* '''CMU''': Curtis Meyer
+* '''JLab''': Andrew Blackburn, Hovanes Egiyan, Mark Ito (chair), Yi Qiang, Sasha Somov, Simon Taylor, Elliott Wolin, Beni Zihlmann
+
+==Announcements==
+
+* '''[https://mailman.jlab.org/pipermail/halld-offline/2010-July/000327.html SIMD-enabled code disabled]''': But only for 32-bit Linux machines. The problem seem to be a bug in version 4.1.2 gcc compiler which is the default for the Lab's desktop Linux boxes. The code does not have a problem on any other platform.
+* '''Make "docs" area of subversion repository require authentication on checkout''': We are not going to do this.
+
+==Review of minutes from the last meeting==
+
+We reviewed the [[GlueX_Offline_Meeting%2C_July_13%2C_2010#Minutes|minutes of the July 13 Offline meeting]].
+
+* '''OSG Toolkit''': Mark mentioned that Richard Jones has written [http://zeus.phys.uconn.edu/UConn-OSG/client-services.html the documentation on the OSG client software] that was requested by IT Division before opening the necessary network ports at the Lab.
+* '''Software Workshop''': David reported that the proposal is due to JSA next Friday. It has been circulated among the committee and the final draft is waiting on some numbers from Ed Brash.
+* '''48-core machine''': It is gone now. David ran some stuff, and captured some performance counters. There is a lot of data there, next step: analysis.
+* '''Another plug-in trained collaborator''': Working from David's talk from last week, Beni was able to write one of his own. We still need a HOWTO on the subject.
+
+==Event Display==
+
+Andrew gave us a demo of the new event display. It is pure Java and is constructed within Dave Heddle's bCNU framework. See [[HOWTO ded: Install & Run|his HOWTO]] for instructions on how to get and run it.
+
+He showed us a few events. The code reproduced the views available in hdview2 and adds another for the BCAL.The framework provides many useful features, such as a heads up display, zooming, multiple views in a single frame, etc. Currently, the geometry is hard-coded into the routines.
+
+Lots of feedback was offered on a variety of features.
+
+We veered briefly into a discussion of HDDM vs. EVIO (as we often do). We will have to discuss our attitude toward these (and other for that matter) formats soon.
+
+==Generalized particle gun==
+
+Mark walked us through [https://mailman.jlab.org/pipermail/halld-offline/2010-July/000330.html his recent email] announcing a simple perl-based approach to a script driven single particle gun. Although this functionality is already present in HDGeant, having all particle kinematics under script control allows for arbitrary variation from event to event, e. g., the event vertex can be moved under script control. The output is HDDM-conforming xml and thus can be converted to an HDDM file for input to hdgeant, the conversion done with existing tools.
+
+==Documentation Policy==
+
+Mark reviewed [[Software Documentation Structure|a wiki page]], from last March, outlining a structure for our documentation and suggested that we adopt it officially. Although the content is nothing more than common sense, having an agreed upon structure will help frame documentation discussion/decisions in the future. One component that needs to be introduced is a GlueX Offline FAQ. Mark agreed to start on this.
+
+No objections were offered and the suggestion was adopted.
+
+==GlueX shell environment set-up policy==
+
+There are two methods that exist to set-up the GlueX environment for individuals. One (setenv.csh) captures a working environment and allows one to reproduce it faithfully in the future. The other (gluex_env.csh) respects key choices made in the current environment, supplies default values for those not defined, and defines others based on the key variables. The former is useful for reproducing results, the latter for first-time environment set-up or non-standard configurations. As such Mark thought that in this case we should support both approaches (not much work really), and document each. No objections were raised.
+
+==Action Item Review==
+
+We reviewed [https://halldweb1.jlab.org/talks/2010-07/recently_resolved_July_27.html recently resolved issues] and [https://halldweb1.jlab.org/talks/2010-07/unresolved_July_27.html those outstanding].
+
+==New Action Items==
+
+# Write a HOWTO on plug-in's in JANA -> David
+# Schedule an HDDM/EVIO discussion -> Mark
+# Write the GlueX Offline FAQ -> Mark
+
+
+# August 10, 2010
+
+=Minutes=
+
+'''JLab''': Mark Ito (chair), Richard Jones, David Lawrence, Sascha Somov, Simon Taylor, Beni Zihlmann
+
+==Announcements==
+
+* '''New release, sim-recon-2010-07-28'''. Mark mentioned the [https://mailman.jlab.org/pipermail/halld-offline/2010-July/000335.html new release], announced almost two weeks ago. No comments on usability one way or another (no news = good news?).
+* '''b1pi analysis in cron job'''. Mark showed the plots that are now produced automatically on a weekly basis. They show momentum distributions for positive pions, negative pions, protons and photons as well as angular distributions for the the same set of particles in <math>b_1\pi</math> events. Both the script to do the reconstruction and the ROOT macro to make the plots are from David. Mark asked whether there was sentiment for mailing out the plots to the collaboration for review regularly; there was not. Does not mean that he won't do it anyway.
+
+==Review of minutes from the last meeting==
+
+* '''OSG Toolkit installation'''. The IT Division has still not opened the ports necessary for the OSG client programs to work at the Lab. Mark will ping them on the issue.
+* '''Software Workshop'''. David reported that the proposal to the JSA Initiatives Fund for the Software Workshop was submitted. We will have to wait until the first part of November before we hear a response.
+** Richard noted that he has noticed some inconsistencies in the handling of JSA Initiative Fund proposals that include money for experimental equipment.
+* '''Event Display'''. Andrew Blackburn will give an update of his work at the next Online Meeting.
+
+==Hall-D File Formats==
+
+David gave a overview of various event file formats, how we are using them, and how we should be using them. See [[Media:20100810_fileformat.pdf|his slides]] for the details. The slide titles were:
+* HDDM
+* XML vs. C++
+* EVIO
+* Banks vs. C++
+* Why make a HDDM to EVIO converter?
+* Why not make hdgeant write out EVIO formatted data?
+* Why File Format is mostly a non-issue
+* Arguments for switching to a single format
+* Hall-D Data Flow
+
+Discussion was wide ranging and went on for the better part of two hours. We talked about ROOT, C++, JAVA, Service oriented architectures, web services, object persistency, crates, slots, channels, and private jets. The only standard topic omitted was Vaseline®.
+
+David's position on file formats can be summarized in items from two of his slides:
+* '''Why file format is mostly a non-issue'''. Two of the bullets in this slide state:
+** Most of the software written for Hall-D will be based on C++ objects in memory.
+** Framework was designed from day 1 to accommodate multiple formats so that ALL DANA programs would be file format agnostic
+* '''Arguments for switching to a single format'''. These are described as falling into two categories, "unsound" and "invalid".
+
+As long as the objects are the primary things that we need to worry about, a data format needs only express the information that passes from object to object. The important thing is that messages get sent with good fidelity, not so much how they are written. We just need to have front-ends that understand a variety of formats.
+
+Mark argued on the other side: that we need to be careful about how event data is expressed outside of running programs or during interprocess communication and further that objects in memory only exist for a short period of time, and are usually difficult to reproduce (weeks, months, years later) in detail. Standardization on a format makes it possible for other tools to be used to analyse the same data using a different set of objects or even a different language. In this view the objects operate on the data and are not the fundamental "things".
+
+In summary the conflict is between a data-centric vs. object-centric view. HDDM represents a data-centric view. JANA represents a object-centric view. We did not resolve which philosophy we should adopt as collaboration policy.
+
+==New Action Items==
+
+# Ping IT Division on Globus ports -> Mark
+
+
+# August 24, 2010
+
+=Minutes=
+
+'''JLab''': Craig Bookwalter, Hovanes Egiyan, Mark Ito, David Lawrence, Yi Qiang, Sascha Somov, Simon Taylor, Beni Zihlmann
+
+==Announcements==
+
+# '''FAQ''': Mark showed the new [[GlueX Offline FAQ]]. Right now it is a skeleton. There are two main divisions: GlueX-related and JLab-related. Feel free to add your questions and answers.
+# '''gcc 4.4''': David announced that it has been installed on the 32-bit farm nodes.
+
+==Review of minutes from the last meeting==
+
+We went over the [[GlueX Offline Meeting, August 24, 2010#Minutes|minutes from the August 10th meeting]].
+
+* '''New release''': We are due for a new one. David thought that once a month is a good schedule to keep on.
+* '''Data file formats''':
+** Beni remarked that if we do not agree on a standard file format, then we have given up the idea of the data definition being done in one place and then having that definition quasi-automatically propagated to places where the data is accessed. David answered that that idea could not and should not be implemented in practice in any case, because in that construction the objects in the programs would have to conform to an external data format, and it is the objects that should take precedence in the design of our software.
+** Sasha wondered whether we not ought to go to using EVIO exclusively as CLAS12 is planning to do. David wondered why he thought it necessary to have a single data format.
+** David argued that the issue of data format is not an issue: no one has complained about it or is trying to work on it. Mark answered that just because no one has complained does not mean that there are not efficiencies and simplifications in software development and maintenance that are worth pursuing.
+** Beni remarked that when we get around to writing output files from reconstruction, definition of the format should be tightly controlled and well documented. God-like authority was mentioned.
+** Mark thought that we will have to re-raise this issue again in the future.
+
+==Collaboration meeting offline software agenda==
+
+We discussed talks to be given at the upcoming meeting. The current proposed line-up:
+
+# Summary: Mark
+# Event display: Elliott
+# Tracking Progress: Simon
+# TBD: David
+
+In the course of discussion, Sascha suggested a topic for a future offline meeting: the BCAL summing scheme.
+
+==HDGEANT auto-smearing==
+
+David explained the new feature of HDGEANT that runs mcsmear automatically after events are generated to produced a file with experimental resolution introduced. He guided us through the new section of the [http://clasweb.jlab.org/websvn/prod/filedetails.php?repname=GlueX&path=%2Ftrunk%2Fsim-recon%2Fsrc%2Fprograms%2FSimulation%2FHDGeant%2Fcontrol.in "control.in" file] that documents the new options.
+
+==Warnings in nightly builds==
+
+We have been getting emails about these lately. David will look into it.
+
+==Action Item Review==
+
+We went over the [https://halldweb1.jlab.org/talks/2010-08/resolved_08-24.html recently resolved items] along with [https://halldweb1.jlab.org/talks/2010-08/unresolved_08-24.html those outstanding].
+
+Some other items were suggested. For these, see the next section of these minutes.
+
+==New Action Items==
+
+# Make a new sim-recon release.
+# Re-raise the issue of data format at a future offline meeting.
+# Eliminate warnings in nightly builds from experimental code.
+# Build CERNLIB on MacOS 10.6 (64-bit).
+# Update tagger hall geometry.
