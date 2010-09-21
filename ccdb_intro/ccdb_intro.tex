@@ -1,0 +1,273 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Introduction to the Calibration Database}
+\subtitle{Outline of the Design}
+\author[M.\ Ito]{Mark M.\ Ito}
+\date{September 21, 2010}
+
+\begin{document}
+
+\f{\titlepage}
+
+%============== Table Definitions  =========================================
+\f{
+\ft{Table Definitions}
+
+\bi
+\I Database tables express objects and relations among components in
+the problem space being addressed
+\I Developing, applying, and
+modifying calibration constants for the various detector components.
+\I There are several times associated with any set of data.
+  \bi
+  \I Time that the data was taken
+  \I Various times at which they were calibrated
+  \I Various times at which a declaration is made about which
+  constants should be used for a given set of data
+  \I Only this latter
+meaning is relevant for this database discussion
+  \ei
+\ei
+}
+
+\f{
+\ft{Tables and their relations}
+
+\bc
+\includegraphics[width=2.8in]{ccdb.png}
+\ec
+
+{\tiny Arrows point to table being referenced. Table at source of arrow
+  contains keys identifying a row in the referenced
+  table.}
+}
+
+\f{
+\ft{Definition of \emph{assignment} table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\bf Column Name & \bf Column Type \\
+\hline
+id & int \\
+time & timestamp \\
+runRangeId & int \\
+constantSetId & int \\
+variationId & int \\
+commentId & int \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\f{
+\ft{Definition of \emph{runRange} table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\bf Column Name & \bf Column Type \\
+\hline
+id & int \\
+name & varchar \\
+runMin & int \\
+runMax & int \\
+commentId & int \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\f{
+\ft{Definition of \emph{constSet} table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\bf Column Name & \bf Column Type \\
+\hline
+id & int \\
+constTypeId & int \\
+data & blob \\
+commentId & int \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\f{
+\ft{Definition of \emph{variation} table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\bf Column Name & \bf Column Type \\
+\hline
+id & int \\
+name & varchar \\
+parentId & int \\
+parentTime & datetime \\
+commentId & int \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\f{
+\ft{Definition of \emph{constType} table.}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\bf Column Name & \bf Column Type \\
+\hline
+id & int \\
+name & varchar \\
+rows & int \\
+columns & int \\
+directoryId & int \\
+commentId & int \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\f{
+\ft{Definition of \emph{directory} table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\bf Column Name & \bf Column Type \\
+\hline
+id & int \\
+name & varchar \\
+parentId & int \\
+commentId & int \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\f{
+\ft{Definition of \emph{columnName} table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\bf Column Name & \bf Column Type \\
+\hline
+constTypeId & int \\
+name & varchar \\
+number & int \\
+type & enum \\
+\hline
+\end{tabular}
+\end{center}
+}
+
+\f{
+\ft{Logic of the tables}
+\bi
+\I Central table is created as a join of the assignment, runRange,
+constantSet, constantType, and variation tables.
+\I For each row of the assignment table one can construct:
+  \bi
+  \I constantType.id
+  \I runRange.runMin
+  \I runRange.runMax
+  \I constSet.data
+\ei
+where constantType.id is the primary index of the constantType
+table.
+\I E.\ g., TOF/offset, from run 10,000 to 12,000, ``the constants''
+\I Diadvantages:
+  \bi
+  \I Only one set of calibration constants for a given run can exist at one time.
+  \I Changes made to the constants are lost.
+  \I Run ranges must be non-overlapping or ambiguities about which constants should be supplied would arise.
+  \ei
+\ei
+}
+
+\f{
+\ft{Add run range overlaps, history}
+\bi
+\I For the next step we add the time of constant set assignment:
+\begin{itemize}
+\I constantType.id
+\I runRange.runMin
+\I runRange.runMax
+\I constSet.data
+\I constantCorr.time
+\end{itemize}
+\I E.\ g., TOF/offset, from run 10,000 to 12,000, ``the constants'', 12/25/2015, noon
+\I Now the run range data can specify overlapping ranges.
+\I In case of
+overlap the constants that go with the most recent time are taken.
+\I Never delete old assignments $\Rightarrow$ history mechanism:
+  \bi
+  \I Constant set assignments that were valid at any given time can be reproduced by only accepting rows that
+existed before that time.
+  \I In this way the state of the table at
+previous times is preserved and can be accessed.
+  \ei
+\ei
+}
+
+\f{
+\ft{Add variations}
+\bi
+\I We add another column marking a variation of the assignments:
+\begin{itemize}
+\I constantType.id
+\I runRange.runMin
+\I runRange.runMax
+\I constSet.data
+\I constantCorr.time
+\I variation.name
+\end{itemize}
+\I E.\ g., TOF/offset, from run 10,000 to 12,000, ``the constants'', 12/25/2015, noon, ``final calibration commissioning Fall 2015''
+\I Now constants sets are assigned only for particular variations
+\I Variations are in an hierarchy
+\I Each variation will only deal with a relatively small number of constant set assignments.
+\I If runs or
+constant types are requested of a variation that are not assigned
+within that variation, then the parent variation is queried,
+recursively, until a valid constant set assignment is found.
+\ei
+}
+
+\f{
+\ft{Constant Types}
+\bi
+\I Constants stored as ``blobs''
+\I Internal blob is a 2-D array
+\I Each column has a particular type: float, int, string, etc.
+\I Column labels given in columnName table
+\ei
+}
+
+\f{
+\ft{Directories}
+\bi
+\I The constType.id is the primary key for the constType table.
+\I User requests come in the form a full "path" specifying the name(s) of one or more nested directories and constant type. For example:
+\bi
+\I CDC/vdrift
+\I TOF/FADC/pedestal/method1
+\I BCAL/MeVperADCCount/method1
+\ei
+\I Directory table contains information on the hierarchy.
+\ei
+}
+
+\end{document}
+
+% end of latex file
