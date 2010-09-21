@@ -9,4 +9,4 @@ ccdb_intro.pdf: ccdb_intro.tex ccdb_intro.png
 	pdflatex $<
 
 clean:
-	$(RM) *.aux ccdb_intro.pdf *.log *.tmp ccdb.png
+	$(RM) *.aux ccdb_intro.pdf *.log *.tmp ccdb_intro.png *.snm *.nav *.toc *.out
