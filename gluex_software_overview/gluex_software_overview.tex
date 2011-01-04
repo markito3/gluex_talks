@@ -22,61 +22,116 @@
 \f{\titlepage}
 
 \f{
-\bi
-\I Geometry
+\ft{Geometry}
   \bi
   \I implemented in XML: HDDS
   \ei
-\I Simulation
-\bi \I GEANT3-based: HDGEANT
-\bi \I Geometry information auto-coded into fortran code from HDDS information
-\I Hits coded separately
-\I Output in HDDM format
-\ei \I Experimental resolution added in separate stage: hdgeant
-\bi \I HDDM in, HDDM out
-\ei \ei \I Reconstruction
-\bi \I JANA
-\bi \I multi-threaded: each thread a separate event stream
-\I algorithms for different detectors implemented as "factories"
-\ei \I ROOT used for some general utilities
+}
+
+\f{
+\ft{Simulation}
+\bi
+\I GEANT3-based: HDGEANT
+  \bi
+  \I Geometry information auto-coded into fortran code from HDDS information
+  \I Hits coded separately
+  \I Output in HDDM format
+  \ei
+\I Experimental resolution added in separate stage: hdgeant
+  \bi
+  \I HDDM in, HDDM out
+  \ei
+\ei
+}
+
+\f{
+\ft{Reconstruction}
+\bi
+\I JANA
+  \bi
+  \I multi-threaded: each thread a separate event stream
+  \I algorithms for different detectors implemented as "factories"
+  \ei
+\I ROOT used for some general utilities
 \I Hooks for user code
-\bi \I user's class inherits from abstract base class
-\I must be registered with the framework
-\I multiple user classes possible
-\ei \I Plug-in mechanism
-\bi \I e. g., define user class at run time
-\ei \ei \I Partial Wave Analysis
-\bi \I AmpTools
+  \bi
+  \I user's class inherits from abstract base class
+  \I must be registered with the framework
+  \I multiple user classes possible
+  \ei
+\I Plug-in mechanism
+  \bi
+  \I e. g., define user class at run time
+  \ei
+\ei
+}
+
+\f{
+\ft{Partial Wave Analysis}
+\bi
+\I AmpTools
 \I Ruby-PWA
-\ei \I Calibration Database
-\bi \I relational database
-\I based on CLAS experience
+\ei
+}
+
+\f{
+\ft{Calibration Database}
+\bi
+\I relational database
+\I based on CLAS experience (Hall B, JLab)
 \I improvements over that design
-\ei \I Data Format
-\bi \I Raw data: EVIO
+\ei
+}
+
+\f{
+\ft{Data Format}
+\bi
+\I Raw data: EVIO
 \I Simulation output: HDDM
 \I Reconstruction output:
-\bi \I HDDM
-\I EVIO
-\I ROOT trees
-\ei \ei \I Utilities
-\bi \I XML parsing: Xerces
+  \bi
+  \I HDDM
+  \I EVIO
+  \I ROOT trees
+  \ei
+\ei
+}
+
+\f{
+\ft{Utilities}
+\bi
+\I XML parsing: Xerces
 \I Source code management: subversion
 \I Source code documentation: doxygen
 \I Building scripts: GNU Make
 \I Database: MySQL
 \I General documentation
-\bi \I GlueX Notes: DocDB
-\I Webpages: mediawiki
-\ei \ei \I Computing
-\bi \I Simulation
-\bi \I Grid
-\ei \I Reconstruction
-\bi \I JLab Farm
-\ei \I PWA
-\bi \I Grid
-\I GPU farms\ei \ei \ei 
+  \bi
+  \I GlueX Notes: DocDB
+  \I Webpages: mediawiki
+  \ei
+\ei
 }
+
+\f{
+\ft{Computing}
+\bi
+\I Simulation
+  \bi
+  \I Grid
+  \ei
+\I Reconstruction
+  \bi
+  \I JLab Farm
+  \ei
+\I PWA
+  \bi
+  \I Grid
+  \I GPU farms
+  \ei
+\ei
+}
+
 \end{document}
 
 % end of latex file
