@@ -127,7 +127,17 @@
 \ft{Data Format}
 \bi
 \I Raw data: EVIO
+  \bi
+  \I native CODA format
+  \ei
 \I Simulation output: HDDM
+  \bi
+  \I Hall Data Description Model
+  \I A compressed XML
+  \I Retains schema-like template at beginning of each file (uncompressed)
+  \I C-based API
+  \I C++ API in testing
+  \ei
 \I Reconstruction output:
   \bi
   \I HDDM
