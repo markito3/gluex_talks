@@ -25,7 +25,15 @@
 \f{
 \ft{Geometry}
   \bi
-  \I implemented in XML: HDDS
+  \I Implemented in XML
+  \I Hall D Detector Specification (HDDS)
+  \I XML elements and attributes closely follow GEANT defined shapes and their parameters
+  \I Goal: keep the geometry in one place, use in
+    \bi
+    \I Simulation
+    \I Reconstruction
+    \I Event display
+    \ei
   \ei
 }
 
@@ -34,14 +42,15 @@
 \bi
 \I GEANT3-based: HDGEANT
   \bi
-  \I Geometry information auto-coded into fortran code from HDDS information
-  \I Hits coded separately
-  \I Output in HDDM format
+  \I Geometry information auto-coded into FORTRAN code from HDDS information
+  \I Hits ({\it i. e.}, digitzation) coded separately
+  \I Output in Hall Data Description Model format (HDDM, see slide below)
   \ei
-\I Experimental resolution added in separate stage: hdgeant
+\I Experimental resolution added in separate stage: mcsmear
   \bi
   \I HDDM in, HDDM out
   \ei
+\I Effort started to transition to GEANT4
 \ei
 }
 
@@ -68,19 +77,22 @@
 }
 
 \f{
-\ft{Partial Wave Analysis}
+\ft{Partial Wave Analysis (PWA)}
 \bi
+\I Achieving physics goals of GlueX depends critically on PWA.
 \I Collaborative Research: Open Access Amplitude Analysis on a Grid
   \bi
   \I NSF-funded effort
-  \I CMU, IU, UConn
+  \I Carnegie Mellon, Indiana, Connecticut
   \ei
 \I AmpTools 
   \bi
+  \I PWA toolkit
   \I Indiana University
   \ei
 \I Ruby-PWA
   \bi
+  \I PWA toolkit
   \I Carnegie Mellon University
   \ei
 \ei
@@ -89,9 +101,25 @@
 \f{
 \ft{Calibration Database}
 \bi
-\I relational database
-\I based on CLAS experience (Hall B, JLab)
-\I improvements over that design
+\I Relational database
+\I Based on CLAS experience (Hall B, JLab) with improvements
+\I Complete version history, with version choice at API level
+\I Facility for private versions, with history
+\I Tagging facility
+\I Interfaces:
+  \bi
+  \I C++ API
+  \I Web
+  \I Command line
+  \I Unix-like shell (CCDB shell) for browsing directory structure
+  \ei
+\I Technology
+  \bi
+  \I MySQL
+  \I C++
+  \I JQuery
+  \I Python
+  \ei
 \ei
 }
 
