@@ -1,0 +1,160 @@
+GlueX Offline Meeting, September 21, 2010
+
+      * Writing out error matrices to an HDDM file. David has implemented
+        the writing of error matrices from track fits. Working on reading
+        them in is in progress.
+Calibration Database
+
+GlueX Offline Meeting, October 5, 2010
+
+GlueX Offline Meeting, October 19, 2010
+
+     2. OSG client tools. Working with Bob Lukens of CNI, Richard can now
+        successfully run the client tools at the lab. The last bit was to
+        get the necessary ports open through firewall.
+
+EVE: an event display environment
+
+    Dmitry gave us an overview of [30]EVE, the Event Visualization
+    Environment of ROOT. He has some experience using it for the SELEX
+    experiment at Fermilab.
+
+GlueX Offline Meeting, November 2, 2010
+
+Correlating Hits with Tracks
+
+   Beni presented recent changes that are a precursor to being able to
+   correlate reconstructed charged tracks with Monte-Carlo-generated
+   particles by looking at the particle origin of the hits associated with
+   the track.
+
+GlueX Offline Meeting, November 17, 2010
+
+Python encapsulation of C/C++ Code
+
+    Craig gave an overview of his experience doing this with CLAS analysis
+    software. See [38]his slides for details. He used the [39]SWIG package
+    to auto-generate the glue code to make the compiled code available from
+    a Python script.
+
+    We thought of examples where this
+    approach might be used to wrap existing API's:
+      * HDDM
+      * EVIO
+      * the new calibration database routines
+
+[Halld-offline] Minutes, GlueX Offline Software Meeting, Dec. 1, '10
+Mark M. Ito marki at jlab.org
+Wed Dec 1 16:07:52 EST 2010
+
+    * Next message: [Halld-offline] TOF Software Request
+    * Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
+
+Find the minutes at 
+http://www.jlab.org/Hall-D/software/wiki/index.php/GlueX_Offline_Meeting%2C_December_1%2C_2010#Minutes 
+and as text below:
+
+GlueX Offline Meeting, December 1, 2010
+
+FLUKA simulation of neutron flux
+
+Sascha reviewed recent work on simulating radiation damage, especially,
+but not limited to, that from neutrons in Hall D. The original
+motivation was to study damage rates to SiPM's that will be used to
+read-out the BCAL.
+
+* David has eliminated a bunch of warnings that were coming from the
+tracking code.
+
+* David has been working on the simulation apparatus for the Compton
+calorimeter being proposed for the η Primakoff experiment.
+
+GEANT4
+
+David raised the question of converting the Monte Carlo from GEANT3 to
+GEANT4.
+
+GlueX Offline Meeting, December 15, 2010
+
+* Simon announced that he has added time and energy smearing to the
+start counter in mcsmear.
+
+Tagger hall geometry/simulation
+
+Sascha led us through some recent work he has done, documented in a
+[37]recent GlueX Note. 
+The geometry configurations that were used have not been released for
+public consumption yet. See Sascha if you have a need for them.
+
+Random number seed policy
+
+We formed a consensus around using /dev/urandom, at least initially. We
+commissioned Richard to write an appropriate python script that would
+produce a seed on standard output as an initial stab at a more robust
+random seed strategy.
+
+GlueX Offline Meeting, January 12, 2011
+
+Parallelism Workshop
+
+David gave some impressions from last week's [38]Workshop on
+Parallelism in Experimental Nuclear Physics. Fifty five people
+registered and a like number attended. There were lots of interesting
+and informative talks, featured among them talks from folks outside the
+JLab community. See [39]David's email for his summary for the
+participants and a link to the virtual machine that has the hands-on
+examples loaded on it.
+
+Review of IT Readiness for the 12 GeV Era
+
+* need an outline of remarks by all speakers by end of month
+* the review will be around the 2nd week of March
+* Graham will send around a spreadsheet, asking for updates to
+computing requirements from various groups
+* scheduled speakers: Bob Michaels from Hall A, Dennis Weygand from
+Hall B, Mark Ito from Hall D, a representative from Hall C--TBA,
+and Graham with an overview
+
+Changes to TOF Code
+
+Beni described recent changes he has made to the HDDM data model to
+accommodate information from the Monte Carlo about "truth" information
+related to time-of-flight hits. In some cases, new elements were
+introduced to be able to keep both generated and detected information,
+and some elements were expanded to store information about the particle
+producing the hits.
+
+A lot of discussion followed on the general idea of keeping generated
+quantities ("truth") and detected quantities ("hits") separate in our
+analysis. Some of Beni's changes seemed to violate this separation.
+Beni, Mark, and David agreed to meet after the meeting to discuss
+alternate approaches that preserve the information desired, but make
+the above mentioned separation more explicit.
+
+Tracking Issues
+
+Kei presented a list of bugs/anomalies that he has come across in
+running our reconstruction code. See [44]his talk for details. He
+mentioned four items:
+
+0. event processing hangs every ~1000 events for his event topology
+1. pi+ events reconstructed as proton show “spike” in momentum at ~0.5
+GeV/c
+2. some events have direction of momentum “reversed”
+3. values of variables are set to non-physical values when they cannot
+be defined for a given track (leads to side-effects if not checked for
+explicity)
+
+GlueX Offline Meeting, January 26, 2011
+
+Examination of the reconstruction algorithm as inherited from KLOE
+
+    Mark mentioned that he had seen this phrase in the minutes of one of
+    the calorimeter meetings (attributed to Zisis) and he wondered if this
+    was an issue the offline group should be tracking or discussing or
+    hearing about. Ryan commented that Dan Bennett and Matt Shepherd had
+    made improvements to the code, but there are still some mysteries in
+    the code that someone in the collaboration should figure out. Elton
+    mentioned that Regina was starting to look at maintaining the BCAL
+    code. David will check with Regina folks on the status of the effort.
+
