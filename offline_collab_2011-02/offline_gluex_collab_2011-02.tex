@@ -1,0 +1,172 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Status of the Offline Software}
+\subtitle{GlueX Collaboration Meeting}
+\author[M.\ Ito]{Mark M.\ Ito}
+\date{September 10, 2010}
+\institute[JLab]{Jefferson Lab}
+
+\begin{document}
+
+\f{\titlepage}
+
+% May 18, 2010 
+
+\f{
+
+\ft{Progress 1}
+
+\bi
+\I {\bf Writing out tracking results}. Implemented. HOWTO save tracking results to an HDDM or EVIO file for later playback written.\cite{save-tracking} (David)
+\I {\bf Offline Computing change request} has been entered in the official project software. (Mark, Eugene)
+\I {\bf GlueX Software Workshop}. Theme: parallel computing. Subcommittee formed David, Beni, Simon, and Sascha, Ed Brash, and Ole Hansen. To be held in December or January. Proposal to the JSA Initiative committee submitted. (David)
+\I {\bf GlueX Computing Plan}. Effort started to revise estimates of resource requirements. Early stages. (Mark)
+\I {\bf Custom matrix classes} to speed up tracking. See Simon's talk\cite{Simon-on-tracking}. (Simon)
+
+\I {\bf Warning-Free code}. New policy.
+
+\ei
+}
+\f{
+\ft{Progress 2}
+\bi
+
+% June 1, 2010
+
+\I {\bf HOWTO do a kinematic fit for etapi0p events} written\cite{kinematic} (Blake)
+
+\I {\bf HOWTO use a pre-built release} writen (Mark)\cite{pre-built}
+
+\I {\bf Effect of a more uniform field}. Studies done with various fields.\cite{uniform-field} (David, Simon)
+
+% June 15, 2010
+
+\I {\bf Sim-Recon Tagged Releases}. New wiki page.\cite{sim-recon-wiki} (Mark)
+
+\I {\bf How HDGeant defines
+  time-zero for physics events} new wiki page\cite{time-zero} (Richard)
+
+% Bug/issue tracking software==
+
+\I {\bf Test of JANA on a 48-core machine} Scaling of performance observed. Some questions remain.\cite{multi-core} (David)
+
+\I {\bf Standard math library}. Things like matrices, vectors. Not needed yet. (all)
+
+% June 29, 2010
+
+\I {\bf JANA 0.6.2} A new version of JANA.\cite{new-jana} (David)
+
+\I {\bf Calibration and Conditions Database specification} Document exists\cite{ccdb} (David, Mark)
+
+\ei
+}
+\f{
+\ft{Progress 3}
+\bi
+
+\I {\bf Installation of Grid Client Tools at JLab} Agreement in principle. Still need to get Globus ports opened.\cite{grid-tools} (Richard, Mark)
+
+\I {\bf Grid certificates being granted} (Sandy Philpott)
+
+\I {\bf Structure of BCAL Smearing}. A reworking, moving the code from the reconstruction library to the smearing program. (Dan Bennett)
+
+\I {\bf Issue tracking code deployed} MantisBT was chosen. Offline work being tracked with it now.\cite{mantis} (Elliott)
+
+% July 13, 2010
+
+\I {\bf Secrets of JANA plugins revealed} Nice talk.\cite{jana-plugin} (David)
+
+% July 27, 2010
+
+\I {\bf Event Display}. See Elliott's talk. There is a HOWTO, ``ded: Install \& Run''\cite{ded-doc}(Andrew Blackburn)
+
+\I {\bf Generalized particle gun}. Simple perl-based approach to a script driven single particle gun.\cite{perl-particles} (Mark)
+
+\ei
+}
+\f{
+\ft{Progress 4}
+\bi
+
+\I {\bf Documentation Policy} Written down, captures current practices, introduced FAQ\cite{doc-policy} (Mark)
+
+% August 10, 2010
+
+\I {\bf b1pi analysis in cron job}. Plots that are now produced automatically, weekly basis.\cite{b1pi-auto} (David, Mark)
+
+\I {\bf Hall-D File Formats} Lots of discussion recently.\cite{halld-file-format} (all)
+
+% August 24, 2010
+
+\I {\bf HDGEANT auto-smearing}. Run mcsmear automatically, new feature.\cite{auto-smear} (David)
+
+\ei
+
+}
+
+\f{
+\ft{Summary and Remarks\footnote{copied from last time}}
+\bi
+\I Progress in many areas
+\I Major current challenges
+\be
+\I Extraneous clusters from hadronic interactions
+\I Speed of charged particle tracking
+\bi
+\I Technological fix?
+\I Algorithmic fix?
+\ei
+\ee
+\I Minor current challenges
+\be
+\I Output format? HDDM? EVIO? ROOT? All of the above?
+\I Global timing and PID
+\I Doing a native build on 64-bit OS's (e.\ g., Snow Leopard, Linux x86\_64)
+\ee
+\I Long-term challenges: see the Prioritized Task List
+\I Need for better documentation
+\ei
+}
+
+\setbeamertemplate{bibliography item}[text]
+
+\f{
+\ft{References}
+\begin{thebibliography}{99}
+\tiny
+\bibitem{save-tracking}$[[$HOWTO save tracking results to an HDDM or EVIO file for later playback$]]$
+\bibitem{Simon-on-tracking} http://argus.phys.uregina.ca/cgi-bin/private/DocDB/ShowDocument?docid=1576
+\bibitem{kinematic}$[[$HOWTO do a kinematic fit for etapi0p events$]]$
+\bibitem{pre-built}$[[$HOWTO use a pre-built release$]]$
+\bibitem{uniform-field} http://argus.phys.uregina.ca/cgi-bin/private/DocDB/ShowDocument?docid=1556
+\bibitem{sim-recon-wiki}$[[$Sim-Recon Tagged Releases$]]$
+\bibitem{time-zero}$[[$How HDGeant defines time-zero for physics events$]]$
+\bibitem{multi-core}$[[$Media:20100615\_48cores.pdf$]]$
+\bibitem{new-jana}https://mailman.jlab.org/pipermail/halld-offline/2010-June/000314.html
+\bibitem{ccdb} http://argus.phys.uregina.ca/cgi-bin/private/DocDB/ShowDocument?docid=1541
+\bibitem{grid-tools}http://markito3.wordpress.com/2010/06/23/notes-on-grid-client-tools-meeting/, http://zeus.phys.uconn.edu/UConn-OSG/client-services.html
+\bibitem{bcal-smear}http://argus.phys.uregina.ca/gluex/DocDB/0015/001552/001/BCAL\_Software\_progress\_062910.pdf
+\bibitem{mantis}https://halldnew.jlab.org/mantisbt/
+\bibitem{jana-plugin}$[[$Media:20100713\_plugins.pdf$]]$
+\bibitem{ded-doc}$[[$HOWTO ded: Install \& Run$]]$
+\bibitem{perl-particles}https://mailman.jlab.org/pipermail/halld-offline/2010-July/000330.html
+\bibitem{doc-policy}$[[$Software Documentation Structure$]]$ and $[[$GlueX Offline FAQ$]]$
+\bibitem{b1pi-auto}$[[$Weekly Tests of GlueX Software$]]$
+\bibitem{halld-file-format}$[[$GlueX Offline Meeting, August 10, 2010$]]$ and $[[$GlueX Offline Meeting, August 24, 2010$]]$
+\bibitem{auto-smear}https://mailman.jlab.org/pipermail/halld-offline/2010-August/000348.html
+\end{thebibliography}
+}
+
+\end{document}
+
+%%% end of latex file %%%%
