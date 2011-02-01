@@ -43,17 +43,6 @@ Python encapsulation of C/C++ Code
       * EVIO
       * the new calibration database routines
 
-[Halld-offline] Minutes, GlueX Offline Software Meeting, Dec. 1, '10
-Mark M. Ito marki at jlab.org
-Wed Dec 1 16:07:52 EST 2010
-
-    * Next message: [Halld-offline] TOF Software Request
-    * Messages sorted by: [ date ] [ thread ] [ subject ] [ author ]
-
-Find the minutes at 
-http://www.jlab.org/Hall-D/software/wiki/index.php/GlueX_Offline_Meeting%2C_December_1%2C_2010#Minutes 
-and as text below:
-
 GlueX Offline Meeting, December 1, 2010
 
 FLUKA simulation of neutron flux
