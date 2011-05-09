@@ -1,0 +1,132 @@
+# February 9, 2011 
+
+\ft{JLab IT in the 12 GeV Era}
+\bi
+\I Review May 20 at JLab
+\I internal to JLab
+\I all Halls, DAQ, infrastructure
+\I "dry run" for external review next year
+\I draft computing estimate circulated
+\I Matt Shepherd on the review committee
+\I Grid posture: opportunistic usage on demand
+\ei
+
+
+\I Reconstruction Parameters vs. Calibration Constants
+\bi
+\I David gave a talk on the JANA configuration scheme
+\I parameters: effect algorithmic treatment of data -> in configuration file with sensible defaults, managed by source code version control (Subversion)
+\I calibration constants: run-dependent corrections to raw measured quantities -> from database, may have multiple interations
+\I Instituted frozen versions of the calibration constants
+\I work needs to be done to disentangle the two
+\ei
+
+\I Compiler Warnings: many fewer
+
+\I Use of Profiling Tools to Guide Optimization: talk from Dmitry
+
+\I Timing Resolution
+
+\bi
+\I Kei gave several presentations
+\I original problem: using a "T0" coming from a smeared start counter time order 100's of picoseconds
+\I plan: use RF bucket timing, perfect resolution on our scale
+\I solution: add place holder data member to DVertex class
+\ei
+
+# February 23, 2011
+
+\ft{Event Display}
+
+\bi
+\I Issue use
+\bi
+\I bCNU (Java, Hall B)
+\I EVE (Root, several HEP collaborations)
+\ei
+\I Geometry
+\I Support
+\I Features
+\ei
+
+\ft{Calibration Database Update}
+
+\bi
+\I Highly developed code set
+\I Many presentations by Dmitry
+\I No release as of this date
+\I Remote collaboration has not progressed as hoped
+\ei
+
+# March 9, 2011
+
+\ft{Single-Instruction-Multiple-Data Status}
+
+\bi
+\I Changes introduced at end of last year by Simon
+\I SIMD-off option introduced in January and made the default 
+\I streaming SIMD extensions (SSE) are supported depending on the particular CPU architecture
+\I David did a study showing a 5-10\% speed increase for multi-track events
+\I Richard worked on a scheme for sensing the SSE capability of the CPU and setting appropriate variables that could be used by the make system
+\I SIMD-off remains the default
+\ei
+
+\ft{Offline Computing Requirements and the Grid}
+
+\bi
+\I David organized a set of meetings to discuss what role the grid should be playing in our offline computing plans, if any
+\I consensus around a robust storage resource manager (SRM) capability at JLab
+ to feed off-site grid-based clusters.
+\ei
+
+# March 23, 2011
+
+\ft{Reorganization of Documentation}
+
+\bi
+\I Zisis suggested a re-org, especially the "getting started" stuff.
+\I Beni has extensively re-arranged the top level offline software wiki page.
+\I Mark collected the info on his build tools in a common location.
+\ei
+
+\ft{Floating point entropy causing segfaults}
+
+\bi
+\I issue with using computed floating point values in a user-supplied Standard Template Library comparison function on 32-bit operating systems when the compiler uses the x87 floating point co-processor
+\I seg will fault
+\I David reviewed our code and removed as such instances.
+\I Not a proof that there are not other things lurking.
+\ei
+
+\ft{Make system, includes, in JANA and sim-recon}
+
+\bi
+\I Issue with checked out (and possibly modified) versions of include files and those used from an installed location (like a public build)
+\I Matt proposes reliance exclusively on the checked out versions
+\I This is on the task list
+\ei
+
+# April 6, 2011
+
+\ft{&chi;<sup>2</sup>'s of tracking}
+
+\I Kei has done a studies of the  &chi;<sup>2</sup> values returned from the tracking code
+\I He finds departures from the ideal distribution; in terms of &chi;<sup>2</sup> probability, there are peaks at both high and low probability.
+\I We need work on tracking errors.
+
+# April 20, 2011
+
+\ft{Definition of primaries}
+
+\I Beni introduced change to associate hits with the "true" particles that produced them, especially for the tracking chambers. Useful studies have resulted from this change
+\I "marked" all particles as primary (with exceptions)
+\I caused a problem for others when the distinction between primary and secondary particles no longer obvious
+\I Will have a meeting to write hit-particle correlations to HDDM output from HDGeant.
+
+\ft{Final Thoughts}
+
+\bi
+\I "standard" terminology vs. "as coded" terminology
+\I code review needed
+\I documentation requirements easily ignored
+\ei
