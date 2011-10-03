@@ -1,0 +1,201 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Status of the Offline Software}
+\subtitle{GlueX Collaboration Meeting}
+\author[M.\ Ito]{Mark M.\ Ito}
+\date{May 9, 2011}
+\institute[JLab]{Jefferson Lab}
+
+\begin{document}
+
+\f{\titlepage}
+
+% February 9, 2011 
+
+\f{
+
+\ft{Review: JLab IT in the 12 GeV Era}
+\bi
+\I review May 20 at JLab
+\I internal to JLab
+\I all Halls, DAQ, infrastructure
+\I ``dry run" for external review next year
+\I draft computing estimate circulated
+\I Matt Shepherd on the review committee
+\I grid posture: opportunistic usage on demand
+\ei
+
+}
+
+
+\f{
+\ft{Reconstruction Parameters vs. Calibration Constants}
+\bi
+\I {\bf parameters}: effect algorithmic treatment of data $\rightarrow$ in configuration file with sensible defaults, managed by source code version control (Subversion)
+\I {\bf calibration constants}: run-dependent corrections to raw measured quantities $\rightarrow$ from database, may have multiple interations
+\I David gave a talk on the JANA configuration scheme
+\I instituted frozen versions of the calibration constants as interim measure
+\I work needs to be done to disentangle the two
+\ei
+}
+
+\f{
+\ft{Timing Resolution}
+
+\bi
+\I Kei gave several presentations
+\I original problem: using a ``T0" coming from a smeared start counter time with resolution of order hundreds of picoseconds
+\I plan: use RF bucket timing, perfect resolution on our scale
+\I solution: add place holder data member for start time to DVertex class, set to zero for now
+\ei
+}
+
+% February 23, 2011
+
+\f{
+\ft{Event Display}
+
+\bi
+\I Issue: choice of using
+\bi
+\I bCNU (Java, Hall B)
+\I EVE (Root, several HEP collaborations)
+\ei
+\I Geometry
+\I Support
+\I Features
+\I Manpower
+\ei
+}
+
+\f{
+\ft{Calibration Database}
+
+\bi
+\I Highly developed code set
+\I Many presentations by Dmitry
+\I No release as of this date
+\I Remote collaboration has not progressed as hoped
+\ei
+}
+
+% March 9, 2011
+
+\f{
+\ft{Single-Instruction-Multiple-Data Status}
+
+\bi
+\I Changes introduced at end of last year by Simon
+\I SIMD-off option introduced in January and made the default 
+\I streaming SIMD extensions (SSE) are supported depending on the particular CPU architecture
+\I David did a study showing a 5-10\% speed increase for multi-track events
+\I Richard worked on a scheme for sensing the SSE capability of the CPU and setting appropriate variables that could be used by the make system
+\I SIMD-off remains the default
+\ei
+}
+
+\f{
+\ft{Offline Computing Requirements and the Grid}
+
+\bi
+\I David organized a set of meetings to discuss what role the grid should be playing in our offline computing plans, if any.
+\I Consensus around a robust storage resource manager (SRM) capability at JLab
+ to feed off-site grid-based clusters.
+\ei
+}
+
+% March 23, 2011
+
+\f{
+\ft{Reorganization of Documentation}
+
+\bi
+\I Zisis suggested a re-org, especially the "getting started" stuff.
+\I Beni has extensively re-arranged the top-level offline software wiki page.
+\I Mark collected the info on his build tools in a common location.
+\ei
+}
+
+\f{
+\ft{Floating point entropy causing segfaults}
+
+\bi
+\I issue with using computed floating point values in a user-supplied Standard Template Library comparison function on 32-bit operating systems when the compiler uses the x87 floating point co-processor
+\I seg will fault
+\I David reviewed our code and removed such instances.
+\I Not a proof that there are not other things lurking.
+\ei
+}
+
+\f{
+\ft{Make system, includes, in JANA and sim-recon}
+
+\bi
+\I issue with checked out (and possibly modified) versions of include files in conflict with those used from an installed location (like a public build)
+\I Matt proposes reliance exclusively on the checked out versions
+\I this is on the task list
+\ei
+}
+
+% April 6, 2011
+
+\f{
+\ft{$\chi^2$ of tracking}
+
+\bi
+\I Kei has done studies of the  $\chi^2$ values returned from the tracking code.
+\I He finds departures from the ideal distribution; in terms of $\chi^2$ probability, there are peaks at both high and low probability.
+\I We need work on tracking errors.
+\ei
+}
+
+% April 20, 2011
+
+\f{
+\ft{Definition of primaries}
+
+\bi
+\I Beni introduced change to associate hits with the ``true" particles that produced them, especially for the tracking chambers. Useful studies have resulted from this change.
+\I method: ``marked" all particles as primary (with exceptions)
+\I caused a problem for others when the distinction between primary and secondary particles blurred
+\I will have a meeting to write hit-particle correlations to HDDM output from HDGeant.
+\ei
+}
+
+\f{
+
+\ft{Final Thoughts}
+
+Good News
+
+\bi
+\I Event reconstruction from hit-level Monte Carlo is routine.
+\I Multi-threading technology is established; essential feature for the future.
+\ei
+
+To Be Worked On
+
+\bi
+\I ``standard'' terminology vs.\ ``as coded" terminology $\Rightarrow$ confusion
+\bi
+\I code review needed?
+\I documentation requirements easily ignored
+\ei
+\I project management system still needed
+\I paradigm of ``ready to process on day one'' not established
+\ei
+}
+
+\end{document}
+
+%%% end of latex file %%%%
