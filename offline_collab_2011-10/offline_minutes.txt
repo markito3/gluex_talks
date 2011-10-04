@@ -1,21 +1,30 @@
-    * May 18, 2011
-=Minutes=
-
-Present: Mark Ito (chair), David Lawrence, Paul Mattione, Kei Moriya, Nathan Sparks, Simon Taylor, Beni Zihlmann
-
-==Definition of Primary Particles==
-
-* We will get a talk from Beni on this subject. It became an issue when he introduced changes to do studies correlating hits with generated particles.
-* Some changes have been made recently. They should help Matt Shepherd resolve his problem he was having with identifying primary photons.
 
 ==IT Review==
+
+* Review was held May 20, 2011
+* Goal: get a good understanding of progress towards IT in the 12
+GeV era, and discover if there are areas that might need increased
+effort in the coming year
+* Reviewed: DAQ, Halls A,B,C,D, Accelerator (Controls and Physics), Scientific Computing and LQCD, Management Information Systems (MIS), Comput4er Networking \& Infrastructure (CNI)
+* Presented:
+** Requirements: data rate, reconstruction time, MC needs, storage
+** Status of the Software: geometry, simulation, reconstruction, calibration database
+** Planning, Tests, System Engineering: project managements, code testing, source code control, documentation, communications, off-site computing use
+* Committee report:
+
+
+
+Areas
 
 Mark reminded us that there will be a review of "Information Technology at JLab in the 12 GeV Era" tomorrow. There is a [http://conferences.jlab.org/IT12GeV/ webpage for the review] which contains a link to the [http://conferences.jlab.org/IT12GeV/12GeVEraITReviewFinal.pdf charge to the committee]. Mark will present the view from Hall D.
 
 David asked how any comments/findings/recommendations of the review will impact our plans. Mark said that that remains to be seen, but we should probably take any feedback from the committee as an opportunity to look hard at what we are doing.
 
-    * June 1, 2011
-=Minutes=
+==Re-cap of Review, IT in the 12 GeV Era==
+
+Mark went over the [https://halldweb1.jlab.org/talks/2011-2Q/close_out.ppt close-out slides] from the review conducted on May 20. For copies of the talks and the charge to the committee see the [http://conferences.jlab.org/IT12GeV/ review web page]. A couple of points that come up in discussion:
+* Mark claimed that if Hall D's requirements seemed less certain than those of B, it was only because the uncertainty was exposed, not that Hall B's requirements were more certain.
+* Richard remarked that we should use the feedback from the committee constructively and be well-prepared when the external review comes in a year or so.
 
 ==DFCALPhoton vs. DFCALShower==
 
@@ -40,11 +49,6 @@ David explained that there were two problems:
 # The vertex factory, where both charged and neutral particles are grouped into vertices had a hard-wired cut at 3 &sigma; in both time and z. Several vertices were being found. The cut was widened considerably, so that only one vertex is almost guaranteed. The cut can now be set with a configuration parameter. This will have to be worked on further.
 # In the DVertex class there is a member class that inherits from DKinematicData that has pointers to cluster objects that were not being copied to the DKinematicData member data. This is being done now.
 
-==Re-cap of Review, IT in the 12 GeV Era==
-
-Mark went over the [https://halldweb1.jlab.org/talks/2011-2Q/close_out.ppt close-out slides] from the review conducted on May 20. For copies of the talks and the charge to the committee see the [http://conferences.jlab.org/IT12GeV/ review web page]. A couple of points that come up in discussion:
-* Mark claimed that if Hall D's requirements seemed less certain than those of B, it was only because the uncertainty was exposed, not that Hall B's requirements were more certain.
-* Richard remarked that we should use the feedback from the committee constructively and be well-prepared when the external review comes in a year or so.
 
 ==Grid Make System==
 
@@ -370,3 +374,9 @@ David described a new plug-in that recasts one multi-particle into one (or more)
 
 Simon gave us a summary of the method used for charged track finding and fitting. See [https://halldweb1.jlab.org/talks/2011-3Q/trackingSep21_2011.pdf his slides] for details. In addition to describing the process, he also showed studies of the quality of the results, and outlined issues yet to be resolved.
 
+=Miscellaneous Items=
+
+==Definition of Primary Particles==
+
+* We will get a talk from Beni on this subject. It became an issue when he introduced changes to do studies correlating hits with generated particles.
+* Some changes have been made recently. They should help Matt Shepherd resolve his problem he was having with identifying primary photons.
