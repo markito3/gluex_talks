@@ -5,14 +5,12 @@
 * Goal: get a good understanding of progress towards IT in the 12
 GeV era, and discover if there are areas that might need increased
 effort in the coming year
-* Reviewed: DAQ, Halls A,B,C,D, Accelerator (Controls and Physics), Scientific Computing and LQCD, Management Information Systems (MIS), Comput4er Networking \& Infrastructure (CNI)
-* Presented:
+* Reviewed: DAQ, Halls A,B,C,D, Accelerator (Controls and Physics), Scientific Computing and LQCD, Management Information Systems (MIS), Computer Networking \& Infrastructure (CNI)
+* Hall D (MMI) presented:
 ** Requirements: data rate, reconstruction time, MC needs, storage
 ** Status of the Software: geometry, simulation, reconstruction, calibration database
 ** Planning, Tests, System Engineering: project managements, code testing, source code control, documentation, communications, off-site computing use
-* Committee report:
-
-
+* Committee report (preliminary):
 
 Areas
 
