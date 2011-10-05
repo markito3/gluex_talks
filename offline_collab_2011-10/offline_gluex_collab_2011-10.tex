@@ -13,14 +13,12 @@
 \title{Status of the Offline Software}
 \subtitle{GlueX Collaboration Meeting}
 \author[M.\ Ito]{Mark M.\ Ito}
-\date{May 9, 2011}
+\date{October 6, 2011}
 \institute[JLab]{Jefferson Lab}
 
 \begin{document}
 
 \f{\titlepage}
-
-% February 9, 2011 
 
 \f{
 
@@ -28,148 +26,320 @@
 \bi
 \I review May 20 at JLab
 \I internal to JLab
-\I all Halls, DAQ, infrastructure
 \I ``dry run" for external review next year
-\I draft computing estimate circulated
-\I Matt Shepherd on the review committee
-\I grid posture: opportunistic usage on demand
+\I return to this later in talk
 \ei
 
 }
 
+\f{
+\ft{Correlating Raw Hits and Generated Particles}
+
+\bi
+\I Beni put in a system to correlate raw hits with generated particles.
+\I Some adjustments were necessary to distinguish primary and secondary particles.
+\I Used for studies, in particular Nathan's cascade events
+\ei
+
+}
 
 \f{
-\ft{Reconstruction Parameters vs. Calibration Constants}
+\ft{IT Review}
+
 \bi
-\I {\bf parameters}: effect algorithmic treatment of data $\rightarrow$ in configuration file with sensible defaults, managed by source code version control (Subversion)
-\I {\bf calibration constants}: run-dependent corrections to raw measured quantities $\rightarrow$ from database, may have multiple interations
-\I David gave a talk on the JANA configuration scheme
-\I instituted frozen versions of the calibration constants as interim measure
-\I work needs to be done to disentangle the two
+\I Review was held May 20, 2011
+\I Goal: get a good understanding of progress towards IT in the 12
+GeV era, and discover if there are areas that might need increased
+effort in the coming year
+\I Reviewed: DAQ, Halls A,B,C,D, Accelerator (Controls and Physics), Scientific Computing and LQCD, Management Information Systems (MIS), Computer Networking \& Infrastructure (CNI)
+\I Hall D (MMI) presented:
+  \I Requirements: data rate, reconstruction time, MC needs, storage
+  \I Status of the Software: geometry, simulation, reconstruction, calibration database
+  \I Planning, Tests, System Engineering: project managements, code testing, source code control, documentation, communications, off-site computing use
+\I Committee report (privately obtained):
+  \I General
+    \I clear...that there is an enourmous amount of work in progress...no critial showstoppers at this stage.
+    \I Consider: designate a person to be in charge of the big picture
+    \I Consider: identify pieces of DAQ and analysis chain...identify those in charge...demonstrate a plan for integration ans stress testing of the entire...chain.
+    \I Recommend: establish a more formal joint effort to ensure analysis software is ready... [among the Halls?]
+    \I Recommend: establish dates for stress tests
+  \I Hall D
+    \I Finding: 2 FTE of software effort on staff...might...represent insufficient manpower
+  \I Finding: computing requirements should be firmed up...include details on...offsite computing
+  \I Finding: cost of tape...a very low figure...provides backup...
+  \I Recommendation: progress...should be carefully watched...more staffing at JLab should be added to software development...firm commitments with MOU's from ...the user community should be obtained in the coming year.
+  \I Recommendataion: Details for a significant off-site simulation should be fleshed out...letters of intent obtained...formal MOU's...obtained later...
+  \I Recommendatation: keep a duplicate of all raw data
+\I Other Items
+  \I some really good recommendations produced
+  \I summer of next year for full review
+  \I focus likely more on the Halls
+  \I why is IT Division reviewing Physics and Accelerator Division?
+
+\ei
+
+}
+
+\f{
+\ft{DFCALPhoton vs.\ DFCALShower}
+
+\bi
+\I Mihajlo: new names for some of the calorimeter classes.
+\I The FCAL clases have been changed to be consistent with the naming convention used for the BCAL
+\I "clusters" and "showers"
+\ei
+
+}
+
+\f{
+\ft{b1pi Fix}
+
+\bi
+\I reconstruction efficiency for the weekly automatic b1pi analysis started to show only 5\%
+\I was around 50\%
+\I problem was found and fixed by David
+\ei
+
+}
+
+\f{
+\ft{Grid Make System}
+
+\bi
+\I Richard describe a system he is developing to
+  \bi
+  \I automatically install and build the GlueX software suite on an arbitrary Unix-based system and
+  \I use the build to create user-specified output, the result of either simulation, reconstruction, and/or analysis.
+  \ei
+\ei
+
+}
+
+\f{
+\ft{Offline Coordinator Election}
+\bi
+\I MMI ran unopposed
+\I won
+\I two more years
 \ei
 }
 
 \f{
-\ft{Timing Resolution}
+\ft{Doxygen Documentation}
 
 \bi
-\I Kei gave several presentations
-\I original problem: using a ``T0" coming from a smeared start counter time with resolution of order hundreds of picoseconds
-\I plan: use RF bucket timing, perfect resolution on our scale
-\I solution: add place holder data member for start time to DVertex class, set to zero for now
+\I David has given it a makeover
+\I Suggests minimum standards of in-file documentation
 \ei
+
 }
 
-% February 23, 2011
-
 \f{
-\ft{Event Display}
+\ft{TOF reconstruction}
 
 \bi
-\I Issue: choice of using
-\bi
-\I bCNU (Java, Hall B)
-\I EVE (Root, several HEP collaborations)
+\I Reviewed by Simon
+\I No time-walk correction algorithm implemented
+\I Cases where track crosses two adjacent paddles in a view not explicitly treated
 \ei
-\I Geometry
-\I Support
-\I Features
-\I Manpower
-\ei
+
 }
 
 \f{
 \ft{Calibration Database}
 
 \bi
-\I Highly developed code set
-\I Many presentations by Dmitry
-\I No release as of this date
-\I Remote collaboration has not progressed as hoped
+\I Alpha release mid-July
+\I Beta release, matter of days
+\I Conversion of files to database representation solved
+\I CLAS12 is planning to use it
+\I Concept for large files (magnetic field maps) being developed
+\I See Dmitry's talk in this session
 \ei
-}
 
-% March 9, 2011
-
-\f{
-\ft{Single-Instruction-Multiple-Data Status}
-
-\bi
-\I Changes introduced at end of last year by Simon
-\I SIMD-off option introduced in January and made the default 
-\I streaming SIMD extensions (SSE) are supported depending on the particular CPU architecture
-\I David did a study showing a 5-10\% speed increase for multi-track events
-\I Richard worked on a scheme for sensing the SSE capability of the CPU and setting appropriate variables that could be used by the make system
-\I SIMD-off remains the default
-\ei
 }
 
 \f{
-\ft{Offline Computing Requirements and the Grid}
+\ft{Geant4 Tutorial}
 
 \bi
-\I David organized a set of meetings to discuss what role the grid should be playing in our offline computing plans, if any.
-\I Consensus around a robust storage resource manager (SRM) capability at JLab
- to feed off-site grid-based clusters.
+\I Team from SLAC, last here in 2006
+\I Comprehensive hand-on tutorial workshop
+\I Proposal submitted to JSA Initiatives Fund
+\I Summer 2012
 \ei
-}
 
-% March 23, 2011
-
-\f{
-\ft{Reorganization of Documentation}
-
-\bi
-\I Zisis suggested a re-org, especially the "getting started" stuff.
-\I Beni has extensively re-arranged the top-level offline software wiki page.
-\I Mark collected the info on his build tools in a common location.
-\ei
 }
 
 \f{
-\ft{Floating point entropy causing segfaults}
+\ft{New data format plug-ins}
 
 \bi
-\I issue with using computed floating point values in a user-supplied Standard Template Library comparison function on 32-bit operating systems when the compiler uses the x87 floating point co-processor
-\I seg will fault
-\I David reviewed our code and removed such instances.
-\I Not a proof that there are not other things lurking.
+\I Elliott created two new plug-ins 
+\I {\bf danaevio plug-in}. This plug-in takes raw hit objects and reconstructed objects and generates an EVIO tree
+\I {\bf rawevent plug-in}.  Plug-in to take raw EVIO data and turn it into DANA objects
 \ei
+
 }
 
 \f{
-\ft{Make system, includes, in JANA and sim-recon}
+\ft{Non-reproducible event reconstruction}
 
 \bi
-\I issue with checked out (and possibly modified) versions of include files in conflict with those used from an installed location (like a public build)
-\I Matt proposes reliance exclusively on the checked out versions
-\I this is on the task list
+\I Reported by Will
+\I changing four-vectors, particle roster
+\I Found and fixed by David
+\I Another 1\% PID problem found and fixed by Paul
 \ei
+
 }
 
-% April 6, 2011
-
 \f{
-\ft{$\chi^2$ of tracking}
+\ft{Restructuring particle classes}
 
 \bi
-\I Kei has done studies of the  $\chi^2$ values returned from the tracking code.
-\I He finds departures from the ideal distribution; in terms of $\chi^2$ probability, there are peaks at both high and low probability.
-\I We need work on tracking errors.
+\I Paul institued new structure of top-level reconstructed particle classes
+\I more intuitive
+\I reconstructs neutrons
 \ei
+
 }
 
-% April 20, 2011
-
 \f{
-\ft{Definition of primaries}
+\ft{Cyber Event}
 
 \bi
-\I Beni introduced change to associate hits with the ``true" particles that produced them, especially for the tracking chambers. Useful studies have resulted from this change.
-\I method: ``marked" all particles as primary (with exceptions)
-\I caused a problem for others when the distinction between primary and secondary particles blurred
-\I will have a meeting to write hit-particle correlations to HDDM output from HDGeant.
+\I Entrance point: webservers
+\I Exploit technical, not social engineering
+\I Many machines compromised, mainly Windows
+\I data "exfiltrated"
+\I weeks between initial intrusion and data shipment
+\I IT Division was extremely cautious about re-opening services
+\I New personal web partition introduced
+\I Attack apparently related to other intrusions elsewhere
 \ei
+
+}
+
+\f{
+\ft{Translation Tables}
+
+\bi
+\I Elliott presented plan on storing the correspondences between electronic channel addresses and named detector elements.
+\ei
+
+}
+
+\f{
+\ft{Automated b1pi jobs}
+
+\bi
+\I semi-weekly jobs now running
+\I Beni added some more histograms, user-friendly web presentation
+\ei
+
+}
+
+\f{
+\ft{Environment management and directory structure}
+
+\bi
+\I Maurizio Ungaro: new JLab-wide-oriented scheme for environment variable set-up and builds of major software packages
+\I Sensible defaults provided
+\I Augmented with rpm's and deb's which he maintains (for off-site especially)
+\ei
+
+}
+
+\f{
+\ft{Object-relational mapping (ORM) and an online configuration database}
+
+\bi
+\I Dmitry: introduction to ORM's
+\I working with Sascha Somov on implementation for electronics crate configuration
+\ei
+
+}
+
+\f{
+\ft{DST data format}
+
+\bi
+\I Richard and Igor: production of a DST to facilitate grid computation
+\I presented plan on what to keep and what to throw out
+\I work in progress
+\ei
+
+}
+
+\f{
+\ft{Tracking dE/dx update}
+
+\bi
+\I Simon discovered a units problem
+\I fixed now
+\ei
+
+}
+
+\f{
+\ft{BCAL reconstruction update}
+
+\bi
+\I problems observed in errors when doing kinematic fitting
+\I see's better behavior with Matt's new reconstruction algorithm
+\I Will Levine working on the new 1-2-3-4 segmentation of the BCAL
+\I will implement in KLOE algorithm
+\ei
+
+}
+
+\f{
+\ft{Reconstruction chi-squared, particle ID}
+
+\bi
+\I Paul studying errors from various detector systems
+\I Integrating information into particle ID scheme
+\I See his talk in this session
+\ei
+
+}
+
+\f{
+\ft{Reconstruction Sub-Groups}
+
+\bi
+\I Matt proposed forming subgroups focused on specific areas
+\I Reports will be given at every meeting
+\I Chairpeople were appointed
+  \bi
+  \I Tracking: Simon
+  \I PID: Paul M.
+  \I Photons: Matt
+  \ei
+\I A list of topics to be addressed has been generated by collaboration members
+\ei
+
+}
+
+\f{
+\ft{Plug-in to extract single particles from multi-particle events}
+
+\bi
+\I David wrote a new plug-in that recasts one multi-particle into one (or more) single particle event(s).
+\I allows single particle studies with spectra found in multi-particle events
+\ei
+
+}
+
+\f{
+\ft{Tracking explained}
+
+\bi
+\I Simon gave us a summary talk
+\I And produced a new document
+\ei
+
 }
 
 \f{
