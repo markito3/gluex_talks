@@ -1,6 +1,6 @@
 \documentclass[xcolor=dvipsnames]{beamer}
 
-\usetheme{Boadilla}
+\usetheme{Berkeley}
 
 \newcommand{\bi}{\begin{itemize}}
 \newcommand{\ei}{\end{itemize}}
@@ -21,16 +21,16 @@
 \f{\titlepage}
 
 \f{
-
-\ft{Review: JLab IT in the 12 GeV Era}
+\ft{Outline}
 \bi
-\I review May 20 at JLab
-\I internal to JLab
-\I ``dry run" for external review next year
-\I return to this later in talk
+\I Work Done/Issues Raised
+\I Software Talks
+\I IT Review
+\I Conclusions
 \ei
-
 }
+
+\section{Work Done/Issues Raised}
 
 \f{
 \ft{Correlating Raw Hits and Generated Particles}
@@ -98,17 +98,6 @@
 }
 
 \f{
-\ft{TOF reconstruction}
-
-\bi
-\I Reviewed by Simon
-\I No time-walk correction algorithm implemented
-\I Cases where track crosses two adjacent paddles in a view not explicitly treated
-\ei
-
-}
-
-\f{
 \ft{Calibration Database}
 
 \bi
@@ -149,7 +138,7 @@
 \ft{Non-reproducible event reconstruction}
 
 \bi
-\I Reported by Will
+\I Reported by Will L.
 \I changing four-vectors, particle roster
 \I Found and fixed by David
 \I Another 1\% PID problem found and fixed by Paul
@@ -161,7 +150,7 @@
 \ft{Restructuring particle classes}
 
 \bi
-\I Paul instituted new structure of top-level reconstructed particle classes
+\I Paul M.\ instituted new structure of top-level reconstructed particle classes
 \I more intuitive
 \I reconstructs neutrons
 \ei
@@ -204,27 +193,6 @@
 }
 
 \f{
-\ft{Environment management and directory structure}
-
-\bi
-\I Maurizio Ungaro: new JLab-wide-oriented scheme for environment variable set-up and builds of major software packages
-\I Sensible defaults provided
-\I Augmented with rpm's and deb's which he maintains (for off-site especially)
-\ei
-
-}
-
-\f{
-\ft{Object-relational mapping (ORM) and an online configuration database}
-
-\bi
-\I Dmitry: introduction to ORM's
-\I working with Sascha Somov on implementation for electronics crate configuration
-\ei
-
-}
-
-\f{
 \ft{DST data format}
 
 \bi
@@ -236,22 +204,12 @@
 }
 
 \f{
-\ft{Tracking dE/dx update}
-
-\bi
-\I Simon discovered a units problem
-\I fixed now
-\ei
-
-}
-
-\f{
 \ft{BCAL reconstruction update}
 
 \bi
 \I problems observed in errors when doing kinematic fitting
 \I sees better behavior with Matt's new reconstruction algorithm
-\I Will Levine working on the new 1-2-3-4 segmentation of the BCAL
+\I Will L. working on the new 1-2-3-4 segmentation of the BCAL
 \I will implement in KLOE algorithm
 \ei
 
@@ -261,7 +219,7 @@
 \ft{Reconstruction chi-squared, particle ID}
 
 \bi
-\I Paul studying errors from various detector systems
+\I Paul M.\ studying errors from various detector systems
 \I Integrating information into particle ID scheme
 \I See his talk in this session
 \ei
@@ -295,15 +253,47 @@
 
 }
 
+\section{Software Talks}
+
 \f{
-\ft{Tracking explained}
+\ft{Sofware Talks: Reconstruction}
 
 \bi
-\I Simon gave us a summary talk
-\I And produced a new document
+\I TOF reconstruction
+  \bi
+  \I Reviewed by Simon
+  \I No time-walk correction algorithm implemented
+  \I Cases where track crosses two adjacent paddles in a view not explicitly treated
+  \ei
+\I Tracking explained
+  \bi
+  \I Simon gave us a summary talk
+  \I and produced a new document
+  \ei
 \ei
 
 }
+
+\f{
+\ft{Software Talks: Technology}
+
+\bi
+\I Environment Management and Software Build Scheme
+  \bi
+  \I Maurizio Ungaro: new JLab-wide-oriented scheme for environment variable set-up and builds of major software packages
+  \I Sensible defaults provided
+  \I Augmented with rpm's and deb's which he maintains (for off-site especially)
+  \ei
+\I Object-relational mapping (ORM) and an online configuration database
+  \bi
+  \I Dmitry: introduction to ORM's
+  \I working with Sascha Somov on implementation for electronics crate configuration
+  \ei
+\ei
+
+}
+
+\section {IT Review}
 
 \f{
 \ft{Review of IT in the 12 GeV Era: Background}
@@ -361,6 +351,8 @@ effort in the coming year
 \ei
 
 }
+
+\section{Conclusions}
 
 \f{
 
