@@ -10,7 +10,20 @@ effort in the coming year
 ** Requirements: data rate, reconstruction time, MC needs, storage
 ** Status of the Software: geometry, simulation, reconstruction, calibration database
 ** Planning, Tests, System Engineering: project managements, code testing, source code control, documentation, communications, off-site computing use
-* Committee report (preliminary):
+* Committee report (privately obtained):
+** General
+*** clear...that there is an enourmous amount of work in progress...no critial showstoppers at this stage.
+*** Consider: designate a person to be in charge of the big picture
+*** Consider: identify pieces of DAQ and analysis chain...identify those in charge...demonstrate a plan for integration ans stress testing of the entire...chain.
+*** Recommend: establish a more formal joint effort to ensure analysis software is ready... [among the Halls?]
+*** Recommend: establish dates for stress tests
+** Hall D
+*** Finding: 2 FTE of software effort on staff...might...represent insufficient manpower
+** Finding: computing requirements should be firmed up...include details on...offsite computing
+** Finding: cost of tape...a very low figure...provides backup...
+** Recommendation: progress...should be carefully watched...more staffing at JLab should be added to software development...firm commitments with MOU's from ...the user community should be obtained in the coming year.
+** Recommendataion: Details for a significant off-site simulation should be fleshed out...letters of intent obtained...formal MOU's...obtained later...
+** Recommendatation: keep a duplicate of all raw data
 
 Areas
 
