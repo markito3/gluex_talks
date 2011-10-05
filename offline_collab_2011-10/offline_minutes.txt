@@ -1,3 +1,8 @@
+==Definition of Primary Particles==
+
+* Beni put in a system to correlate raw hits with generated particles.
+** Some adjustments were necessary to distinguish primary and secondary particles.
+** Used for studies
 
 ==IT Review==
 
@@ -24,194 +29,103 @@ effort in the coming year
 ** Recommendation: progress...should be carefully watched...more staffing at JLab should be added to software development...firm commitments with MOU's from ...the user community should be obtained in the coming year.
 ** Recommendataion: Details for a significant off-site simulation should be fleshed out...letters of intent obtained...formal MOU's...obtained later...
 ** Recommendatation: keep a duplicate of all raw data
-
-Areas
-
-Mark reminded us that there will be a review of "Information Technology at JLab in the 12 GeV Era" tomorrow. There is a [http://conferences.jlab.org/IT12GeV/ webpage for the review] which contains a link to the [http://conferences.jlab.org/IT12GeV/12GeVEraITReviewFinal.pdf charge to the committee]. Mark will present the view from Hall D.
-
-David asked how any comments/findings/recommendations of the review will impact our plans. Mark said that that remains to be seen, but we should probably take any feedback from the committee as an opportunity to look hard at what we are doing.
-
-==Re-cap of Review, IT in the 12 GeV Era==
-
-Mark went over the [https://halldweb1.jlab.org/talks/2011-2Q/close_out.ppt close-out slides] from the review conducted on May 20. For copies of the talks and the charge to the committee see the [http://conferences.jlab.org/IT12GeV/ review web page]. A couple of points that come up in discussion:
-* Mark claimed that if Hall D's requirements seemed less certain than those of B, it was only because the uncertainty was exposed, not that Hall B's requirements were more certain.
-* Richard remarked that we should use the feedback from the committee constructively and be well-prepared when the external review comes in a year or so.
+* Other Items
+** some really good recommendations produced
+** summer of next year for full review
+** focus likely more on the Halls
+** why is IT Division reviewing Physics and Accelerator Division?
 
 ==DFCALPhoton vs. DFCALShower==
 
-Mihajlo and David explained the situation.
-
-* There is an inconsistency in the naming convention between the FCAL and the BCAL.
-* Mihajlo will work on bringing them into registration.
-* The hierarchy is
-*# detector hit
-*# cluster
-*# shower
-*# particle
-* A shower does not become a particle until associated with a vertex. The photon has a full three-momentum. Before that the shower only contains local coordinate information.
-* Mihajlo proposed that the algorithm to merge showers should be applied after matching showers with charged tracks and not before matching. David and Mihajlo will discuss this offline and report to the group.
-propose to make this change.
+* Mihajlo: new names for some of the calorimeter classes.
+** The FCAL clases have been changed to be consistent with the naming convention used for the BCAL
+** "clusters" and "showers"
 
 ==b1pi Fix==
 
-At some point in the past few months the reconstruction efficiency for the weekly automatic b1pi analysis started to show only 5% reconstruction efficiency when it used to be around 50%. The problem was found and fixed. Paul showed a [[Mattione Update 06012011|wiki page]] illustrating the new situation. Shown there are various invariant mass plots, and identified particle multiplicity distributions.
-
-David explained that there were two problems:
-# The vertex factory, where both charged and neutral particles are grouped into vertices had a hard-wired cut at 3 &sigma; in both time and z. Several vertices were being found. The cut was widened considerably, so that only one vertex is almost guaranteed. The cut can now be set with a configuration parameter. This will have to be worked on further.
-# In the DVertex class there is a member class that inherits from DKinematicData that has pointers to cluster objects that were not being copied to the DKinematicData member data. This is being done now.
-
+reconstruction efficiency for the weekly automatic b1pi analysis started to show only 5% reconstruction efficiency when it used to be around 50%
+The problem was found and fixed
 
 ==Grid Make System==
 
 Richard describe a system he is developing to
 # automatically install and build the GlueX software suite on an arbitrary Unix-based system and
 # use the build to create user-specified output, the result of either simulation, reconstruction, and/or analysis.
-It uses a make-style paradigm where targets are specified, those targets have pre-requisite targets, and any pre-requisite that does not exist gets made. The system is driven by a perl script. Recipes for creating targets are kept in separate files, target-by-target. The configuration of the system is done via XML. Version choices for the various software components can be enforced. The code is now in alpha release. See [https://halldweb1.jlab.org/talks/2011-2Q/gridmake-6-2011.ppt his slides] for details.
 
     * June 15, 2011
-=Minutes=
 
-==Announcements==
-
-* '''Offline Coordinator'''. Paul Eugenio recently [http://dustbunny.physics.indiana.edu/mailman/private/gluex/2011-June/003034.html ran the election] for a new Offline Coordinator. With the lack of other nominees, Mark was declared the winner for another two year term.
-
-* '''Dmitry'''. Dmitry Romanov will be visiting the Lab again, starting next week. He will resume work on the calibration database.
-
-==Review of minutes from the last meeting==
-
-* '''b1pi analysis'''. David reported that Paul Mattione is now seeing better distributions for the "exotic meson" mass. There is no longer a high-side tail.
-* '''gridmake'''. Beni sent a Richard Jones a [[Using the Grid|link]] where he can start putting documentation for the new gridmake system.
-* '''Photons'''. Mihajlo had updated the repository with new names for some of the calorimeter classes. The FCAL clases have been changed to be consistent with the naming convention used for the BCAL, i. e., "clusters" and "showers". The old BCAL and FCAL "photons" have been kept for backward compatibility.
+* '''Offline Coordinator''': MMI for 2 more years
 
 ==Doxygen Documentation==
 
-David went over some of the recent updates he has made to the [http://www.jlab.org/Hall-D/software/HDSoftware_Documentation Doxygen-based documentation] of sim-recon.
-We use Doxygen for reference documentation for each source code file, usually classes.
-
-* The "front page" has been rewritten bringing it up to date.
-* It includes a call diagram, with clickable boxes.
-** blue boxes go to the documentation for the factory clases
-** green trapezoids go the the data classes themselves, as translated from the HDDM input.
-* A set of icons for "core", "default", and "deprecated" have been introduced to distinguish among the roles of the factories that produce the same vector of data objects. These can be displayed on the Doxygen pages.
-
-Elton raised the idea of having one or more well-defined examples, in code, that people could use as a starting point for doing their own analyses. Mark will schedule a discussion of this at a future meeting.
-
-David proposed a minimum standard of description that should be written for each class in the source code. Factory classes should contain a summary of what they do and data classes should have work or phrase descriptions for every member datum. We agreed that we should adopt this standard as policy. As a start toward enforcement, David, Simon, Beni, and Elliott will all try to implement this standard in the classes they remember writing. A more formal enforcement mechanism will have to be devised in the future.
-
-==Raw hit and reconstructed track correlations: keeping track of track hits==
-
-Beni recapped the changes he made, over that past months, to allow examination of the correlation between hits associated with a track candidate and the Monte Carlo particles that produced them. See [his slides] for details. The current status of this work allows simultaneous operation of Beni's plug-in (studying these correlations) and Matt's code to study the behavior of the BCAL reconstruction. In summary he has identified two more things to be done:
-# Only remove itrack and ptype from MC smeared data structure only.
-# Remove itrack and ptype from MC data altogether (unsmeared and smeared)
+* David has given it a makeover
+* Suggests minimum standards of in-file documentation
 
 ==TOF reconstruction==
 
-Simon gave a rather detailed description of the TOF reconstruction that is currently in sim-recon. See [https://halldweb1.jlab.org/talks/2011-2Q/tof_recon_061511.pdf his slides] for all of those details. His last slide identifies current missing pieces:
-
+* Reviewed by Simon
 * No time-walk correction algorithm implemented
 * Cases where track crosses two adjacent paddles in a view not explicitly treated
-
-==New action items==
-
-# Schedule a discussion of analysis code examples that should be produced and documented. --> Mark
-# Add comments to source code files. --> David, Simon, Beni, and Elliott
-
     * June 29, 2011
-=Minutes=
 
-==Announcements==
+==Calibration Database==
 
-* '''Status of alpha release of CCDB'''. Dmitry worked on this during the calibration and conditions database (CCDB) during his last visit and is picking it up again. Right now he is working on the first alpha release.
-** The low-level API is done.
-** The make system is done.
-** JANA integration is not ready.
-** The user-level API is not ready
-** Goal for release:  user-level API, but not Jana integration
-<blockquote>Elliott commented that CLAS12 is interested. They would like to code to be kept in the 12-GeV repository. We will try to oblige. Dave will look into off-site collaborators checking out from the 12 GeV repository.</blockquote>
+* Alpha release mid-July
+* Beta release, matter of days
+* Conversion of files to database representation solved
+* CLAS12 is planning to use it
+* Concept for large files (magnetic field maps) being developed
+* See Dmitry's talk
 
-* '''Geant4 Tutorial'''. Sucheta Jawalkar of the Users Group Board of Directors brought up the idea of having another [http://www.jlab.org/news/internet/2006/geant4.html Geant4 Tutorial] at JLab. Mark contacted Paul Gueye and Paul is willing to organize it from the Lab's side again. If you are interested in helping, please contact [mailto:marki@jlab.org Mark].
+==Geant4 Tutorial==
 
-* '''danaevio and rawevent plugins, translation tables'''. Elliott gave us a heads-up about two new plug-ins.
-** '''danaevio plug-in'''. This plug-in takes raw hit objects and reconstructed objects and generates an EVIO tree that includes representation of those objects. The tree can be serialized, can be sent as a message, and can be printed. Paul will be testing this last feature.
-** '''rawevent plug-in'''.  Plug-in to take raw EVIO data and turn it into DANA objects[?]. Question: is someone in the collaboration interested doing the translation from crate, slot, channel to detector-specific description[?]. Beni suggested that this scheme be able to write to a named pipe[?].
+* Team from SLAC, last here in 2006
+* Comprehensive hand-on tutorial workshop
+* Proposal submitted to JSA Initiatives Fund
+* Summer 2012
 
-==Non-reproducible results==
+==New data format plug-ins==
 
-Will describe the problem he has observed with different results each time the reconstruction is run. Others have reproduced the problem. There seem to be problems with four vectors changing, the roster of particles changing, and the events for which reconstruction succeeds changing. Work is ongoing, by Will, David, Beni and Paul. This issue has also been logged in Mantis.
+** Elliott created two new plug-ins 
+** '''danaevio plug-in'''. This plug-in takes raw hit objects and reconstructed objects and generates an EVIO tree
+** '''rawevent plug-in'''.  Plug-in to take raw EVIO data and turn it into DANA objects
+
+==Non-reproducible event reconstruction==
+
+* Reported by Will
+** changing four-vectors, particle roster
+* Found and fixed by David
+* Another 1\% PID problem found and fixed by Paul
 
 ==Restructuring particle classes==
 
-Paul presented hi proposal for a modest re-organization of the top-level particle classes. See [[his wiki page]] for details. There was a lot of discussion, but in the end we agreed that Paul should proceed with the changes.
+* Paul institued new structure of top-level reconstructed particle classes
+** more intuitive
+** reconstructs neutrons
 
     * July 13, 2011 
-=Minutes=
 
 ==Cyber Event==
 
-We talked a bit about the cyber event, the steps being taken to fix things, and reasons for the delay in restoring full internet access to and from the Lab.
-
-==Announcement: CCDB Release==
-
-* Dmitry reported that the first release of the calibration database code is available. Instructions on how to get a copy have been sent to the offline email list.
+* Entrance point: webservers
+* Exploit technical, not social engineering
+* Many machines compromised, mainly Windows
+* data exfiltrated
+* weeks between initial intrusion and data shipment
+* IT Division was extremely cautious about re-opening services
+* New personal web partition introduced
+* Attack apparently related to other intrusions elsewhere
 
 ==Translation Tables==
 
-Elliott presented recent work on storing the correspondences between electronic channel addresses and named detector elements. For details, see his [[Translation table 13-jul-2011|wiki page]] describing the system. The sections presented there are:
-# Background
-# Proposed Translation Table Format
-# Fake Table Generation
-# Fragment of Table
-# Programmatic Usage
-# Under the Hood
-# Inverse
-# Online Usage
-# Still to Do
-
-    * July 27, 2011
-=Minutes=
-
-==Status of the CCDB release==
-
-Dimitry is finishing the conversion from existing Subversion-controlled calibration constant files to the CCDB
-* built JANA, put in classes to read CCDB
-* getting ready to test
-* should be done in the next few days
-* CCDB has been checked into the 12 GeV Physics repository
-Elliott commented that some progress on the conditions part of the CCDB would be useful.
-
-==Update on non-deterministic event reconstruction==
-
-David has found and fixed a problem, first [https://mailman.jlab.org/pipermail/halld-offline/2011-June/000685.html reported by Will], where repeated reconstruction of the same events with the same binary reproduced different results. See [https://mailman.jlab.org/pipermail/halld-offline/2011-July/000699.html David's message] for details of the fix.
-
-Paul [https://mailman.jlab.org/pipermail/halld-offline/2011-July/000702.html reported a different bug] and checked in a fix. This was giving different figure-of-merit values for repeated executions at the 1% level. See his message for details.
-
-==Miscellaneous Discussion==
-
-* Will pointed out that the weekly b1pi jobs are not regularly looked at for success or failure. He volunteered to help with this. Dave pointed out the utility root2email that might help with notification.
+Elliott presented plan on storing the correspondences between electronic channel addresses and named detector elements.
 
     * August 10, 2011
-=Minutes=
 
-==Review of minutes from the last meeting==
+==Automated b1pi jobs==
 
-We went over the [[GlueX Offline Meeting, July 27, 2011#Minutes|minutes from the July 27 meeting]].
-
-* Dmitry is still working on the JANA interface for the CCDB.
-* Paul reported that the automated b1pi jobs are now running.
-
-==Reconstructed Particle Classes==
-
-Paul described the new structure of top-level particle classes. See [[Mattione_Particle_Classes|his wiki page]] for details.
-
-He made some remarks about the new scheme:
-
-* more intuitive
-* reconstructs neutrons
-* some tweaks made to particle identification
-* changes to code required, instructions on the wiki page
-* charged tracks are matched to the TOF and calorimeter before vertex reconstruction
-* some standard programs are now broken, need modification to use the new classes
-* reran b1pi, significantly fewer pions now although the change is not due to new class scheme, see [[Mattione_Update_08102011|his wiki page on this b1pi issue]] for details
+* semi-weekly jobs now running
+* Beni added some more histograms, user-friendly web presentation
 
 ==Environment management and directory structure==
 
@@ -263,23 +177,8 @@ The title of this section says it all. The links in the title reference recent e
 * Default behavior (same as old): only the time at the doca is reported (no explicit cluster generation).
 * Drift times and diffusion computed based on results of Garfield simulations for nominal gas mixtures for FDC and CDC.
 
-==CCDB-related questions==
-
-Dmitry posed some questions to the group on how to proceed with some problem corners with the CCDB. See [https://halldweb1.jlab.org/talks/2011-3Q/CCDB_related_questions_08-24-2011.pptx his talk] for details. There were three main areas covered. All have to do with the conversion from the current flat-file-based calibration tree to the CCDB.
-
-* "calibration constants" that are in fact a list of reconstruction parameters
-** We decided that these should be converted to JANA parameters.
-* non-uniform comments in the current files (used to identify column names)
-** We decided that Dmitry should feel free to impose a uniform convention
-* very large calibration sets, in particular magnetic field maps
-** This will require more discussion.
-
     * September 7, 2011
 =Minutes=
-
-==Review of minutes from the last meeting==
-
-Mark reminded us that we still need a solution for putting large magnetic field maps into the CCDB.
 
 ==BCAL Reconstruction Update==
 
@@ -384,10 +283,3 @@ David described a new plug-in that recasts one multi-particle into one (or more)
 ==Tracking explained==
 
 Simon gave us a summary of the method used for charged track finding and fitting. See [https://halldweb1.jlab.org/talks/2011-3Q/trackingSep21_2011.pdf his slides] for details. In addition to describing the process, he also showed studies of the quality of the results, and outlined issues yet to be resolved.
-
-=Miscellaneous Items=
-
-==Definition of Primary Particles==
-
-* We will get a talk from Beni on this subject. It became an issue when he introduced changes to do studies correlating hits with generated particles.
-* Some changes have been made recently. They should help Matt Shepherd resolve his problem he was having with identifying primary photons.
