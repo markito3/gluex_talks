@@ -15,30 +15,23 @@
 \title{Status of the Offline Software}
 \subtitle{GlueX Collaboration Meeting}
 \author[M.\ Ito]{Mark M.\ Ito}
-\date{October 6, 2011}
+\date{February 17, 2012}
 \institute[JLab]{Jefferson Lab}
 
 \begin{document}
 
 \f{\titlepage}
 
+\section{Software Topics}
+
 \f{
+\ft{Resource Management}
 \bi
-\I Volatile disk
-  \bi
-  \I ``scratch'' disk available from Batch Farm at JLab
-  \I up to 40 TB
-  \I could be used as staging disk before writing to tape
-  \I in addition to 9 TB of work disk space
-  \ei
-\I Resource Management
-  \bi
-  \I need scheme to deal with large, non-run dependent data files
-  \I e. g., magnetic field maps, material maps
-  \I Dmitry proposed conceptual design
-  \I uniform interface
-  \I local caching
-  \ei
+\I need scheme to deal with large, non-run dependent data files
+\I e. g., magnetic field maps, material maps
+\I Dmitry proposed conceptual design
+\I uniform interface
+\I local caching
 \ei
 }
 
@@ -59,15 +52,14 @@
 }
 
 \f{
-\includegraphics[height=3.0in]{Mattione_dedx.png}
-}
-
-\f{
-\includegraphics[height=3.0in]{Mattione_metrics.png}
-}
-
-\f{
-\includegraphics[height=3.0in]{Mattione_spirals.png}
+\ft{HDDM C++ API}
+\bi
+\I HDDM = Hall D Data Model, API = application programmer's interface, C++ = C plus plus
+\I memory management hidden from user
+\I method to query for parent elements
+\I STL container and iterators used
+\I result: much more compact syntax, less thinking about location in the tree
+\ei
 }
 
 \f{
@@ -80,6 +72,45 @@
   \I was causing irritation of sysadmin personnel at grid sites
   \I problem with never-ending propagation of tracks at 90 degrees with hits in FDC
   \I fixed in sim-recon-2012-01-27
+  \ei
+\I Volatile disk
+  \bi
+  \I ``scratch'' disk available from Batch Farm at JLab
+  \I up to 40 TB
+  \I could be used as staging disk before writing to tape
+  \I in addition to 9 TB of work disk space
+  \ei
+\ei
+}
+
+\section{PID Sub-Group Progress}
+
+\f{
+\includegraphics[height=3.0in]{Mattione_dedx.png}
+}
+
+\f{
+\includegraphics[height=3.0in]{Mattione_metrics.png}
+}
+
+\f{
+\includegraphics[height=3.0in]{Mattione_spirals.png}
+}
+
+\section{Conclusions}
+
+\f{
+\ft{Conclusions}
+\bi
+\I Upcoming discussions:
+  \bi
+  \I Reconstructed data format
+  \I EventStore: CLEO-inspired analysis model
+  \ei
+\I Do we want...
+  \bi
+  \I Comprehensive review of internals tracking software
+  \I Structure of Offline Software Management
   \ei
 \ei
 }
