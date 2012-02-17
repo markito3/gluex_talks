@@ -36,6 +36,17 @@
 }
 
 \f{
+\ft{HDDM C++ API}
+\bi
+\I HDDM = Hall D Data Model, API = application programmer's interface, C++ = C plus plus
+\I memory management hidden from user
+\I method to query for parent elements
+\I STL container and iterators used
+\I result: much more compact syntax, less thinking about location in the tree
+\ei
+}
+
+\f{
 \ft{Whither the CCDB?}
 \bi
 \I Beta release in the wild since November
@@ -48,17 +59,6 @@
 \I Deployment issues not fully implemented
 \I Off-site accessible MySQL mirror: agreement in principle with IT Division
 \I Not the default calibration repository yet
-\ei
-}
-
-\f{
-\ft{HDDM C++ API}
-\bi
-\I HDDM = Hall D Data Model, API = application programmer's interface, C++ = C plus plus
-\I memory management hidden from user
-\I method to query for parent elements
-\I STL container and iterators used
-\I result: much more compact syntax, less thinking about location in the tree
 \ei
 }
 
@@ -80,6 +80,40 @@
   \I could be used as staging disk before writing to tape
   \I in addition to 9 TB of work disk space
   \ei
+\ei
+}
+
+\section{Calorimetry Sub-Group Progress}
+
+\f{
+\ft{New BCAL Reconstruction Algorithm}
+\bi
+\I Matt Shepherd developed new reconstruction algorithm to replace legacy KLOE code.
+\I Will Levine worked on integration and testing.
+\I Added the 1-2-3-4 BCAL read-out granularity.
+  \bi
+  \I previously, no summing beyond optical
+  \ei
+\I Now the default
+\ei
+}
+
+\f{
+\ft{Cluster Fragmentation in the BCAL}
+\bi
+\I Will Levine studying this
+\I Too many cluster reconstructed in BCAL (with both algorithms)
+\I Many of these extra clusters come from poor z-resolution rather than split-off behavior
+\I z-resolution (= time resolution) is simulated by mcsmear
+\I poor z-resolution at low energy is due to contribution of dark hits
+\ei
+}
+
+\f{
+\ft{Will and Matt revisiting $b_1\pi$ events}
+\bi
+\I Assess allegations of extraneous/split clusters
+\I Compare new and old BCAL reconstruction algorithms 
 \ei
 }
 
@@ -107,10 +141,18 @@
   \I Reconstructed data format
   \I EventStore: CLEO-inspired analysis model
   \ei
-\I Do we want...
+\I Possible future efforts
   \bi
-  \I Comprehensive review of internals tracking software
-  \I Structure of Offline Software Management
+  \I Stress test of offline reconstruction/analysis chain
+  \I Comprehensive review of internals of tracking software?
+    \bi
+    \I Eye toward simplification/refactoring
+    \ei
+  \I Review Structure of Offline Software Management?
+    \bi
+    \I some efforts already made: Reconstruction Sub-Groups, Software Review Preparation Committee, Tracking software discussions in Tracking meetings
+    \I fine tune? new paradigm?
+    \ei
   \ei
 \ei
 }
