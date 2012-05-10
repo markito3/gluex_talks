@@ -3,6 +3,8 @@ Software Overview
 % 1 Data/Analysis Flow Slide A variation on the above slide
 % emphasizing what is done and what needs to be done. 120s (1090s)
 
+Data/Analysis Flow
+
 \I Processors
    \I Simulation/Digitization
       \I GEANT3-based
@@ -34,6 +36,8 @@ Software Overview
 % institutions that are responsible for the tasks. Conclusion that at
 % least at the present, we appear to have sufficient manpower to
 % complete the tasks in the time given. 120s (1210s)
+
+Manpower: Requirements and Resources
 
 manpower_survey.png
 OfflineComputingActivities2012.png 
@@ -146,18 +150,66 @@ Open Science Grid
 Amplitude Analysis on GPU's
 
 \I Calculation of log likelihoods for individual events
-   \I independent for individual events
+   \I independent for each events
    \I computationally expensive
    \I not branch intensive
-   \I can be summed
+   \I result is small (in bytes)
+   \I results are to be summed
 \I Technique being used by many experiments
-   \I one of leading implementations developed by GlueX collaborator: AmpTools
+   \I One of leading implementations developed by GlueX collaborator: AmpTools
 \I Large reduction in scale of compute task, will evolve
-\I used in 3-pi analysis
+\I Used in 3-pi analysis
 
 % 10 Data Challenge What sort of data challenge do we need? When? 60s
 % (2000s)
 
+Data Challenge
+
+\I Plans only
+\I Simulate raw data to DST chain on a large scale
+   \I Need to develop job management tools
+\I Establish viability of data transfer capability, to and from JLab
+   \I Need to establish data management tools (meta-data catalog)
+
 % 11 Summary/Conclusion Summarize where we are and where we are
 % going. List of what still needs to be done? Contingencies. 60s
 % (2060s)
+
+Summary/Conclusions
+
+\I End-to-end solution for reconstruction, simlulation, DST-generation in hand
+   \I neutral and charged particles
+\I Amplitude analysis capability demonstrated
+   \I GPU method developed
+
+\I Calibration
+\I Large-scale data challenges
+\I Reconstruction efficiency and resolution
+   \I Major area of effort right now
+   \I Track reconstruction in a non-uniform magnetic field
+      \I curling tracks
+      \I areas of reduced efficiency/resolution
+      \I reconstruction speed
+   \I Photon reconstruction
+      \I split-offs
+      \I merged clusters
+      \I effort to lower thresholds
+      \I hadronic contamination
+
+% other stuff
+
+\f{
+\ft{Utilities}
+\bi
+\I XML parsing: Xerces (Apache)
+\I source code management: subversion
+\I source code documentation: doxygen
+\I building scripts: GNU Make
+\I database: MySQL
+\I general documentation
+  \bi
+  \I GlueX Notes: DocDB
+  \I webpages: mediawiki
+  \ei
+\ei
+}
