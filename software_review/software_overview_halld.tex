@@ -1,35 +1,89 @@
-Software Overview
+\documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
+
+\usetheme{Berkeley}
+
+\let\Tiny=\tiny
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Hall D Software Overview}
+\subtitle{12 GeV Software Review}
+\author[M.\ Ito]{Mark M.\ Ito}
+\date{June 7, 2012}
+\institute[JLab]{Jefferson Lab}
+
+\begin{document}
+
+\f{\titlepage}
 
 % 1 Data/Analysis Flow Slide A variation on the above slide
 % emphasizing what is done and what needs to be done. 120s (1090s)
 
-Data/Analysis Flow
+\f{
+\ft{Data/Analysis Flow}
 
+\bi
 \I Processors
+   \bi
    \I Simulation/Digitization
+      \bi
       \I GEANT3-based
       \I mature
+      \ei
    \I Reconstruction
+      \bi
       \I based on Jana framework (multi-threaded)
       \I functional
+      \ei
    \I Mini-DST generator
+      \bi
       \I planned
+      \ei
+   \ei
 \I Serialized data formats
+   \bi
    \I Raw data
+      \bi
       \I EVIO: CODA format
+      \ei
    \I Simulated data
+      \bi
       \I HDDM: Hall D Data Model (XML-like, compressed)
+      \ei
    \I Reconstructed data
+      \bi
       \I HDDM
+      \ei
    \I DST
+      \bi
       \I planned
+      \ei
+   \ei
 \I Databases
+   \bi
    \I Translation Tables
+      \bi
       \I planned
+      \ei
    \I Calibrations
+      \bi
       \I developed, in beta (Hall B as well)
+      \ei
    \I DST
+      \bi
       \I planned
+      \ei
+   \ei
+\ei
+}
 
 % 2 Manpower Estimates A slide showing the broken out tasks with \%
 % complete, manpower needed to complete and names of people with
@@ -39,8 +93,8 @@ Data/Analysis Flow
 
 Manpower: Requirements and Resources
 
-manpower_survey.png
-OfflineComputingActivities2012.png 
+\includegraphics[width=3.5in]{manpower_survey.png}
+\includegraphics[width=3.5in]{OfflineComputingActivities2012.png}
 
 % 3 Software Management A slide showing how the Offline group is
 % organized, and how it interacts with the other groups involved in
@@ -51,6 +105,8 @@ software management slide (org chart)
 % 4 Data/Compute Model A slide based on Mark’s spread sheet showing
 % the way that we estimate data volumes and CPU needs. Discuss phase
 % I, II and III. 120s (1390s)
+
+\bi
 
 \I Assumptions:
    \I 20 kHz off detector
@@ -65,6 +121,8 @@ software management slide (org chart)
       \I skims/mini-DST production
       \I physics analysis
       \I partial wave analysis
+
+\ei
 
 \f{\ft{Summary of Requirements}
 \bc
@@ -93,6 +151,7 @@ $^c$ significant amount may be done off-site \\
 % CDC prototype alignment and calibration, others? Beam tests? 120s
 % (1510s)
 
+\bi
 \I Developing plans for calibration
    \I Each working group tasked to list methods, data requirements, compute requirements
    \I Examples:
@@ -195,21 +254,6 @@ Summary/Conclusions
       \I merged clusters
       \I effort to lower thresholds
       \I hadronic contamination
-
-% other stuff
-
-\f{
-\ft{Utilities}
-\bi
-\I XML parsing: Xerces (Apache)
-\I source code management: subversion
-\I source code documentation: doxygen
-\I building scripts: GNU Make
-\I database: MySQL
-\I general documentation
-  \bi
-  \I GlueX Notes: DocDB
-  \I webpages: mediawiki
-  \ei
 \ei
-}
+
+\end{document}
