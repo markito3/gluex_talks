@@ -35,20 +35,68 @@ Software Overview
 % least at the present, we appear to have sufficient manpower to
 % complete the tasks in the time given. 120s (1210s)
 
-
+manpower_survey.png
+OfflineComputingActivities2012.png 
 
 % 3 Software Management A slide showing how the Offline group is
 % organized, and how it interacts with the other groups involved in
 % related tasks. 60s (1270s)
 
+software management slide (org chart)
+
 % 4 Data/Compute Model A slide based on Mark’s spread sheet showing
 % the way that we estimate data volumes and CPU needs. Discuss phase
 % I, II and III. 120s (1390s)
+
+\I Assumptions:
+   \I 20 kHz off detector
+   \I 15 kB events
+   \I run 35 weeks year, 50\% running efficiency
+   \I 130 ms to reconstruct an event (measured)
+   \I 5\% of data to calibrate
+   \I 2 Monte Carlo events per data event
+   \I 67 ms to generate Monte Carlo events (reconstruction time comparable to data)
+   \I repetition factor: 2
+   \I Other loads:
+      \I skims/mini-DST production
+      \I physics analysis
+      \I partial wave analysis
+
+\f{\ft{Summary of Requirements}
+\bc
+\begin{tabular}{|l|r|r|r|}
+\hline
+Process & CPU (kCores$^a$) & Disk (TB) & Tape (PB/y)\\
+\hline
+Raw Data & -- & -- & 3.2 \\
+Calibration & 0.09 & -- & 0.06 \\
+Reconstruction & 1.8 & -- & 1.3$^b$ \\
+Streaming & 0.9 & -- & 0.6 \\
+Analysis & 0.9 & 200 & -- \\
+Simulation & 5.4$^c$ & -- & 2.5$^b$ \\
+\hline
+Total & 9 & 200 & 8 \\
+\hline
+\end{tabular}
+\ec
+$^a$ single thread on a 2.8 GHz Nehalem machine \\
+$^b$ roughly half may be able to be recycled \\
+$^c$ significant amount may be done off-site \\
+}
 
 % 5 Calibration/Alignment What needs to be calibrated and how will it
 % be done? What has been done already? pi0 calibration of the FCAL,
 % CDC prototype alignment and calibration, others? Beam tests? 120s
 % (1510s)
+
+\I Developing plans for calibration
+   \I Each working group tasked to list methods, data requirements, compute requirements
+   \I Examples:
+      \I pi0 calibration of forward calorimeter
+      \I run plan for tracking chamber alignment
+      \I time walk corrections for time-of-flight using plane-to-plane information
+\I Not very advanced on this front
+\I People are busy building detectors
 
 % 6 Data Analysis Model Lay out the model for analysis of GlueX
 % data. Raw data on tape/disk at Jefferson Lab. DST’s produced at
@@ -56,17 +104,56 @@ Software Overview
 % then both analyzed on site and moved off site utilizing
 % grid-ftp. 120s (1630s)
 
+   \I From detector to CODA EMU's to monitoring farm to online cache disk
+   \I Over network to Tape Library in Computer Center
+   \I Reconstruction on JLab batch farm, reduction of volume by factor of 10
+   \I Reconstructed data written to Tape Library
+   \I Some fraction live on disk
+   \I DST's in several streams produced: large fraction live on disk
+   \I Similiar scenario for Monte Carlo except:
+      \I ``raw'' Monte Carlo not kept
+   \I Analysis engines access this data:
+      \I JLab batch farm
+      \I Individual work stations
+      \I Transfer to collaborating institutions
+      \I Transfer to grid resources
+      \I Transfer to PWA resources
+
 % 7 Simulation Lay out the model for GlueX simulation. Production both
 % at Jefferson Lab and at remote sites. Simulation will produce
 % MiniDSTs that will need to be moved. All other data is likely
 % flushed. What are the expecte resources in outside sites? 120s
 % (1760s)
 
+Expected outside resources
+
 % 8 Open Science Grid Discuss that GlueX is a virtual organization in
 % the OSG. Some resources from outside are committed to the grid. 120s
 % (1890s)
 
+Open Science Grid
+
+\I Established GlueX VO with the OSG
+\I Nodes from UConn have been contributed
+\I Significant analysis has been performed using the grid (3-pi analysis)
+\I Grid tools have been installed at JLab (no significant use yet)
+\I Plan to use Grid resources to augment those at JLab
+   \I Monte Carlo generation and reconstruction
+   \I Possible to have quick turn-around on specific tasks
+
 % 9 Amplitude Analysis On GPUs 60s (1950s)
+
+Amplitude Analysis on GPU's
+
+\I Calculation of log likelihoods for individual events
+   \I independent for individual events
+   \I computationally expensive
+   \I not branch intensive
+   \I can be summed
+\I Technique being used by many experiments
+   \I one of leading implementations developed by GlueX collaborator: AmpTools
+\I Large reduction in scale of compute task, will evolve
+\I used in 3-pi analysis
 
 % 10 Data Challenge What sort of data challenge do we need? When? 60s
 % (2000s)
