@@ -1,6 +1,6 @@
 \documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
 
-\usetheme{Boadilla}
+\usetheme{Berkeley}
 
 \let\Tiny=\tiny
 
@@ -27,56 +27,64 @@
 % 1 Data/Analysis Flow Slide A variation on the above slide
 % emphasizing what is done and what needs to be done. 120s (1090s)
 
+\section{Data/Analysis Flow}
+
 \f{
-\ft{Data/Analysis Flow}
+\ft{Flow Diagram}
 \includegraphics[width=3.5in]{overview_diagram.png}
 }
 
 \f{
-\ft{Data/Analysis Flow}
-
+\ft{Processors}
 \bi
-\I Processors
+\I Simulation/Digitization
    \bi
-   \I Simulation/Digitization
+   \I GEANT3-based
+   \I Geometry XML-driven (not coded)
       \bi
-      \I GEANT3-based
-      \I mature
+      \I Hall D Detector Definition language (HDDS)
       \ei
-   \I Reconstruction
-      \bi
-      \I based on Jana framework (multi-threaded)
-      \I functional
-      \ei
-   \I Mini-DST generator
-      \bi
-      \I planned
-      \ei
+   \I experimental resolution introduced in separate process (hdsmear)
+   \I mature
+   \ei
+\I Reconstruction
+   \bi
+   \I based on Jana framework
+   \bi
+   \I C++
+   \I multi-threaded
+   \I factory model
+   \I data available from framework as STL vectors of objects ({\it e.\ g.}, hits, tracks, clusters)
+   \ei
+   \I framework fully functional
+   \I factories undergoing constant revision
    \ei
 \ei
 }
 \f{
-\ft{Data/Analysis Flow}
-
+\ft{Serialized data formats}
 \bi
-\I Serialized data formats
+\I Raw data
    \bi
-   \I Raw data
+   \I EVIO: CEBAF Online Data Acquisition (CODA) format
+   \ei
+\I Simulated data
+   \bi
+   \I HDDM: Hall D Data Model
+   \I XML-like
+   \I compressed
+   \I each file contains complete description of elements, attributes
       \bi
-      \I EVIO: CODA format
+      \I element/attribute names
+      \I data types
+      \I multiplicity info (exacly one, at least one, many)
       \ei
-   \I Simulated data
-      \bi
-      \I HDDM: Hall D Data Model (XML-like, compressed)
-      \ei
-   \I Reconstructed data
-      \bi
-      \I HDDM
-      \ei
-   \I DST
-      \bi
-      \I planned
-      \ei
+   \I support utilities for conversion
+   \ei
+\I Reconstructed data
+   \bi
+   \I HDDM
+   \I others possible
    \ei
 \ei
 }
@@ -318,7 +326,7 @@ Total & 9 & 200 & 8 \\
 % going. List of what still needs to be done? Contingencies. 60s
 % (2060s)
 
-\f{
+\begin{frame}[fragile]
 \ft{Summary/Conclusions}
 Accomplishments
 \bi
@@ -338,12 +346,13 @@ To Do
 \I Reconstruction efficiency and resolution
 \ei
 
-}
-
+\vskip 0.5in
 \hrule
 \tiny
 \begin{verbatim}
 $Id$
 \end{verbatim}
+\end{frame}
+
 
 \end{document}
