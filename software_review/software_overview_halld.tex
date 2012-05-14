@@ -155,9 +155,43 @@
 % organized, and how it interacts with the other groups involved in
 % related tasks. 60s (1270s)
 
+%\f{
+%\ft{Software Management}
+%\includegraphics[height=3.0in]{org_chart_slide.png}
+%}
+
+\section{Computing Resource Requirements}
+
+% 6 Data Analysis Model Lay out the model for analysis of GlueX
+% data. Raw data on tape/disk at Jefferson Lab. DST’s produced at
+% Jefferson Lab, on Tape/Disk. MiniDSTs produced at Jefferson Lab and
+% then both analyzed on site and moved off site utilizing
+% grid-ftp. 120s (1630s)
+
+% 7 Simulation Lay out the model for GlueX simulation. Production both
+% at Jefferson Lab and at remote sites. Simulation will produce
+% MiniDSTs that will need to be moved. All other data is likely
+% flushed. What are the expecte resources in outside sites? 120s
+% (1760s)
+
 \f{
-\ft{Software Management}
-\includegraphics[height=3.0in]{org_chart_slide.png}
+\ft{Data Analysis Model}
+   \bi
+   \I From detector to CODA EMU's to monitoring farm to online cache disk
+   \I Over network to Tape Library in Computer Center
+   \I Reconstruction on JLab batch farm, reduction of volume by factor of 10
+   \I Reconstructed data written to Tape Library: some fraction live on disk
+   \I DST's in several streams produced: large fraction live on disk
+   \I Similiar scenario for Monte Carlo except ``raw'' Monte Carlo not kept
+   \I Analysis engines access this data:
+      \bi
+      \I JLab batch farm
+      \I Individual work stations
+      \I Collaborating institutions
+      \I Grid resources
+      \I PWA resources
+      \ei
+   \ei
 }
 
 % 4 Data/Compute Model A slide based on Mark’s spread sheet showing
@@ -165,8 +199,7 @@
 % I, II and III. 120s (1390s)
 
 \f{
-\ft{Data/Compute Model}
-
+\ft{Data/Computing Model}
 
 Assumptions:
 \bi
@@ -198,14 +231,51 @@ Raw Data & -- & -- & 3.2 \\
 Calibration & 0.09 & -- & 0.06 \\
 Reconstruction & 1.8 & -- & 1.3 \\
 Streaming & 0.9 & -- & 0.6 \\
-Analysis & 0.9 & 200 & -- \\
+Analysis & 0.9 & 1000 & -- \\
 Simulation & 5.4 & -- & 2.5 \\
 \hline
-Total & 9 & 200 & 8 \\
+Total & 9 & 1000 & 8 \\
 \hline
 \end{tabular}
 \ec
 }
+
+
+% 8 Open Science Grid Discuss that GlueX is a virtual organization in
+% the OSG. Some resources from outside are committed to the grid. 120s
+% (1890s)
+
+\f{
+\ft{Open Science Grid}
+
+\bi
+\I Have established GlueX VO with the OSG
+\I Nodes from UConn have been contributed
+\I Significant analysis has been performed using the grid ($3\pi$ analysis)
+\I Grid tools have been installed at JLab (no significant use yet)
+\I Plan to use Grid Storage Resource Manager (SRM) to move data on and off Lab site
+\I Plan to use Grid conmpute resources to augment those at JLab
+   \bi
+   \I Monte Carlo generation and reconstruction
+   \I Possible to have quick turn-around on specific tasks
+   \ei
+\ei
+}
+
+\f{
+\ft{Expected Non-JLab Resources}
+\includegraphics[height=3.0in]{ComputingResources.png}
+}
+
+\f{
+\ft{meta: notes on non-lab resources}
+\bi
+\I compiling info on compute farms at collaborating institutions
+\I some grid enabled, some not
+\ei
+}
+
+\section{Calibration and Alignment}
 
 % 5 Calibration/Alignment What needs to be calibrated and how will it
 % be done? What has been done already? pi0 calibration of the FCAL,
@@ -220,7 +290,7 @@ Total & 9 & 200 & 8 \\
    \I Each working group tasked to list methods, data requirements, compute requirements
    \I Examples:
       \bi
-      \I pi0 calibration of forward calorimeter
+      \I $\pi^0$ calibration of forward calorimeter
       \I run plan for tracking chamber alignment
       \I time walk corrections for time-of-flight using plane-to-plane information
       \ei
@@ -229,62 +299,7 @@ Total & 9 & 200 & 8 \\
 \ei
 }
 
-% 6 Data Analysis Model Lay out the model for analysis of GlueX
-% data. Raw data on tape/disk at Jefferson Lab. DST’s produced at
-% Jefferson Lab, on Tape/Disk. MiniDSTs produced at Jefferson Lab and
-% then both analyzed on site and moved off site utilizing
-% grid-ftp. 120s (1630s)
-
-\f{
-\ft{Data Analysis Model}
-   \bi
-   \I From detector to CODA EMU's to monitoring farm to online cache disk
-   \I Over network to Tape Library in Computer Center
-   \I Reconstruction on JLab batch farm, reduction of volume by factor of 10
-   \I Reconstructed data written to Tape Library: some fraction live on disk
-   \I DST's in several streams produced: large fraction live on disk
-   \I Similiar scenario for Monte Carlo except ``raw'' Monte Carlo not kept
-   \I Analysis engines access this data:
-      \bi
-      \I JLab batch farm
-      \I Individual work stations
-      \I Collaborating institutions
-      \I Grid resources
-      \I PWA resources
-      \ei
-   \ei
-}
-
-% 7 Simulation Lay out the model for GlueX simulation. Production both
-% at Jefferson Lab and at remote sites. Simulation will produce
-% MiniDSTs that will need to be moved. All other data is likely
-% flushed. What are the expecte resources in outside sites? 120s
-% (1760s)
-
-\f{
-\ft{Expected Non-JLab Resources}
-\includegraphics[height=3.0in]{ComputingResources.png}
-}
-
-% 8 Open Science Grid Discuss that GlueX is a virtual organization in
-% the OSG. Some resources from outside are committed to the grid. 120s
-% (1890s)
-
-\f{
-\ft{Open Science Grid}
-
-\bi
-\I Have established GlueX VO with the OSG
-\I Nodes from UConn have been contributed
-\I Significant analysis has been performed using the grid (3-pi analysis)
-\I Grid tools have been installed at JLab (no significant use yet)
-\I Plan to use Grid resources to augment those at JLab
-   \bi
-   \I Monte Carlo generation and reconstruction
-   \I Possible to have quick turn-around on specific tasks
-   \ei
-\ei
-}
+\section{Amplitude Analysis}
 
 % 9 Amplitude Analysis On GPUs 60s (1950s)
 
@@ -304,7 +319,7 @@ Total & 9 & 200 & 8 \\
 \I One of leading implementations developed by GlueX collaborator: AmpTools
 \I Large reduction in scale of compute task
 \I Infrastructure will evolve
-\I Used in 3-pi analysis
+\I Used in $3\pi$ analysis
 \ei
 }
 
@@ -327,6 +342,8 @@ Total & 9 & 200 & 8 \\
 \ei
 }
 
+\section{Reconstruction Development}
+
 \f{
 \ft{Reconstruction: Efficiency and Resolution}
 \bi
@@ -347,6 +364,8 @@ Total & 9 & 200 & 8 \\
 \ei
 }
 
+\section{Conclusions}
+
 % 11 Summary/Conclusion Summarize where we are and where we are
 % going. List of what still needs to be done? Contingencies. 60s
 % (2060s)
@@ -357,11 +376,13 @@ Accomplishments
 \bi
 \I End-to-end solution for reconstruction, simlulation, DST-generation in hand
    \bi
-   \I neutral and charged particles
+   \I neutral and charged particles simulated and reconstructed
    \ei
 \I Amplitude analysis capability demonstrated
    \bi
    \I GPU method developed
+   \I $\gamma p \rightarrow n\pi^+\pi^+\pi^-$
+   \I $\gamma p \rightarrow Xp$, $X \rightarrow b_1\pi$, $b_1 \rightarrow \omega\pi$, $\omega\rightarrow\pi^+\pi^-\pi^0$
    \ei
 \ei
 To Do
