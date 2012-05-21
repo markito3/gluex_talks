@@ -37,24 +37,19 @@ Dedicated talks:
 
 \section{Software Topics}
 
-\frame[label=topics-one]{
+\frame<1>[label=topics-one]{
 \ft{Software Topics 1}
 
 \bi
-\I single charged track tests running
+\I<alert@1> Single-charged-track tests running: Simon
   \bi
   \I every Tuesday and Friday
   \I runs off the nightly build
   \ei
-\I Reconstruction Output Format: UConn HDDM
-\I EventStore
+\I<alert@2> Reconstruction Output Format: UConn HDDM
+\I<alert@3> Adopted CLHEP as an official GlueX package
   \bi
-  \I System for disk-resident reconstructed data: from CLEO via Matt
-  \I Creating skims without duplication of events themselves by storing only "pointers" to events
-  \I Hooks for specifying the version of the code used to reconstruct events
-  \I Hooks for skimming events based on various database-resident criteria
-  \I Possibility for using alternate reconstruction code to over-ride that used on previously reconstructed data
-  \I Feasibility needs studying
+  \I Used by AmpTools, Geant4, Levenberg-Marquardt track fitting
   \ei
 \ei
 }
@@ -69,25 +64,36 @@ Dedicated talks:
 \includegraphics[height=2.8in]{pion_dp_vs_theta.png}
 }
 
-\againframe<2>{topics-one}
+\againframe<2-3>{topics-one}
 
 \f{
 \ft{Software Topics 2}
 \bi
-\I Adopted CLHEP as an official GlueX package
+\I EventStore
   \bi
-  \I Used by AmpTools, Geant4, Levenberg-Marquardt track fitting
+  \I<alert@1> System for disk-resident reconstructed data: from CLEO via Matt
+  \I<alert@2> Creating skims without duplication of events themselves by storing only "pointers" to events
+  \I<alert@3> Hooks for specifying the version of the code used to reconstruct events
+  \I<alert@4> Hooks for skimming events based on various database-resident criteria
+  \I<alert@5> Possibility for using alternate reconstruction code to over-ride that used on previously reconstructed data
+  \I<alert@6> Feasibility needs studying
   \ei
-\I Restructuring of high-level reconstruction classes: Paul M.
-\I Secondary vertices now stored in HDGeant output: Beni, Richard
-\I Updated documentation on kinematic fitting: Will L.
-\I New JANA release, 0.6.4: David
+\ei
+}
+
+\f{
+\ft{Software Topics 3}
+\bi
+\I<alert@1> Restructuring of high-level reconstruction classes: Paul M.
+\I<alert@2> Secondary vertices now stored in HDGeant output: Beni, Richard
+\I<alert@3> Updated documentation on kinematic fitting: Will L.
+\I<alert@4> New JANA release, 0.6.4: David
   \bi
   \I  Xerces-c 3.x support
   \ei
-\I Rad-hard insert removed from FCAL
-\I Issue identified with sampling fluctuations in BCAL simulation: Andrei, Irina
-\I Start counter geometry has been updated to 30 sector design: Puneet, Simon
+\I<alert@5> Rad-hard insert removed from FCAL
+\I<alert@6> Issue identified with sampling fluctuations in BCAL simulation: Andrei, Irina
+\I<alert@7> Start counter geometry has been updated to 30 sector design: Puneet, Simon
 \ei
 
 }
