@@ -26,31 +26,68 @@
 
 \f{
 \ft{Major Topics}
-Talks to follow:
+Dedicated talks:
 \bi
+\I Geant4: Richard
 \I Tracking: Simon and Paul M.
 \I Calorimetry: Will L.
-\I Offline Software Review: David L., special session
+\I Offline Software Review: David L., special session with review talks
 \ei
 }
 
 \section{Software Topics}
 
-\f{
+\frame[label=topics-one]{
 \ft{Software Topics 1}
 
 \bi
-\I single charged track thing running
+\I single charged track tests running
+  \bi
+  \I every Tuesday and Friday
+  \I runs off the nightly build
+  \ei
 \I Reconstruction Output Format: UConn HDDM
 \I EventStore
-\I adopted CLHEP as an official GlueX package
-\I restructuring of high-level reconstruction classes: Paul M.
-\I secondary vertices now stored in HDGeant output
-\I updated documentation on kinematic fitting: Will
-\I New JANA release: 0.6.4: Xerces-c 3.x support
-\I rad-hard insert removed
-\I Issue identified with sampling fluctuations in BCAL simulation
-\I Start counter geometry has been updated to 30 sector design
+  \bi
+  \I System for disk-resident reconstructed data: from CLEO via Matt
+  \I Creating skims without duplication of events themselves by storing only "pointers" to events
+  \I Hooks for specifying the version of the code used to reconstruct events
+  \I Hooks for skimming events based on various database-resident criteria
+  \I Possibility for using alternate reconstruction code to over-ride that used on previously reconstructed data
+  \I Feasibility needs studying
+  \ei
+\ei
+}
+
+\f{
+\ft{Single-track test example (May 18)}
+\includegraphics[height=2.8in]{pion_efficiency.png}
+}
+
+\f{
+\ft{Single-track test example (May 18)}
+\includegraphics[height=2.8in]{pion_dp_vs_theta.png}
+}
+
+\againframe<2>{topics-one}
+
+\f{
+\ft{Software Topics 2}
+\bi
+\I Adopted CLHEP as an official GlueX package
+  \bi
+  \I Used by AmpTools, Geant4, Levenberg-Marquardt track fitting
+  \ei
+\I Restructuring of high-level reconstruction classes: Paul M.
+\I Secondary vertices now stored in HDGeant output: Beni, Richard
+\I Updated documentation on kinematic fitting: Will L.
+\I New JANA release, 0.6.4: David
+  \bi
+  \I  Xerces-c 3.x support
+  \ei
+\I Rad-hard insert removed from FCAL
+\I Issue identified with sampling fluctuations in BCAL simulation: Andrei, Irina
+\I Start counter geometry has been updated to 30 sector design: Puneet, Simon
 \ei
 
 }
@@ -59,6 +96,12 @@ Talks to follow:
 
 \f{
 \ft{Summary}
+\bi
+\I Continuous progress
+\I Reconstruction transitioning to next level
+\I Lots of projects to be claimed
+\I Software review preparation giving offline project overview
+\ei
 }
 
 \end{document}
