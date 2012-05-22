@@ -1,6 +1,6 @@
 \documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
 
-\usetheme{Berkeley}
+\usetheme{AnnArbor}
 
 \let\Tiny=\tiny
 
@@ -43,9 +43,21 @@
 
 \section{Data/Analysis Flow}
 
-\f{
+\frame<1>[label=flow-diagram]{
 \ft{Flow Diagram}
-\includegraphics[width=3.5in]{overview_diagram.png}
+\small
+\begin{columns}[c]
+\begin{column}{1.0in}
+\bi
+\I<alert@1> boxes: processors
+\I<alert@2> ovals: data formats
+\I<alert@3> punch cards: databases
+\ei
+\end{column}
+\begin{column}{3.0in}
+\includegraphics[width=3.0in]{overview_diagram.png}
+\end{column}
+\end{columns}
 }
 
 \f{
@@ -75,6 +87,9 @@
    \ei
 \ei
 }
+
+\againframe<2>{flow-diagram}
+
 \f{
 \ft{Serialized data formats}
 \bi
@@ -102,6 +117,9 @@
    \ei
 \ei
 }
+
+\againframe<3>{flow-diagram}
+
 \f{
 \ft{Databases}
 \bi
@@ -133,36 +151,44 @@
 
 \f{
 \ft{Manpower Requirements and Project Progress}
-\includegraphics[height=3.0in]{OfflineComputingActivities2012.png}
+\small
+\begin{columns}[c]
+\begin{column}{1.5in}
+   \bi
+   \I required manpower for various tasks estimated
+   \I manpower already expended has been estimated
+   \I assignment of tasks to individuals
+   \ei
+\end{column}
+\begin{column}{2.0in}
+\includegraphics[width=2.0in]{OfflineComputingActivities2012.png}
+\end{column}
+\end{columns}
 }
 
 \f{
-\ft{meta: notes on manpower requirements slide}
-\bi
-\I make a simplified readable version
-\I points:
-   \bi
-   \I required manpower for various tasks estimated
-   \I manpower already expended has been estimated: can show fraction completed
-   \I assignment of tasks to individuals
-   \ei
-\ei
+\ft{Manpower Requirements, Example Items}
+\includegraphics[width=4.75in]{OfflineComputingActivities2012Zoom.png}
 }
 
 \f{
 \ft{Manpower Resources}
-\includegraphics[width=3.5in]{manpower_survey.png}
-}
-
-\f{
-\ft{meta: notes on manpower resources slide}
+\includegraphics[width=2.5in]{manpower_survey_raw.png}
+\small
 \bi
 \I collaboration has been surveyed
 \I manpower resources available for software infrastructure tabulated
 \I differentiated by type (grad student, post-doc, faculty,...)
 \I availability year-by-year shown
-\I conclusion: match with level of effort required to finish requirements
 \ei
+}
+
+\f{
+\ft{Manpower Resources}
+
+\includegraphics[width=4.5in]{manpower_survey_graphs.png}
+
+Conclusion: match with level of effort required to finish requirements
 }
 
 % 3 Software Management A slide showing how the Offline group is
@@ -278,13 +304,9 @@ Total & 9 & 1000 & 8 \\
 
 \f{
 \ft{Expected Non-JLab Resources}
-\includegraphics[height=3.0in]{ComputingResources.png}
-}
-
-\f{
-\ft{meta: notes on non-lab resources}
+\includegraphics[width=4.5in]{ComputingResourcesZoom.png}
 \bi
-\I compiling info on compute farms at collaborating institutions
+\I Have compiled info on compute farms at collaborating institutions
 \I some grid enabled, some not
 \ei
 }
