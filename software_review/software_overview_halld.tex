@@ -88,6 +88,41 @@
 \ei
 }
 
+\subsection{Geant4}
+
+\frame<1-2>[label=geant4]{
+\ft{Geant4 Conversion}
+\bi
+\I<alert@1> Conversion has started as a background task
+\I<alert@2> Geometry from same HDDS files as for Geant3 implementation
+\I<alert@3> Hit generation: no new algorithms, core C code
+  \bi
+  \I wrapped for FORTRAN for Geant3 implementation
+  \I wrapped for C++ for Geant4 implementation
+  \ei
+\ei
+}
+
+\f{
+\bc
+\includegraphics[width=3.5in]{gluex_global.jpg}
+\ec
+}
+
+\f{
+\bc
+\includegraphics[width=3.5in]{cutaway.jpg}
+\ec
+}
+
+\f{
+\bc
+\includegraphics[width=3.5in]{cutaway_zoom.jpg}
+\ec
+}
+
+\againframe<3>{geant4}
+
 \againframe<2>{flow-diagram}
 
 \f{
@@ -285,16 +320,17 @@ Total & 9 & 1000 & 8 \\
 % the OSG. Some resources from outside are committed to the grid. 120s
 % (1890s)
 
-\f{
+\frame<1>[label=osg]{
 \ft{Open Science Grid}
 
 \bi
-\I Have established GlueX VO with the OSG
-\I Nodes from UConn have been contributed
-\I Significant analysis has been performed using the grid ($3\pi$ analysis)
-\I Grid tools have been installed at JLab (no significant use yet)
-\I Plan to use Grid Storage Resource Manager (SRM) to move data on and off Lab site
-\I Plan to use Grid conmpute resources to augment those at JLab
+\I<alert@1> Have established GlueX VO with the OSG
+\I<alert@2> Nodes from UConn have been contributed
+\I<alert@3> Significant analysis has been performed using the grid ($3\pi$ analysis)
+\I<alert@4> Use has roughly matched contribution
+\I<alert@5> Grid tools have been installed at JLab (no significant use yet)
+\I<alert@6> Plan to use Grid Storage Resource Manager (SRM) to move data on and off Lab site
+\I<alert@7> Plan to use Grid compute resources to augment those at JLab
    \bi
    \I Monte Carlo generation and reconstruction
    \I Possible to have quick turn-around on specific tasks
@@ -303,11 +339,35 @@ Total & 9 & 1000 & 8 \\
 }
 
 \f{
+\bc
+\includegraphics[width=3.5in]{osg_total_usage.png}
+\ec
+}
+
+\againframe<2>{osg}
+
+\f{
+\bc
+\includegraphics[width=3.5in]{osg_uconn_usage.png}
+\ec
+}
+
+\againframe<3>{osg}
+
+\f{
+\bc
+\includegraphics[width=3.5in]{osg_gluex_usage.png}
+\ec
+}
+
+\againframe<4-7>{osg}
+
+\f{
 \ft{Expected Non-JLab Resources}
 \includegraphics[width=4.5in]{ComputingResourcesZoom.png}
 \bi
 \I Have compiled info on compute farms at collaborating institutions
-\I some grid enabled, some not
+\I Only UConn grid enabled
 \ei
 }
 
