@@ -60,68 +60,61 @@
 \end{columns}
 }
 
+\subsection{Processors}
+
 \f{
-\ft{Processors}
+\ft{Simulation/Digitization}
+\begin{columns}[c]
+\begin{column}{3.0in}
 \bi
-\I Simulation/Digitization
-   \bi
+\scriptsize
+\I GEANT3-based (mature)
+   \bi\scriptsize
    \I GEANT3-based
-   \I Geometry XML-driven (not coded)
-      \bi
-      \I Hall D Detector Definition language (HDDS)
+   \I Geometry defined in configuration files, not source code
+      \bi\scriptsize
+      \I Hall D Detector Specification (HDDS), an XML implementation
       \ei
-   \I experimental resolution introduced in separate process (hdsmear)
-   \I mature
+   \I resolution/digitization introduced in separate process (mcsmear)
    \ei
-\I Reconstruction
-   \bi
-   \I based on Jana framework
+\I Geant4 Conversion
+   \bi\scriptsize
+   \I Started as a background task
+   \I Geometry from same HDDS files as for GEANT3 implementation
+   \I Hit generation: no new algorithms, re-use same C code core
+   \ei
+\ei
+\end{column}
+\begin{column}{1.5in}
+\includegraphics[width=1.5in]{cutaway.jpg}\\
+\includegraphics[width=1.5in]{cutaway_zoom.jpg}
+\end{column}
+\end{columns}
+}
+
+\f{
+\ft{Reconstruction}
+\begin{columns}[c]
+\begin{column}{2.5in}
+\bi
+\I based on Jana framework (mature)
    \bi
    \I C++
    \I multi-threaded
    \I factory model
-   \I data available from framework as STL vectors of objects ({\it e.\ g.}, hits, tracks, clusters)
    \ei
-   \I framework fully functional
-   \I factories undergoing constant revision
+\I provides full feature set
+\I factories attached to framework current area of development
+   \bi
+   \I {\it e.~g.}, cluster finding, track fitting 
    \ei
 \ei
+\end{column}
+\begin{column}{2.0in}
+\includegraphics[width=2.0in]{jana.png}
+\end{column}
+\end{columns}
 }
-
-\subsection{Geant4}
-
-\frame<1-2>[label=geant4]{
-\ft{Geant4 Conversion}
-\bi
-\I<alert@1> Conversion has started as a background task
-\I<alert@2> Geometry from same HDDS files as for Geant3 implementation
-\I<alert@3> Hit generation: no new algorithms, core C code
-  \bi
-  \I wrapped for FORTRAN for Geant3 implementation
-  \I wrapped for C++ for Geant4 implementation
-  \ei
-\ei
-}
-
-\f{
-\bc
-\includegraphics[width=3.5in]{gluex_global.jpg}
-\ec
-}
-
-\f{
-\bc
-\includegraphics[width=3.5in]{cutaway.jpg}
-\ec
-}
-
-\f{
-\bc
-\includegraphics[width=3.5in]{cutaway_zoom.jpg}
-\ec
-}
-
-\againframe<3>{geant4}
 
 \againframe<2>{flow-diagram}
 
