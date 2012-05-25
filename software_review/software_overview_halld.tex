@@ -28,12 +28,12 @@
 \ft{Outline}
 \be
 \I{Data/Analysis Flow}
+\I{Software Management}
 \I{Manpower}
 \I{Computing Resource Requirements}
 \I{Calibration and Alignment}
 \I{Amplitude Analysis}
 \I{Reconstruction Development}
-\I{Software Management}
 \I{Conclusions}
 \ee
 }
@@ -116,6 +116,27 @@
 \end{columns}
 }
 
+\f{
+\ft{Reconstruction: Efficiency and Resolution}
+\bi
+\I Reconstruction code has improved significantly over the past year
+\I Remains major area of effort right now
+\I Track reconstruction in a non-uniform magnetic field
+   \bi
+   \I curling tracks
+   \I areas of reduced efficiency/resolution
+   \I reconstruction speed
+   \ei
+\I Photon reconstruction
+   \bi
+   \I split-offs
+   \I merged clusters
+   \I effort to lower thresholds
+   \I hadronic contamination
+   \ei
+\ei
+}
+
 \subsection{Data Formats}
 
 \againframe<2>{flow-diagram}
@@ -173,6 +194,28 @@
    \I Translation Tables
    \I DST
    \ei
+\ei
+}
+
+\section{Management}
+
+\f{
+\ft{Software Management Tools}
+\bi
+\I Source code version control: Subversion
+\I Regular tagged releases of reconstruction software: about every 6 weeks
+\I Nightly builds of reconstruction software
+   \bi
+   \I all Lab-supported Linux flavors
+   \I Doxygen documentation generated
+   \ei
+\I Semi-weekly reconstruction tests
+   \bi
+   \I single-charged particles
+   \I multi-track, multi-photon events
+   \I histograms generated, archived
+   \ei
+\I Mantis bug tracker for issue tracking
 \ei
 }
 
@@ -281,7 +324,7 @@ Assumptions:
    \I 5\% of data to calibrate
    \I 2 Monte Carlo events per data event
    \I 67 ms to generate Monte Carlo events (reconstruction time comparable to data)
-   \I repetition factor: 2
+   \I factor for multiple iterations: 2
    \I Other loads:
       \bi
       \I skims/mini-DST production
@@ -314,61 +357,77 @@ Total & 9 & 1000 & 8 \\
 \small CPU represents amount of computing power required to keep up with average rate off detector. Sets the scale; should be viewed as a minimum requirement.
 }
 
+\f{
+\ft{Another View of Requirements: Wait Time}
+
+Assume a 10~kCore farm, unloaded, nominal running efficiency, and one iteration only. Other assumptions the same as above.
+
+\bc\bf
+How long do we wait for results?
+\ec
+
+{\small
+\begin{tabular}{lrrr}
+ & \bf Phase I & \bf Phase II & \bf Phase III \\
+Days of running & 60 & 60 & 120 \\
+Trigger rate (kHz) & 2 & 20 & 20 \\
+Number of events & 5.18$\times 10^9$ & 5.18$\times 10^{10}$ & 1.04$\times 10^{11}$ \\
+Reconstruction time (days) & 0.8 & 8 & 16 \\
+Monte Carlo time (gen. + recon.) (days) & 2.4 & 24 & 48 \\
+Reconstruction time + MC time (days) & 3.2 & 32 & 64 \\
+\end{tabular}
+}
+}
+
 
 % 8 Open Science Grid Discuss that GlueX is a virtual organization in
 % the OSG. Some resources from outside are committed to the grid. 120s
 % (1890s)
 
-\frame<1>[label=osg]{
-\ft{Open Science Grid}
+\section{Open Science Grid}
+
+\frame{
+\ft{Open Science Grid (OSG)}
 
 \bi
-\I<alert@1> Have established GlueX VO with the OSG
-\I<alert@2> Nodes from UConn have been contributed
-\I<alert@3> Significant analysis has been performed using the grid ($3\pi$ analysis)
-\I<alert@4> Use has roughly matched contribution
-\I<alert@5> Grid tools have been installed at JLab (no significant use yet)
-\I<alert@6> Plan to use Grid Storage Resource Manager (SRM) to move data on and off Lab site
-\I<alert@7> Plan to use Grid compute resources to augment those at JLab
+\I Plan to use Grid resources to augment those at JLab
    \bi
-   \I Monte Carlo generation and reconstruction
-   \I Possible to have quick turn-around on specific tasks
+   \I Monte Carlo generation and reconstruction (no raw data transfer)
+   \I Opportunistic usage: possible to have quick turn-around on
+   specific tasks without grid-scale contribution
    \ei
+\I Have established GlueX as a Virtual Organization (VO) with the OSG
+\I Nodes from UConn have been contributed
+\I Significant analysis has been performed using the grid ($3\pi$ and $5\pi$ analyses)
+\I GlueX consumption has roughly matched contribution
+\I Grid tools have been installed at JLab (no significant use yet)
+\I Plan to use Grid Storage Resource Manager (SRM) to move data on and
+off JLab site
 \ei
 }
 
 \f{
-\bc
-\includegraphics[width=3.5in]{osg_total_usage.png}
-\ec
+\ft{Contribution and Consumption}
+\begin{columns}[c]
+\begin{column}{2.25in}
+\includegraphics[width=2.25in]{osg_uconn_usage.png}\\
+\bc\scriptsize OSG usage at UConn (contributed)\ec
+\end{column}
+\begin{column}{2.25in}
+\includegraphics[width=2.25in]{osg_gluex_usage.png}
+\bc\scriptsize GlueX usage on the OSG (consumed)\ec
+\end{column}
+\end{columns}
 }
 
-\againframe<2>{osg}
-
-\f{
-\bc
-\includegraphics[width=3.5in]{osg_uconn_usage.png}
-\ec
-}
-
-\againframe<3>{osg}
-
-\f{
-\bc
-\includegraphics[width=3.5in]{osg_gluex_usage.png}
-\ec
-}
-
-\againframe<4-7>{osg}
-
-\f{
-\ft{Expected Non-JLab Resources}
-\includegraphics[width=4.5in]{ComputingResourcesZoom.png}
-\bi
-\I Have compiled info on compute farms at collaborating institutions
-\I Only UConn grid enabled
-\ei
-}
+%\f{
+%\ft{Expected Non-JLab Resources}
+%\includegraphics[width=4.5in]{ComputingResourcesZoom.png}
+%\bi
+%\I Have compiled info on compute farms at collaborating institutions
+%\I Only UConn grid enabled
+%\ei
+%}
 
 \section{Calibration and Alignment}
 
@@ -390,7 +449,11 @@ Total & 9 & 1000 & 8 \\
       \I time walk corrections for time-of-flight using plane-to-plane information
       \ei
    \ei
-\I Not very advanced on this front; people are busy building detectors
+\I Hardware and software have reached the point where we can turn to calibration
+\I Goal: have most calibration systems available in a year
+   \bi
+   \I fits with detector installation time frame
+   \ei
 \ei
 }
 
@@ -402,19 +465,20 @@ Total & 9 & 1000 & 8 \\
 \ft{Amplitude Analysis on GPU's}
 
 \bi
+\I Challenge of amplitude analysis largely met by GPU technology
 \I Calculation of log likelihoods for individual events
    \bi
-   \I independent for each events
+   \I independent for each event
    \I computationally expensive
    \I not branch intensive
-   \I result is small (in bytes)
+   \I I/O to do computation is small
    \I results are to be summed
    \ei
-\I Technique being used by many experiments
+\I Technique starting to be used by many experiments
 \I One of leading implementations developed by GlueX collaborator: AmpTools
-\I Large reduction in scale of compute task
+\I Large reduction in scale of compute task (1-2 orders of magnitude)
 \I Infrastructure will evolve
-\I Used in $3\pi$ analysis
+\I Used in $3\pi$ and $5\pi$ analyses
 \ei
 }
 
@@ -437,57 +501,8 @@ Total & 9 & 1000 & 8 \\
 \ei
 }
 
-\section{Reconstruction Development}
-
 \f{
-\ft{Reconstruction: Efficiency and Resolution}
-\bi
-   \I Major area of effort right now
-   \I Track reconstruction in a non-uniform magnetic field
-      \bi
-      \I curling tracks
-      \I areas of reduced efficiency/resolution
-      \I reconstruction speed
-      \ei
-   \I Photon reconstruction
-      \bi
-      \I split-offs
-      \I merged clusters
-      \I effort to lower thresholds
-      \I hadronic contamination
-      \ei
-\ei
-}
-
-\section{Management}
-
-\f{
-\ft{Software Management Tools}
-\bi
-\I Source code version control: Subversion
-\I Regular tagged releases of reconstruction software: about every 6 weeks
-\I Nightly builds of reconstruction software
-   \bi
-   \I all Lab-supported Linux flavors
-   \I Doxygen documentation generated
-   \ei
-\I Semi-weekly reconstruction tests
-   \bi
-   \I single-charged particles
-   \I multi-track, multi-photon events
-   \I histograms generated, archived
-   \ei
-\I Mantis bug tracker for issue tracking
-\I Communication
-   \bi
-   \I email list, wiki, note repository, ReadyTalk, ESNet, EVO
-   %\I no Facebook or Twitter...yet
-   \ei
-\ei
-}
-
-\f{
-\ft{Software Milestones}
+\ft{Data Challenge Timeline}
 \begin{tabular}{rp{3.3in}l}
 & \bf Task & \bf Date \\
 1 & deploy calibration database & 2012-07-15 \\
@@ -512,15 +527,16 @@ Total & 9 & 1000 & 8 \\
 \ft{Summary/Conclusions}
 Accomplishments
 \bi
-\I End-to-end solution for reconstruction, simlulation, DST-generation in hand
+\I End-to-end solution for reconstruction, simulation in hand
    \bi
-   \I neutral and charged particles simulated and reconstructed
+   \I realistic event generators
+   \I photons and charged particles simulated and reconstructed
    \ei
 \I Amplitude analysis capability demonstrated
    \bi
    \I GPU method developed
-   \I $\gamma p \rightarrow n\pi^+\pi^+\pi^-$
-   \I $\gamma p \rightarrow Xp$, $X \rightarrow b_1\pi$, $b_1 \rightarrow \omega\pi$, $\omega\rightarrow\pi^+\pi^-\pi^0$
+   \I ``$3\pi$'' decay: $\gamma p \rightarrow Xn$ \\ \hspace{1.1in}$\hookrightarrow\pi^+\pi^+\pi^-$
+   \I ``$5\pi$'' decay: $\gamma p \rightarrow Xp$ \\ \hspace{1.05in} $\hookrightarrow b^\pm_1\pi^\mp$ \\ \hspace{1.27in}$\hookrightarrow \omega\pi^\pm$ \\ \hspace{1.39in} $\hookrightarrow\pi^+\pi^-\pi^0$ \\ \hspace{1.88in} $\hookrightarrow \gamma\gamma$
    \ei
 \ei
 To Do
