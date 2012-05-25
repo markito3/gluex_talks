@@ -184,34 +184,38 @@
 % least at the present, we appear to have sufficient manpower to
 % complete the tasks in the time given. 120s (1210s)
 
+\subsection{Requirements}
+
 \f{
 \ft{Manpower Requirements and Project Progress}
 \includegraphics[width=4.75in]{OfflineComputingActivities2012Zoom.png}
 \bi\small
 \I Complete task list with labor estimates and fraction completed
 \I Formerly tracked by 12 GeV Project Management team
-\I Total effort: 38 FTE-years, complete: 49\%
+\I Total effort: 38 FTE-years, complete: 51\%, remaining work: 19 FTE-years
 \ei
 }
 
+\subsection{Resources}
+
 \f{
 \ft{Manpower Resources}
-\includegraphics[width=2.5in]{manpower_survey_raw.png}
-\small
-\bi
-\I collaboration has been surveyed
-\I manpower resources available for software infrastructure tabulated
-\I differentiated by type (grad student, post-doc, faculty,...)
-\I availability year-by-year shown
+\bc
+\includegraphics[width=2.8in]{manpower_survey_raw.png}
+\ec
+\begin{columns}[c]
+\begin{column}{2.2in}
+\bi\scriptsize
+\I Survey of estimated manpower resources available for software infrastructure
+\I Different categories weighted differently
+\I Total for 2012-2014: 23 FTE-years
+\I Good match with requirements, but little safety factor
 \ei
-}
-
-\f{
-\ft{Manpower Resources}
-
-\includegraphics[width=4.5in]{manpower_survey_graphs.png}
-
-Conclusion: match with level of effort required to finish requirements
+\end{column}
+\begin{column}{2.3in}
+\includegraphics[width=2.3in]{manpower_survey_graphs.png}
+\end{column}
+\end{columns}
 }
 
 % 3 Software Management A slide showing how the Offline group is
@@ -237,22 +241,24 @@ Conclusion: match with level of effort required to finish requirements
 % flushed. What are the expecte resources in outside sites? 120s
 % (1760s)
 
+\subsection{Analysis Model}
+
 \f{
 \ft{Data Analysis Model}
-   \bi
-   \I From detector to CODA EMU's to monitoring farm to online cache disk
+   \bi\small
+   \I From detector to monitoring farm to online cache disk in Counting House
    \I Over network to Tape Library in Computer Center
    \I Reconstruction on JLab batch farm, reduction of volume by factor of 10
    \I Resulting DST data written to Tape Library: some fraction live on disk
-   \I mini-DST's in several streams produced: large fraction live on disk
+   \I Mini-DST's (``4-vectors'') in several streams: large fraction live on disk
    \I Similiar scenario for Monte Carlo except ``raw'' Monte Carlo not kept
    \I Analysis engines access this data:
       \bi
       \I JLab batch farm
       \I Individual work stations
       \I Collaborating institutions
-      \I Grid resources
-      \I PWA resources
+      \I Grid computing resources
+      \I Amplitude analysis resources
       \ei
    \ei
 }
@@ -260,6 +266,8 @@ Conclusion: match with level of effort required to finish requirements
 % 4 Data/Compute Model A slide based on Mark’s spread sheet showing
 % the way that we estimate data volumes and CPU needs. Discuss phase
 % I, II and III. 120s (1390s)
+
+\subsection{Computing Model}
 
 \f{
 \ft{Data/Computing Model}
@@ -278,11 +286,12 @@ Assumptions:
       \bi
       \I skims/mini-DST production
       \I physics analysis
-      \I partial wave analysis
       \ei
 \ei
 
 }
+
+\subsection{Requirements}
 
 \f{\ft{Summary of Requirements}
 \bc
@@ -301,6 +310,8 @@ Total & 9 & 1000 & 8 \\
 \hline
 \end{tabular}
 \ec
+
+\small CPU represents amount of computing power required to keep up with average rate off detector. Sets the scale; should be viewed as a minimum requirement.
 }
 
 
