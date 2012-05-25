@@ -54,8 +54,8 @@
 \I<alert@3> punch cards: databases
 \ei
 \end{column}
-\begin{column}{3.0in}
-\includegraphics[width=3.0in]{overview_diagram.png}
+\begin{column}{3.5in}
+\includegraphics[width=3.5in]{DataFlow_simple.png}
 \end{column}
 \end{columns}
 }
@@ -116,49 +116,56 @@
 \end{columns}
 }
 
+\subsection{Data Formats}
+
 \againframe<2>{flow-diagram}
 
 \f{
 \ft{Serialized data formats}
-\bi
+
+\begin{columns}[c]
+\begin{column}{1.7in}
+\bi\scriptsize
 \I Raw data
-   \bi
+   \bi\scriptsize
    \I EVIO: CEBAF Online Data Acquisition (CODA) format
    \ei
 \I Simulated data
-   \bi
-   \I HDDM: Hall D Data Model
-   \I XML-like
-   \I compressed
-   \I each file contains complete description of elements, attributes
-      \bi
-      \I element/attribute names
-      \I data types
-      \I multiplicity info (exacly one, at least one, many)
-      \ei
+   \bi\scriptsize
+   \I HDDM: Hall D Data Model, self-documenting on two levels
+   \I compressed, XML-like
+   \I each file contains complete mini-schema
    \I support utilities for conversion
    \ei
-\I Reconstructed data
-   \bi
+\I DST data (reconstructed)
+   \bi\scriptsize
    \I HDDM
    \I others possible
    \ei
 \ei
+\end{column}
+\begin{column}{3.3in}
+\includegraphics[width=6.0in]{hddm_template.png}//
+\end{column}
+\end{columns}
 }
+
+\subsection{Databases}
 
 \againframe<3>{flow-diagram}
 
 \f{
 \ft{Databases}
 \bi
-\I Calibration Constants
+\I Calibration Constants Database (CCDB)
    \bi
+   \I developed by Hall D
+   \I in beta testing (Hall B is using it too)
    \I relational database
    \I standard look up by run
    \I hierarchical calibration type structure
    \I history kept, previous versions selectable at run time
    \I branches/private/tagged versions supported (with history)
-   \I developed, in beta (Hall B is using it too)
    \ei
 \I Other Database Applications
    \bi
@@ -179,24 +186,12 @@
 
 \f{
 \ft{Manpower Requirements and Project Progress}
-\small
-\begin{columns}[c]
-\begin{column}{1.5in}
-   \bi
-   \I required manpower for various tasks estimated
-   \I manpower already expended has been estimated
-   \I assignment of tasks to individuals
-   \ei
-\end{column}
-\begin{column}{2.0in}
-\includegraphics[width=2.0in]{OfflineComputingActivities2012.png}
-\end{column}
-\end{columns}
-}
-
-\f{
-\ft{Manpower Requirements, Example Items}
 \includegraphics[width=4.75in]{OfflineComputingActivities2012Zoom.png}
+\bi\small
+\I Complete task list with labor estimates and fraction completed
+\I Formerly tracked by 12 GeV Project Management team
+\I Total effort: 38 FTE-years, complete: 49\%
+\ei
 }
 
 \f{
@@ -248,8 +243,8 @@ Conclusion: match with level of effort required to finish requirements
    \I From detector to CODA EMU's to monitoring farm to online cache disk
    \I Over network to Tape Library in Computer Center
    \I Reconstruction on JLab batch farm, reduction of volume by factor of 10
-   \I Reconstructed data written to Tape Library: some fraction live on disk
-   \I DST's in several streams produced: large fraction live on disk
+   \I Resulting DST data written to Tape Library: some fraction live on disk
+   \I mini-DST's in several streams produced: large fraction live on disk
    \I Similiar scenario for Monte Carlo except ``raw'' Monte Carlo not kept
    \I Analysis engines access this data:
       \bi
@@ -420,7 +415,7 @@ Total & 9 & 1000 & 8 \\
 
 \bi
 \I Plans only
-\I Simulate raw data to DST chain on a large scale
+\I Simulate raw data to mini-DST chain on a large scale
    \bi
    \I Need to develop job management tools
    \ei
@@ -488,12 +483,11 @@ Total & 9 & 1000 & 8 \\
 2 & deploy translation database & 2012-09-01 \\
 3 & complete raw data format specification & 2012-10-01 \\
 4 & complete specification of reconstructed data format & 2012-10-15 \\
-5 & data challenge: simulated raw data to reconstructed data (one day at $10^7~\gamma/s$) & 2012-12-01 \\
-6 & complete DST writer & 2013-02-01 \\
-7 & create DST data samples from data challenge events & 2013-03-01 \\
+5 & data challenge: simulated raw data to DST data (one day at $10^7~\gamma/s$) & 2012-12-01 \\
+6 & complete mini-DST writer & 2013-02-01 \\
+7 & create mini-DST data samples from data challenge events & 2013-03-01 \\
 8 & amplitude analysis & 2013-04-01 \\
 9 & documentation complete & 2013-06-15 \\
-10 & full software chain & 2013-08-15 \\
 \end{tabular}
 }
 
