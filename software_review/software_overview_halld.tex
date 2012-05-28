@@ -27,14 +27,17 @@
 \f{
 \ft{Outline}
 \be
-\I{Data/Analysis Flow}
-\I{Software Management}
-\I{Manpower}
-\I{Computing Resource Requirements}
-\I{Calibration and Alignment}
-\I{Amplitude Analysis}
-\I{Reconstruction Development}
-\I{Conclusions}
+\I Basic Components: Processors/Data-Formats/Databases/Management
+\I Manpower
+\I Computing Resource Requirements
+\I Other Topics
+   \bi
+   \I Grid
+   \I Calibration and Alignment
+   \I Amplitude Analysis and GPU's
+   \I Data Challenges
+   \ei
+\I Conclusions
 \ee
 }
 
@@ -75,7 +78,8 @@
       \bi\scriptsize
       \I Hall D Detector Specification (HDDS), an XML implementation
       \ei
-   \I resolution/digitization introduced in separate process (mcsmear)
+   \I Electromagnetic background included (as accidentals)
+   \I Resolution/digitization introduced in separate process (mcsmear)
    \ei
 \I Geant4 Conversion
    \bi\scriptsize
@@ -215,7 +219,7 @@
 \I Semi-weekly reconstruction tests
    \bi
    \I single-charged particles
-   \I multi-track, multi-photon events
+   \I multi-track, multi-photon events ($5\pi$)
    \I histograms generated, archived
    \ei
 \I Mantis bug tracker for issue tracking
@@ -501,22 +505,13 @@ off JLab site
 \f{
 \ft{Data Challenges}
 
-\bi
+\bi\small
 \I Simulate raw data to DST chain on a large scale
-   \bi
-   \I Need to develop job management tools
-   \ei
-\I Establish viability of data transfer capability, to and from JLab
-   \bi
-   \I Need to establish data management tools (meta-data catalog)
-   \ei
+\I Need to develop job management tools
 \ei
-}
 
-\subsection{Data Challenge Timeline}
-
-\f{
-\ft{Data Challenge Timeline}
+\bc\bf Data Challenge Timeline\ec
+{\small
 \begin{tabular}{rp{3.3in}l}
 & \bf Task & \bf Date \\
 1 & deploy calibration database & 2012-07-15 \\
@@ -526,9 +521,9 @@ off JLab site
 5 & data challenge: simulated raw data to DST data (one day at $10^7~\gamma/s$) & 2012-12-01 \\
 6 & complete mini-DST writer & 2013-02-01 \\
 7 & create mini-DST data samples from data challenge events & 2013-03-01 \\
-8 & amplitude analysis & 2013-04-01 \\
-9 & documentation complete & 2013-06-15 \\
 \end{tabular}
+}
+
 }
 
 \subsection{IT Division Collaboration}
@@ -556,14 +551,14 @@ off JLab site
 % going. List of what still needs to be done? Contingencies. 60s
 % (2060s)
 
-\begin{frame}[fragile]
+\f{
 \ft{Summary/Conclusions}
 Accomplishments
 \bi
-\I End-to-end solution for reconstruction, simulation in hand
+\I End-to-end solution for simulation and reconstruction in hand.
    \bi
    \I realistic event generators
-   \I photons and charged particles simulated and reconstructed
+   \I photons and charged particles, hit-level
    \ei
 \I Amplitude analysis capability demonstrated
    \bi
@@ -572,16 +567,30 @@ Accomplishments
    \I ``$5\pi$'' decay: $\gamma p \rightarrow Xp$ \\ \hspace{1.05in} $\hookrightarrow b^\pm_1\pi^\mp$ \\ \hspace{1.27in}$\hookrightarrow \omega\pi^\pm$ \\ \hspace{1.39in} $\hookrightarrow\pi^+\pi^-\pi^0$ \\ \hspace{1.88in} $\hookrightarrow \gamma\gamma$
    \ei
 \ei
-To Do
+}
+
+\f{
+\ft{Summary/Conclusions}
+Work Ahead
 \bi
 \I Put calibration database into production (2012-07-01)
 \I Deploy translation table database (2012-09-01)
 \I Large-scale data challenge (2012-12-01)
-\I Calibration software systems (2013-06-01)
+\I Calibration software systems in full development (2013-06-01)
 \I Nominal GPU system (2013-06-20)
-\I Reconstruction efficiency and resolution
+\I Reconstruction efficiency and resolution at near-publication level (2014-03-31)
 \ei
+}
 
+\section{Backup}
+
+\f{
+\bc
+Backup Slides
+\ec
+}
+
+\begin{frame}[fragile]
 \vskip 0.5in
 \hrule
 \tiny
