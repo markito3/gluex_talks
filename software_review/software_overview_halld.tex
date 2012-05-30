@@ -73,7 +73,6 @@
 \scriptsize
 \I GEANT3-based (mature)
    \bi\scriptsize
-   \I GEANT3-based
    \I Geometry defined in configuration files, not source code
       \bi\scriptsize
       \I Hall D Detector Specification (HDDS), an XML implementation
@@ -85,7 +84,7 @@
    \bi\scriptsize
    \I Started as a background task
    \I Geometry from same HDDS files as for GEANT3 implementation
-   \I Hit generation: no new algorithms, re-use same C code core
+   \I Hit generation: no new algorithms, re-use same core C code as before
    \ei
 \ei
 \end{column}
@@ -208,6 +207,7 @@
 
 \f{
 \ft{Software Management Tools}
+
 \bi
 \I Source code version control: Subversion
 \I Regular tagged releases of reconstruction software: about every 6 weeks
@@ -219,11 +219,19 @@
 \I Semi-weekly reconstruction tests
    \bi
    \I single-charged particles
-   \I multi-track, multi-photon events ($5\pi$)
+   \I multi-track, multi-photon events ($5\pi$) \\
+\( \begin{array}{l@{}l@{}l@{}l@{}l@{}}
+\gamma p \rightarrow & Xp \\
+& \hookrightarrow & b^\pm_1\pi^\mp \\
+&&\hookrightarrow&\omega\pi^\pm \\
+&&&\hookrightarrow\pi^+\pi^-&\pi^0 \\
+&&&&\hookrightarrow \gamma\gamma
+\end{array} \)
    \I histograms generated, archived
    \ei
 \I Mantis bug tracker for issue tracking
 \ei
+
 }
 
 \section{Manpower}
@@ -296,7 +304,7 @@
 \f{
 \ft{Data Analysis Model}
    \bi\small
-   \I From detector to monitoring farm to online cache disk in Counting House
+   \I From detector to online buffer disk in Counting House
    \I Over network to Tape Library in Computer Center
    \I Reconstruction on JLab batch farm, reduction of volume by factor of 10
    \I Resulting DST data written to Tape Library: some fraction live on disk
@@ -307,7 +315,6 @@
       \I JLab batch farm
       \I Individual work stations
       \I Collaborating institutions
-      \I Grid computing resources
       \I Amplitude analysis resources
       \ei
    \ei
@@ -355,13 +362,13 @@ Assumptions:
 \bc
 \begin{tabular}{|l|r|r|r|}
 \hline
-Process & CPU (kCores) & Disk (TB) & Tape (PB/y)\\
+Process & CPU (kCores) & Disk (PB) & Tape (PB/y)\\
 \hline
 Raw Data & -- & -- & 3.2 \\
 Calibration & 0.09 & -- & 0.06 \\
 Reconstruction & 1.8 & -- & 1.3 \\
 Streaming & 0.9 & -- & 0.6 \\
-Analysis & 0.9 & 1000 & -- \\
+Analysis & 0.9 & 1.0 & -- \\
 Simulation & 5.4 & -- & 2.5 \\
 \hline
 Total & 9 & 1000 & 8 \\
@@ -559,26 +566,23 @@ Accomplishments
    \bi
    \I realistic event generators
    \I photons and charged particles, hit-level
+   \I long experience using tools
    \ei
 \I Amplitude analysis capability demonstrated
    \bi
    \I GPU method developed
-   \I ``$3\pi$'' decay: $\gamma p \rightarrow Xn$ \\ \hspace{1.1in}$\hookrightarrow\pi^+\pi^+\pi^-$
-   \I ``$5\pi$'' decay: $\gamma p \rightarrow Xp$ \\ \hspace{1.05in} $\hookrightarrow b^\pm_1\pi^\mp$ \\ \hspace{1.27in}$\hookrightarrow \omega\pi^\pm$ \\ \hspace{1.39in} $\hookrightarrow\pi^+\pi^-\pi^0$ \\ \hspace{1.88in} $\hookrightarrow \gamma\gamma$
+   \I used in $3\pi$ analysis
+   \I work on $5\pi$ well along
    \ei
 \ei
-}
-
-\f{
-\ft{Summary/Conclusions}
 Work Ahead
-\bi
+\bi\small
 \I Put calibration database into production (2012-07-01)
 \I Deploy translation table database (2012-09-01)
 \I Large-scale data challenge (2012-12-01)
 \I Calibration software systems in full development (2013-06-01)
 \I Nominal GPU system (2013-06-20)
-\I Reconstruction efficiency and resolution at near-publication level (2014-03-31)
+\I Reconstruction quality at near-publication level (2014-03-31)
 \ei
 }
 
