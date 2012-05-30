@@ -102,14 +102,14 @@
 \begin{columns}[c]
 \begin{column}{2.5in}
 \bi
-\I based on Jana framework (mature)
+\I Based on JANA framework (mature)
    \bi
    \I C++
    \I multi-threaded
    \I factory model
    \ei
-\I provides full feature set
-\I factories attached to framework current area of development
+\I Provides full feature set
+\I Factories attached to framework current area of development
    \bi
    \I {\it e.~g.}, cluster finding, track fitting 
    \ei
@@ -150,7 +150,7 @@
 \ft{Serialized data formats}
 
 \begin{columns}[c]
-\begin{column}{1.7in}
+\begin{column}{2.5in}
 \bi\scriptsize
 \I Raw data
    \bi\scriptsize
@@ -159,8 +159,10 @@
 \I Simulated data
    \bi\scriptsize
    \I HDDM: Hall D Data Model, self-documenting on two levels
-   \I compressed, XML-like
-   \I each file contains complete mini-schema
+      \be\scriptsize
+      \I data itself XML-like (compressed)
+      \I each file contains complete mini-schema
+      \ee
    \I support utilities for conversion
    \ei
 \I DST data (reconstructed)
@@ -170,8 +172,8 @@
    \ei
 \ei
 \end{column}
-\begin{column}{3.3in}
-\includegraphics[width=6.0in]{hddm_template.png}//
+\begin{column}{2.5in}
+\includegraphics[width=5.0in]{hddm_template.png}//
 \end{column}
 \end{columns}
 }
@@ -222,15 +224,15 @@
 
 \bi
 \I Source code version control: Subversion
-\I Regular tagged releases of reconstruction software: about every 6 weeks
-\I Nightly builds of reconstruction software
+\I Regular tagged releases of simulation and reconstruction software (``sim-recon''): about every 6 weeks
+\I Nightly builds of sim-recon
    \bi
    \I all Lab-supported Linux flavors
    \I Doxygen documentation generated
    \ei
-\I Semi-weekly reconstruction tests: histograms generated, archived
+\I Semi-weekly tests: histograms generated, archived
    \be
-   \I single-charged particles
+   \I single-charged particles events
    \I multi-track, multi-photon events ($5\pi$) \\
 \( \begin{array}{l@{}l@{}l@{}l@{}l@{}}
 \gamma p \rightarrow & Xp \\
@@ -320,7 +322,7 @@
    \I Reconstruction on JLab batch farm, reduction of volume by factor of 10
    \I Resulting DST data written to Tape Library: some fraction live on disk
    \I Mini-DST's (``4-vectors'') in several streams: large fraction live on disk
-   \I Similiar scenario for Monte Carlo except ``raw'' Monte Carlo not kept
+   \I Similiar scenario for Monte Carlo except ``raw'' Monte Carlo not kept (also at JLab)
    \I Analysis engines access this data:
       \bi
       \I JLab batch farm
@@ -348,13 +350,13 @@ Trigger rates:
 \ei
 
 
-Assumptions:
+Assumptions (generic):
 \bi\scriptsize
 \I 20 kHz off detector
 \I 15 kB events
 \I run 35 weeks year, 50\% running efficiency
-\I 130 ms to reconstruct an event (measured)
-\I 2 Monte Carlo events per data event
+\I 133 ms to reconstruct an event (measured)
+\I 2 Monte Carlo events per data event (on average)
 \I 67 ms to generate Monte Carlo events (reconstruction time comparable to data)
 \I factor for multiple iterations: 2
 \I Other loads:
@@ -378,11 +380,11 @@ Process & CPU (kCores) & Disk (PB) & Tape (PB/y)\\
 Raw Data & -- & -- & 3.2 \\
 Calibration & 0.09 & -- & 0.06 \\
 Reconstruction & 1.8 & -- & 1.3 \\
-Streaming & 0.9 & -- & 0.6 \\
+Skims/mini-DST & 0.9 & -- & 0.6 \\
 Analysis & 0.9 & 1.0 & -- \\
 Simulation & 5.4 & -- & 2.5 \\
 \hline
-Total & 9 & 1000 & 8 \\
+Total & 9 & 1.0 & 8 \\
 \hline
 \end{tabular}
 \ec
@@ -427,13 +429,13 @@ Reconstruction time + MC time (days) & 3.2 & 32 & 64 \\
    \bi
    \I Monte Carlo generation and reconstruction (no raw data transfer)
    \I Opportunistic usage: possible to have quick turn-around on
-   specific tasks without grid-scale contribution
+   specific tasks
    \ei
 \I Have established GlueX as a Virtual Organization (VO) with the OSG
 \I Nodes from UConn have been contributed
 \I Significant analysis has been performed using the grid ($3\pi$ and $5\pi$ analyses)
 \I GlueX consumption has roughly matched contribution
-\I Grid tools have been installed at JLab (no significant use yet)
+\I Grid tools have been installed at JLab (no plan for JLab to contribute nodes)
 \I Plan to use Grid Storage Resource Manager (SRM) to move data on and
 off JLab site
 \ei
