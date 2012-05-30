@@ -182,25 +182,37 @@
 
 \f{
 \ft{Databases}
-\bi
-\I Calibration Constants Database (CCDB)
-   \bi
+\begin{columns}[c]
+\begin{column}{2.0in}
+\bi\small
+\I Calibration and Conditions Database (CCDB)
+   \bi\scriptsize
    \I developed by Hall D
    \I in beta testing (Hall B is using it too)
-   \I relational database
-   \I standard look up by run
-   \I hierarchical calibration type structure
-   \I history kept, previous versions selectable at run time
-   \I branches/private/tagged versions supported (with history)
    \I put into production mid-July, 2012
    \ei
 \I Other Database Applications
-   \bi
+   \bi\scriptsize
    \I Online Conditions/Parameters
    \I Translation Tables
    \I DST
    \ei
 \ei
+\end{column}
+\begin{column}{3.0in}
+\includegraphics[width=3.0in]{CCDB_Table_data_listing.png} \\
+\bi\small
+\I CCDB Features:
+\bi\scriptsize
+   \I relational database
+   \I standard look up by run
+   \I hierarchical calibration type structure
+   \I history kept, previous versions selectable at run time
+   \I branches/private/tagged versions supported
+\ei
+\ei
+\end{column}
+\end{columns}
 }
 
 \section{Software Management}
@@ -499,7 +511,7 @@ off JLab site
 \I One of leading implementations developed by GlueX collaborator: AmpTools
 \I Large reduction in scale of compute task (1-2 orders of magnitude)
 \I Proof-of-principle established ($3\pi$, $5\pi$)
-\I Implement a user-friendly/nominal system by Spring 2013
+\I Implement a user-friendly ``production'' system by Spring 2013
 \ei
 }
 
@@ -580,7 +592,7 @@ Work Ahead
 \I Deploy translation table database (2012-09-01)
 \I Large-scale data challenge (2012-12-01)
 \I Calibration software systems in full development (2013-06-01)
-\I Nominal GPU system (2013-06-20)
+\I Production GPU system (2013-06-20)
 \I Reconstruction quality at near-publication level (2014-03-31)
 \ei
 }
