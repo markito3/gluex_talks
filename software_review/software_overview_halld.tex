@@ -111,7 +111,8 @@
 \I Provides full feature set
 \I Factories attached to framework current area of development
    \bi
-   \I {\it e.~g.}, cluster finding, track fitting 
+   \I {\it e.~g.}, cluster finding, track fitting
+   \I Direction driven by simulation based analysis
    \ei
 \ei
 \end{column}
@@ -122,7 +123,9 @@
 }
 
 \f{
-\ft{Efficiency and Resolution}
+\ft{Efficiency, Resolution, and Background}
+\begin{columns}[c]
+\begin{column}{3.0in}
 \bi
 \I Reconstruction code has improved significantly over the past year
 \I Remains major area of effort right now
@@ -140,6 +143,12 @@
    \I hadronic contamination
    \ei
 \ei
+\end{column}
+\begin{column}{1.4in}
+\includegraphics[width=1.4in]{spiral.png} \\
+\includegraphics[width=1.4in]{clustering.png}
+\end{column}
+\end{columns}
 }
 
 \section{Data Formats}
@@ -173,7 +182,7 @@
 \ei
 \end{column}
 \begin{column}{2.5in}
-\includegraphics[width=5.0in]{hddm_template.png}//
+\includegraphics[width=5.0in]{hddm_template.png}
 \end{column}
 \end{columns}
 }
@@ -262,7 +271,7 @@
 \includegraphics[width=4.75in]{OfflineComputingActivities2012Zoom.png}
 \bi\small
 \I Complete task list with labor estimates and fraction completed
-\I Formerly tracked by 12 GeV Project Management team
+\I Reconstruction 66\% complete, calibration 23\% complete
 \I Total effort: 38 FTE-years, complete: 51\%, remaining work: 19 FTE-years
 \ei
 }
@@ -271,12 +280,9 @@
 
 \f{
 \ft{Staffing Resources}
-\bc
-\includegraphics[width=2.8in]{manpower_survey_raw.png}
-\ec
 \begin{columns}[c]
 \begin{column}{2.2in}
-\bi\scriptsize
+\bi\small
 \I Survey of estimated staffing resources available for software infrastructure
 \I Different categories weighted differently
 \I Total for 2012-2014: 23 FTE-years
@@ -284,6 +290,7 @@
 \ei
 \end{column}
 \begin{column}{2.3in}
+\includegraphics[width=2.3in]{manpower_survey_raw.png} \\
 \includegraphics[width=2.3in]{manpower_survey_graphs.png}
 \end{column}
 \end{columns}
@@ -404,6 +411,7 @@ Assume a 10~kCore farm, unloaded, nominal running efficiency, and one iteration 
 {\small
 \begin{tabular}{lrrr}
  & \bf Phase I & \bf Phase II & \bf Phase III \\
+Year of run& 2014 & 2015 & 2016 \\
 Days of running & 60 & 60 & 120 \\
 Trigger rate (kHz) & 2 & 20 & 20 \\
 Number of events & 5.18$\times 10^9$ & 5.18$\times 10^{10}$ & 1.04$\times 10^{11}$ \\
@@ -604,21 +612,25 @@ Next step: one week's worth of data
 \f{
 \ft{Summary/Conclusions}
 Accomplishments
-\bi
+
+\bi\small
 \I End-to-end solution for simulation and reconstruction in hand.
-   \bi
+   \bi\scriptsize
    \I realistic event generators
-   \I photons and charged particles, hit-level
-   \I long experience using tools
+   \I hit-level reconstruction of photons and charged particles
+   \I major components mature: simulation, reconstruction framework
+   \I amplitude analysis capability demonstrated
    \ei
-\I Amplitude analysis capability demonstrated
-   \bi
-   \I GPU method developed
-   \I used in $3\pi$ analysis
-   \I work on $5\pi$ well along
+\I Software management systems in place
+   \bi\scriptsize
+   \I Tagged releases
+   \I Automated software builds
+   \I Automated reconstruction tests
    \ei
 \ei
+
 Work Ahead
+
 \bi\small
 \I Put calibration database into production (2012-07-01)
 \I Deploy translation table database (2012-09-01)
@@ -627,6 +639,7 @@ Work Ahead
 \I Production GPU system (2013-06-20)
 \I Reconstruction quality at near-publication level (2014-03-31)
 \ei
+
 }
 
 \section{Backup}
