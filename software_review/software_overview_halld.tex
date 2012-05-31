@@ -371,20 +371,20 @@ Assumptions (generic):
 
 \subsection{Requirements}
 
-\f{\ft{Summary of Requirements}
+\f{\ft{CPU and Tape Requirements}
 \bc
-\begin{tabular}{|l|r|r|r|}
+\begin{tabular}{|l|r|r|}
 \hline
-Process & CPU (kCores) & Disk (PB) & Tape (PB/y)\\
+Process & CPU (kCores) & Tape (PB/y)\\
 \hline
-Raw Data & -- & -- & 3.2 \\
-Calibration & 0.09 & -- & 0.06 \\
-Reconstruction & 1.8 & -- & 1.3 \\
-Skims/mini-DST & 0.9 & -- & 0.6 \\
-Analysis & 0.9 & 1.0 & -- \\
-Simulation & 5.4 & -- & 2.5 \\
+Raw Data & -- & 3.2 \\
+Calibration & 0.09 & 0.06 \\
+Reconstruction & 1.8 & 1.3 \\
+Skims/mini-DST & 0.9 & 0.6 \\
+Analysis & 0.9 & -- \\
+Simulation & 5.4 & 2.5 \\
 \hline
-Total & 9 & 1.0 & 8 \\
+Total & 9 & 8 \\
 \hline
 \end{tabular}
 \ec
@@ -414,6 +414,30 @@ Reconstruction time + MC time (days) & 3.2 & 32 & 64 \\
 }
 }
 
+\f{
+\ft{Disk Requirements}
+
+{\small
+\begin{tabular}{p{2.6in}rr}
+{\bf Data Type} & {\bf Phase II} \scriptsize (TB) & {\bf Phase III}  \scriptsize (TB) \\
+\textcolor{blue}{Calibration disk} & 62 & 124 \\
+\textcolor{blue}{Coherent-peak skim DST} Reconstructed data, from coherent
+  brems\-strah\-lung peak & 25 & 50 \\
+\textcolor{blue}{Inclusive background simulation DST} Simulation, minimum bias & 265 & 531 \\ 
+\textcolor{blue}{Individual analysis skims} Skims of data and simulation for
+individual analyses, 10 analyses & 207 & 415 \\
+\textcolor{blue}{Mini-DST's for amplitude analysis} 4-vectors & 7 & 15 \\ \hline
+\bf Total & 567 & 1134
+\end{tabular}
+}
+
+\bi
+\I Disk to support analysis activities, not large-scale reconstruction/simulation
+\I In addition: work/scratch/staging disk of 300~TB
+\I {\bf Grand Total}: 2.0~PB 
+\ei
+
+}
 
 % 8 Open Science Grid Discuss that GlueX is a virtual organization in
 % the OSG. Some resources from outside are committed to the grid. 120s
