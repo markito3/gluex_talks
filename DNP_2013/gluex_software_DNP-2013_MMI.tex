@@ -1,4 +1,4 @@
-\documentclass[xcolor=dvipsnames]{beamer}
+\documentclass{beamer}
 
 \usetheme{Boadilla}
 
@@ -12,7 +12,7 @@
 \newcommand{\f}{\frame}
 \newcommand{\ft}{\frametitle}
 
-\title{Progress in Offline Software for the GlueX Experiment}
+\title{Offline Software for the GlueX Experiment}
 \subtitle{Fall Meeting of the APS DNP, Newport News, Virginia}
 \author[M.\ Ito]{Mark M.\ Ito}
 \date{October 24, 2013}
@@ -220,6 +220,27 @@ Technology
 \ei
 }
 
+\f{\ft{CPU and Tape Requirements}
+\bc
+\begin{tabular}{|l|r|r|}
+\hline
+Process & CPU (Cores) & Tape (PB/y)\\
+\hline
+Raw Data & -- & 3.2 \\
+Calibration & 90 & 0.06 \\
+Reconstruction & 1,800 & 1.3 \\
+Skims/mini-DST & 900 & 0.6 \\
+Analysis & 900 & -- \\
+Simulation & 5,400 & 2.5 \\
+\hline
+Total & 9,000 & 8 \\
+\hline
+\end{tabular}
+\ec
+
+\small CPU represents amount of computing power required to keep up with average rate off detector.
+}
+
 \f{
 \ft{Data Challenge I}
 \bi
@@ -229,7 +250,7 @@ Technology
   \I Full hit-level reconstruction of simulated data
   \I Wrote out DST data
   \ei
-\I November-December 2012, ran for 2 weeks
+\I November-December 2012, ran at three sites for 2 weeks
 \I Event count: 5.4 billion events
   \bi
   \I Open Science Grid (OSG): 4.0 billion
