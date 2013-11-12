@@ -1,0 +1,81 @@
+\documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Offline Software Overview}
+\subtitle{GlueX Collaboration Meeting}
+\author[Mark Ito]{Mark M.\ Ito}
+\date{October 3, 2013}
+\institute[JLab]{Jefferson Lab}
+
+\begin{document}
+
+\f{\ft{generated particle and decay chain reporting}
+  \bi
+  \I Issue: in reconstructed Monte Carlo data want to know the entire particle production, decay, interaction chain
+  \I PIC (Pesterer-in-Chief): Kei Moriya
+  \I difficulties:
+    \be
+    \I some action in generator, some in Geant
+    \I more than one generator, want uniform scheme
+    \I electromagnetic showers produce huge numbers of secondaries, but some of these may be of interest to end user
+    \ee
+  \I partial solutions implemented
+  \I need comprehensive solution, i. e., a design
+  \I not high-level rocket science
+  \ei
+}
+
+\f{
+
+\bi
+
+\I We all know what we want: primary particles decaying to secondary particles decaying to tertiaries decaying to...or substitute "interacting" for "decaying".
+
+\I Pythia (bggen) reports out this information perfectly, including
+$\rho^0 \rightarrow \pi^+ \pi^-$ and $\omega \rightarrow \pi^+ \pi^- \pi^0$
+
+\I We want to use that, avoids problem of putting strong resonances decays into Geant.
+
+\I Geant can be made to report out a similar information starting with particles it is told to track.
+
+\I Problem: parentage (Jerry Springer problem)
+
+\I We kick off Geant with particles $n$ steps down in the Pythia decay chain. Then Geant renumbers them (re-ids them) ignoring the id numbers assigned by Pythia and all Pythia generated geneological information (at least by default).
+
+\I Result: geneological confusion
+
+\I Also: hit-particle correlation, when associating hits with reponsible particles, only Geant ids are available
+
+\I And also: EM shower suppression explicitly breaks geneology
+
+\ei
+
+}
+
+\f{
+Proposal: bridge the gap
+\bi
+\I make Geant 3 aware of generator-based geneology
+\I probably requires modification of native Geant 3 routines
+\I not unprecedented
+\I will have to be re-implemented for Geant4
+\I independent of current G4 development
+\I UBUF anyone?
+\ei
+
+}
+
+\end{document}
