@@ -13,6 +13,7 @@
 \newcommand{\I}{\item}
 \newcommand{\f}{\frame}
 \newcommand{\ft}{\frametitle}
+\newcommand{\newIcon}{\includegraphics[width=0.2in]{new.jpg}}
 
 \title{Hall D Data Flow and Data Challenges}
 \subtitle{12 GeV Software Review, 2013}
@@ -23,6 +24,26 @@
 \begin{document}
 
 \f{\titlepage}
+
+\section{Outline}
+
+\f{\ft{Outline}
+  \bi
+  \I Data Flow, Computing Model
+    \bi
+    \I Raw data taking
+    \I Reconstruction
+    \I Analysis
+    \I Simulation
+    \ei
+  \I Data Challenges, Past and Future~\newIcon
+    \bi
+    \I Offline Data Challenges
+    \I Online Data Challenges
+    \ei
+  \ei
+  \newIcon $\Rightarrow$ New since last review (June 2012)
+}
 
 \section{Data Flow}
 
@@ -39,7 +60,6 @@
 }
 \f{\ft{Reconstruction}
   \bi
-  \I on JLab farm
   \I JANA framework
     \bi
     \I factory model: reconstructed objects on demand
@@ -50,7 +70,7 @@
       \ei
     \I calibration constants in relational database
     \ei
-  \I REST formatted output
+  \I REST formatted output~\newIcon
     \bi
     \I an HDDM: compressed XML
     \I compression from raw data: factor of 10
@@ -66,9 +86,12 @@
 }
 \f{\ft{Analysis}
   \bi
-  \I REST to Root Tree option
-  \I REST to JANA option
-  \I new development: Analysis Tools
+  \I Post-reconstruction options:~\newIcon
+    \bi
+    \I REST to Root Tree option
+    \I REST to JANA option
+    \ei
+  \I Analysis Tools~\newIcon
     \bi
     \I user does not perform loops and sub-loops over particle combinations
     \I instead: specify reaction of interest (C++), including decays
@@ -97,6 +120,7 @@
     \I use same geometry
     \I wrap hit generation from previous code base
     \I facilitate comparisons during transition
+    \I overlaps eliminated in geometry~\newIcon
     \ei
   \ei
 }
@@ -110,31 +134,68 @@
     }
     \f{\ft{Data Challenge I: Configuration}
       \bi
+      \I Minimum-bias hadronic events simulated, only coherent peak
+      \I Events simulated and reconstructed in same job
+      \I REST format reconstructed written to disk
+      \I Simulated events discarded
       \I Sites:
         \bi
         \I Open Science Grid: peak 7000 jobs
         \I JLab Farm: peak 140 jobs
         \I Carnegie Mellon cluster: peak ??? jobs
         \ei
-      \I Events simulated and reconstructed in same job
-      \I REST format reconstructed written to disk
-      \I Simulated events discarded
       \I Home-grown workflow tools, site-specific
         \bi
         \I Other tools seemed too heavy-weight and/or development would be needed
+        \I Decision made to defer issue
         \ei
       \ei
     }
     \f{\ft{Data Challenge I: Results}
       \bi
-      \I 5.3 giga-events
-      \I massive data set (2 weeks of data rate, 3 months of physics data)
+      \I Event count: 5.4 billion events
+        \bi
+        \I Open Science Grid (OSG): 4.0 billion
+        \I Jefferson Lab batch farm: 1.0 billion
+        \I Carnegie Mellon Nuclear Physics Cluster: 0.4 billion
+        \ei
+      \I By event count: 2 weeks of data
+      \I By usable data: 3 months of data
+        \bi
+        \I only generated coherent peak $\Rightarrow$ higher ``physics'' purity
+        \ei
+      \I Failure rate: about 7\%
+        \bi
+        \I hangs on single events
+        \I segmentation faults
+        \I corrupt output data
+        \ei
       \ei
     }
-    \f{\ft{Data Challenge I: Lessons Learned}
+    \f{\ft{Example Plot: $\gamma p\rightarrow\pi^+\pi^-\pi^0$}
+      \bc
+      \includegraphics[width=3.4in]{omega_peak.png}
+      \ec
       \bi
-      \I tools need development (JLab CC may help here)
-      \I need meta-data catalog
+      \small
+      \I 125 million events from DC I with particle ID cuts (2.4\% of total sample)
+      \I shown with and without a cut on kinematic fit confidence level
+        \bi
+        \I cuts and fit performed with Analysis Tools
+        \ei
+      \ei
+    }
+\f{\ft{Data Challenge I: Lessons Learned}
+      \bi
+      \I Need to work hard on bullet-proofing the code
+        \bi
+        \I failures contribute to fraction of effort far greater than fraction of failures
+        \ei
+      \I Tools at JLab need development
+        \bi
+        \I JLab Scientific Computing Department may help here
+        \ei
+      \I Need a global (Grid + JLab) meta-data catalog
       \ei
     }
   \subsection{Online Data Challenge I -- August 2013}
@@ -183,7 +244,7 @@
       \small
       \I Nodes mostly borrowed from IT Division
       \I Unpacking only: creation of C++ data objects, including translation from geographic to logical addresses
-      \I Data ready-to-analyze, but none done
+      \I Data ready-to-analyze, but no analysis done
       \I All 10 nodes: 14 kHz, still CPU limited
       \ei
     }
