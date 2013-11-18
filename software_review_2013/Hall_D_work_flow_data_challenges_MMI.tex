@@ -232,10 +232,11 @@
   \subsection{Online Data Challenge I -- August 2013}
     \f{\ft{Online Data Challenge I: Goals}
       \bi
-      \I look for bandwidth bottlenecks
-      \I measure performance of monitoring farm
-      \I test level 3 algorithm
-      \I transfer to tape library
+      \I Test the RootSpy system in the counting house environment
+      \I Test data rates of EVIO formatted raw data files
+      \I Test prototype L3 rejection algorithm
+      \I Test data rate to tape silo
+      \I Monitor health of farm and DAQ system nodes 
       \ei
     }
     \f{\ft{Online Data Challenge I: Configuration}
@@ -253,6 +254,7 @@
       \I Level 3 farm measured bandwidth 40 kHz
       \I SEST-to-EVIO conversion worked; reconstructible events
       \I RootSpy: collection of root objects (histograms) from multiple processes succeeded
+      \I measured bandwidth of network (prototype configuration): ???
       \ei
     }
     \f{\ft{Level 3 Farm Throughput}
@@ -281,7 +283,6 @@
     \f{\ft{Online Data Challenge I: Lessons Learned}
       \bi
       \I Counting room to tape library transfer should not use standard command-line tool (solved: SciComp method implemented, tested)
-      \I Simple unpacking saturated CPU with nodes used
       \I Initial Hall D Farm (now installed) can keep up with execution of Level 3 at intensity $10^7\ \gamma$/s
       \ei
     }
@@ -301,9 +302,10 @@
       \bi
       \I Goals
         \bi
-        \I End-to End test
-        \I events will start in front-end electronics crates
-        \I transfer to tape library will use production method
+        \I Test DAQ stream from ROCS to silo using both real and simulated data
+        \I Test complete RootSpy-based detector monitoring system
+        \I Test farm manager
+        \I Monitor system performance 
         \ei
       \I Status -- preparations underway
       \ei
