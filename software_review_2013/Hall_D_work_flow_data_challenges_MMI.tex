@@ -65,8 +65,8 @@
     \I factory model: reconstructed objects on demand
     \I multi-threaded, event-level parallelization
       \bi
-      \I scaling observed up to ??? cores
-      \I thread memory footprint on the margin 30\% that of single-threaded job
+      \I scaling observed up to 32 cores
+      \I marginal memory cost per thread 30\% that of single-threaded job
       \ei
     \I calibration constants in relational database
     \ei
@@ -125,11 +125,26 @@
   \ei
 }
 \section{Data Challenges}
+
+\f{\ft{Data Challenges~\newIcon}
+  \bi
+  \I Data Challenge I (complete): November/December 2012
+  \I Online Data Challenge I (complete): August 2013
+  \I Data Challenge II (planned): December 2013
+  \I Online Data Challenge II (planned): January 2013
+  \I Data Challenge III (planned): February 2013
+  \ei
+}
+
   \subsection{Data Challenge I -- November/December 2012}
     \f{\ft{Data Challenge I: Goals}
       \bi
-      \I produce and handle large data set
-      \I look for issues in scaling
+      \I Produce and handle large data set
+        \bi
+        \I Generate 2 billion minimum bias events from coherent peak
+        \ei
+      \I Provide a data sample for kinematics-based particle identification studies (to support PAC 40 proposal)
+      \I Look for issues in scaling
       \ei
     }
     \f{\ft{Data Challenge I: Configuration}
@@ -137,7 +152,7 @@
       \I Minimum-bias hadronic events simulated, only coherent peak
       \I Events simulated and reconstructed in same job
       \I REST format reconstructed written to disk
-      \I Simulated events discarded
+      \I Raw simulated events discarded
       \I Sites:
         \bi
         \I Open Science Grid: peak 7000 jobs
@@ -164,6 +179,8 @@
         \bi
         \I only generated coherent peak $\Rightarrow$ higher ``physics'' purity
         \ei
+      \I about 100,000 jobs, about 8 hours each
+      \I output REST files: 100 MB/file, 2 kB/event, 10 TB total
       \I Failure rate: about 7\%
         \bi
         \I hangs on single events
@@ -195,15 +212,21 @@
     }
 \f{\ft{Data Challenge I: Lessons Learned}
       \bi
+      \I Software systems at level that large useful simulated data sets can be produced
+        \bi
+        \I Data set in fact used: estimated signal vs.\ background (event-level) for several channels of interest involving kaons
+        \I Supported main thrust of PAC 40 proposal
+        \ei
       \I Need to work hard on bullet-proofing the code
         \bi
-        \I failures contribute to fraction of effort far greater than fraction of failures
+        \I failures: contribution to fraction of effort far greater than fraction of failures
         \ei
       \I Tools at JLab need development
         \bi
         \I JLab Scientific Computing Department may help here
         \ei
       \I Need a global (Grid + JLab) meta-data catalog
+      \I Need a robust Storage Resource Manager capability at all collaborating institutions
       \ei
     }
   \subsection{Online Data Challenge I -- August 2013}
@@ -219,17 +242,17 @@
       \bi
       \I Events pre-staged on disk
       \I Inserted to Event Transfer system (data buffer, supports multiple event producers, multiple event consumers)
-      \I Transferred to Level 3 farm, ??? nodes
+      \I Transferred to Level 3 farm, 10 nodes
+      \I Nodes mostly borrowed from IT Division
       \I Written to raid disk
       \I Transferred to tape library
       \ei
     }
     \f{\ft{Online Data Challenge I: Results}
       \bi
-      \I Level 3 farm measured bandwidth 40 kHz, ??? MB/s
+      \I Level 3 farm measured bandwidth 40 kHz
       \I SEST-to-EVIO conversion worked; reconstructible events
       \I RootSpy: collection of root objects (histograms) from multiple processes succeeded
-      \I Others???
       \ei
     }
     \f{\ft{Level 3 Farm Throughput}
@@ -250,7 +273,6 @@
       \end{columns}
       \bi
       \small
-      \I Nodes mostly borrowed from IT Division
       \I Unpacking only: creation of C++ data objects, including translation from geographic to logical addresses
       \I Data ready-to-analyze, but no analysis done
       \I All 10 nodes: 14 kHz, still CPU limited
