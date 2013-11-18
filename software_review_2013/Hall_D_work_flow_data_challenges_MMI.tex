@@ -173,16 +173,24 @@
       \ei
     }
     \f{\ft{Example Plot: $\gamma p\rightarrow\pi^+\pi^-\pi^0$}
-      \bc
-      \includegraphics[width=3.4in]{omega_peak.png}
-      \ec
+      \begin{columns}[c]
+        \begin{column}{1.2in}
+          \small
+          \bi
+          \I Particle identification cuts applied
+          \I With and without cut on kinematic fit confidence level
+          \I Cuts and fit performed with Analysis Tools
+          \ei
+        \end{column}
+        \begin{column}{3.3in}
+          \includegraphics[width=3.3in]{omega_peak.png}
+        \end{column}
+      \end{columns}
       \bi
       \small
-      \I 125 million events from DC I with particle ID cuts (2.4\% of total sample)
-      \I shown with and without a cut on kinematic fit confidence level
-        \bi
-        \I cuts and fit performed with Analysis Tools
-        \ei
+      \I 125 million events from Data Challenge I
+      \I 2.4\% of total sample
+      \I two days of running at $10^7~\gamma$'s/s in coherent peak
       \ei
     }
 \f{\ft{Data Challenge I: Lessons Learned}
