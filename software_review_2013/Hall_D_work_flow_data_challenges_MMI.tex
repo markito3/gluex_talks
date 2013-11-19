@@ -154,12 +154,16 @@
       \I REST format reconstructed written to disk
       \I Raw simulated events discarded
       \I Sites:
-        \bi
-        \I Open Science Grid: peak 7000 jobs
-        \I JLab Farm: peak 140 jobs
-        \I Carnegie Mellon cluster: peak 120 jobs
-        \ei
-      \I Home-grown workflow tools, site-specific
+        \bc
+          \begin{tabular}{l|r}
+            \bf Site & \bf Peak \# of Jobs \\
+            \hline
+            Open Science Grid & 10,000 \\
+            JLab Batch Farm & 500 \\
+            Carnegie Mellon Cluster & 120
+          \end{tabular}
+        \ec
+      \I At JLab: home-grown workflow tools tailored for JLab environment
         \bi
         \I Other tools seemed too heavy-weight and/or development would be needed
         \I Decision made to defer issue
@@ -171,7 +175,7 @@
       \I Event count: 5.4 billion events
         \bi
         \I Open Science Grid (OSG): 4.0 billion
-        \I Jefferson Lab batch farm: 1.0 billion
+        \I Jefferson Lab Batch Farm: 1.0 billion
         \I Carnegie Mellon Nuclear Physics Cluster: 0.4 billion
         \ei
       \I By event count: 2 weeks of data
@@ -193,6 +197,12 @@
     \f{\ft{Grid Usage}
       \bc
       \includegraphics[width=3.5in]{grid_usage_2012.png}
+      \ec
+    }
+
+    \f{\ft{JLab Farm Usage}
+      \bc
+      \includegraphics[width=3.5in]{farm_usage_2012.png}
       \ec
     }
 
