@@ -382,6 +382,100 @@
     \ei
   }
 
+\section{Backup Slides}
+
+\f{\bc Backup Slides \ec}
+
+\f{
+\ft{Data/Computing Model}
+Trigger rates:
+\bi\scriptsize
+\I Phase III: beam rate $10^{7}~\gamma/s$ in coherent peak
+\I Full hadronic cross section $\Rightarrow$ 20~kHz trigger rate
+\I Beyond Phase III: use level 3 software trigger to keep rate roughly constant
+\I Start with ``monitoring farm'', upgrade to ``trigger farm'' 
+\ei
+
+
+Assumptions (generic):
+\bi\scriptsize
+\I 20 kHz off detector
+\I 15 kB events
+\I run 35 weeks year, 50\% running efficiency
+\I 133 ms to reconstruct an event (measured)
+\I 2 Monte Carlo events per data event (on average)
+\I 67 ms to generate Monte Carlo events (reconstruction time comparable to data)
+\I factor for multiple iterations: 2
+\I Other loads:
+   \bi\scriptsize
+   \I calibration processing
+   \I skims/mini-DST production
+   \I physics analysis
+   \ei
+\ei
+
+}
+
+\f{\ft{CPU and Tape Requirements}
+\bc
+\begin{tabular}{|l|r|r|}
+\hline
+Process & CPU (kCores) & Tape (PB/y)\\
+\hline
+Raw Data & -- & 3.2 \\
+Calibration & 0.09 & 0.06 \\
+Reconstruction & 1.8 & 1.3 \\
+Skims/mini-DST & 0.9 & 0.6 \\
+Analysis & 0.9 & -- \\
+Simulation & 5.4 & 2.5 \\
+\hline
+Total & 9 & 8 \\
+\hline
+\end{tabular}
+\ec
+
+\small CPU represents amount of computing power required to keep up with average rate off detector. Sets the scale; should be viewed as a minimum requirement.
+}
+\f{
+\ft{Another View of Requirements: Wait Time}
+
+\bc\bf
+How long do we wait for results?
+\ec
+
+Assume a 10~kCore farm, unloaded, nominal running efficiency, and one iteration only. Other assumptions the same as above.
+
+{\small
+\begin{tabular}{lrrr}
+ & \bf Phase I & \bf Phase II & \bf Phase III \\
+Year of run& 2014 & 2015 & 2016 \\
+Days of running & 60 & 60 & 120 \\
+Trigger rate (kHz) & 2 & 20 & 20 \\
+Number of events & 5.18$\times 10^9$ & 5.18$\times 10^{10}$ & 1.04$\times 10^{11}$ \\
+Reconstruction time (days) & 0.8 & 8 & 16 \\
+Simulation time (gen.+recon.) (days) & 2.4 & 24 & 48 \\
+Recon.+Sim. time (days) & 3.2 & 32 & 64 \\
+Total data to tape (PB) & 0.2 &1.8 & 3.6
+\end{tabular}
+}
+}
+\frame{
+\ft{Open Science Grid (OSG)}
+
+\bi
+\I Plan to use Grid resources to augment those at JLab
+   \bi
+   \I Monte Carlo generation and reconstruction (no raw data transfer)
+   \I Opportunistic usage: possible to have quick turn-around on
+   specific tasks
+   \ei
+\I Have established GlueX as a Virtual Organization (VO) with the OSG
+\I Nodes from UConn have been contributed
+\I Grid Storage Resource Manager (SRM) was used to move data between UConn, Carnegie Mellon, and MIT~\newIcon
+\I Effort to grow grid resources coming from university groups
+\ei
+}
+
 \end{document}
 
 % end of latex file
