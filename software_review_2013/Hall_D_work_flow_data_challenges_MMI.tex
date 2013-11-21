@@ -14,6 +14,7 @@
 \newcommand{\f}{\frame}
 \newcommand{\ft}{\frametitle}
 \newcommand{\newIcon}{\includegraphics[width=0.2in]{new.jpg}}
+\newcommand{\checkIcon}{\includegraphics[width=0.15in]{check_mark.png}}
 
 \title{Hall D Data Flow and Data Challenges}
 \subtitle{12 GeV Software Review, 2013}
@@ -58,6 +59,28 @@
   \I transfer to tape library
   \ei
 }
+
+\f{\ft{Simulation}
+  \bi
+  \I on JLab Farm
+  \I on the Grid
+  \I geometry in XML (HDDS)
+  \I using GEANT 3 based detector simulation
+  \I conversion to Geant4 well-underway
+    \bi
+    \I use same geometry
+    \I wrap C-based hit generation code from legacy system
+    \I facilitate comparisons during transition
+    \I overlaps eliminated in geometry~\newIcon
+    \ei
+  \I Note: resource specification assumes all processing at JLab
+    \bi
+    \I Reconstruction and Simulation
+    \I Use Open Science Grid (OSG) for unanticipated needs, principally simulation
+    \ei
+  \ei
+}
+
 \f{\ft{Reconstruction}
   \bi
   \I JANA framework
@@ -77,24 +100,31 @@
     \I self-documenting
     \I compact
     \ei
-  \I Resource specification assumes all processing at JLab
-    \bi
-    \I Includes simulation
-    \I Use Grid for unanticipated needs, large bursts
-    \ei
   \ei
 }
-\f{\ft{Analysis}
-  \bi
-  \I Post-reconstruction options:~\newIcon
+
+\f{\ft{Analysis Options}
+  \bc
+  \includegraphics[width=4.5in]{flowchart.png}
+  \ec
+  \be
+  \I During reconstruction in JANA
+  \I From REST format in JANA~\newIcon
     \bi
-    \I REST to Root Tree option
-    \I REST to JANA option
+    \I Reconstructed objects re-created on input
     \ei
-  \I Analysis Tools~\newIcon
+  \I From ROOT Tree in ROOT~\newIcon
     \bi
+    \I Analysis Tools create standard ROOT Trees
+    \ei
+  \ee
+}
+
+\f{\ft{Analysis Tools}
+  Library to do standard analysis tasks~\newIcon
+    \bi
+    \I user specifies reaction of interest (in C++ code) including decays
     \I user does not perform loops and sub-loops over particle combinations
-    \I instead: specify reaction of interest (C++), including decays
     \I framework returns a list of combinations and their properties
     \I can request kinematic fits of various types
        \bi
@@ -102,41 +132,29 @@
        \I mass constraints
        \I vertex constraints
        \ei
-     \I already used in studies for PAC 40 proposal
-       \bi
-       \I demonstrated particle ID using only kinematics
-       \ei
+    \I optionally, combinations written to standard ROOT tree
+    \I multiple reactions can be specified in same job
+    \I already used in studies for PAC 40 proposal
+      \bi
+      \I demonstrated particle ID using only baseline equipment and kinematics
+      \ei
     \ei
-  \ei
 }
-\f{\ft{Simulation}
-  \bi
-  \I on JLab Farm
-  \I on the Grid
-  \I geometry in XML (HDDS)
-  \I using GEANT 3 based detector simulation
-  \I conversion to Geant4 well-underway
-    \bi
-    \I use same geometry
-    \I wrap hit generation from previous code base
-    \I facilitate comparisons during transition
-    \I overlaps eliminated in geometry~\newIcon
-    \ei
-  \ei
-}
+
 \section{Data Challenges}
 
-\f{\ft{Data Challenges~\newIcon}
+\f{\ft{Data Challenges}
+  \newIcon~In cronological order:
   \bi
-  \I Data Challenge I (complete): November/December 2012
-  \I Online Data Challenge I (complete): August 2013
-  \I Data Challenge II (planned): December 2013
-  \I Online Data Challenge II (planned): January 2013
-  \I Data Challenge III (planned): February 2013
+  \I Data Challenge I: December 2012~\checkIcon
+  \I Online Data Challenge I: August 2013~\checkIcon
+  \I Data Challenge II: early 2014
+  \I Online Data Challenge II: early 2014
+  \I Data Challenge III: following DC~II
   \ei
 }
 
-  \subsection{Data Challenge I -- November/December 2012}
+  \subsection{Data Challenge I -- December 2012}
     \f{\ft{Data Challenge I: Goals}
       \bi
       \I Produce and handle large data set
@@ -158,9 +176,9 @@
           \begin{tabular}{l|r}
             \bf Site & \bf Peak \# of Jobs \\
             \hline
-            Open Science Grid & 10,000 \\
+            Open Science Grid & 7,000 \\
             JLab Batch Farm & 500 \\
-            Carnegie Mellon Cluster & 120
+            Carnegie Mellon Cluster & 128
           \end{tabular}
         \ec
       \I At JLab: home-grown workflow tools tailored for JLab environment
@@ -252,7 +270,7 @@
       \I Test the RootSpy system in the counting house environment
       \I Test data rates of EVIO formatted raw data files
       \I Test prototype L3 rejection algorithm
-      \I Test data rate to tape silo
+      \I Test data rate to tape library
       \I Monitor health of farm and DAQ system nodes 
       \ei
     }
@@ -260,7 +278,7 @@
       \bi
       \I Events pre-staged on disk
       \I Inserted to Event Transfer system (data buffer, supports multiple event producers, multiple event consumers)
-      \I Transferred to Level 3 farm, 10 nodes
+      \I Transferred to Level 3 farm, 10~nodes = 80~cores
       \I Nodes mostly borrowed from IT Division
       \I Written to raid disk
       \I Transferred to tape library
@@ -268,10 +286,9 @@
     }
     \f{\ft{Online Data Challenge I: Results}
       \bi
-      \I Level 3 farm measured bandwidth 40 kHz
+      \I Level 3 farm measured bandwidth 40 kHz (pass-through)
       \I SEST-to-EVIO conversion worked; reconstructible events
       \I RootSpy: collection of root objects (histograms) from multiple processes succeeded
-      \I measured bandwidth of network (prototype configuration): ???
       \ei
     }
     \f{\ft{Level 3 Farm Throughput}
@@ -304,22 +321,26 @@
       \ei
     }
   \subsection{Future Data Challenges}
-    \f{\ft{Data Challenge II -- December 2013}
+    \f{\ft{Data Challenge II -- Early 2014}
       \bi
       \I Goals
         \bi
         \I 10 giga-events
         \I EM background
         \I modern reconstruction
+        \I reduce job failure rate
         \ei
       \I Status -- ongoing mini-challenges
       \ei
     }
-    \f{\ft{Online Data Challenge II - January 2014}
+    \f{\ft{Online Data Challenge II - Early 2014}
       \bi
       \I Goals
         \bi
-        \I Test DAQ stream from ROCS to silo using both real and simulated data
+        \I Test DAQ stream from ROCS to tape library
+          \bi
+          \I event building
+          \ei
         \I Test complete RootSpy-based detector monitoring system
         \I Test farm manager
         \I Monitor system performance 
@@ -327,7 +348,7 @@
       \I Status -- preparations underway
       \ei
     }
-    \f{\ft{Data Challenge III - February 2014}
+    \f{\ft{Data Challenge III}
       \bi
       \I Two-step process
         \bi
