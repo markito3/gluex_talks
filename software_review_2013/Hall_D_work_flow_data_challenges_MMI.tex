@@ -268,6 +268,9 @@
     \f{\ft{Online Data Challenge I: Goals}
       \bi
       \I Test the RootSpy system in the counting house environment
+        \bi
+        \I collection of root objects (histograms) from multiple processes
+        \ei
       \I Test data rates of EVIO formatted raw data files
       \I Test prototype L3 rejection algorithm
       \I Test data rate to tape library
@@ -287,8 +290,8 @@
     \f{\ft{Online Data Challenge I: Results}
       \bi
       \I Level 3 farm measured bandwidth 40 kHz (pass-through)
-      \I SEST-to-EVIO conversion worked; reconstructible events
-      \I RootSpy: collection of root objects (histograms) from multiple processes succeeded
+      \I Simulated HDDM format to EVIO conversion worked; reconstructible events
+      \I RootSpy: succeeded
       \ei
     }
     \f{\ft{Level 3 Farm Throughput}
@@ -316,8 +319,8 @@
     }
     \f{\ft{Online Data Challenge I: Lessons Learned}
       \bi
-      \I Counting room to tape library transfer should not use standard command-line tool (solved: SciComp method implemented, tested)
       \I Initial Hall D Farm (now installed) can keep up with execution of Level 3 at intensity $10^7\ \gamma$/s
+      \I Counting room to tape library transfer should not use standard command-line tool (solved: SciComp method implemented, tested)
       \ei
     }
   \subsection{Future Data Challenges}
@@ -337,13 +340,17 @@
       \bi
       \I Goals
         \bi
-        \I Test DAQ stream from ROCS to tape library
+        \I Test DAQ stream from read-out controllers to tape library
           \bi
-          \I event building
+          \I stage data in front-end crates
           \ei
-        \I Test complete RootSpy-based detector monitoring system
-        \I Test farm manager
-        \I Monitor system performance 
+        \I Use the full CODA architecture
+          \bi
+          \I event builder
+          \I farm manager
+          \I run control
+          \ei
+        \I Run a realistic Level 3 algorithm in online farm
         \ei
       \I Status -- preparations underway
       \ei
