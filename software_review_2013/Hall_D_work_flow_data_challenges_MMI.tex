@@ -33,39 +33,53 @@
   \I Data Flow, Computing Model
     \bi
     \I Raw data taking
+    \I Simulation
     \I Reconstruction
     \I Analysis
-    \I Simulation
     \ei
-  \I Data Challenges, Past and Future~\newIcon
+  \I Data Challenges~\newIcon
     \bi
     \I Offline Data Challenges
     \I Online Data Challenges
+    \I Some done, some planned
     \ei
   \ei
   \newIcon $\Rightarrow$ New since last review (June 2012)
 }
 
-\section{Data Flow}
+\section{Data Flow / Computing Model}
 
 \f{\ft{Raw data taking}
   \bi
   \I Detector to Level 3 Farm
     \bi
-    \I Monitoring only at first
+    \I Event marking only at first
+    \I Separate monitoring farm~\newIcon
     \ei
   \I Farm to raid disk in Counting House
-  \I EVIO format
+  \I Event Input/Output (EVIO) format
+    \bi
+    \I Native format for CEBAF Online Data Acquisision (CODA) system
+    \I CODA native data acquisition system for JLab
+    \ei
   \I transfer to tape library
   \ei
 }
 
 \f{\ft{Simulation}
+  \begin{columns}[c]
+    \begin{column}{2.2in}
+      \small
+      \bi
+      \I geometry in XML (HDDS)
+      \I currently using GEANT-3-based detector simulation
+      \ei
+    \end{column}
+    \begin{column}{2.3in}
+      \includegraphics[width=2.3in]{cutaway.jpg}
+    \end{column}
+  \end{columns}
   \bi
-  \I on JLab Farm
-  \I on the Grid
-  \I geometry in XML (HDDS)
-  \I using GEANT 3 based detector simulation
   \I conversion to Geant4 well-underway
     \bi
     \I use same geometry
@@ -90,8 +104,9 @@
       \bi
       \I scaling observed up to 32 cores
       \I marginal memory cost per thread 30\% that of single-threaded job
+      \I disk I/O bottleneck issue resolved
       \ei
-    \I calibration constants in relational database
+    \I integrated access to calibration constants in relational database
     \ei
   \I REST formatted output~\newIcon
     \bi

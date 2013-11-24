@@ -1,4 +1,4 @@
-FIGS = check_mark.png cpu_scaling.png farm_usage_2012.png grid_usage_2012.png new.jpg omega_peak.png flowchart.png
+FIGS = check_mark.png cpu_scaling.png farm_usage_2012.png grid_usage_2012.png new.jpg omega_peak.png flowchart.png cutaway.jpg
 
 Hall_D_work_flow_data_challenges_MMI.pdf: Hall_D_work_flow_data_challenges_MMI.tex $(FIGS)
 	xterm -e pdflatex $<
