@@ -414,6 +414,12 @@
 
 \f{\bc Backup Slides \ec}
 
+\f{\ft{Code Profiling: {\tt valgrind --tool callgrind}}
+\bc
+\includegraphics[width=4.5in]{valgrind.png}
+\ec
+}
+
 \f{
 \ft{Data/Computing Model}
 Trigger rates:
@@ -502,6 +508,23 @@ Total data to tape (PB) & 0.2 &1.8 & 3.6
 \I Grid Storage Resource Manager (SRM) was used to move data between UConn, Carnegie Mellon, and MIT~\newIcon
 \I Effort to grow grid resources coming from university groups
 \ei
+}
+
+\f{\ft{Workflow Tools on the Grid}
+\bi
+\I compute resource discovery and allocation:
+  \bi
+  \I glideinWMS in cooperation with the UCSD and osg GOC job factories
+  \I client side: condor client tools using condor-g
+  \ei
+\I storage allocation and redirection services:
+  \bi
+  \I dcache implementation of SRM
+  \ei
+\I global file catalog: initial steps to set up the LFC file catalog
+\I job accounting: condor\_userlog
+\ei
+
 }
 
 \end{document}
