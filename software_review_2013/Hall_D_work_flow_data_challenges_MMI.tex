@@ -71,8 +71,9 @@
     \begin{column}{2.2in}
       \small
       \bi
-      \I geometry in XML (HDDS)
+      \I geometry in XML: Hall D Detector Specification (HDDS)
       \I currently using GEANT-3-based detector simulation
+      \I developed by Richard Jones, UConn
       \ei
     \end{column}
     \begin{column}{2.3in}
@@ -84,7 +85,7 @@
     \bi
     \I use same geometry
     \I wrap C-based hit generation code from legacy system
-    \I facilitate comparisons during transition
+    \I facilitate validation of new system
     \I overlaps eliminated in geometry~\newIcon
     \ei
   \I Note: resource specification assumes all processing at JLab
@@ -107,13 +108,16 @@
       \I disk I/O bottleneck issue resolved
       \ei
     \I integrated access to calibration constants in relational database
+    \I developed by David
     \ei
-  \I REST formatted output~\newIcon
+  \I Reconstructed Event Storage (REST) format for output~\newIcon
     \bi
-    \I an HDDM: compressed XML
+    \I compressed XML; an instance of the Hall D Data Model (HDDM)
+      \bi
+      \I compact, self-documenting
+      \I developed by Richard
+      \ei
     \I compression from raw data: factor of 10
-    \I self-documenting
-    \I compact
     \ei
   \ei
 }
@@ -136,7 +140,7 @@
 }
 
 \f{\ft{Analysis Tools}
-  Library to do standard analysis tasks~\newIcon
+  Library to perform standard analysis tasks~\newIcon (Paul Mattione, CMU)
     \bi
     \I user specifies reaction of interest (in C++ code) including decays
     \I user does not perform loops and sub-loops over particle combinations
@@ -153,6 +157,7 @@
       \bi
       \I demonstrated particle ID using only baseline equipment and kinematics
       \ei
+    \I More in Justin's talk
     \ei
 }
 
@@ -176,7 +181,11 @@
         \bi
         \I Generate 2 billion minimum bias events from coherent peak
         \ei
-      \I Provide a data sample for kinematics-based particle identification studies (to support PAC 40 proposal)
+      \I Provide a data sample for particle identification studies
+        \bi
+        \I base equipment and kinematic fits
+        \I support PAC 40 proposal
+        \ei
       \I Look for issues in scaling
       \ei
     }
@@ -258,6 +267,7 @@
       \I 125 million events from Data Challenge I
       \I 2.4\% of total sample
       \I two days of running at $10^7~\gamma$/s in coherent peak
+      \I thanks to Justin for plots
       \ei
     }
 \f{\ft{Data Challenge I: Lessons Learned}
@@ -303,9 +313,12 @@
       \ei
     }
     \f{\ft{Online Data Challenge I: Results}
+      \bc
+      \includegraphics[width=3.0in]{online_monitors.jpg}
+      \ec
       \bi
       \I Level 3 farm measured bandwidth 40 kHz (pass-through)
-      \I Simulated HDDM format to EVIO conversion worked; reconstructible events
+      \I Simulated-output-format-to-EVIO conversion worked; reconstructible events
       \I RootSpy: succeeded
       \ei
     }
