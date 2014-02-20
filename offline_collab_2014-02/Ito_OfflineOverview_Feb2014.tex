@@ -17,175 +17,118 @@
 \title{Offline Software Overview}
 \subtitle{GlueX Collaboration Meeting}
 \author[Mark Ito]{Mark M.\ Ito}
-\date{October 3, 2013}
+\date{February 21, 2014}
 \institute[JLab]{Jefferson Lab}
 
 \begin{document}
 
 \f{\titlepage}
 
-\f{\includegraphics[width=4.5in]{resources.pdf}}
-
-\f{\ft{Other Talks}
+\f{\ft{Other Related Talks}
 \bi
-\I analysis workshop
-\I BCAL improvements
-\I Tracking improvements
-\I Online data challenge
-\I Software Review
+\I Software Review (Curtis, Opening Session)
+\I Online Data Challenge (David, Online Session)
+\I Tracking Improvements (Simon, this session)
+\I Offline Data Challenge (Curtis, this session)
 \ei
 }
 
-\f{\ft{Top-level build scripts}
-  \bi
-  \I scripts for installing GlueX software on several flavors of Linux
-  \I tested on CentOS 6, Scientific Linux 6, Ubuntu 12.04, Fedora 18, LinuxMint 15, openSUSE 12.3
-  \I installation steps
-    \be
-    \I prerequisites: gluex\_prereq\_<distribution>.sh
-    \I subversion test: svn\_touch.sh
-    \I install: gluex\_install.sh
-    \ee
-  \I builds: xerces-c, CERNLIB, ROOT, CLHEP, Geant4, GSL (Gnome Scientific Library), CCDB, JANA, HDDS, sim-recon, and set-up scripts
-  \ei
-}
+\f{
 
-\f{\ft{Work Flow}
-  \bd
-  \I[Work Flow Tools]: standard automation of large-scale, multiple job submission and tracking
-  \I[Data Provenance]: having information on how data was processed and archiving tools necessary to re-analyze data in the future.
-  \ed
+\bi
+\I We have a data management plan
   \bi
-  \I SciComp willing to help
-  \I Committee formed to set scope
-  \I Meetings so far have been educating SciComp staff about issues
-  \ei
-}
-
-\f{\ft{generated particle and decay chain reporting}
-  \bi
-  \I Issue: in reconstructed Monte Carlo data want to know the entire particle production, decay, interaction chain
-  \I PIC (Pesterer-in-Chief): Kei Moriya
-  \I difficulties:
-    \be
-    \I some action in generator, some in Geant
-    \I more than one generator, want uniform scheme
-    \I electromagnetic showers produce huge numbers of secondaries, but some of these may be of interest to end user
-    \ee
-  \I partial solutions implemented
-  \I need comprehensive solution, i. e., a design
-  \I not high-level rocket science
-  \ei
-}
-
-\f{\ft{Data Challenge 2}
-  \bi
-  \I New software
+  \I document hierarchy developed Lab-wide
+  \I meeting with Library School folks from CMU
     \bi
-    \I fix bugs: improve job success efficiency 
-    \I BCAL reconstruction
-    \I CCDB
-    \I latest tracking
-    \I ROOT trees?
-    \I improved REST?
-    \ei
-  \I Simulation Configuration Changes
-    \bi
-    \I add electromagnetic background
-    \I add in dark noise in the BCAL
-    \I open up photon window, especially to higher photon energy,
-       perhaps 7.5 GeV to the end-point
-    \ei
-  \I System Improvements
-    \bi
-    \I farm management system at JLab
-      \bi
-      \I crude set of perl scripts now, full of kludges
-      \I needs generalization, perhaps re-write
-      \ei
-    \I input and output data cataloging and management
-      \bi
-      \I database application?
-      \I grid-based meta-data catalog?
-      \ei
+    \I same problem as us: funding agencies want to to see this
     \ei
   \ei
+\I Data Flow Tools
+  \bi
+  \I at JLab, a requirements document drafted by a committee
+  \I implementation slowed by re-organization
+  \I will not be ready for this data challenge
+  \ei
+\ei
 }
+
+\f{
+$$
+\includegraphics[width=\textwidth]{scons.pdf}
+$$
+}
+
+\f{$$\includegraphics[width=\textwidth]{build_output.pdf}$$}
   
+\f{
+\bi
+\I Monte Carlo Genealogy
+  \bi
+  \I scheme that allows family tree to cross over from bggen to hdgeant
+  \ei
+\I REST Format and Track Swimming
+  \bi
+  \I before: no information on cluster matching to tracks saved
+  \I now: matching information kept in REST format
+  \ei
+\I CCDB, version 0.09
+  \bi
+  \I gateway for access to resources
+  \I closes idle MySQL connections
+  \I general improvements: help pages, better unit testing, documentation updates, web-site tweaks
+  \I authentication implemented
+  \I plan for Halls A and C to adopt use
+  \I SQLite versions of CCDB generated automatically, daily
+  \ei
+\ei
+}
+
+\f{
+\bi
+\I Splitting up the packages
+  \bi
+  \I major categories: simulation, reconstruction, analysis
+  \I other stand-alone candidates: AmpTools, HDDM, ``utilities''
+  \I addresses some issues with old data
+  \I still in planning stage
+  \ei
+\I Tagged File System for Event Data
+  \bi
+  \I Event file distribution
+  \I tags: identify relevant files
+  \I filters: select out events of interest
+  \ei
+\I EventStore being explored
+  \bi
+  \I system for tagging individual events
+  \I used at CLEO
+  \ei
+\I Reverse Magnetic Field Fix
+  \bi
+  \I some non-generalities in code exposed
+  \I allows for use of new magnetic field with the proper sign
+  \ei
+\I Time-of-Flight Geometry Changes
+  \bi
+  \I added half-width counters
+  \ei
+\ei
+}
+
+\f{$$\includegraphics[width=\textwidth]{resources.pdf}$$}
+
+\f{\ft{Geant4}
+\bi
+\I  progress on geometry
+\I  Richard described changes needed last collab. meeting; G4 pickier than G3
+\I  changes are done to both; required for apples-to-apples comparison
+\I  some side-effects of those changes lingered and needed to be been addressed; done now
+\ei
+}
+
+\f{$$\includegraphics[width=\textwidth]{bcal_recon.pdf}$$}
+
+\f{$$\includegraphics[width=\textwidth]{bcal_future.pdf}$$}
+
 \end{document}
-
-We have a data management plan
-  meeting with Library School folks from CMU
-  same problem as us: funding agencies want to to see this
-
-Data Flow Tools
-  at JLab, a requirements document drafted by a committee
-  implementation slowed by re-organization
-  will not be ready for this data challenge
-
-SCons system for building sim-recon
-  in place, in active use
-  make system still in place
-  some feature discussions going on
-    stand-alone libraries
-
-Monte Carlo Genealogy
-  scheme that allows family tree to cross over from bggen to hdgeant  
-
-REST Format and Track Swimming
-  before: no information on cluster matching to tracks saved
-  now: matching information kept in REST format
-
-CCDB
-  gateway for access to resources
-  closes idle MYSQL connections
-  general improvements
-    help pages
-    better unit testing
-    documentation updates
-    web-site tweaks
-  authentication implemented
-  plan for Halls A and C to adopt use
-
-Splitting up the packages
-  major categories: simulation, reconstruction, analysis
-  other stand-alone candidates: AmpTools, HDDM, ``utilities''
-  addresses some issues with old data
-  still in planning stage
-
-SQLite versions of CCDB generated automatically, daily
-
-EventStore being explored
-
-Tagged File System for Event Data
-  Event distribution
-  tags
-  filters
-
-Reverse Magnetic Field Fix
-  some non-generalities in code exposed
-  allows for use of new magntic field with the proper sign
-
-Time-of-Flight Geometry Changes
-  added half-width counters
-
-Jana 0.7
-  use of resources
-  large files
-    magnetic fields
-    shower shape templates in PbWO$_4$ crystal reconstruction
-  local cache
-  not a good fit for calibration database
-    seldom change, longer characteristic time than normal calibration constants
-    local cache a better model
-  apply administrative controls
-    no deleting resource files once in common use
-    robust backup scheme
-  use
-    environment variable
-
-Geant4
-  progress on geometry
-  Richard described changes needed last collab meeting due to g4 being pickier than g3
-  changes common to both; required for apples-to-apples comparison
-  some side-effects of those changes lingered and needed to be been addressed; done now
