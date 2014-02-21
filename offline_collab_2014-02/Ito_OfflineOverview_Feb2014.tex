@@ -69,16 +69,16 @@ $$
   
 \f{
 \bi
-\I Monte Carlo Genealogy
+\I Monte Carlo Genealogy (MMI)
   \bi
   \I scheme that allows family tree to cross over from bggen to hdgeant
   \ei
-\I REST Format and Track Swimming
+\I REST Format and Track Swimming (Paul M.)
   \bi
   \I before: no information on cluster matching to tracks saved
   \I now: matching information kept in REST format
   \ei
-\I CCDB
+\I CCDB (Dmitry)
   \bi
   \I version 0.09 released
     \bi
@@ -94,14 +94,14 @@ $$
 
 \f{
 \bi
-\I Splitting up the packages
+\I Splitting up the packages (Paul M., Matt)
   \bi
   \I major categories: simulation, reconstruction, analysis
-  \I other stand-alone candidates: AmpTools, HDDM, ``utilities''
-  \I addresses some issues with old data
+  \I other stand-alone candidates: HDDM, ``utilities''
+  \I addresses some issues with analyzing old data with modern analysis
   \I still in planning stage
   \ei
-\I Tagged File System for Event Data
+\I Tagged File System for Event Data (Gagik Gavalian, ODU)
   \bi
   \I Event file distribution
   \I tags: identify relevant files
@@ -110,16 +110,13 @@ $$
 \I EventStore being explored
   \bi
   \I system for tagging individual events
-  \I used at CLEO
-  \ei
-\I Reverse Magnetic Field Fix
-  \bi
-  \I some non-generalities in code exposed
-  \I allows for use of new magnetic field with the proper sign
+  \I use one data file for multiple skims
+  \I used at CLEO, Matt introduced it to us
+  \I Sean in contact with an author
   \ei
 \I Time-of-Flight Geometry Changes
   \bi
-  \I added half-width counters
+  \I added half-width counters (Beni, Simon)
   \ei
 \ei
 }
@@ -138,5 +135,33 @@ $$
 \f{$$\includegraphics[width=0.9\textwidth]{bcal_recon.pdf}$$}
 
 \f{$$\includegraphics[width=0.9\textwidth]{bcal_future.pdf}$$}
+
+\f{\ft{Conclusions}
+\bi
+\I Infrastructure is in place for commissioning
+  \bi
+  \I development driven from online data challenge fills in final pieces, especially ability to reconstruct EVIO-based data
+  \I infrastructure needs filling:
+    \bi
+    \I monitoring histograms
+    \I reconstructed quantity monitoring
+    \ei
+  \ei
+\I On the road to smooth, efficient physics analysis
+  \bi
+  \I AmpTools, Analysis Library, BDT's and other MVA tools
+  \ei
+\I System improvements still require attention
+   \bi
+   \I EventStore
+   \I Geant4
+   \I Meta-data catalog
+   \I code profiling
+   \I photon reconstruction monitoring
+   \I reconstruction algorithms may need review, \`a la BCAL
+   \I automated shift scheduler ;-)
+   \ei
+\ei
+}
 
 \end{document}
