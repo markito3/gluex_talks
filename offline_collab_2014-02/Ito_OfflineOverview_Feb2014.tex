@@ -34,10 +34,14 @@
 }
 
 \f{
-
 \bi
-\I We have a data management plan
+\I Data Management Plan
   \bi
+  \I From the JLab plan summary:
+    \bi
+    \I Jefferson Lab requires that valuable data...be managed in a way that allows future...researchers to be able to work with the data...this mandate includes the preservation of the data, documentation of the data format...run conditions and calibration databases, and...software used to read and process the data.
+    \ei
+  \I for the Lab and as a reference for researchers
   \I document hierarchy developed Lab-wide
   \I meeting with Library School folks from CMU
     \bi
@@ -46,8 +50,10 @@
   \ei
 \I Data Flow Tools
   \bi
-  \I at JLab, a requirements document drafted by a committee
-  \I implementation slowed by re-organization
+  \I in a nutshell: specify and submit a series of jobs
+  \I provide requisite bookkeeping service
+  \I SciComp convened the committee; requirements document written
+  \I implementation slowed by Lab re-organization
   \I will not be ready for this data challenge
   \ei
 \ei
@@ -55,11 +61,11 @@
 
 \f{
 $$
-\includegraphics[width=\textwidth]{scons.pdf}
+\includegraphics[width=0.9\textwidth]{scons.pdf}
 $$
 }
 
-\f{$$\includegraphics[width=\textwidth]{build_output.pdf}$$}
+\f{$$\includegraphics[width=0.9\textwidth]{build_output.pdf}$$}
   
 \f{
 \bi
@@ -72,13 +78,15 @@ $$
   \I before: no information on cluster matching to tracks saved
   \I now: matching information kept in REST format
   \ei
-\I CCDB, version 0.09
+\I CCDB
   \bi
-  \I gateway for access to resources
-  \I closes idle MySQL connections
-  \I general improvements: help pages, better unit testing, documentation updates, web-site tweaks
+  \I version 0.09 released
+    \bi
+    \I closes idle MySQL connections
+    \I general improvements: help pages, better unit testing, documentation updates, web-site tweaks
+    \ei
   \I authentication implemented
-  \I plan for Halls A and C to adopt use
+  \I plan for Halls A and C to adopt use (B already using it)
   \I SQLite versions of CCDB generated automatically, daily
   \ei
 \ei
@@ -116,7 +124,7 @@ $$
 \ei
 }
 
-\f{$$\includegraphics[width=\textwidth]{resources.pdf}$$}
+\f{$$\includegraphics[width=0.9\textwidth]{resources.pdf}$$}
 
 \f{\ft{Geant4}
 \bi
@@ -127,8 +135,8 @@ $$
 \ei
 }
 
-\f{$$\includegraphics[width=\textwidth]{bcal_recon.pdf}$$}
+\f{$$\includegraphics[width=0.9\textwidth]{bcal_recon.pdf}$$}
 
-\f{$$\includegraphics[width=\textwidth]{bcal_future.pdf}$$}
+\f{$$\includegraphics[width=0.9\textwidth]{bcal_future.pdf}$$}
 
 \end{document}
