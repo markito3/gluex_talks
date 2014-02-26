@@ -1,0 +1,73 @@
+\documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Online Database Proposal}
+\subtitle{GlueX Online Meeting}
+\author[Mark Ito]{Mark M.\ Ito}
+\date{February 26, 2014}
+\institute[JLab]{Jefferson Lab}
+
+\begin{document}
+
+\f{\titlepage}
+
+\f{\ft{Introduction}
+\bi
+\I Many database efforts, largely independent
+\I Large overlap
+\I Expressions of dissatisfaction have been heard
+\I Future development effort could be wasted
+\I For now: a proposal
+  \bi
+  \I Work with current tools should not stop
+  \I A picture of what a unified approach looks like
+  \I A conceptual design
+  \I Future direction to be discussed
+  \ei
+\ei
+}
+
+\f{$$\includegraphics[width=0.9\textwidth]{online_db_relationships.png}$$}
+\f{\ft{Overview}$$\includegraphics[height=0.9\textheight]{online_database.png}$$}
+\f{\ft{Run State}What is the run number?$$\includegraphics[width=0.8\textwidth]{run_state.png}$$}
+\f{\ft{Electronic Configuration}What are the discriminator thresholds?$$\includegraphics[width=0.8\textwidth]{electronic_configuration.png}$$}
+\f{\ft{Electronic Geography}What board is in slot 4?$$\includegraphics[width=0.8\textwidth]{electronic_geography.png}$$}
+\f{\ft{Detector Mapping}Which detector channels are cabled into board 4?$$\includegraphics[width=0.8\textwidth]{detector_mapping.png}$$}
+\f{\ft{Conditions}What is the temperature in the Hall?$$\includegraphics[width=0.8\textwidth]{conditions.png}$$}
+\f{\ft{Overview}$$\includegraphics[height=0.9\textheight]{online_database.png}$$}
+
+\f{\ft{Conclusions}
+\bi
+\I We would benefit from a common approach.
+  \bi
+  \I Eliminate duplication of effort.
+  \I Building on work of others could result in more advanced tools.
+  \I Faster error diagnosis, smoother operations
+  \ei
+\I Hall D will have to use these tools for 10 years (hopefully).
+\I We are hard up against commissioning, a dangerous time to try to re-tool (i.~e., schedule risk).
+\I Questions:
+  \bi
+  \I Is unification a goal?
+  \I If so, on what time scale?
+  \I How much work is it really?
+  \I Where does the manpower come from?
+  \ei
+\ei
+}
+
+\end{document}
+
