@@ -165,3 +165,102 @@ $$
 }
 
 \end{document}
+
+outline
+data challenge
+  goals
+    include curtis's slide:  February  2014 Data Challenge
+    Nominal goal is 10 billion events.
+    Phythia/BGGEN events from 7.0GeV to the endpoint.
+    Normal run will be in REST format.
+    Specialized block (at JLab) that retains HDGEANT output (for tape tests)?
+    Target distribution to be nominal LH2 as handled by HDGEANT.
+    1350 magnetic field
+    updated REST format, matching info saved
+    use the CCDB
+  conditions
+    versions
+    background settings
+    file number assignments
+  sites
+    jlab
+      workflow tools at JLab not ready
+    mit
+      OpenStack at MIT
+      futuregrid
+        futuregrid at 180 cores (3/28)
+        MIT 300 cores with futuregrid
+    cmu
+    fsu
+    osg
+      UConn
+      nw
+  organization
+    series of meetings held in addition to the offline software meeting
+      curtis initiated
+    conditions page
+    event tally board
+  issues
+    Reversed magnetic field fixes from Simon
+    effect of EM background on file size and execution time
+      Kei study, varied gate widths as well
+    phi = 0 problem in CDC solved
+    event geneology checked
+    A fix from Simon for single-ended TOF counters.
+    Improvements from Paul for cutting off processing for multi-lap curling tracks. big memory footprint effect
+    ZFATAL fix from richard, showers from EM background, squelched
+    short rest, compression
+       short rest file fix from richard: bug in xstream library with compression enabled
+    non-reproducibility
+       reproducibility fixed: sort needed on associated objects in STL map
+    random number seeds
+      looked at scheme where every event stores its seed at each stage
+      settled on bggen seed
+    Kei studies on em background for pπ+π- pπ+π-π0
+    job tracking with farm at JLab info
+    python script to scan monitoring histograms from Sean
+  results
+    code frozen on 3/20
+    events produced
+    execution time
+      running times for various em bg conditions from Paul (3/7)
+    memory usage
+    node history
+      farm nodes increase at JLab
+        The current farm is at about 1200 cores. The farm typically 1400 cores. For the 25% level test we will need 1250 cores. The plan is to bring another 1000 cores over from LQCD to keep the farm generally usable.
+        Lattice nodes are available to us because Physics has been lending 32 16-core nodes to the LQCD farm all of December and January.
+        3400 cores now in farm, 2400 for Hall D (3/4)
+        plot from Mark
+        plot from Sandy
+    ramp down April 11 plus or minus a few days, last data challenge meeting
+  data distribution
+    srm
+      archiving all data to tape library
+    event store
+    paul: proposed skims
+  next data challenge
+    multi threading
+    tape overhead
+    needed: raw data, ability to analyze it
+    time frame
+  what came out
+    em background
+    usable data set
+    large usable data set
+    improvements of techniques at various sites
+    collaborative efforts can succeed
+    need for geant4
+    monitoring system
+      rootspy?
+other topics
+  CCDB 1.00 released
+  kinematic fitter update
+  paul: proposed skims
+  database and webserver changes coming up
+  nightly build using scons
+  bluejeans deployed: Curtis
+summary
+  to do
+    splitting up packages
+    re-org of offline wiki pages
+
