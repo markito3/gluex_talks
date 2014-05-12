@@ -42,37 +42,73 @@
 \ei
 }
 
+\f{\ft{Goals}
+    include curtis's slide:  February  2014 Data Challenge
+\bi
+\I nominal goal 10 billion events.
+\I Pythia/BGGEN events from 7.0GeV to the endpoint.
+\I Target distribution to be nominal LH2 as handled by HDGEANT.
+\I 1350 A current for magnetic field
+\I updated REST format, matching info saved
+\I use the CCDB
+\ei
+}
+  
+\f{\ft{Conditions}
+\bi
+\I software versions specified
+\I background settings \\
+\begin{tabular}{|c|c|c|}
+\hline
+Run & $\gamma$ Rate & fraction \\
+\hline
+9001 & $1\times 10^7$ & 80\% \\
+9002 & $5\times 10^7$ & 5\% \\
+9003 & 0 & 15\% \\
+\hline
+\end{tabular}
+\I file number assignments for each site
+\I configuration files specified
+\I command-lines specified
+\ei
+}
+
+\f{\ft{Sites}
+\bi
+\I Carnegie Mellon
+  \bi
+  \I 384 cores
+  \ei
+\I Florida State
+  \bi
+  \I 144 cores
+  \ei
+\I JLab
+  \bi
+  \I 400 to 2400 cores
+  \I workflow tools at JLab not ready
+  \ei
+\I MIT
+  \bi
+  \I 300+ cores
+  \I OpenStack at MIT
+    \bi
+    \I Virtual Machines instances
+    \I MIT Re-Use Cluster
+    \I FutureGrid
+    \ei
+  \ei
+\I Open Science Grid (OSG)
+  \bi
+  \I up to 10,000 cores
+  \I nodes contributed from UConn and Northwestern
+  \ei
+\ei
+}
+
 \end{document}
 
-outline
 data challenge
-  goals
-    include curtis's slide:  February  2014 Data Challenge
-    Nominal goal is 10 billion events.
-    Phythia/BGGEN events from 7.0GeV to the endpoint.
-    Normal run will be in REST format.
-    Specialized block (at JLab) that retains HDGEANT output (for tape tests)?
-    Target distribution to be nominal LH2 as handled by HDGEANT.
-    1350 magnetic field
-    updated REST format, matching info saved
-    use the CCDB
-  conditions
-    versions
-    background settings
-    file number assignments
-  sites
-    jlab
-      workflow tools at JLab not ready
-    mit
-      OpenStack at MIT
-      futuregrid
-        futuregrid at 180 cores (3/28)
-        MIT 300 cores with futuregrid
-    cmu
-    fsu
-    osg
-      UConn
-      nw
   organization
     series of meetings held in addition to the offline software meeting
       curtis initiated
