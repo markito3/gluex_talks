@@ -43,7 +43,6 @@
 }
 
 \f{\ft{Goals}
-    include curtis's slide:  February  2014 Data Challenge
 \bi
 \I nominal goal 10 billion events.
 \I Pythia/BGGEN events from 7.0GeV to the endpoint.
@@ -51,6 +50,7 @@
 \I 1350 A current for magnetic field
 \I updated REST format, matching info saved
 \I use the CCDB
+\I not crash so much
 \ei
 }
   
@@ -71,6 +71,12 @@ Run & $\gamma$ Rate & fraction \\
 \I configuration files specified
 \I command-lines specified
 \ei
+}
+
+\f{\ft{Conditions Webpage}
+$$
+\includegraphics[height=0.9\textheight]{conditions.pdf}
+$$
 }
 
 \f{\ft{Sites}
@@ -124,17 +130,12 @@ Run & $\gamma$ Rate & fraction \\
 \ei
 }
 
-\f{conditions webpage}
-\f{back to organization page}
-\f{Event Tally Board}
-\f{back to organization page}
-
 \f{\ft{Issues}
 \bi
 \I reversed magnetic field fixes from Simon
 \I Kei studied effect of EM background on file size, and execution time, varying beam rate and gate length
-\I  phi = 0 problem in CDC solved, Richard, Simon
-\I  event geneology checked by Kei
+\I phi = 0 problem in CDC solved, Richard, Simon
+\I event geneology checked by Kei
 \I fix from Simon for single-ended TOF counters
 \I improvements from Paul for cutting off processing for multi-lap curling tracks, big memory footprint effect
 \I ZFATAL fix from richard, showers from EM background, squelched
@@ -185,6 +186,30 @@ Run & $\gamma$ Rate & sec/event \\
 \ei
 }
 
+\f{\ft{JLab Farm Usage}
+$$
+\includegraphics[width=0.9\textwidth]{Farm_2014.png}
+$$
+}
+
+\f{\ft{MIT OpenStack Jobs}
+$$
+\includegraphics[width=0.9\textwidth]{MIT_DC2_3-28-14.png}
+$$
+}
+
+\f{\ft{CPU Time Usage (Jlab)}
+$$
+\includegraphics[width=0.9\textwidth]{cput.png}
+$$
+}
+
+\f{\ft{Virtual Memory Peak (JLab)}
+$$
+\includegraphics[width=0.9\textwidth]{vmem.png}
+$$
+}
+
 \f{\ft{Data Distribution}
 \bi
 \I Storage Resource Manager (SRM)
@@ -209,7 +234,6 @@ Run & $\gamma$ Rate & sec/event \\
 \I improvements of techniques at various sites
 \I need a monitoring system for production (ROOTSpy?)
 \I need for Geant4
-\I high level of collaborative work
 \ei
 }
 
@@ -224,18 +248,24 @@ Run & $\gamma$ Rate & sec/event \\
 \ei
 }
 
+\f{\ft{Other Topics}
+\bi
+\I CCDB 1.00 released
+\I kinematic fitter update
+\I nightly build using scons
+\I BlueJeans deployed
+\I splitting up offline packages
+\I re-org of offline wiki pages
+\ei
+}
+
+\f{\ft{Conclusions}
+\bi
+\I much more robust software suite coming out of data challenge
+\I high level of cooperation and coordination demonstrated
+\I lots to do
+\I next frontier: reconstruction quality
+\ei
+}
+
 \end{document}
-
-data challenge
-other topics
-  CCDB 1.00 released
-  kinematic fitter update
-  paul: proposed skims
-  database and webserver changes coming up
-  nightly build using scons
-  bluejeans deployed: Curtis
-summary
-  to do
-    splitting up packages
-    re-org of offline wiki pages
-
