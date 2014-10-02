@@ -1,165 +1,158 @@
-------------------------------------------------------------------------
-r14984 | jonesrt | 2014-09-02 10:33:22 -0400 (Tue, 02 Sep 2014) | 2 lines
-Changed paths:
-   M /trunk/sim-recon/src
-   M /trunk/sim-recon/src/BMS
-   M /trunk/sim-recon/src/BMS/Makefile.bin
-   M /trunk/sim-recon/src/BMS/Makefile.common
-   M /trunk/sim-recon/src/BMS/Makefile.shlib
-   M /trunk/sim-recon/src/external/xstream/include/xstream/config.h
-   M /trunk/sim-recon/src/libraries/AMPTOOLS_DATAIO/HDDMDataWriter.cc
-   M /trunk/sim-recon/src/libraries/AMPTOOLS_DATAIO/HDDMDataWriter.h
-   M /trunk/sim-recon/src/libraries/AMPTOOLS_DATAIO/ROOTDataReader.cc
-   M /trunk/sim-recon/src/libraries/ANALYSIS
-   M /trunk/sim-recon/src/libraries/ANALYSIS/ANALYSIS_init.cc
-   M /trunk/sim-recon/src/libraries/ANALYSIS/DHistogramActions.cc
-   M /trunk/sim-recon/src/libraries/ANALYSIS/DHistogramActions.h
-   M /trunk/sim-recon/src/libraries/ANALYSIS/DParticleCombo_factory_PreKinFit.cc
-   M /trunk/sim-recon/src/libraries/BCAL/BCAL_init.cc
-   M /trunk/sim-recon/src/libraries/BCAL/DBCALHit_factory.cc
-   M /trunk/sim-recon/src/libraries/BCAL/DBCALHit_factory.h
-   M /trunk/sim-recon/src/libraries/BCAL/DBCALTDCHit_factory.cc
-   M /trunk/sim-recon/src/libraries/BCAL/DBCALTDCHit_factory.h
-   M /trunk/sim-recon/src/libraries/CCAL/CCAL_init.cc
-   M /trunk/sim-recon/src/libraries/CDC/CDC_init.cc
-   M /trunk/sim-recon/src/libraries/CDC/DCDCHit_factory.cc
-   M /trunk/sim-recon/src/libraries/CDC/DCDCHit_factory.h
-   M /trunk/sim-recon/src/libraries/CERE/CERE_init.cc
-   M /trunk/sim-recon/src/libraries/DANA
-   M /trunk/sim-recon/src/libraries/FCAL/DFCALHit_factory.cc
-   M /trunk/sim-recon/src/libraries/FCAL/DFCALHit_factory.h
-   M /trunk/sim-recon/src/libraries/FCAL/FCAL_init.cc
-   M /trunk/sim-recon/src/libraries/FDC/DFDCHit_factory.cc
-   M /trunk/sim-recon/src/libraries/FDC/DFDCHit_factory.h
-   M /trunk/sim-recon/src/libraries/FDC/FDC_init.cc
-   M /trunk/sim-recon/src/libraries/HDDM
-   M /trunk/sim-recon/src/libraries/HDDM/DEventSourceHDDM.cc
-   M /trunk/sim-recon/src/libraries/HDDM/DEventSourceHDDM.h
-   M /trunk/sim-recon/src/libraries/HDDM/DEventSourceREST.cc
-   M /trunk/sim-recon/src/libraries/HDDM/DEventSourceREST.h
-   M /trunk/sim-recon/src/libraries/HDDM/DEventWriterREST.cc
-   M /trunk/sim-recon/src/libraries/HDDM/DEventWriterREST.h
-   M /trunk/sim-recon/src/libraries/HDDM/SConscript
-   M /trunk/sim-recon/src/libraries/HDDM/event.xml
-   M /trunk/sim-recon/src/libraries/HDDM/rest.xml
-   A /trunk/sim-recon/src/libraries/PID/DBeamPhoton_factory.cc (from /branches/sim-recon-rj-pm/src/libraries/PID/DBeamPhoton_factory.cc:14980)
-   A /trunk/sim-recon/src/libraries/PID/DBeamPhoton_factory.h (from /branches/sim-recon-rj-pm/src/libraries/PID/DBeamPhoton_factory.h:14980)
-   A /trunk/sim-recon/src/libraries/PID/DBeamPhoton_factory_TRUTH.cc (from /branches/sim-recon-rj-pm/src/libraries/PID/DBeamPhoton_factory_TRUTH.cc:14980)
-   A /trunk/sim-recon/src/libraries/PID/DBeamPhoton_factory_TRUTH.h (from /branches/sim-recon-rj-pm/src/libraries/PID/DBeamPhoton_factory_TRUTH.h:14980)
-   M /trunk/sim-recon/src/libraries/PID/DEventRFBunch_factory.cc
-   M /trunk/sim-recon/src/libraries/PID/DEventRFBunch_factory.h
-   A /trunk/sim-recon/src/libraries/PID/DRFTime.h (from /branches/sim-recon-rj-pm/src/libraries/PID/DRFTime.h:14980)
-   M /trunk/sim-recon/src/libraries/PID/PID_init.cc
-   M /trunk/sim-recon/src/libraries/RICH/RICH_init.cc
-   M /trunk/sim-recon/src/libraries/START_COUNTER/DSCHit_factory.cc
-   M /trunk/sim-recon/src/libraries/START_COUNTER/DSCHit_factory.h
-   M /trunk/sim-recon/src/libraries/START_COUNTER/START_COUNTER_init.cc
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGHDigiHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHDigiHit.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGHGeometry.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHGeometry.cc:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGHGeometry.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHGeometry.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGHGeometry_factory.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHGeometry_factory.cc:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGHGeometry_factory.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHGeometry_factory.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGHHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHHit.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGHHit_factory.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHHit_factory.cc:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGHHit_factory.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHHit_factory.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGHTDCDigiHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHTDCDigiHit.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGMDigiHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMDigiHit.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGMGeometry.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMGeometry.cc:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGMGeometry.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMGeometry.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGMGeometry_factory.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMGeometry_factory.cc:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGMGeometry_factory.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMGeometry_factory.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGMHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMHit.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGMHit_factory.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMHit_factory.cc:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGMHit_factory.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMHit_factory.h:14980)
-   A /trunk/sim-recon/src/libraries/TAGGER/DTAGMTDCDigiHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMTDCDigiHit.h:14980)
-   D /trunk/sim-recon/src/libraries/TAGGER/DTagger.h
-   M /trunk/sim-recon/src/libraries/TAGGER/TAGGER_init.cc
-   M /trunk/sim-recon/src/libraries/TOF/DTOFHitMC.h
-   M /trunk/sim-recon/src/libraries/TOF/DTOFHit_factory.cc
-   M /trunk/sim-recon/src/libraries/TOF/DTOFHit_factory.h
-   M /trunk/sim-recon/src/libraries/TOF/TOF_init.cc
-   M /trunk/sim-recon/src/libraries/TRACKING/TRACKING_init.cc
-   M /trunk/sim-recon/src/libraries/include/GlueX.h
-   M /trunk/sim-recon/src/programs/Analysis
-   M /trunk/sim-recon/src/programs/Analysis/hd_eventfilter/MyProcessor.cc
-   M /trunk/sim-recon/src/programs/Analysis/hd_eventfilter/MyProcessor.h
-   M /trunk/sim-recon/src/programs/Analysis/plugins/b1pi_hists/DReaction_factory_b1pi_hists.cc
-   M /trunk/sim-recon/src/programs/Analysis/plugins/event_size/JEventProcessor_event_size.cc
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/bcal2nt.cpp
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/bcal2nt_c.c
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/beamgen.F
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/control.in
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/controlparams.inc
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/gukine.F
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/hddmInput.c
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/hddmcp_c.c
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/hitBCal.cc
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/hitCDC.c
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/hitFCal.c
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/hitFTOF.c
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/hitStart.c
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/hitTag.c
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/hitUPV.c
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/savenewvertex.c
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/settofg.F
-   M /trunk/sim-recon/src/programs/Simulation/HDGeant/uginit.F
-   M /trunk/sim-recon/src/programs/Simulation/bggen
-   M /trunk/sim-recon/src/programs/Simulation/bggen/code/bg_hddm.c
-   M /trunk/sim-recon/src/programs/Simulation/filtereta/filter.cc
-   M /trunk/sim-recon/src/programs/Simulation/filtereta/filtereta.cc
-   M /trunk/sim-recon/src/programs/Simulation/filtergen/filter.cc
-   M /trunk/sim-recon/src/programs/Simulation/filtergen/filtergen.cc
-   M /trunk/sim-recon/src/programs/Simulation/gamp2hddm/gamp2hddm.cc
-   M /trunk/sim-recon/src/programs/Simulation/geneta/bg_hddm.cc
-   M /trunk/sim-recon/src/programs/Simulation/geneta/bg_hddm.h
-   M /trunk/sim-recon/src/programs/Simulation/genp_pi0/bg_hddm.cc
-   M /trunk/sim-recon/src/programs/Simulation/genp_pi0/bg_hddm.h
-   M /trunk/sim-recon/src/programs/Simulation/genp_pi0/genp_pi0.cc
-   M /trunk/sim-recon/src/programs/Simulation/genp_pi0/kinematics.c
-   M /trunk/sim-recon/src/programs/Simulation/genr8/genr8.c
-   M /trunk/sim-recon/src/programs/Simulation/genr8_2_hddm
-   M /trunk/sim-recon/src/programs/Simulation/genr8_2_hddm/genr8_2_hddm.cc
-   M /trunk/sim-recon/src/programs/Simulation/gxtwist
-   M /trunk/sim-recon/src/programs/Simulation/lowengen/code/bg_hddm.c
-   M /trunk/sim-recon/src/programs/Simulation/mcsmear/MyProcessor.cc
-   M /trunk/sim-recon/src/programs/Simulation/mcsmear/MyProcessor.h
-   M /trunk/sim-recon/src/programs/Simulation/mcsmear/mcsmear.cc
-   M /trunk/sim-recon/src/programs/Simulation/mcsmear/smear.cc
-   M /trunk/sim-recon/src/programs/Simulation/mcsmear/smear_bcal.cc
-   M /trunk/sim-recon/src/programs/Simulation/pi02hddm/pi02hddm.cc
-   M /trunk/sim-recon/src/programs/Simulation/plugins/extract_ptype_hddm/JEventProcessor_extract_ptype_hddm.cc
-   M /trunk/sim-recon/src/programs/Simulation/plugins/extract_ptype_hddm/JEventProcessor_extract_ptype_hddm.h
-   M /trunk/sim-recon/src/programs/Simulation/plugins/hdparsim
-   M /trunk/sim-recon/src/programs/Simulation/pythiagen/pyth_hddm.c
-   M /trunk/sim-recon/src/programs/Simulation/root2hddm/root2hddm.cc
-   M /trunk/sim-recon/src/programs/Simulation/stdhep_translators/stdhep2hddm.c
-   M /trunk/sim-recon/src/programs/Utilities/hddm2cMsg/Makefile
-   M /trunk/sim-recon/src/programs/Utilities/hddm2cMsg/hddm2cMsg.cc
-   M /trunk/sim-recon/src/programs/Utilities/hddm_cull_events/Process_r.cc
-   M /trunk/sim-recon/src/programs/Utilities/hddm_cull_events/Process_s.cc
-   M /trunk/sim-recon/src/programs/Utilities/hddm_cull_events/hddm_cull_events.cc
-   M /trunk/sim-recon/src/programs/Utilities/hddm_cull_events/hddm_cull_events.h
-   M /trunk/sim-recon/src/programs/Utilities/hddm_merge_events/hddm_merge_events.cc
-   M /trunk/sim-recon/src/programs/Utilities/hddm_merge_files/Process_r.cc
-   M /trunk/sim-recon/src/programs/Utilities/hddm_merge_files/Process_s.cc
-   M /trunk/sim-recon/src/programs/Utilities/hddm_merge_files/hddm_merge_files.cc
-   M /trunk/sim-recon/src/programs/Utilities/hddm_merge_files/hddm_merge_files.h
-   M /trunk/sim-recon/src/programs/Utilities/hddm_select_events/hddm_select_events.cc
-   M /trunk/sim-recon/src/programs/Utilities/hddm_select_events/hddm_select_events.h
-   M /trunk/sim-recon/src/programs/Utilities/hddm_select_events/selectEvents_r.cc
-   M /trunk/sim-recon/src/programs/Utilities/hddm_select_events/selectEvents_s.cc
-   M /trunk/sim-recon/src/programs/Utilities/plugins/DAQ/JEventSource_EVIO.cc
-   M /trunk/sim-recon/src/programs/Utilities/plugins/TTab/DTranslationTable.cc
-   M /trunk/sim-recon/src/programs/Utilities/plugins/TTab/DTranslationTable.h
-   M /trunk/sim-recon/src/programs/Utilities/plugins/danaevio/DDANAEVIO_factory.cc
-   M /trunk/sim-recon/src/programs/Utilities/plugins/danaevio/DDANAEVIO_factory.h
-   M /trunk/sim-recon/src/programs/Utilities/plugins/danaevio/dana_evio_dict.xml
-   M /trunk/sim-recon/src/programs/Utilities/plugins/danahddm/JEventProcessor_danahddm.cc
-   M /trunk/sim-recon/src/programs/Utilities/plugins/danahddm/JEventProcessor_danahddm.h
-   M /trunk/sim-recon/src/programs/Utilities/plugins/rawevent/JEventProcessor_rawevent.cc
-   M /trunk/sim-recon/src/programs/Utilities/plugins/rawevent/JEventProcessor_rawevent.h
-   M /trunk/sim-recon/src/programs/Utilities/plugins/rawevent/mc2coda_modules.h
-
-* Merging changes from development branch sim-recon-rj-pm back into the trunk [rtj]
-
-------------------------------------------------------------------------
+     1	src
+     2	src/BMS
+     3	src/BMS/Makefile.bin
+     4	src/BMS/Makefile.common
+     5	src/BMS/Makefile.shlib
+     6	src/external/xstream/include/xstream/config.h
+     7	src/libraries/AMPTOOLS_DATAIO/HDDMDataWriter.cc
+     8	src/libraries/AMPTOOLS_DATAIO/HDDMDataWriter.h
+     9	src/libraries/AMPTOOLS_DATAIO/ROOTDataReader.cc
+    10	src/libraries/ANALYSIS
+    11	src/libraries/ANALYSIS/ANALYSIS_init.cc
+    12	src/libraries/ANALYSIS/DHistogramActions.cc
+    13	src/libraries/ANALYSIS/DHistogramActions.h
+    14	src/libraries/ANALYSIS/DParticleCombo_factory_PreKinFit.cc
+    15	src/libraries/BCAL/BCAL_init.cc
+    16	src/libraries/BCAL/DBCALHit_factory.cc
+    17	src/libraries/BCAL/DBCALHit_factory.h
+    18	src/libraries/BCAL/DBCALTDCHit_factory.cc
+    19	src/libraries/BCAL/DBCALTDCHit_factory.h
+    20	src/libraries/CCAL/CCAL_init.cc
+    21	src/libraries/CDC/CDC_init.cc
+    22	src/libraries/CDC/DCDCHit_factory.cc
+    23	src/libraries/CDC/DCDCHit_factory.h
+    24	src/libraries/CERE/CERE_init.cc
+    25	src/libraries/DANA
+    26	src/libraries/FCAL/DFCALHit_factory.cc
+    27	src/libraries/FCAL/DFCALHit_factory.h
+    28	src/libraries/FCAL/FCAL_init.cc
+    29	src/libraries/FDC/DFDCHit_factory.cc
+    30	src/libraries/FDC/DFDCHit_factory.h
+    31	src/libraries/FDC/FDC_init.cc
+    32	src/libraries/HDDM
+    33	src/libraries/HDDM/DEventSourceHDDM.cc
+    34	src/libraries/HDDM/DEventSourceHDDM.h
+    35	src/libraries/HDDM/DEventSourceREST.cc
+    36	src/libraries/HDDM/DEventSourceREST.h
+    37	src/libraries/HDDM/DEventWriterREST.cc
+    38	src/libraries/HDDM/DEventWriterREST.h
+    39	src/libraries/HDDM/SConscript
+    40	src/libraries/HDDM/event.xml
+    41	src/libraries/HDDM/rest.xml
+    42	   A src/libraries/PID/DBeamPhoton_factory.cc (from /branches/sim-recon-rj-pm/src/libraries/PID/DBeamPhoton_factory.cc:14980)
+    43	   A src/libraries/PID/DBeamPhoton_factory.h (from /branches/sim-recon-rj-pm/src/libraries/PID/DBeamPhoton_factory.h:14980)
+    44	   A src/libraries/PID/DBeamPhoton_factory_TRUTH.cc (from /branches/sim-recon-rj-pm/src/libraries/PID/DBeamPhoton_factory_TRUTH.cc:14980)
+    45	   A src/libraries/PID/DBeamPhoton_factory_TRUTH.h (from /branches/sim-recon-rj-pm/src/libraries/PID/DBeamPhoton_factory_TRUTH.h:14980)
+    46	src/libraries/PID/DEventRFBunch_factory.cc
+    47	src/libraries/PID/DEventRFBunch_factory.h
+    48	   A src/libraries/PID/DRFTime.h (from /branches/sim-recon-rj-pm/src/libraries/PID/DRFTime.h:14980)
+    49	src/libraries/PID/PID_init.cc
+    50	src/libraries/RICH/RICH_init.cc
+    51	src/libraries/START_COUNTER/DSCHit_factory.cc
+    52	src/libraries/START_COUNTER/DSCHit_factory.h
+    53	src/libraries/START_COUNTER/START_COUNTER_init.cc
+    54	   A src/libraries/TAGGER/DTAGHDigiHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHDigiHit.h:14980)
+    55	   A src/libraries/TAGGER/DTAGHGeometry.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHGeometry.cc:14980)
+    56	   A src/libraries/TAGGER/DTAGHGeometry.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHGeometry.h:14980)
+    57	   A src/libraries/TAGGER/DTAGHGeometry_factory.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHGeometry_factory.cc:14980)
+    58	   A src/libraries/TAGGER/DTAGHGeometry_factory.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHGeometry_factory.h:14980)
+    59	   A src/libraries/TAGGER/DTAGHHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHHit.h:14980)
+    60	   A src/libraries/TAGGER/DTAGHHit_factory.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHHit_factory.cc:14980)
+    61	   A src/libraries/TAGGER/DTAGHHit_factory.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHHit_factory.h:14980)
+    62	   A src/libraries/TAGGER/DTAGHTDCDigiHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGHTDCDigiHit.h:14980)
+    63	   A src/libraries/TAGGER/DTAGMDigiHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMDigiHit.h:14980)
+    64	   A src/libraries/TAGGER/DTAGMGeometry.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMGeometry.cc:14980)
+    65	   A src/libraries/TAGGER/DTAGMGeometry.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMGeometry.h:14980)
+    66	   A src/libraries/TAGGER/DTAGMGeometry_factory.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMGeometry_factory.cc:14980)
+    67	   A src/libraries/TAGGER/DTAGMGeometry_factory.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMGeometry_factory.h:14980)
+    68	   A src/libraries/TAGGER/DTAGMHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMHit.h:14980)
+    69	   A src/libraries/TAGGER/DTAGMHit_factory.cc (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMHit_factory.cc:14980)
+    70	   A src/libraries/TAGGER/DTAGMHit_factory.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMHit_factory.h:14980)
+    71	   A src/libraries/TAGGER/DTAGMTDCDigiHit.h (from /branches/sim-recon-rj-pm/src/libraries/TAGGER/DTAGMTDCDigiHit.h:14980)
+    72	   D src/libraries/TAGGER/DTagger.h
+    73	src/libraries/TAGGER/TAGGER_init.cc
+    74	src/libraries/TOF/DTOFHitMC.h
+    75	src/libraries/TOF/DTOFHit_factory.cc
+    76	src/libraries/TOF/DTOFHit_factory.h
+    77	src/libraries/TOF/TOF_init.cc
+    78	src/libraries/TRACKING/TRACKING_init.cc
+    79	src/libraries/include/GlueX.h
+    80	src/programs/Analysis
+    81	src/programs/Analysis/hd_eventfilter/MyProcessor.cc
+    82	src/programs/Analysis/hd_eventfilter/MyProcessor.h
+    83	src/programs/Analysis/plugins/b1pi_hists/DReaction_factory_b1pi_hists.cc
+    84	src/programs/Analysis/plugins/event_size/JEventProcessor_event_size.cc
+    85	src/programs/Simulation/HDGeant/bcal2nt.cpp
+    86	src/programs/Simulation/HDGeant/bcal2nt_c.c
+    87	src/programs/Simulation/HDGeant/beamgen.F
+    88	src/programs/Simulation/HDGeant/control.in
+    89	src/programs/Simulation/HDGeant/controlparams.inc
+    90	src/programs/Simulation/HDGeant/gukine.F
+    91	src/programs/Simulation/HDGeant/hddmInput.c
+    92	src/programs/Simulation/HDGeant/hddmcp_c.c
+    93	src/programs/Simulation/HDGeant/hitBCal.cc
+    94	src/programs/Simulation/HDGeant/hitCDC.c
+    95	src/programs/Simulation/HDGeant/hitFCal.c
+    96	src/programs/Simulation/HDGeant/hitFTOF.c
+    97	src/programs/Simulation/HDGeant/hitStart.c
+    98	src/programs/Simulation/HDGeant/hitTag.c
+    99	src/programs/Simulation/HDGeant/hitUPV.c
+   100	src/programs/Simulation/HDGeant/savenewvertex.c
+   101	src/programs/Simulation/HDGeant/settofg.F
+   102	src/programs/Simulation/HDGeant/uginit.F
+   103	src/programs/Simulation/bggen
+   104	src/programs/Simulation/bggen/code/bg_hddm.c
+   105	src/programs/Simulation/filtereta/filter.cc
+   106	src/programs/Simulation/filtereta/filtereta.cc
+   107	src/programs/Simulation/filtergen/filter.cc
+   108	src/programs/Simulation/filtergen/filtergen.cc
+   109	src/programs/Simulation/gamp2hddm/gamp2hddm.cc
+   110	src/programs/Simulation/geneta/bg_hddm.cc
+   111	src/programs/Simulation/geneta/bg_hddm.h
+   112	src/programs/Simulation/genp_pi0/bg_hddm.cc
+   113	src/programs/Simulation/genp_pi0/bg_hddm.h
+   114	src/programs/Simulation/genp_pi0/genp_pi0.cc
+   115	src/programs/Simulation/genp_pi0/kinematics.c
+   116	src/programs/Simulation/genr8/genr8.c
+   117	src/programs/Simulation/genr8_2_hddm
+   118	src/programs/Simulation/genr8_2_hddm/genr8_2_hddm.cc
+   119	src/programs/Simulation/gxtwist
+   120	src/programs/Simulation/lowengen/code/bg_hddm.c
+   121	src/programs/Simulation/mcsmear/MyProcessor.cc
+   122	src/programs/Simulation/mcsmear/MyProcessor.h
+   123	src/programs/Simulation/mcsmear/mcsmear.cc
+   124	src/programs/Simulation/mcsmear/smear.cc
+   125	src/programs/Simulation/mcsmear/smear_bcal.cc
+   126	src/programs/Simulation/pi02hddm/pi02hddm.cc
+   127	src/programs/Simulation/plugins/extract_ptype_hddm/JEventProcessor_extract_ptype_hddm.cc
+   128	src/programs/Simulation/plugins/extract_ptype_hddm/JEventProcessor_extract_ptype_hddm.h
+   129	src/programs/Simulation/plugins/hdparsim
+   130	src/programs/Simulation/pythiagen/pyth_hddm.c
+   131	src/programs/Simulation/root2hddm/root2hddm.cc
+   132	src/programs/Simulation/stdhep_translators/stdhep2hddm.c
+   133	src/programs/Utilities/hddm2cMsg/Makefile
+   134	src/programs/Utilities/hddm2cMsg/hddm2cMsg.cc
+   135	src/programs/Utilities/hddm_cull_events/Process_r.cc
+   136	src/programs/Utilities/hddm_cull_events/Process_s.cc
+   137	src/programs/Utilities/hddm_cull_events/hddm_cull_events.cc
+   138	src/programs/Utilities/hddm_cull_events/hddm_cull_events.h
+   139	src/programs/Utilities/hddm_merge_events/hddm_merge_events.cc
+   140	src/programs/Utilities/hddm_merge_files/Process_r.cc
+   141	src/programs/Utilities/hddm_merge_files/Process_s.cc
+   142	src/programs/Utilities/hddm_merge_files/hddm_merge_files.cc
+   143	src/programs/Utilities/hddm_merge_files/hddm_merge_files.h
+   144	src/programs/Utilities/hddm_select_events/hddm_select_events.cc
+   145	src/programs/Utilities/hddm_select_events/hddm_select_events.h
+   146	src/programs/Utilities/hddm_select_events/selectEvents_r.cc
+   147	src/programs/Utilities/hddm_select_events/selectEvents_s.cc
+   148	src/programs/Utilities/plugins/DAQ/JEventSource_EVIO.cc
+   149	src/programs/Utilities/plugins/TTab/DTranslationTable.cc
+   150	src/programs/Utilities/plugins/TTab/DTranslationTable.h
+   151	src/programs/Utilities/plugins/danaevio/DDANAEVIO_factory.cc
+   152	src/programs/Utilities/plugins/danaevio/DDANAEVIO_factory.h
+   153	src/programs/Utilities/plugins/danaevio/dana_evio_dict.xml
+   154	src/programs/Utilities/plugins/danahddm/JEventProcessor_danahddm.cc
+   155	src/programs/Utilities/plugins/danahddm/JEventProcessor_danahddm.h
+   156	src/programs/Utilities/plugins/rawevent/JEventProcessor_rawevent.cc
+   157	src/programs/Utilities/plugins/rawevent/JEventProcessor_rawevent.h
+   158	src/programs/Utilities/plugins/rawevent/mc2coda_modules.h
