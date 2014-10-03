@@ -85,6 +85,19 @@
 }
 
 \f{
+\ft{Analysis Library Upgrade}
+Paul Mattione did a major overhaul.
+\bi
+\I RF Time, PID, Photon Selection
+\I Combo-Creation Cut Enhancements
+\I Analysis Action Changes
+\I Combo Construction Histograms Added
+\I DVertex Has Been Revived
+\I Major Performance Improvements
+\ei
+}
+
+\f{
 \ft{Data Challenge 3}
 \bi
 \I Original goals:
@@ -97,7 +110,7 @@
   \ee
 \I Dropped \#3, \#4, \#5 during summer
 \I Dropped \#1, \#2 in September
-\I Other large scale simulation tasks superceded: commissioning geometry, tagger hall
+\I Other large scale simulation tasks superseded: commissioning geometry, tagger hall
 \ei
 }
 
@@ -150,6 +163,7 @@
   \I Other Halls all using it
   \I conversion of everything from svn to git might be problematic
   \ei
+\I package structure: breaking up into Sim, Recon, Analysis
 \I data management/discovery/access
   \bi
   \I What kinds of data are available?
@@ -190,6 +204,17 @@
   \I refresh major package documents: CCDB, JANA, HDDS, sim-recon
   \I guide to JLab computing: computers, network, security, storage
   \ei
+\ei
+}
+
+\f{
+\ft{Summary}
+\bi
+\I Went through major code overhaul while introducing global timing uncertainty into simulation (on purpose!)
+\I Data Challenge 3 has been deferred, but needs to be taken up soon.
+\I Code improvements keep coming in, e. g., analysis library upgrade.
+\I Lots of things left to do in terms of reliability, maintainability, and ease of use.
+\I Systematic software testing critical and needs to be expanded.
 \ei
 }
 
