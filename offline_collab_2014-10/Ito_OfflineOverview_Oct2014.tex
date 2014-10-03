@@ -39,7 +39,7 @@
 \bi
 \I Richard Jones introduced a random global time offset to all events, consistent with the 500 MHz RF time structure. This would simulate the real-life uncertainty due to event-to-event trigger latency variations and the time-bin effect from 250 MHz clock. Before this, all events are analyzed as if the true RF bucket is known, a priori. Also the true beam photon energy is also assumed in the analysis. 
 \I HDDM Calls: Conversion to C++ API: All invocations of the HDDM API have been upgraded to use the C++ version rather than the old C version. This change comes in many places in the sim-recon tree. GEANT-3-based code (HDGeant) was exempted.
-\I HDDM Integrity Checks: The HDDM library now supports "integrity checks" where a cyclic redundancy check (CRC) code is computed event-by-event and is written with the event. Downstream programs can check that incoming data has not been corrupted.
+\I HDDM Integrity Checks: The HDDM library now supports ``integrity checks'' where a cyclic redundancy check (CRC) code is computed event-by-event and is written with the event. Downstream programs can check that incoming data has not been corrupted.
 \ei
 }
 
@@ -48,7 +48,7 @@
 \bi
 \I HDDM\_s Changes: Simulation output has been changed to rationalize data storage in two areas: (1) the mix of truth and hit information and (2) the detector component hierarchy.
 \I Tagger Analysis: CCDB tagger tables have been rationalized and new C++ classes introduced in sim-recon to accommodate the new scheme. The start counter was used as a model for the low-level hit classes in the DAQ plug-in. There were some modifications needed to HDGeant (GEANT3) code to write the new classes.
-\I Analysis Library Changes: Paul Mattione has changed the analysis library to deal with the ambiguity of the "correct" tagger hit.
+\I Analysis Library Changes: Paul Mattione has changed the analysis library to deal with the ambiguity of the ``correct'' tagger hit.
 \ei
 }
 
