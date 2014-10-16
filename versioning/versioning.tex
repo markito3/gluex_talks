@@ -1,0 +1,115 @@
+\documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Version Management}
+\subtitle{Status Report}
+\author[Mark Ito]{Mark M.\ Ito}
+\date{October 15, 2014}
+\institute[JLab]{Jefferson Lab}
+
+\begin{document}
+
+\f{\titlepage}
+
+\f{\ft{Use Cases}
+\be
+\I build a build
+\I use a build
+\ee
+}
+
+\begin{frame}[fragile]
+\frametitle{XML configuration file}
+\small
+\begin{verbatim}
+<gversions>
+<package name="jana" version="0.7.2"/>
+<package name="sim-recon" version="2014-09-23"/>
+<package name="hdds" version="3.0"/>
+<package name="cernlib" version="2005" word_length="64-bit"/>
+<package name="xerces-c" version="3.1.1"/>
+<package name="clhep" version="2.0.4.5"/>
+<package name="geant4" version="9.4"/>
+<package name="root" version="5.34.00"/>
+<package name="ccdb" version="1.03"/>
+</gversions>
+\end{verbatim}
+\end{frame}
+
+\f{
+\ft{generate environment variables}
+\bi
+\I version variables
+\I home variables (assumes directory structure)
+\I C-shell
+\item build\_scripts makefiles key off version
+\item gluex\_install assumes same directory structure
+\item gluex\_env (in build scripts) keys off home directories
+\ei
+}
+
+\begin{frame}[fragile]
+
+\ft{Environment Settings}
+\small
+\begin{verbatim}
+setenv GLUEX_TOP /usr/local/gluex
+setenv JANA_VERSION 0.7.2
+setenv JANA_HOME /usr/local/gluex/jana/jana_0.7.2/
+setenv SIM_RECON_VERSION 2014-09-23
+setenv HALLD_HOME /usr/local/gluex/sim-recon/sim-recon-2014-09-23
+setenv HDDS_VERSION 3.0
+setenv HDDS_HOME /usr/local/gluex/hdds/hdds-3.0
+setenv CERNLIB_VERSION 2005
+setenv CERN /usr/local/gluex/cernlib
+setenv CERN_LEVEL 2005
+setenv CERNLIB_WORD_LENGTH 64-bit
+setenv XERCES_C_VERSION 3.1.1
+setenv XERCESCROOT /usr/local/gluex/xerces-c/xerces-c-3.1.1
+setenv CLHEP_VERSION 2.0.4.5
+setenv CLHEP /usr/local/gluex/clhep/2.0.4.5
+setenv ROOT_VERSION 5.34.00
+setenv ROOTSYS /usr/local/gluex/root/root_5.34.00
+setenv CCDB_VERSION 1.03
+setenv CCDB_HOME /usr/local/gluex/ccdb/ccdb_1.03
+\end{verbatim}
+\end{frame}
+
+\f{
+\ft{customization for use}
+\bi
+\I if not using the same directory structure?
+\I version-system home area definitions can be over-ridden explicitly
+\I subsequent gluex\_env will respect those
+\ei
+}
+
+\f{
+\ft{future work}
+\bi
+\I consistency checking, e.~g., is version of jana used consistent with ccdb chosen
+\bi
+\I not a problem with original build effort
+\I can be a problem when using for set-up at using software or developing software
+\I setenv system captures versions used during build. leverage this info 
+\ei
+\I tested on complete gluex\_install build
+\I alpha testing release next: something that someone else can use
+\I documentation
+\ei
+}
+
+\end{document}
