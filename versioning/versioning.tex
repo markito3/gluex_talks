@@ -63,6 +63,21 @@
 \end{frame}
 
 \f{
+\ft{Standard Directory Structure}
+\begin{columns}[c]
+\begin{column}{2.2in}
+\bi
+\I Multiple versions live under generic package name
+\I {\tt build\_scripts} supports this structure
+\ei
+\end{column}
+\begin{column}{2.3in}
+\includegraphics[width=2.3in]{directory_tree.png}
+\end{column}
+\end{columns}
+}
+
+\f{
 \ft{generate environment variables}
 \bi
 \I For each package generate two environment variables
@@ -79,7 +94,7 @@
 
 \begin{frame}[fragile]
 \ft{example environment settings}
-\small
+\footnotesize
 \begin{verbatim}
 setenv GLUEX_TOP /usr/local/gluex;
 setenv JANA_VERSION 0.7.2;
@@ -91,6 +106,31 @@ setenv HDDS_HOME /usr/local/gluex/hdds/hdds-3.0;
 \end{verbatim}
 \end{frame}
 
+\begin{frame}[fragile]
+\ft{Set-Up Environment}
+Example:
+{\footnotesize
+\begin{verbatim}
+setenv GLUEX_TOP /home/username/gluex         # define top of hierarchy
+setenv BUILD_SCRIPTS $GLUEX_TOP/build_scripts # define location of scripts
+eval `$BUILD_SCRIPTS/version.pl version.xml`  # define versions and homes
+source $BUILD_SCRIPTS/gluex_env.csh           # finish the definitions
+\end{verbatim}
+}
+\bi
+\I Environment set up for use of an existing tree. (use case \#3)
+\I If tree does not exist build it with this environment (use case \#2)
+\ei
+{\footnotesize
+\begin{verbatim}
+cd $GLUEX_TOP                                 # go to the top directory
+make -f $BUILD_SCRIPTS/Makefile_all gluex     # build all gluex-specific
+                                              # packages
+\end{verbatim}
+}
+
+\end{frame}
+
 \f{
 \ft{customization for non-standard directory structure}
 \bi
@@ -100,8 +140,54 @@ setenv HDDS_HOME /usr/local/gluex/hdds/hdds-3.0;
 \ei
 }
 
+\begin{frame}[fragile]
+\ft{Adding to Existing Directory Tree}
+\bi
+\I Assume {\tt version\_my.xml} has alternate combination of versions.
+\I Assume that {\tt /home/username/gluex} hiearchy already built once.
+\ei
+{\footnotesize
+\begin{verbatim}
+setenv GLUEX_TOP /home/username/gluex           # define top of hierarchy
+setenv BUILD_SCRIPTS $GLUEX_TOP/build_scripts   # define location of
+                                                # scripts
+eval `$BUILD_SCRIPTS/version.pl version_my.xml` # define custom versions
+source $BUILD_SCRIPTS/gluex_env.csh             # finish the definitions
+cd $GLUEX_TOP                                   # go to the top directory
+make -f $BUILD_SCRIPTS/Makefile_all gluex       # build all gluex-specific
+                                                # packages
+\end{verbatim}
+}
+\end{frame}
+
+\begin{frame}[fragile]
+\ft{Consistency Checking}
+\bi
+\I {\tt build\_scripts} creates a partial xml file in each built directory, e. g. {\tt sim-recon\_prereqs\_version.xml}:
+\ei
+{\footnotesize
+\begin{verbatim}
+<gversion version="1.0"
+><package name="evio" version="4.3.1"
+ /><package name="cernlib" version="2005"
+ /><package name="xerces-c" version="3.1.1"
+ /><package name="root" version="5.34.04"
+ /><package name="jana" version="0.7.2"
+ /><package name="hdds" version="3.0"
+ /><package name="ccdb" version="1.03"
+ /></gversion
+>
+\end{verbatim}
+}
+\bi
+\I For each package with prereq xml file, version identified in xml file is checked against name of home directory from environment.
+\I Inconsistencies generate warnings (at present).
+\ei
+\end{frame}
+
 \f{
-\ft{future work}
+\ft{Future Work}
+System is useable. Already incoporated into {\tt gluex\_install}. However, a bit more work needed...
 \bi
 \I follow ``prod'' links when checking consistency
 \I version xml file management system
@@ -110,6 +196,7 @@ setenv HDDS_HOME /usr/local/gluex/hdds/hdds-3.0;
   \I subversion control?
   \I distribution system?
   \ei
+\I decide on action to take on discovery of inconsistency
 \I scheme for concurrent versions of fixed package version built with different prerequisites
 \I documentation
 \ei
