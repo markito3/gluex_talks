@@ -17,7 +17,7 @@
 \title{Version Management}
 \subtitle{Status Report}
 \author[Mark Ito]{Mark M.\ Ito}
-\date{December 3, 2014}
+\date{December 10, 2014}
 \institute[JLab]{Jefferson Lab}
 
 \begin{document}
@@ -62,7 +62,7 @@
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[fragile]
+\f{
 \ft{generate environment variables}
 \bi
 \I For each package generate two environment variables
@@ -70,9 +70,16 @@
   \I version number
   \I home directory
   \ee
+\I C shell and Bourne shell supported
+\I build\_scripts makefiles key off version
+\I gluex\_install assumes same directory structure
+\I gluex\_env (in build scripts) keys off home directories
 \ei
-{
-\tiny
+}
+
+\begin{frame}[fragile]
+\ft{example environment settings}
+\small
 \begin{verbatim}
 setenv GLUEX_TOP /usr/local/gluex;
 setenv JANA_VERSION 0.7.2;
@@ -82,17 +89,10 @@ setenv HALLD_HOME /usr/local/gluex/sim-recon/sim-recon-2014-09-23;
 setenv HDDS_VERSION 3.0;
 setenv HDDS_HOME /usr/local/gluex/hdds/hdds-3.0;
 \end{verbatim}
-}
-\bi
-\I C shell and Bourne shell supported
-\item build\_scripts makefiles key off version
-\item gluex\_install assumes same directory structure
-\item gluex\_env (in build scripts) keys off home directories
-\ei
 \end{frame}
 
 \f{
-\ft{customization for use}
+\ft{customization for non-standard directory structure}
 \bi
 \I if not using the same directory structure?
 \I version-system home area definitions can be over-ridden explicitly
@@ -103,14 +103,14 @@ setenv HDDS_HOME /usr/local/gluex/hdds/hdds-3.0;
 \f{
 \ft{future work}
 \bi
-\I consistency checking, e.~g., is version of jana used consistent with ccdb chosen
-\bi
-\I not a problem with original build effort
-\I can be a problem when using for set-up at using software or developing software
-\I setenv system captures versions used during build. leverage this info 
-\ei
-\I tested on complete gluex\_install build
-\I alpha testing release next: something that someone else can use
+\I follow ``prod'' links when checking consistency
+\I version xml file management system
+  \bi
+  \I version numbers?
+  \I subversion control?
+  \I distribution system?
+  \ei
+\I scheme for concurrent versions of fixed package version built with different prerequisites
 \I documentation
 \ei
 }
