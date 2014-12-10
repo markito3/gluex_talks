@@ -128,23 +128,33 @@ make -f $BUILD_SCRIPTS/Makefile_all gluex     # build all gluex-specific
                                               # packages
 \end{verbatim}
 }
-
 \end{frame}
 
-\f{
-\ft{customization for non-standard directory structure}
+\begin{frame}[fragile]
+\ft{Customization for Non-Standard Directories}
 \bi
-\I if not using the same directory structure?
-\I version-system home area definitions can be over-ridden explicitly
-\I subsequent gluex\_env will respect those
+\I What if some package(s) not in the standard place?
+\I Home area definitions can be over-ridden explicitly.
+\I Subsequent invocation of {\tt gluex\_env.(c)sh} will respect incoming definitions.
 \ei
+{\footnotesize
+\begin{verbatim}
+setenv GLUEX_TOP /home/username/gluex         # define top of hierarchy
+setenv BUILD_SCRIPTS $GLUEX_TOP/build_scripts # define location of scripts
+eval `$BUILD_SCRIPTS/version.pl version.xml`  # define versions and homes
+setenv ROOTSYS /opt/root/custom_version       # use a custom version of
+                                              # ROOT
+source $BUILD_SCRIPTS/gluex_env.csh           # finish the definitions
+\end{verbatim}
+Note: possible implications for consistency checking...
 }
+\end{frame}
 
 \begin{frame}[fragile]
 \ft{Adding to Existing Directory Tree}
 \bi
 \I Assume {\tt version\_my.xml} has alternate combination of versions.
-\I Assume that {\tt /home/username/gluex} hiearchy already built once.
+\I Assume that {\tt /home/username/gluex} hierarchy already built once.
 \ei
 {\footnotesize
 \begin{verbatim}
@@ -186,8 +196,20 @@ make -f $BUILD_SCRIPTS/Makefile_all gluex       # build all gluex-specific
 \end{frame}
 
 \f{
-\ft{Future Work}
-System is useable. Already incoporated into {\tt gluex\_install}. However, a bit more work needed...
+\ft{Conclusions}
+
+Summary
+\bi
+\I System supports all three use cases:
+  \be
+  \I Communication
+  \I Building
+  \I Use
+  \ee
+\I Already incorporated into {\tt gluex\_install}.
+\I Features have been alpha tested.
+\ei
+Future Work
 \bi
 \I follow ``prod'' links when checking consistency
 \I version xml file management system
