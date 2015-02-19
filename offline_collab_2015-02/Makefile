@@ -1,0 +1,2 @@
+Ito_OfflineOverview_Feb2015.pdf: Ito_OfflineOverview_Feb2015.tex
+	pdflatex Ito_OfflineOverview_Feb2015
