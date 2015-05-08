@@ -1,0 +1,127 @@
+\documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Offline Software Overview}
+\subtitle{GlueX Collaboration Meeting}
+\author[Mark Ito]{Mark M.\ Ito}
+\date{May 11, 2015}
+\institute[JLab]{Jefferson Lab}
+
+\begin{document}
+
+\f{\titlepage}
+
+\f{\ft{Offline Software Topics}
+
+\bi
+\I Commissioning-Branch-to-Trunk Migration
+  \bi
+  \I copy done March 6
+  \I problems doing a best-practices-type merge; simple copy done
+    \bi
+    \I many conflicts to resolve
+    \I interpretation of conflicts an expert operation
+    \ei
+  \I history preserved
+  \ei
+\ei
+}
+
+\f{
+
+\bi
+\I New Products from JLab Scientific Computing
+  \bi
+  \I Scientific Workflow Indefatigable Factotum\footnote{an employee who does all kinds of work} (SWIF)
+    \bi
+    \I treats collection of farm jobs as a ``workflow''
+    \I associated workflow management tools provided
+    \I beta version released
+    \I from Chris Larrieu
+    \ei
+  \I Write-Through Cache
+    \bi
+    \I Automatic archival to tape
+    \I Automatic deletion of old archived files
+    \I Hall D has 20 TB available
+    \I from Ying Chen
+    \ei
+  \ei
+\ei
+    
+}
+
+\f{\ft{GlueX Use of C++11 features and GCC Versions}
+
+\bi
+\I C++11
+  \bi
+  \I ISO standard, adopted in 2011
+  \I last standard 1998
+  \I many new language features, ``embarassments'' removed
+  \I new set of best practices
+  \ei
+\I GCC and C++11
+  \bi
+  \I only a subset of new things implemented
+  \I more added as new versions are released
+  \ei
+\I Decision: for CCDB, standardize on GCC 4.4 (RedHat 6)
+  \bi
+  \I RedHat 7 ships with GCC 4.8
+  \I no decision yet on other packages
+  \ei
+\ei
+
+}
+
+\f{\ft{E\&M background simulation}
+
+\bi
+\I Beam-related out-of-time E\&M background major fraction of CPU time for simulated data
+\I Want to use a library of background events, overlay on simulated physics events 
+\I David Lawrence has system for combining hits from two event HDDM event streams.
+\I May be possible to take real data with random trigger as background library.
+\I Sean Dobbs has volunteered to look at this.
+\ei
+}
+
+\f{\ft{EventStore}
+from Sean:
+\bi
+\I The database and some simple tools for querying it exist
+  \bi
+  \I work involved making data file processing more robust
+  \I several issues with REST file quality need fixing (Paul M.)
+  \ei
+\I There exists a design and plan for a plugin to access this data and feed it to the analysis framework
+  \bi
+  \I Implementation this summer
+  \I Goal: ready by Fall
+  \ei
+\ei
+}
+
+\f{\ft{Next Offline Projects}
+\bi
+\I Code Profiling
+\I Conversion from Subversion to Git
+\I Document/Enhance Software Version Management System
+\ei
+}
+
+
+\end{document}
