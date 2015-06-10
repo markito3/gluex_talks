@@ -1,0 +1,164 @@
+\documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Git for GlueX?}
+\subtitle{Offline Software Meeting}
+\author[Mark Ito]{Mark M.\ Ito}
+\date{June 10, 2015}
+\institute[JLab]{Jefferson Lab}
+
+\begin{document}
+
+\f{\titlepage}
+
+\f{\ft{Not Everything Needs to be in Git}
+  \bi
+  \I spectrum of projects, only some would migrate to Git
+    \bi
+    \I resumes
+    \I GlueX notes
+    \I talks
+    \I analysis plugins
+    \I computing support scripts
+    \I reconstruction code
+    \I papers
+    \ei
+  \I concentrate on sim-recon/hdds for now
+  \ei
+}
+
+\f{\ft{Subversion vs.\ Git: Repository Multiplicity}
+
+  \bi
+  \I Subversion: one and only one
+  \I Git: many
+  \I svn: network access necessary for repo-dependent operations, git: repo is local
+  \I git: need to impose administrative controls, i.\ e., structure, workflow, rules
+  \I git: you clone a repo to get a local copy of entire repo
+  \I git repo ``remembers'' its parent, every commit has fingerprint, commits arranged in branches, tree of fingerprints enables comparison of different repos
+  \I Public vs.\ Private: svn only has a public repo, git: public repos visible to all, private repos on local disks
+  \ei
+}
+
+\f{\ft{Git vs.\ Subversion: Commits}
+\bi
+\I Scope of Commits
+  \bi
+  \I Subversion: commits all go to The Repository, affects everyone unless on a branch
+  \I Git: commits are local, thus ``branching'' is automatic
+  \I Advantage of development on a branch: save work as you go, but before it is ready for others
+  \ei
+\I Nature of Commits
+  \bi
+  \I Subversion: one step
+  \I Git: two-steps
+  \I git: first, files are staged for commit (git add), then committed (git commit)
+  \I set of staged files independent of set of local files independent of committed versions files
+  \I enables grouping of changes meant to implement fix or feature
+  \ei
+\ei
+}
+
+\f{\ft{Using Git}
+  \bi
+  \I Making a new repository: git\ clone\ $<$parent\_URL$>$
+    \bi
+    \I local directory tree
+    \I .git directory at top-level only, repo information
+    \ei
+  \I Checking out a branch: git\ checkout\ $<$branch\_name$>$
+    \bi
+    \I local directory tree put into context of branch
+    \ei
+  \I Moving changes from branch to branch: git\ merge\ $<$source\_branch\_name$>$
+  \I Moving changes back to the parent repo: git\ push\ $<$target\_URL$>$
+  \I Bringing local repository up-to-date with parent repo: git\ fetch, git\ pull
+  \ei
+}
+
+\f{\ft{Workflow Models}
+  \be
+  \I One Public Repo, Master Branch
+    \bi
+    \I clone the repo
+    \I work on master branch
+    \I push changes to master branch
+    \I equivalent to traditional ``trunk'' system
+    \ei
+  \I One Public Repo, Topic Branch, Self Merge
+    \bi
+    \I clone the repo
+    \I work on master branch or local topic branch
+    \I push changes to topic branch
+    \I merge into the master branch
+    \ei
+  \I One Public Repo, Topic Branch, Integrator Merge
+    \bi
+    \I Same as previous except do not merge yourself, issue pull request to Integrator: please bring in my changes
+    \ei
+  \I Multiple Public Repos, Integrator Merge
+    \bi
+    \I each developer has public repo
+    \I developers push to their own public repo, topic branch
+    \I issue pull request to Integrator
+    \I Integrator pulls and merges
+    \ei
+  \ee
+}
+
+\f{\ft{Nice Git Features}
+\bi
+\I fast
+\I complete command line help, just like svn
+\I helpful error messages; alternates offered; missing actions suggested
+\I GitHub added-value items
+\ei
+}
+
+\f{\ft{Extra Steps When Using Git}
+\bi
+\I Need to invent and enforce workflow structure/policy
+\I Another system to learn
+\I Extra steps in workflow
+\ei
+}
+
+\f{\ft{How to Manage Conversion?}
+  \bi
+  \I Conversion from Subversion to Git to GitHub a solved problem.
+  \I Ideally: move instantaneously from svn as authority to git as authority
+    \bi
+    \I otherwise changes in one or other get lost
+    \ei
+  \I ...but climbing learning curve not instantaneous...
+    \bi
+    \I sudden switch could halt progress
+    \ei
+  \I Non-ideal: bi-directional maintenance of two systems? (yuck)
+  \I More research to do...ideas welcome
+  \ei
+}
+
+\f{\ft{Why Change?}
+  \bi
+  \I Better management of changes
+  \I Better communication of changes
+  \I Better documentation of changes
+  \I Less down-time with broken code on trunk
+  \ei
+}
+
+\end{document}
