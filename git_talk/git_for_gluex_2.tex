@@ -1,0 +1,122 @@
+\documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Git for GlueX, Issues}
+\subtitle{Offline Software Meeting}
+\author[Mark Ito]{Mark M.\ Ito}
+\date{June 24, 2015}
+\institute[JLab]{Jefferson Lab}
+
+\begin{document}
+
+\f{\titlepage}
+
+\f{\ft{other packages (non-sim-recon, non-hdds, non-hdgeant4)}
+\bi
+\I note that git repositories are small, single-purpose
+\I ccdb and hdgeant4 already moved to GitHub
+\I need policy for when public code can move
+\I propose and vote at offline software meeting
+\ei
+}
+
+\f{\ft{public repository structure: master branch, release branches, and tags}
+\bi
+\I master: all the latest and greatest stuff
+  \bi
+  \I equivalent to the trunk under svn
+  \ei
+\I release branches: branches created for new releases, including those for special purposes
+  \bi
+  \I e. g., sim-recon-2.3 
+  \ei
+\I tags: specific points on release (or any) branch
+  \bi
+  \I e. g., sim-recon-2.3.2
+  \I corresponding tar file 
+  \ei
+\ei
+}
+
+\f{\ft{suggested work flow}
+\bi
+\I other scenarios possible, but need a common end-point
+\I goal: topic branch off master branch in the public repository
+\I how to get there:
+  \bi
+  \I create local repository
+    \bi
+    \I git clone https:/github.com/jeffersonlab/sim-recon.git
+    \ei
+  \I create a local topic branch
+    \bi
+    \I git branch my\_work
+    \ei
+  \I move to the new topic branch
+    \bi
+    \I git checkout my\_work
+    \ei
+  \I ... work on topic branch, make changes, add them, commit them...
+  \I push local topic branch to public topic branch
+    \bi
+    \I git push origin my\_work:new\_bug\_fix
+    \I creates branch "new\_bug\_fix" on public repository
+    \ei
+  \ei
+\ei
+}
+
+\f{\ft{work flow continued}
+  \bi
+  \I issue pull request on GitHub
+    \bi
+    \I navigate to the branch, click on "pull request"
+    \I creates action item on GitHub
+    \I requests that changes on branch "new\_bug\_fix" be merged onto master branch on public repository
+    \ei
+  \I someone else acts on pull request on GitHub
+    \bi
+    \I navigate to open pull requests
+    \I merge in changes
+    \ei
+  \ei
+
+}
+
+\f{\ft{Notes on this structure/workflow}
+\bi
+\I everyone needs an account on GitHub
+\I anyone can update the master branch
+\I changes should go onto topic branches, enforced only administratively
+\ei
+}
+
+\f{\ft{proposals}
+\bi
+\I for decision process
+  \bi
+  \I vote at offline meeting
+  \ei
+\I proposal for switch-over
+  \bi
+  \I dead-line for all svn check-ins
+  \I switch-over to git 
+  \ei
+\ei
+}
+
+
+\end{document}
