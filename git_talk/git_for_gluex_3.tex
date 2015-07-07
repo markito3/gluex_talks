@@ -1,0 +1,125 @@
+\documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
+
+\usetheme{Boadilla}
+
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
+
+\title{Git for GlueX, Proposal}
+\subtitle{Offline Software Meeting}
+\author[Mark Ito]{Mark M.\ Ito}
+\date{July 8, 2015}
+\institute[JLab]{Jefferson Lab}
+
+\begin{document}
+
+\f{\titlepage}
+
+\f{\ft{Proposal for GlueX Move from Subversion to Git}
+There are two parts:
+\be
+\I Workflow
+\I Switch-Over Procedure
+\ee
+}
+
+\f{\ft{Workflow}
+\bi
+\I goal: topic branch off master branch in the public repository
+\I how to get there:
+  \bi
+  \I create local repository
+    \bi
+    \I git clone https:/github.com/jeffersonlab/sim-recon
+    \ei
+  \I create a local topic branch
+    \bi
+    \I git branch my\_work
+    \ei
+  \I move to the new topic branch
+    \bi
+    \I git checkout my\_work
+    \ei
+  \I ... work on topic branch, make changes, add them, commit them...
+  \I push local topic branch to public topic branch
+    \bi
+    \I git push origin my\_work:new\_bug\_fix
+    \I creates branch "new\_bug\_fix" on public repository
+    \ei
+  \ei
+\ei
+}
+
+\f{\ft{Workflow (continued)}
+\bi
+\I how to get there (continued):
+  \bi
+  \I issue pull request on GitHub
+    \bi
+    \I navigate to the branch, click on "pull request"
+    \I creates action item on GitHub
+    \I requests that changes on branch "new\_bug\_fix" be merged onto master branch on public repository
+    \ei
+  \I someone else acts on pull request on GitHub
+    \bi
+    \I navigate to open pull requests
+    \I merge in changes
+    \ei
+  \ei
+\ei
+}
+
+\f{\ft{Notes on this Workflow}
+\bi
+\I Everyone needs an account on GitHub.
+\I Anyone can update the master branch.
+\I Changes should go onto topic branches, but enforced only administratively.
+\ei
+}
+
+\f{\ft{Switch-Over Procedure}
+\be
+\I Comment: Only HDDS and sim-recon will be converted.
+\I Comment: Having two authoritative repositories is a contradiction in terms.
+\I Schedule switch-over for COB, Wed., July 15.
+\I Between now and then, people should check in changes to the Subversion repository.
+\I Do final conversion from Subversion to Git overnight, Wed.\ to Thu.
+  \bi
+  \I Practice versions will be deleted.
+  \ei
+\I Open for business for Git after all-clear announcement Thursday morning.
+\ee
+}
+
+\f{\ft{FAQs}
+
+\be
+\I What if I miss the deadline and have changes in Subversion that need to be checked in?
+  \bi
+  \I Check them into Subversion. The diffs from after the deadline will be obvious. Mark I.\ will work with you to make the corresponding changes in the Git repository.
+  \ei
+\I What if I get stuck in a Git situation that I don't understand?
+  \bi
+  \I Ask for help: Mark I., Justin, Hovanes, Richard Jones, Brad Sawatzky, Steve Wood, Mark Jones, Ed Brash, Balint Joo...
+  \ei
+\I What if we want to go back to Subversion?
+  \bi
+  \I There are tools to create Subversion repositories from Git repositories. We don't have experience with them. We should view this as a one-way street.
+  \ei
+\I What is likely to be the biggest problem with the conversion?
+  \bi
+  \I Lack of communication.
+  \ei
+\ee
+}
+
+\end{document}
