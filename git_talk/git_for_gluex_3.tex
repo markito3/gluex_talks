@@ -24,6 +24,17 @@
 
 \f{\titlepage}
 
+\f{\ft{Director's Review of 12 GeV Software Computing, June~7-8,~2012}
+
+Committee Recommendations:
+
+...
+
+17.\ While we encourage the move to git as a code management system, be sure not to underestimate the extent of the paradigm shift. Identify a workflow model for your use of git. Communicate clearly the new paradigm (easy branching, no central repository, etc.). Set up (or link to) tutorials for users with a mapping of routine CVS tasks to their git equivalents (such as cvs diff, etc.). Document or link to documentation for standard git tasks without obvious equivalent in CVS or SVN, such as git rebase, or bisect.
+
+...
+}
+
 \f{\ft{Proposal for GlueX Move from Subversion to Git}
 There are two parts:
 \be
@@ -32,10 +43,10 @@ There are two parts:
 \ee
 }
 
-\f{\ft{Workflow}
+\f{\ft{Workflow I}
 \bi
-\I goal: topic branch off master branch in the public repository
-\I how to get there:
+\I Goal: topic branch off master branch in the public repository
+\I The Workflow:
   \bi
   \I create local repository
     \bi
@@ -59,9 +70,9 @@ There are two parts:
 \ei
 }
 
-\f{\ft{Workflow (continued)}
+\f{\ft{Workflow II}
 \bi
-\I how to get there (continued):
+\I The Workflow (continued):
   \bi
   \I issue pull request on GitHub
     \bi
@@ -75,14 +86,12 @@ There are two parts:
     \I merge in changes
     \ei
   \ei
-\ei
-}
-
-\f{\ft{Notes on this Workflow}
-\bi
-\I Everyone needs an account on GitHub.
-\I Anyone can update the master branch.
-\I Changes should go onto topic branches, but enforced only administratively.
+\I Notes on this Workflow
+  \bi
+  \I Everyone needs an account on GitHub.
+  \I Anyone can update the master branch.
+  \I Changes should go onto topic branches, but enforced only administratively.
+  \ei
 \ei
 }
 
@@ -92,11 +101,32 @@ There are two parts:
 \I Comment: Having two authoritative repositories is a contradiction in terms.
 \I Schedule switch-over for COB, Wed., July 15.
 \I Between now and then, people should check in changes to the Subversion repository.
+\I Continue to get experience using practice repositories.
 \I Do final conversion from Subversion to Git overnight, Wed.\ to Thu.
   \bi
-  \I Practice versions will be deleted.
+  \I Practice repositories will be deleted.
   \ei
 \I Open for business for Git after all-clear announcement Thursday morning.
+\ee
+}
+
+\f{\ft{Help Resources}
+\be
+\I Pro Git (online book) {\tiny\tt http://git-scm.com/book/en/v2}
+\I GitHub Help Site {\tiny\tt https://help.github.com/}
+  \bi
+  \I GitHub Bootcamp {\tiny\tt https://help.github.com/categories/bootcamp/}
+  \I Good Resources for Learning Git and GitHub {\tiny\tt https://help.github.com/articles/good-resources-for-learning-git-and-github/}
+  \ei
+\I Naomi's Links {\tiny\tt https://mailman.jlab.org/pipermail/halld-offline/2015-May/002037.html}
+\I Command-Line Help: {\tt git help}
+\I Google {\tiny\tt http://www.google.com}
+\I Practice Repositories:
+  \bi
+  \I {\tt https://github.com/jeffersonlab/sim-recon}
+  \I {\tt https://github.com/jeffersonlab/hdds}
+  \I {\tt https://github.com/jeffersonlab/git\_test}
+  \ei
 \ee
 }
 
@@ -109,7 +139,7 @@ There are two parts:
   \ei
 \I What if I get stuck in a Git situation that I don't understand?
   \bi
-  \I Ask for help: Mark I., Justin, Hovanes, Richard Jones, Brad Sawatzky, Steve Wood, Mark Jones, Ed Brash, Balint Joo...
+  \I Ask for help: Mark I., Nathan, Justin, Hovanes, Richard Jones, Brad Sawatzky, Steve Wood, Mark Jones, Ed Brash, Balint Joo, halld-offline@jlab.org...
   \ei
 \I What if we want to go back to Subversion?
   \bi
