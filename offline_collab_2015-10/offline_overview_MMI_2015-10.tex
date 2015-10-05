@@ -24,17 +24,82 @@
 
 \f{\titlepage}
 
-offline monitoring
-geant4 conversion
+\f{\ft{Topics for Following Talks}
+\bi
+\I Offline Monitoring: Kei
+\I Conversion to Geant4: Richard
+\ei
+}
 
-New Offline Software wiki page released.
-  show a picture
-github conversion
-  Nightly Builds Working from the Git Repositories
-  "git_update" simple email list
-  Team Maintainers and Admins.
-spring 2015 simulations
-hdpm
+\f{\ft{New Offline Software Wiki Page}
+
+\begin{columns}
+\begin{column}{2.0in}
+\small
+\be
+\I General Information
+\I Software Documentation
+\I Offline Data Monitoring
+\I Computing Facilities
+\I Software Management
+\I Meetings and Reviews
+\I Communication and Help
+\I Legacy Links
+\I Uncategorized Links
+\ee
+\end{column}
+\begin{column}{2.5in}
+\includegraphics[width=2.4in]{offline_wiki_3.png}
+\end{column}
+\end{columns}
+}
+
+\f{\ft{Conversion to Git}
+
+Director's Review of 12 GeV Software Computing, June~7-8,~2012, Committee Recommendations:
+
+...
+
+17.\ While we encourage the move to git as a code management system, be sure not to underestimate the extent of the paradigm shift. Identify a workflow model for your use of git. Communicate clearly the new paradigm (easy branching, no central repository, etc.). Set up (or link to) tutorials for users with a mapping of routine CVS tasks to their git equivalents (such as cvs diff, etc.). Document or link to documentation for standard git tasks without obvious equivalent in CVS or SVN, such as git rebase, or bisect.
+
+...
+}
+
+\f{\ft{Why Change?}
+  \bi
+  \I Better management of changes
+  \I Better communication of changes
+  \I Better documentation of changes
+  \I Less down-time with broken code on trunk
+  \ei
+}
+
+\f{\ft{Notes on Git/GitHub}
+  \bi
+  \I Everyone needs an account on GitHub.
+  \I Anyone can update the master branch.
+  \I Changes should go onto topic branches, but enforced only administratively.
+  \I Nightly builds working from the Git Repositories
+  \I ``git\_update'' simple email list: daily digest of changes
+  \I Team Maintainers and Team Administrators
+  \ei
+}
+
+\f{\ft{Spring 2015 Simulations Complete}
+\bi
+\I \includegraphics[width=3.5in]{spring_sim_conditions.png}
+\I Used sim-recon-1.3.0
+\I Run 9306 redone with sim-recon-1.5.1 (BCAL ``raw'' data generated)
+\ei
+}
+
+\f{\ft{Hall D Package Manager (HDPM)}
+\bi
+\I Author: Nathan Sparks
+\I Supports simultaneous builds of muliple versions of a package, {\it e.~g.}, {\tt sim-recon}
+\ei
+}
+
 multi-threaded mcsmear
 Mixing Simulated Events
 New releases, jana, sim-recon, hdds
