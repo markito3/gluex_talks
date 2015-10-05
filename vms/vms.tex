@@ -19,16 +19,6 @@
 
 \maketitle
 
-\abstract{A system for building and managing GlueX software is
-  described. The goal is to insulate the user from the need to the
-  master details of building each of several software packages as well
-  as from the details of setting up a working environment. Multiple
-  versions of each of several packages can be maintained
-  simultaneously. Particular combinations of package versions can be
-  specified succinctly in an XML configuration file and this file can
-  be used both to guide a complete build of all needed packages and to
-  set up the shell environment to use the resulting build.}
-
 \section{Introduction}
 There are three fundamental areas of concern that make up all software
 systems. They are:
@@ -41,15 +31,7 @@ systems. They are:
 
 They are all related, aspects of one affects aspects of each of the others.
 
-Having a standard system makes collaborative work more efficient,
-especially when one needs help from others to solve a problem.
-
 \section{The Packages}
-
-There are several software components that are needed to build and use
-GlueX software. Most of them are assumed to be provided by the native
-operating system or distribution, but there are some that have to be
-built by the GlueX user. They are:
 
 \begin{enumerate}
 \item build\_scripts: scripts to manage building and the shell environment
@@ -64,22 +46,13 @@ built by the GlueX user. They are:
 \item sim-recon: simulation and reconstruction for GlueX
 \end{enumerate}
 
-Detailed description of these packages will not be given here; please
-see the GlueX Offline Software wiki page for more information.
-
-There are in general multiple versions (releases) of each of these
-packages and it is often convenient to have access to more that one
-version of a package built and available for use. In addition some
-packages depend on one or several others for libraries and include
-files.
+multiple versions (releases) of each of these
+more that one version of a package built
+packages depend on one or several others
 
 \section{The Directory Structure}\label{section:directory}
 
-The VMS directory structure supports multiple versions of each
-package. For an example see Fig.~\ref{fig:directory-tree}. In the
-figure, ``gluex\_top'' is a generic name, each installation may choose
-a different directory name. VMS looks for the name of this directory
-in the environment variable {\tt GLUEX\_TOP}.
+VMS looks for the name of this directory in the environment variable {\tt GLUEX\_TOP}.
 
 \begin{figure}
 \begin{verbatim}
@@ -108,10 +81,6 @@ in the environment variable {\tt GLUEX\_TOP}.
 \end{verbatim}
 \caption{The directory structure.}\label{fig:directory-tree}
 \end{figure}
-
-Under gluex\_top, each package has its own container directory ({\it
-  e.~g.}, {\tt JANA, hdds, sim-recon}) and for each package container
-directory one or more specific versions of that package are built.
 
 \section{Scripts to Implement the VMS: \\ the {\tt BUILD\_SCRIPTS} Directory}
 
