@@ -91,26 +91,20 @@ All scripts and makefiles to support VMS are found the in the {\tt
 $${\tt /group/halld/Software/build\_scripts}.$$
 The directory can also cloned from the Git repository at GitHub. The URL is
 $${\tt https://github.com/jeffersonlab/build\_scripts}.$$
-Many of the scripts and makefiles described in this note require that
-the environment variable {\tt BUILD\_SCRIPTS} be defined and point to
-an instance of this directory.
+Many of the scripts and makefiles require the environment variable {\tt BUILD\_SCRIPTS} to be defined.
+
+% got to here %
 
 \section{Setting Up the Shell Environment}
 
-Facility is provided for setting environment variables necessary both
-for building the software and for using it. Both Bourne-shell-like and
-C-shell-like shells are supported, but real testing has only been done
-with bash and tcsh. In the following all examples will be appropriate
-for bash. Note that whenever a script like foo.sh is mentioned, there
-is also a foo.csh in the build-scripts directory.
+* Environment setting needed for building and using
+* Both Bourne shell and C shell supported
 
 \subsection{Low-Level Environment Set-Up: {\tt gluex\_env.(c)sh}}
 \label{section:low-level-environment-setting}
 
-The {\tt gluex\_env.(c)sh} script will define all environment
-variables needed to run and build GlueX software. It takes as input
-the home directories of each package as found in the environment
-variables listed in Table~\ref{table:home-directories}.
+* The {\tt gluex\_env.(c)sh} script will define all environment variables
+* Input: home directories of each package
 
 \begin{table}
 \begin{center}
@@ -132,38 +126,17 @@ sim-recon & {\tt HALLD\_HOME} \\
 \caption{Packages and their home directories.}\label{table:home-directories}
 \end{table}
 
-Given the home directory of a package, there may or may not be other
-environment variables that need to be set, those variables derived
-from the value of home. {\tt gluex\_env.(c)sh} takes care of this. For
-example, {\tt XERCES\_INCLUDE} is used in the build system and must be
-defined as {\tt \$XERCESCROOT/include}. Directories containing
-binaries must be added to the {\tt PATH} variable and similarly for
-{\tt LD\_LIBRARY\_PATH}, and {\tt PYTHONPATH}. For these path
-variables directories are always added at the front with any
-pre-existing directories maintained on the list.
+* {\tt gluex\_env.(c)sh} takes care of all the other variables.
+** For example, {\tt XERCES\_INCLUDE} is defined as {\tt \$XERCESCROOT/include}.** Directories are added to the {\tt PATH}, {\tt LD\_LIBRARY\_PATH}, and {\tt PYTHONPATH}
 
 \subsubsection{Pre-Defined Home Variables and Defaults}
 
-If {\tt GLUEX\_TOP} is defined in advance, the pre-defined value will
-be used. If not it will be defined as {\tt /usr/local/gluex}.
-
-If {\tt BUILD\_SCRIPTS} is defined in advance, again the pre-defined
-value will be used. If not defined it will be defined as {\tt
-  \$GLUEX\_TOP/build\_scripts}.
-
-If any of the home directories are defined before sourcing {\tt
-  gluex\_env.(c)sh}, those values will be respected. If any are not
-defined, then a default will be provided, usually the {\tt prod}
-directory in the package container directory. Because of this
-behavior, the user can define as many or as few of the home
-directories as desired in advance of sourcing {\tt gluex\_env.(c)sh},
-letting the script finish the environment settings keying off of the
-user definitions (or lack thereof). The user is thus only responsible
-for setting the values of desired home directories. A side effect of
-this behavior is that the environment that results is
-non-deterministic in the sense that the result depend on the values
-of pre-existing home directory variables. Different initial conditions
-will give different environments.
+* If defined in advance, key variables will be respected.
+* If not default provided.
+** {\tt GLUEX\_TOP}, default =  {\tt /usr/local/gluex}
+** {\tt BUILD\_SCRIPTS}, default = {\tt \$GLUEX\_TOP/build\_scripts}
+** Home directories, default = {\tt \$GLUEX\_TOP/<package>/prod}
+* See example below
 
 \subsubsection{Consistency Checking}
 
