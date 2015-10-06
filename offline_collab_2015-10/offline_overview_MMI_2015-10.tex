@@ -97,12 +97,65 @@ Director's Review of 12 GeV Software Computing, June~7-8,~2012, Committee Recomm
 \ei
 }
 
-\f{\ft{Hall D Package Manager (HDPM)}
-\bi
-\I Author: Nathan Sparks
-\I Supports simultaneous builds of muliple versions of a package, {\it e.~g.}, {\tt sim-recon}
-\ei
+\f{\ft{Hall D Package Manager (HDPM) from Nathan Sparks}
+$$
+\includegraphics[width=4.0in]{hdpm_motivation.pdf}
+$$}
+
+\f{
+\includegraphics[width=4.5in]{hdpm_templates.pdf}
 }
+
+\begin{frame}[fragile]
+\scriptsize
+settings-Sp15/top.txt:
+\begin{verbatim}
+# top   build-tag
+default Sp15
+\end{verbatim}
+settings-Sp15/vers.txt:
+\begin{verbatim}
+xerces-c  3.1.2
+cernlib   2005	
+root      5.34.26
+evio      4.3.1
+ccdb      1.05
+jana      0.7.3
+hdds      latest
+sim-recon latest
+\end{verbatim}
+settings-Sp15/commands.txt:
+\begin{verbatim}
+hdds      "scons -u install"
+sim-recon "scons -u -j8 install"
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]
+\scriptsize
+settings-Sp15/paths.txt:
+\begin{verbatim}
+xerces-c  /group/halld/Software/builds/[OS]/xerces-c/xerces-c-[VER]
+cernlib   /group/halld/Software/builds/[OS]/cernlib
+root      /group/halld/Software/builds/[OS]/root/root_[VER]
+evio      /group/halld/Software/builds/[OS]/evio/evio-[VER]
+ccdb      /group/halld/Software/builds/[OS]/ccdb/ccdb_[VER]
+jana      /group/halld/Software/builds/[OS]/jana/jana_[VER]
+hdds      hdds
+sim-recon sim-recon
+\end{verbatim}
+settings-Sp15/urls.txt:
+\begin{verbatim}
+xerces-c  http://www.motorlogy.com/apache/xerces/c/3/sources/xerces-c-[VER].tar.gz
+cernlib   http://www-zeuthen.desy.de/linear_collider/cernlib/new/cernlib.2005.corr.2014.04.17.tgz
+root      https://root.cern.ch/download/root_v[VER].source.tar.gz
+evio      https://coda.jlab.org/drupal/system/files/coda/evio/evio-4.4/evio-[VER].tgz
+ccdb      https://github.com/JeffersonLab/ccdb/archive/v[VER].tar.gz
+jana      https://www.jlab.org/JANA/releases/jana_[VER].tgz
+hdds      https://github.com/JeffersonLab/hdds
+sim-recon https://github.com/JeffersonLab/sim-recon
+\end{verbatim}
+\end{frame}
 
 multi-threaded mcsmear
 Mixing Simulated Events
