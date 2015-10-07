@@ -427,20 +427,13 @@ If a version mismatch is found, a warning is written to the screen.
 
 \section{The gluex\_install System}
 
-The {\tt gluex\_install} system uses {\tt build\_scripts} to create a
-complete install of GlueX software from scratch. This is especially
-useful for new machines.
+\begin{itemize}
+\item Described at a previous collaboration meeting
+\item Uses the VMS
+\item Installs all required distribution-provided packages
+\end{itemize}
 
-No interaction from the user should be required to get a successful
-build. The only assumption made is that the basic packages that come
-in a minimal install are present. The definition of minimal
-depends on the installation. In all cases, the distribution was tested
-by first installing from a DVD or CD iso image. Typically, the ``live
-DVD'' version was chosen since that installs the smallest number of
-packages.
-
-The scripts have been tested on the following distributions listed in
-Table~\ref{table:tested-distributions}.
+Tested on:
 
 \begin{table}
 $$
@@ -458,65 +451,7 @@ RedHat Enterprise & RedHat \\
 \hline
 \end{tabular}
 $$
-\caption{Gluex\_install tested distributions.}\label{table:tested-distributions}
 \end{table}
-
-\subsection{Installation Steps}
-
-Root access is required for steps (1) and (2).
-
-\begin{enumerate}
-
-\item {\bf System Update}. It is recommended that you update your
-  system to the latest versions of of all system supplied
-  software. For RedHat-like distributions you do a ``yum update''. For
-  Debian-like systems you do a ``apt-get update''.
-
-\item {\bf Get the Scripts}. A tar file with these scripts is
-  available at
-\begin{verbatim}
-  https://halldweb.jlab.org/dist/gluex_install.tar
-\end{verbatim}
-  You can also do a subversion check out of the latest version at
-\begin{verbatim}
-https://halldsvn.jlab.org/repos/trunk/scripts/gluex_install
-\end{verbatim}
-Note that most distributions do not have subversion in their minimal
-set of packages.
-
-\item {\bf Prerequisites: gluex\_prereq\_$<$distribution$>$.sh}. The
-  prerequisites script installs packages from the distribution
-  repository necessary for the GlueX build. As such, it must be
-  executed by root. In addition it makes some symbolic links in system
-  directories that are necessary for the cernlib build. These scripts
-  are specific to particular distributions. You must run this
-  script from inside the ``gluex\_install'' directory created when you
-  get the scripts (see Get the Scripts, step 2).
-
-\item {\bf Subversion test: svn\_touch.sh}. Simply does an ``l'' of the
-  Hall D and 12 GeV subversion repositories at JLab, both as a test
-  and to dispense with interactive prompts asking about certificates
-  from the servers. Respond with ``p'', to permanently accept the
-  certificates. These prompts would otherwise hang the build. If you
-  are not prompted, you already recognize the certificates. The script
-  is distribution independent.
-
-\item {\bf Install: gluex\_install.sh}. Creates a directory,
-  ``gluex\_top'', in the current working directory to house the build,
-  sets up an environment, downloads all source files, and builds all
-  libraries and executables needed to run GlueX software. The install
-  assumes a directory structure that accommodates multiple versions of
-  the GlueX packages if they are needed later. The script is
-  distribution independent.
-
-\end{enumerate}
-
-\subsection{Using the Build}
-
-After the build is complete, there are two files in the gluex
-directory, setup.sh and setup.csh, that can be used to set-up the
-complete GlueX environment under Bourne-like shells or C-like shells
-respectively.
 
 \end{document}
 
