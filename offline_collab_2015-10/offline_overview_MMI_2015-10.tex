@@ -28,6 +28,7 @@
 \bi
 \I Offline Monitoring: Kei
 \I Conversion to Geant4: Richard
+\I Overhaul ROOT TTree Format: Paul M.
 \ei
 }
 
@@ -157,9 +158,63 @@ sim-recon https://github.com/JeffersonLab/sim-recon
 \end{verbatim}
 \end{frame}
 
-multi-threaded mcsmear
-Mixing Simulated Events
-New releases, jana, sim-recon, hdds
+\f{\ft{Multi-Threaded mcsmear}
+
+David studied the effects. Findings are:
+
+\be
+\I HDDM has multiple options for compressing the data stream: no compression, bz2 compression, zlib compression
+\I mcsmear runs approximately 3-4 times faster with no compression than with bz2 compression
+\I mcsmear does not scale well with multiple threads
+  \bi
+  \I most of its time is spent in writing the event to the HDDM output stream
+  \I this action must be serialized
+  \ei
+\I Our computing model does not require us to store large amounts of simulated HDDM files on tape
+  \bi
+  \I if we do, drives have built in compression
+  \I cost limited to bandwidth of moving the files to/from tape and local disk storage
+  \ei
+\ee
+}
+
+\f{
+\bc
+\includegraphics[height=3.0in]{mcsmear_compression.png}
+\ec
+}
+
+\f{
+\bc
+\includegraphics[height=3.0in]{Sdobbs_EMBkgd_1.pdf}
+\ec
+}
+
+\f{
+\bc
+\includegraphics[height=3.0in]{Sdobbs_EMBkgd_2.pdf}
+\ec
+}
+
+\f{
+\bc
+\includegraphics[height=3.0in]{Sdobbs_pstrig_1.pdf}
+\ec
+}
+
+\f{
+\bc
+\includegraphics[height=3.0in]{Sdobbs_pstrig_2.pdf}
+\ec
+}
+
+\f{\ft{New Releases Since the Last Meeting}
+\bc
+\includegraphics[height=.7in]{jana_releases.png} \\
+\includegraphics[height=1.0in]{hdds_releases.png} \\
+\includegraphics[height=1.5in]{sim-recon_releases.png}
+\ec
+}
 
 new volatile disk hardware
 new work disk hardware
@@ -168,13 +223,11 @@ ROOT 6
 Turning the Fine-Mesh Field Map into a Resource
 Moving the Plug-Ins.
 Policy on CCDB Variations for Reconstructing Simulated Data (Mark)
-Overhaul ROOT TTree Format (Paul)
 Software for Correcting for Pedestal Drifts
 Data Challenge 3 update
 Default for builds: with debug symbols or without?
 Fall 2015 Commissioning Simulations. 
 Some problems with F125 algorithms?
 Auto-Build on Pull Request
-Noise Studies
 
 \end{document}
