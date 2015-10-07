@@ -93,8 +93,6 @@ The directory can also cloned from the Git repository at GitHub. The URL is
 $${\tt https://github.com/jeffersonlab/build\_scripts}.$$
 Many of the scripts and makefiles require the environment variable {\tt BUILD\_SCRIPTS} to be defined.
 
-% got to here %
-
 \section{Setting Up the Shell Environment}
 
 * Environment setting needed for building and using
@@ -140,35 +138,25 @@ sim-recon & {\tt HALLD\_HOME} \\
 
 \subsubsection{Consistency Checking}
 
-The final step in {\tt gluex\_env.(c)sh} is to check the resulting
-environment for consistency using the prerequisites system. Each home
-directory is checked for a prerequisites version file. Those files
-list versions of prerequisite packages used at build time. The
-build-time version are checked against the versions used in the
-just-set-up environment and warnings are printed when mismatches are
-detected. See Section~\ref{section:prerequisites-system} for the
-details.
+* Each home directory is checked for a prerequisites version file
+* Files list versions of prerequisite packages used at build time
+* The build-time version are checked against the environment versions
+* Warnings are printed on mismatches
 
 \subsubsection{Cleaning the Environment: {\tt gluex\_env\_clean.(c)sh}}
 
-Since {\tt gluex\_env.(c)sh} is sensitive to definitions hanging
-around in the environment, there is a script provided that will undo
-all GlueX-related definitions: \break {\tt gluex\_env\_clean.(c)sh}. Sourcing
-it will eliminate unintended consequences from previously made
-definitions. For the path variables the script only removes the
-GlueX-related elements leaving all others present in the path.
+* {\tt gluex\_env.(c)sh} is sensitive to definitions hanging
+around in the environment
+* Undo script: {\tt gluex\_env\_clean.(c)sh}
 
 \subsection{High-Level Environment Set-Up}
 
 \subsubsection{Custom Scripts}\label{section:custom-scripts}
 
-The most common reason to have a custom script is when you want to use
-a package that is outside the standard directory structure. Since {\tt
-  gluex\_env.(c)sh} will respect a pre-defined value of any of the
-home directories, this can be done without making a private version of
-{\tt gluex\_env.(c)sh}. See Fig.~\ref{figure:custom-script} for an
-example. Here a version of sim-recon built in a non-standard location
-(the user's home directory) will be used in the resulting environment.
+* The build of sim-recon in the user's home directory will be used.
+* All other packages be set up to use with their default builds under {\tt
+    /home/gluex/gluex\_top}.
+* Note that {\tt GLUEX\_TOP} and {\tt BUILD\_SCRIPTS} are defined explicitly
 
 \begin{figure}
 \begin{verbatim}
@@ -177,23 +165,12 @@ example. Here a version of sim-recon built in a non-standard location
           export HALLD_HOME=/home/username/sim-recon
           source $BUILD_SCRIPTS/gluex_env.sh
 \end{verbatim}
-\caption{Example of a custom set-up script. The build of sim-recon in
-  the user's home directory will be used. All other packages be set up
-  to use with their default builds under {\tt
-    /home/gluex/gluex\_top}. Note that {\tt GLUEX\_TOP} and {\tt
-  BUILD\_SCRIPTS} are defined explicitly rather than letting them
-default.}\label{figure:custom-script}
 \end{figure}
 
 \subsubsection{Using the Versioning System}/label{section:env-use-versioning}
 
-Another way to get a non-default environment is to use the versioning
-system to set home directory locations which in turn are respected by
-{\tt gluex\_env.(c)sh}. The versioning system is described in detail
-in Section~\ref{section:versioning}, but an example set-up script is
-shown in Fig.~\ref{figure:version-script}. In this example, package version
-information is contained in the XML file {\tt my\_versions.xml} in the
-user's home area. An example version file is shown in Fig.~\ref{figure:version-xml}. Alternate combinations of package versions can be tried by making alternate versions of the version file.
+* Package version information is contained in the XML file {\tt my\_versions.xml}
+* Alternate combinations of package versions can be tried by making alternate versions of the version file.
 
 \begin{figure}
 \begin{verbatim}
@@ -202,102 +179,57 @@ user's home area. An example version file is shown in Fig.~\ref{figure:version-x
         source $BUILD_SCRIPTS/gluex_env_version.sh \
             /home/username/my_versions.xml
 \end{verbatim}
-\caption{Example of a set-up script driven by a private version
-  file. See Section~\ref{section:versioning} for the format of the
-  file.}\label{figure:version-script}
 \end{figure}
 
 \subsubsection{Default Environment at JLab}
 
-At JLab there is script that packages the steps shown in Fig.~\ref{figure:version-script}, with the appropriate values of {\tt GLUEX\_TOP} and {\tt BUILD\_SCRIPTS}. It uses the latest version of {\tt version.xml}. It can also be used as an example for using a custom version of {\tt version.xml}. To use it, for bash:
+* Pre-packaged scripts, use version system, JLab-specific
+
+for bash:
 \begin{verbatim}
         source /group/halld/Software/build_scripts/gluex_env_jlab.sh
 \end{verbatim}
-and for tcsh:
+for tcsh:
 \begin{verbatim}
         source /group/halld/Software/build_scripts/gluex_env_jlab.csh
 \end{verbatim}
 
 \section{The Build System}
 
-Each of the packages have their own native build system and each build
-system has its own set of details that have to be understood. In
-addition, the technology used to do the build varies from system to
-system. It may be make, imake, cmake, SCons, or something else. The
-VMS system makes a choice of build options for each package so that
-the user need not master these details.
+* Each of the packages have their own native build system
+* Each build system has its own set of details to master.
 
 \subsection{The Makefiles}
 
-The VMS build system is implemented in GNU Make. These makefiles
-invoke the native package-specific build system. There is a ``package
-makefile'' for each package ({\it e.~g.}, {\tt Makefile\_jana,
-  Makefile\_sim-recon}). Invoking make with a package makefile will
-build that package with the home directory placed in the current
-working directory. Thus, the package makefiles have no knowledge of
-the directory structure within which they are used; they just build
-locally.
+* Makefiles invoke the native package-specific build system
+* There is a ``package makefile'' for each package ({\it e.~g.}, {\tt Makefile\_jana, Makefile\_sim-recon}).
+* Invoking make with a package makefile will build that package in the current working directory.
+* Package makefiles will work can be used stand-alone
 
 \subsubsection{The Top-Level: {\tt Makefile\_all}}
 
-Complete builds are orchestrated by {\tt Makefile\_all}. The highest-level
-targets of Makefile\_all, shown with their dependencies are:
-
 \begin{verbatim}
-all: env xerces_build cernlib_build cernlib_debug_build root_build \
-     clhep_build geant4_build gsl_build evio_build ccdb_build \
-     jana_build hdds_build sim-recon_build
-
 gluex: env xerces_build cernlib_build root_build clhep_build \
        evio_build ccdb_build jana_build hdds_build \
        sim-recon_build
-
-gluex_jlab: env xerces_build root_build clhep_build evio_build \
-            ccdb_build jana_build hdds_build sim-recon_build
 \end{verbatim}
 
-The {\tt all} target builds every package that {\tt Makefile\_all} knows
-about. The {\tt gluex} target builds only the packages necessary for
-using GlueX software. The {\tt gluex\_jlab} target is the same as {\tt gluex}
-except that it does not include {\tt cernlib\_build} (useful for JLab public
-builds where we use the community-built versions of CERNLIB).
-
-{{\tt Makefile\_all}} should always be invoked from the {\tt
-  \$GLUEX\_TOP} directory.
+* builds all the packages necessary for using GlueX software
+* puts them in the standard directory structure
+* {{\tt Makefile\_all}} should always be invoked from the {\tt \$GLUEX\_TOP} directory
 
 \subsubsection{Individual Package Targets}
 
-Each of the individual package targets ({\it e.~g.}, {\tt evio\_build}
-and {\tt hdds\_build}) use the corresponding package
-makefile. Directories are created and the package makes are executed
-in way that gives the directory structure described in
-Section~\ref{section:directory}. To do this, the package container
-directory is created if it does not exist and the requested package
-makefile is invoked from within the package container directory.
-
-Of course, each individual package build target can be invoked
-directly. More on this in Section~\ref{section:adding-packages}
-
-\subsubsection{Special Package Target}
-
-The target {\tt cernlib\_debug} is non-standard. If this target is
-invoked, it well create a separate container directory {\tt
-  cernlib\_debug} for the debug versions. Also it does not have its
-own package makefile, rather on 64-bit machines, it invokes {\tt
-  Makefile\_cernlib\_Vogt} with command line options that cause
-appropriate debug compiler flags to be used.
-
-To use the resulting debug version of CERNLIB, the {\tt CERN} variable
-must be set to point to the {\tt cernlib\_debug} directory, either explicitly as an environment variable (as described in Section~\ref{section:custom-scripts} or by using the {\tt home} attribute in the {\tt package} element of a version file (as described in Section~\ref{section:versioning}.
+* individual package targets ({\it e.~g.}, {\tt evio\_build}
+and {\tt hdds\_build}) use the corresponding package makefile
+* directories are created to give the standard directory structure
+* each individual package build target can be invoked directly
+* note: CERNLIB is non-standard
 
 \subsection{The Package Makefiles}\label{section:package-makefiles}
 
-Each of the package makefiles is sensitive to environment variables
-that control which version of the package to build. The makefiles
-themselves take care of obtaining the source code.
-
-Each packages respects a version-specifying environment variable. Here
-is an example of how they might be set in the C-shell:
+* package makefiles are sensitive to version defining environment variables
+* each makefile knows how to fetch a particular version
 
 \begin{verbatim}
 setenv JANA_VERSION 0.7.2
@@ -311,37 +243,21 @@ setenv CCDB_VERSION 1.05
 setenv EVIO_VERSION 4.3.1
 \end{verbatim}
 
-In each case there is standard system for distributing tarballs marked
-with the version name. Each package has different conventions, but the
-package makefiles have that knowledge of the appropriate convention
-coded in. Also, the name of home directory created depends on the name
-that appears in the tarball (with exceptions as mentioned in
-Section~\ref{section:directory-tags}. Note that the version variable
-can be set on the make command line as well.
-
-Some packages can be checked out from a Subversion repository. In
-these cases, the version variable is ignored. JANA, HDDS, and
-sim-recon have this support. So for example:
+* Some packages can be checked out from a source code repository
+* Instead of a version variable, a URL variable should be used
 
 \begin{verbatim}
 setenv HDDS_URL https://halldsvn.jlab.org/repos/trunk/hdds
 \end{verbatim}
 
-will cause the HDDS makefile to check out the trunk version. The names
-of the variables for JANA and sim-recon are {\tt JANA\_URL} and {\tt
-  SIM\_RECON\_URL} respectively.
+* others: {\tt JANA\_URL}, {\tt SIM\_RECON\_URL}, and {\tt CCDB\_URL}
 
 \subsubsection{Package-Specific Variable for {\tt Makefile\_sim-recon}}
 
-For the sim-recon package, there is a variable, {\tt
-  SIM\_RECON\_SCONS\_OPTIONS} that can be defined, either in the shell
-environment on on the make command line, that will supply optional
-arguments to the {\tt scons} command invoked by make. For example,
 \begin{verbatim}
         make -f $BUILD_SCRIPTS/Makefile_sim-recon \
             SIM_RECON_SCONS_OPTIONS='SHOWBUILDS=1'
 \end{verbatim}
-will cause SCons to show the compiler commands explicitly.
 
 \subsection{Adding New Package Builds to an Existing Tree}\label{section:adding-packages}
 
@@ -349,45 +265,29 @@ There are two ways:
 
 \subsubsection{Use the Top-Level {\tt Makefile\_all}}
 
-After setting the desired values of the version environment variables
-and/or the URL environment variables (see
-Section~\ref{section:package-makefiles} you can invoke {\tt
-  Makefile\_all} with the target(s) needed or with a high-level target
-like {\tt gluex},
+* set up the version variables
+* invoke {\tt Makefile\_all}
+
 \begin{verbatim}
          cd $GLUEX_TOP
          make -f $BUILD_SCRIPTS/Makefile_all gluex
 \end{verbatim}
-If some of the versions of individual packages requested already
-exist, then make will do the usual thing: try to remake them and find
-that there is nothing to do.
 
 \subsubsection{Use Individual Package Makefiles}
 
-Since the individual package makefiles build in the local directory,
-they can be used directly by going to the appropriate container
-directory. For example,
+* use them directly
+
 \begin{verbatim}
 cd $GLUEX_TOP/sim-recon
 make -f $BUILD_SCRIPTS/Makefile_sim-recon SIM_RECON_VERSION=1.4.0
 \end{verbatim}
-Note that in this example the version is specified on the make command
-line rather than through an environment variable. That is not
-necessary; it is an option supported by make and defining {\tt
-  SIM\_RECON\_VERSION} in the environment would work as well. Also
-note that doing the build in the sim-recon container directory is not
-necessary for the build to succeed; any directory will work. In this
-example however we are adding to an existing standard directory
-structure so we {\tt cd} to the standard directory.
+
+* doing the build in the sim-recon container directory
+* any directory is OK as well
 
 \section{The Versioning System}\label{section:versioning}
 
 \subsection{Version File Format: an XML}
-
-The versioning system uses an XML-formatted version file to specify
-both package version information and package home directory definition
-in the shell environment. An example file is shown in
-Fig.~\ref{figure:version-xml}.
 
 \begin{figure}
 \begin{verbatim}
@@ -403,10 +303,9 @@ Fig.~\ref{figure:version-xml}.
   <package name="evio" version="4.3.1"/>
   </gversions>
 \end{verbatim}
-\caption{An example version file. {\tt version\_1.7.xml} is shown.}\label{figure:version-xml}
 \end{figure}
 
-There is only one type of element, the {\tt package}. Attributes are:
+One type of element, the {\tt package}. Attributes are:
 
 \begin{description}
 \item{\bf name}: The name of the software package.
@@ -417,27 +316,16 @@ There is only one type of element, the {\tt package}. Attributes are:
   checked out.
 \item{\bf dirtag}: A string (directory tag) to be appended to the
   standard directory name of the package when it is built.
+\item{\bf home}: Force the location of the package home directory when setting up the environment.
 \end{description}
 
 \subsection{Setting Up the Environment with a Version File}
 
-As we saw in Section~\ref{section:low-level-environment-setting},
-environment setting via {\tt gluex\_env.(c)sh} is sensitive to the
-definition of the package home variables. In
-Section~\ref{section:package-makefiles}, we saw that the package
-makefiles are sensitive to either the version-defining environment
-variables or the URL-defining environment variables, using them to choose the
-version of code to build. The version file can be used to define both
-classes of variables. In this way it can be used to both build a
-consistent set of packages and to set-up the environment to use the
-build. Executing
 \begin{verbatim}
            $BUILD_SCRIPTS/version.pl version_1.7.xml
 \end{verbatim}
-where for the purposes of this example {\tt version\_1.7.xml} is the
-file shown in Fig.~\ref{figure:version-xml} and {\tt GLUEX\_TOP} is
-{\tt /home/gluex/gluex\_top}, creates the output shown in
-Fig.~\ref{figure:version-pl-output}.
+assume {\tt GLUEX\_TOP} is {\tt /home/gluex/gluex\_top}
+
 \begin{figure}
 \small
 \begin{verbatim}
@@ -463,30 +351,15 @@ setenv CCDB_HOME /home/gluex/gluex_top/ccdb/ccdb_1.05;
 setenv EVIO_VERSION 4.3.1;
 setenv EVIOROOT /home/gluex/gluex_top/evio/evio-4.3.1/Linux-x86_64;
 \end{verbatim}
-\caption{Output of {\tt \$BUILD\_SCRIPTS/version.pl}.}\label{figure:version-pl-output}
 \end{figure}
 Since you would want these commands applied to the current shell level, in practice you use
 \begin{verbatim}
        eval `$BUILD_SCRIPTS/version.pl version_1.7.xml`
 \end{verbatim}
-Following this step, one normally would invoke {\tt gluex\_env.(c)sh}
-to complete the set-up of the environment.
-
-In this example, the variable definitions come (mostly) in pairs, a
-version variable and a home directory variable. The version variable
-affects only the build process since the corresponding package
-makefile keys off it (see
-Section~\ref{section:package-makefiles}). The home directory variable
-affects the build as well in that it tells the package makefile where
-to find any prerequisite packages and in addition it affects use of a
-build via its effect on path variables.
-
-Finally, the script {\tt gluex\_env\_version.(c)sh} combines use of
-{\tt version.pl} and {\tt gluex\_env.(c)sh} to more conveniently set
-up the environment. We have already seen an example of its use in
-Fig.~\ref{figure:version-script}. The script uses {\tt version.pl} as
-shown above to set the stage for an invocation of {\tt
-  gluex\_env.(c)sh}.
+* following this step, invoke {\tt gluex\_env.(c)sh} to complete the set-up.
+* version variables for build
+* home variables for use and for build
+* {\tt gluex\_env\_version.(c)sh} combines use of {\tt version.pl} and {\tt gluex\_env.(c)sh} (example above)
 
 \subsection{Specifying Alternate Source Code Sources with a Version File}
 
