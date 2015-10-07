@@ -98,6 +98,19 @@ Director's Review of 12 GeV Software Computing, June~7-8,~2012, Committee Recomm
 \ei
 }
 
+\f{\ft{Future Simulation Runs (from Sean)}
+
+\bi
+\I new naming scheme, the next effort will be ``sim1''
+\I the current state of thinking:
+  \bi
+  \I use the "mc\_sim1" variation and run 9001
+  \I 1350A solenoid field that we decided was the default
+  \I For EM background, will the nominal BGRATE=1.1
+  \ei
+\ei
+}
+
 \f{\ft{Hall D Package Manager (HDPM) from Nathan Sparks}
 $$
 \includegraphics[width=4.0in]{hdpm_motivation.pdf}
@@ -216,18 +229,26 @@ David studied the effects. Findings are:
 \ec
 }
 
-new volatile disk hardware
-new work disk hardware
-Offline style build on gluex cluster
-ROOT 6
-Turning the Fine-Mesh Field Map into a Resource
-Moving the Plug-Ins.
-Policy on CCDB Variations for Reconstructing Simulated Data (Mark)
-Software for Correcting for Pedestal Drifts
-Data Challenge 3 update
-Default for builds: with debug symbols or without?
-Fall 2015 Commissioning Simulations. 
-Some problems with F125 algorithms?
-Auto-Build on Pull Request
+\f{\ft{Other Topics 1}
+\bi
+\I New volatile disk hardware: upgrade from Lustre 1.8 to 2.5
+\I New work disk hardware: traditional fileserver to Lustre
+\I Offline style build on gluon cluster: already there on the group disk
+\I ROOT 6: Beni demonstrated compatibility, still some work to do
+\I Turning the Fine-Mesh Field Map into a Resource: Sean did the work
+\I Moving the Plug-Ins from online tree to offline: done by David for use by Offline Monitoring
+\I Policy on CCDB Variations for Reconstructing Simulated Data: we have one
+\ei
+}
+
+\f{\ft{Other Topics 2}
+\bi
+\I Software for Correcting for Pedestal Drifts: discussion started
+\I Data Challenge 3: one pass done, converting to SWIF to streamline tape access
+\I Default for builds: with debug symbols or without? Stay with with-symbols
+\I F125 algorithms: Mike S. found problem, corrupt times for small pulses
+\I Auto-Build on Pull Request: working version in place, almost ready for roll-out
+\ei
+}
 
 \end{document}
