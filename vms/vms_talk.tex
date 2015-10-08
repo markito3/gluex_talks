@@ -22,6 +22,21 @@
 
 \maketitle
 
+\begin{frame}
+\ft{Outline}
+  \be
+\I {Introduction}
+\I {The Packages}
+\I {The Directory Structure}\label{section:directory}
+\I {Scripts to Implement the VMS: the {\tt BUILD\_SCRIPTS} Directory}
+\I {Setting Up the Shell Environment}
+\I {The Build System}
+\I {The Versioning System}\label{section:versioning}
+\I {The Prerequisites System}\label{section:prerequisites-system}
+\I {The gluex\_install System}
+\ee
+\end{frame}
+
 \begin{frame}\frametitle{Introduction}
 There are three fundamental areas of concern that make up all software
 systems. They are:
@@ -159,7 +174,7 @@ around in the environment
 
 \end{frame}
 \begin{frame}[fragile]
-  \frametitle{Custom Scripts}\label{section:custom-scripts}
+  \frametitle{Example Custom Script}
 \bi
 \I The build of sim-recon in the user's home directory will be used.
 \I All other packages be set up to use with their default builds under {\tt
@@ -175,7 +190,7 @@ around in the environment
 
 \end{frame}
 \begin{frame}[fragile]
-  \frametitle{Using the Versioning System}
+  \frametitle{Example Use of the Versioning System}
 \bi
 \I Package version information is contained in the XML file {\tt my\_versions.xml}
 \I Alternate combinations of package versions can be tried by making alternate versions of the version file.
@@ -190,16 +205,15 @@ around in the environment
 \end{frame}
 \begin{frame}[fragile]
   \frametitle{Default Environment at JLab}
-\bi
-\I Pre-packaged scripts, use version system, JLab-specific
-\ei
+Pre-packaged scripts exist, they use the versioning system, JLab-specific
+
 for bash:
 \begin{verbatim}
-        source /group/halld/Software/build_scripts/gluex_env_jlab.sh
+source /group/halld/Software/build_scripts/gluex_env_jlab.sh
 \end{verbatim}
 for tcsh:
 \begin{verbatim}
-        source /group/halld/Software/build_scripts/gluex_env_jlab.csh
+source /group/halld/Software/build_scripts/gluex_env_jlab.csh
 \end{verbatim}
 
 \end{frame}
@@ -214,7 +228,7 @@ for tcsh:
 \I Makefiles invoke the native package-specific build system
 \I There is a ``package makefile'' for each package ({\it e.~g.}, {\tt Makefile\_jana, Makefile\_sim-recon}).
 \I Invoking make with a package makefile will build that package in the current working directory.
-\I Package makefiles will work can be used stand-alone
+\I Package makefiles can be used stand-alone
 \ei
 \end{frame}
 \begin{frame}[fragile]
@@ -243,39 +257,30 @@ and {\tt hdds\_build}) use the corresponding package makefile
   \frametitle{The Package Makefiles}\label{section:package-makefiles}
 \bi
 \I package makefiles are sensitive to version defining environment variables
-\I each makefile knows how to fetch a particular version
 \ei
 \begin{verbatim}
-setenv JANA_VERSION 0.7.2
-setenv SIM_RECON_VERSION 1.2.0
-setenv HDDS_VERSION 3.2
-setenv CERNLIB_VERSION 2005
-setenv XERCES_C_VERSION 3.1.1
-setenv CLHEP_VERSION 2.0.4.5
-setenv ROOT_VERSION 5.34.26
-setenv CCDB_VERSION 1.05
-setenv EVIO_VERSION 4.3.1
+      setenv JANA_VERSION 0.7.2
+      setenv SIM_RECON_VERSION 1.2.0
+      setenv HDDS_VERSION 3.2
 \end{verbatim}
 \bi
+\I each makefile knows how to fetch a particular version
 \I Some packages can be checked out from a source code repository
-\I Instead of a version variable, a URL variable should be used
+\I Instead of a version variable, a URL variable can be used
 \ei
 \begin{verbatim}
 setenv HDDS_URL https://halldsvn.jlab.org/repos/trunk/hdds
 \end{verbatim}
 \bi
 \I others: {\tt JANA\_URL}, {\tt SIM\_RECON\_URL}, and {\tt CCDB\_URL}
+\I Package-Specific Variable for {\tt Makefile\_sim-recon}}
 \ei
-\end{frame}
-\begin{frame}[fragile]
-  \frametitle{Package-Specific Variable for {\tt Makefile\_sim-recon}}
-
 \begin{verbatim}
         make -f $BUILD_SCRIPTS/Makefile_sim-recon \
             SIM_RECON_SCONS_OPTIONS='SHOWBUILDS=1'
 \end{verbatim}
-
 \end{frame}
+
 \begin{frame}\frametitle{Adding New Package Builds to an Existing Tree}\label{section:adding-packages}
 
 There are two ways:
