@@ -253,7 +253,8 @@ and {\tt hdds\_build}) use the corresponding package makefile
 \I each individual package build target can be invoked directly
 \I note: CERNLIB is non-standard
 \ei
-\end{frame}\begin{frame}[fragile]
+\end{frame}
+\begin{frame}[fragile]
   \frametitle{The Package Makefiles}\label{section:package-makefiles}
 \bi
 \I package makefiles are sensitive to version defining environment variables
@@ -273,7 +274,7 @@ setenv HDDS_URL https://halldsvn.jlab.org/repos/trunk/hdds
 \end{verbatim}
 \bi
 \I others: {\tt JANA\_URL}, {\tt SIM\_RECON\_URL}, and {\tt CCDB\_URL}
-\I Package-Specific Variable for {\tt Makefile\_sim-recon}}
+\I Special Variable for {\tt Makefile\_sim-recon}
 \ei
 \begin{verbatim}
         make -f $BUILD_SCRIPTS/Makefile_sim-recon \
@@ -281,40 +282,36 @@ setenv HDDS_URL https://halldsvn.jlab.org/repos/trunk/hdds
 \end{verbatim}
 \end{frame}
 
-\begin{frame}\frametitle{Adding New Package Builds to an Existing Tree}\label{section:adding-packages}
+\begin{frame}[fragile]
+  \frametitle{Adding New Package Builds to an Existing Tree}
 
 There are two ways:
 
-\end{frame}
-\begin{frame}[fragile]\frametitle{Use the Top-Level {\tt Makefile\_all}}
+1) Use the Top-Level {\tt Makefile\_all}
+
 \bi
 \I set up the version variables
 \I invoke {\tt Makefile\_all}
 \ei
+
 \begin{verbatim}
          cd $GLUEX_TOP
          make -f $BUILD_SCRIPTS/Makefile_all gluex
 \end{verbatim}
 
-\end{frame}
-\begin{frame}[fragile]\frametitle{Use Individual Package Makefiles}
-\bi
-\I use them directly
-\ei
+2) Use Individual Package Makefile Directly
+
 \begin{verbatim}
 cd $GLUEX_TOP/sim-recon
 make -f $BUILD_SCRIPTS/Makefile_sim-recon SIM_RECON_VERSION=1.4.0
 \end{verbatim}
-\bi
-\I doing the build in the sim-recon container directory
-\I any directory is OK as well
-\ei
-\end{frame}
-\begin{frame}\frametitle{The Versioning System}\label{section:versioning}
 
 \end{frame}
+
 \begin{frame}[fragile]
-  \frametitle{Version File Format: an XML}
+  \frametitle{The Versioning System}\label{section:versioning}
+
+Version File Format: an XML
 
 \begin{verbatim}
   <gversions>
@@ -329,6 +326,10 @@ make -f $BUILD_SCRIPTS/Makefile_sim-recon SIM_RECON_VERSION=1.4.0
   <package name="evio" version="4.3.1"/>
   </gversions>
 \end{verbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Element and Attributes}
 
 One type of element, the {\tt package}. Attributes are:
 
@@ -347,11 +348,12 @@ One type of element, the {\tt package}. Attributes are:
 \end{frame}
 \begin{frame}[fragile]
   \frametitle{Setting Up the Environment with a Version File}
-
+{\small
 \begin{verbatim}
            $BUILD_SCRIPTS/version.pl version_1.7.xml
 \end{verbatim}
-assume {\tt GLUEX\_TOP} is {\tt /home/gluex/gluex\_top}
+}
+assume {\tt GLUEX\_TOP} is {\tt /home/gluex/gluex\_top}, then
 
 {\small
 \begin{verbatim}
@@ -362,30 +364,17 @@ setenv SIM_RECON_VERSION 1.4.0;
 setenv HALLD_HOME /home/gluex/gluex_top/sim-recon/sim-recon-1.4.0;
 setenv HDDS_VERSION 3.3;
 setenv HDDS_HOME /home/gluex/gluex_top/hdds/hdds-3.3;
-setenv CERNLIB_VERSION 2005;
-setenv CERN /home/gluex/gluex_top/cernlib;
-setenv CERN_LEVEL 2005;
-setenv CERNLIB_WORD_LENGTH 64-bit;
-setenv XERCES_C_VERSION 3.1.1;
-setenv XERCESCROOT /home/gluex/gluex_top/xerces-c/xerces-c-3.1.1;
-setenv CLHEP_VERSION 2.0.4.5;
-setenv CLHEP /home/gluex/gluex_top/clhep/2.0.4.5;
-setenv ROOT_VERSION 5.34.26;
-setenv ROOTSYS /home/gluex/gluex_top/root/root_5.34.26;
-setenv CCDB_VERSION 1.05;
-setenv CCDB_HOME /home/gluex/gluex_top/ccdb/ccdb_1.05;
-setenv EVIO_VERSION 4.3.1;
-setenv EVIOROOT /home/gluex/gluex_top/evio/evio-4.3.1/Linux-x86_64;
+...
 \end{verbatim}
 }
-Since you would want these commands applied to the current shell level, in practice you use
+Since you would want these commands applied to the current shell,
+{\small
 \begin{verbatim}
        eval `$BUILD_SCRIPTS/version.pl version_1.7.xml`
 \end{verbatim}
+}
 \bi
 \I following this step, invoke {\tt gluex\_env.(c)sh} to complete the set-up.
-\I version variables for build
-\I home variables for use and for build
 \I {\tt gluex\_env\_version.(c)sh} combines use of {\tt version.pl} and {\tt gluex\_env.(c)sh} (example above)
 \ei
 \end{frame}
@@ -448,8 +437,13 @@ system.
                  /></gversion
                 >
 \end{verbatim}
+\end{frame}
+
+\begin{frame}
+  \frametitle{How the Prerequisite File is Used}
+
 \bi
-\I At set-up time
+\I At set-up time...
   \I check only if a version file with prerequisites exists
   \I each package in version file is checked for version consistency with correspoding home variable
   \I version from the home directory comes from:
