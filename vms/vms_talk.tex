@@ -1,15 +1,18 @@
-\documentclass[12pt]{article}
+\documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
 
-\usepackage{graphicx}
+\usetheme{Boadilla}
 
-% global parameters
-\textwidth=6.5in
-\oddsidemargin=0in % use built-in offset of 1 inch for left margin
-\evensidemargin=0in % ditto for even pages
-\textheight=9in
-\topmargin=0in
-\headheight=0in % no headers in this document
-\headsep=0in
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\be}{\begin{enumerate}}
+\newcommand{\ee}{\end{enumerate}}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bd}{\begin{description}}
+\newcommand{\ed}{\end{description}}
+\newcommand{\I}{\item}
+\newcommand{\f}{\frame}
+\newcommand{\ft}{\frametitle}
 
 \title{A Version Management System for GlueX}
 \author{Mark M.\ Ito \\ \medskip Jefferson Lab}
@@ -19,7 +22,7 @@
 
 \maketitle
 
-\section{Introduction}
+\begin{frame}\frametitle{Introduction}
 There are three fundamental areas of concern that make up all software
 systems. They are:
 
@@ -31,7 +34,7 @@ systems. They are:
 
 They are all related, aspects of one affects aspects of each of the others.
 
-\section{The Packages}
+\end{frame}\begin{frame}\frametitle{The Packages}
 
 \begin{enumerate}
 \item build\_scripts: scripts to manage building and the shell environment
@@ -52,11 +55,13 @@ They are all related, aspects of one affects aspects of each of the others.
 \item packages depend on one or several others
 \end{itemize}
 
-\section{The Directory Structure}\label{section:directory}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{The Directory Structure}
 
 VMS looks for the name of this directory in the environment variable {\tt GLUEX\_TOP}.
 
-\begin{figure}
 \begin{verbatim}
                     gluex_top
                     |-- build_scripts
@@ -81,10 +86,10 @@ VMS looks for the name of this directory in the environment variable {\tt GLUEX\
                         |-- xerces-c-3.1.1
                         `-- xerces-c-3.1.2
 \end{verbatim}
-\caption{The directory structure.}\label{fig:directory-tree}
-\end{figure}
 
-\section{Scripts to Implement the VMS: \\ the {\tt BUILD\_SCRIPTS} Directory}
+\end{frame}
+\begin{frame}
+  \frametitle{Scripts to Implement the VMS: the {\tt BUILD\_SCRIPTS} Directory}
 
 All scripts and makefiles to support VMS are found the in the {\tt
   build\_scripts} directory. At JLab, the full path is
@@ -93,12 +98,13 @@ The directory can also cloned from the Git repository at GitHub. The URL is
 $${\tt https://github.com/jeffersonlab/build\_scripts}.$$
 Many of the scripts and makefiles require the environment variable {\tt BUILD\_SCRIPTS} to be defined.
 
-\section{Setting Up the Shell Environment}
+\end{frame}
+\begin{frame}\frametitle{Setting Up the Shell Environment}
 
 * Environment setting needed for building and using
 * Both Bourne shell and C shell supported
 
-\subsection{Low-Level Environment Set-Up: {\tt gluex\_env.(c)sh}}
+\end{frame}\begin{frame}\frametitle{Low-Level Environment Set-Up: {\tt gluex\_env.(c)sh}}
 \label{section:low-level-environment-setting}
 
 * The {\tt gluex\_env.(c)sh} script will define all environment variables
@@ -127,7 +133,7 @@ sim-recon & {\tt HALLD\_HOME} \\
 * {\tt gluex\_env.(c)sh} takes care of all the other variables.
 ** For example, {\tt XERCES\_INCLUDE} is defined as {\tt \$XERCESCROOT/include}.** Directories are added to the {\tt PATH}, {\tt LD\_LIBRARY\_PATH}, and {\tt PYTHONPATH}
 
-\subsubsection{Pre-Defined Home Variables and Defaults}
+\end{frame}\begin{frame}\frametitle{Pre-Defined Home Variables and Defaults}
 
 * If defined in advance, key variables will be respected.
 * If not default provided.
@@ -136,52 +142,54 @@ sim-recon & {\tt HALLD\_HOME} \\
 ** Home directories, default = {\tt \$GLUEX\_TOP/<package>/prod}
 * See example below
 
-\subsubsection{Consistency Checking}
+\end{frame}\begin{frame}\frametitle{Consistency Checking}
 
 * Each home directory is checked for a prerequisites version file
 * Files list versions of prerequisite packages used at build time
 * The build-time version are checked against the environment versions
 * Warnings are printed on mismatches
 
-\subsubsection{Cleaning the Environment: {\tt gluex\_env\_clean.(c)sh}}
+\end{frame}\begin{frame}\frametitle{Cleaning the Environment: {\tt gluex\_env\_clean.(c)sh}}
 
 * {\tt gluex\_env.(c)sh} is sensitive to definitions hanging
 around in the environment
 * Undo script: {\tt gluex\_env\_clean.(c)sh}
 
-\subsection{High-Level Environment Set-Up}
+\end{frame}\begin{frame}\frametitle{High-Level Environment Set-Up}
 
-\subsubsection{Custom Scripts}\label{section:custom-scripts}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Custom Scripts}\label{section:custom-scripts}
 
 * The build of sim-recon in the user's home directory will be used.
 * All other packages be set up to use with their default builds under {\tt
     /home/gluex/gluex\_top}.
 * Note that {\tt GLUEX\_TOP} and {\tt BUILD\_SCRIPTS} are defined explicitly
 
-\begin{figure}
 \begin{verbatim}
           export GLUEX_TOP=/home/gluex/gluex_top
           export BUILD_SCRIPTS=$GLUEX_TOP/build_scripts
           export HALLD_HOME=/home/username/sim-recon
           source $BUILD_SCRIPTS/gluex_env.sh
 \end{verbatim}
-\end{figure}
 
-\subsubsection{Using the Versioning System}/label{section:env-use-versioning}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Using the Versioning System}
 
 * Package version information is contained in the XML file {\tt my\_versions.xml}
 * Alternate combinations of package versions can be tried by making alternate versions of the version file.
 
-\begin{figure}
 \begin{verbatim}
         export GLUEX_TOP=/home/gluex/gluex_top
         export BUILD_SCRIPTS=$GLUEX_TOP/build_scripts
         source $BUILD_SCRIPTS/gluex_env_version.sh \
             /home/username/my_versions.xml
 \end{verbatim}
-\end{figure}
 
-\subsubsection{Default Environment at JLab}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Default Environment at JLab}
 
 * Pre-packaged scripts, use version system, JLab-specific
 
@@ -194,19 +202,23 @@ for tcsh:
         source /group/halld/Software/build_scripts/gluex_env_jlab.csh
 \end{verbatim}
 
-\section{The Build System}
+\end{frame}
+
+\begin{frame}\frametitle{The Build System}
 
 * Each of the packages have their own native build system
 * Each build system has its own set of details to master.
 
-\subsection{The Makefiles}
+\end{frame}\begin{frame}\frametitle{The Makefiles}
 
 * Makefiles invoke the native package-specific build system
 * There is a ``package makefile'' for each package ({\it e.~g.}, {\tt Makefile\_jana, Makefile\_sim-recon}).
 * Invoking make with a package makefile will build that package in the current working directory.
 * Package makefiles will work can be used stand-alone
 
-\subsubsection{The Top-Level: {\tt Makefile\_all}}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{The Top-Level: {\tt Makefile\_all}}
 
 \begin{verbatim}
 gluex: env xerces_build cernlib_build root_build clhep_build \
@@ -218,7 +230,8 @@ gluex: env xerces_build cernlib_build root_build clhep_build \
 * puts them in the standard directory structure
 * {{\tt Makefile\_all}} should always be invoked from the {\tt \$GLUEX\_TOP} directory
 
-\subsubsection{Individual Package Targets}
+\end{frame}
+\begin{frame}\frametitle{Individual Package Targets}
 
 * individual package targets ({\it e.~g.}, {\tt evio\_build}
 and {\tt hdds\_build}) use the corresponding package makefile
@@ -226,7 +239,8 @@ and {\tt hdds\_build}) use the corresponding package makefile
 * each individual package build target can be invoked directly
 * note: CERNLIB is non-standard
 
-\subsection{The Package Makefiles}\label{section:package-makefiles}
+\end{frame}\begin{frame}[fragile]
+  \frametitle{The Package Makefiles}\label{section:package-makefiles}
 
 * package makefiles are sensitive to version defining environment variables
 * each makefile knows how to fetch a particular version
@@ -252,18 +266,22 @@ setenv HDDS_URL https://halldsvn.jlab.org/repos/trunk/hdds
 
 * others: {\tt JANA\_URL}, {\tt SIM\_RECON\_URL}, and {\tt CCDB\_URL}
 
-\subsubsection{Package-Specific Variable for {\tt Makefile\_sim-recon}}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Package-Specific Variable for {\tt Makefile\_sim-recon}}
 
 \begin{verbatim}
         make -f $BUILD_SCRIPTS/Makefile_sim-recon \
             SIM_RECON_SCONS_OPTIONS='SHOWBUILDS=1'
 \end{verbatim}
 
-\subsection{Adding New Package Builds to an Existing Tree}\label{section:adding-packages}
+\end{frame}
+\begin{frame}\frametitle{Adding New Package Builds to an Existing Tree}\label{section:adding-packages}
 
 There are two ways:
 
-\subsubsection{Use the Top-Level {\tt Makefile\_all}}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Use the Top-Level {\tt Makefile\_all}}
 
 * set up the version variables
 * invoke {\tt Makefile\_all}
@@ -273,7 +291,8 @@ There are two ways:
          make -f $BUILD_SCRIPTS/Makefile_all gluex
 \end{verbatim}
 
-\subsubsection{Use Individual Package Makefiles}
+\end{frame}
+\begin{frame}[fragile]\frametitle{Use Individual Package Makefiles}
 
 * use them directly
 
@@ -285,11 +304,13 @@ make -f $BUILD_SCRIPTS/Makefile_sim-recon SIM_RECON_VERSION=1.4.0
 * doing the build in the sim-recon container directory
 * any directory is OK as well
 
-\section{The Versioning System}\label{section:versioning}
+\end{frame}
+\begin{frame}\frametitle{The Versioning System}\label{section:versioning}
 
-\subsection{Version File Format: an XML}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Version File Format: an XML}
 
-\begin{figure}
 \begin{verbatim}
   <gversions>
   <package name="jana" version="0.7.3"/>
@@ -303,7 +324,6 @@ make -f $BUILD_SCRIPTS/Makefile_sim-recon SIM_RECON_VERSION=1.4.0
   <package name="evio" version="4.3.1"/>
   </gversions>
 \end{verbatim}
-\end{figure}
 
 One type of element, the {\tt package}. Attributes are:
 
@@ -319,15 +339,16 @@ One type of element, the {\tt package}. Attributes are:
 \item{\bf home}: Force the location of the package home directory when setting up the environment.
 \end{description}
 
-\subsection{Setting Up the Environment with a Version File}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Setting Up the Environment with a Version File}
 
 \begin{verbatim}
            $BUILD_SCRIPTS/version.pl version_1.7.xml
 \end{verbatim}
 assume {\tt GLUEX\_TOP} is {\tt /home/gluex/gluex\_top}
 
-\begin{figure}
-\small
+{\small
 \begin{verbatim}
 setenv JANA_VERSION 0.7.3;
 setenv JANA_HOME \
@@ -351,7 +372,7 @@ setenv CCDB_HOME /home/gluex/gluex_top/ccdb/ccdb_1.05;
 setenv EVIO_VERSION 4.3.1;
 setenv EVIOROOT /home/gluex/gluex_top/evio/evio-4.3.1/Linux-x86_64;
 \end{verbatim}
-\end{figure}
+}
 Since you would want these commands applied to the current shell level, in practice you use
 \begin{verbatim}
        eval `$BUILD_SCRIPTS/version.pl version_1.7.xml`
@@ -361,7 +382,10 @@ Since you would want these commands applied to the current shell level, in pract
 * home variables for use and for build
 * {\tt gluex\_env\_version.(c)sh} combines use of {\tt version.pl} and {\tt gluex\_env.(c)sh} (example above)
 
-\subsection{Specifying Alternate Source Code Sources with a Version File}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Specifying Alternate Source Code Sources with a Version File}
 To clone sim-recon and checkout the branch {\tt test\_stuff}, use
 \begin{verbatim}
      <package name="sim-recon"
@@ -369,7 +393,9 @@ To clone sim-recon and checkout the branch {\tt test\_stuff}, use
               branch="test_stuff"/>
 \end{verbatim}
 
-\subsection{Directory Tags}\label{section:directory-tags}
+\end{frame}
+\begin{frame}[fragile]
+  \frametitle{Directory Tags}\label{section:directory-tags}
 
 The {\tt dirtag} attribute: distinguish different builds with different prerequisite packages.
 \begin{verbatim}
@@ -381,7 +407,9 @@ The {\tt dirtag} attribute: distinguish different builds with different prerequi
 \end{verbatim}
 {\tt Makefile\_hdds} produces a directory named {\tt hdds-3.3\^{}xerces\_test}
 
-\subsection{Specifying Alternate Home Directory Locations}
+\end{frame}
+\begin{frame}
+  \frametitle{Specifying Alternate Home Directory Locations}
 
 A package may lie outside of the standard directory structure.
 \begin{center} \tt
@@ -393,14 +421,16 @@ export HALLD\_HOME=/home/my/sim-recon
 \end{center}
 Useful for creating an environment for use; when building it you are on your own.
 
-\section{The Prerequisites System}\label{section:prerequisites-system}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{The Prerequisites System}\label{section:prerequisites-system}
 
 * At build time, a version xml file is created in the home directory of
 a package if that package has dependencies on others in the
 system.
 * Example: \$HALLD\_HOME will have the file {\tt sim-recon\_prereqs\_version.xml}
 
-\begin{figure}
 \begin{verbatim}
                 <gversion version="1.0"
                 ><package name="evio" version="4.3.1"
@@ -412,7 +442,6 @@ system.
                  /></gversion
                 >
 \end{verbatim}
-\end{figure}
 
 * At set-up time
 ** check only if a version file with prerequisites exists
@@ -425,7 +454,10 @@ system.
 \end{enumerate}
 If a version mismatch is found, a warning is written to the screen.
 
-\section{The gluex\_install System}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The gluex\_install System}
 
 \begin{itemize}
 \item Described at a previous collaboration meeting
@@ -453,7 +485,10 @@ RedHat Enterprise & RedHat \\
 $$
 \end{table}
 
-\section{Summary}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Summary}
 
 \begin{itemize}
 \item Automation of builds of GlueX-related software
@@ -464,6 +499,7 @@ $$
 \item Version consistency checking mechanism provided
 \item Includes features for custom builds of user-specified packages
 \end{itemize}
+\end{frame}
 
 \end{document}
 
