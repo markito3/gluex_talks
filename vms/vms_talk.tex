@@ -27,12 +27,12 @@
   \be
 \I {Introduction}
 \I {The Packages}
-\I {The Directory Structure}\label{section:directory}
+\I {The Directory Structure}
 \I {Scripts to Implement the VMS: the {\tt BUILD\_SCRIPTS} Directory}
 \I {Setting Up the Shell Environment}
 \I {The Build System}
-\I {The Versioning System}\label{section:versioning}
-\I {The Prerequisites System}\label{section:prerequisites-system}
+\I {The Versioning System}
+\I {The Prerequisites System}
 \I {The gluex\_install System}
 \ee
 \end{frame}
@@ -255,7 +255,7 @@ and {\tt hdds\_build}) use the corresponding package makefile
 \ei
 \end{frame}
 \begin{frame}[fragile]
-  \frametitle{The Package Makefiles}\label{section:package-makefiles}
+  \frametitle{The Package Makefiles}
 \bi
 \I package makefiles are sensitive to version defining environment variables
 \ei
@@ -309,7 +309,7 @@ make -f $BUILD_SCRIPTS/Makefile_sim-recon SIM_RECON_VERSION=1.4.0
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{The Versioning System}\label{section:versioning}
+  \frametitle{The Versioning System}
 
 Version File Format: an XML
 
@@ -390,7 +390,7 @@ To clone sim-recon and checkout the branch {\tt test\_stuff}, use
 
 \end{frame}
 \begin{frame}[fragile]
-  \frametitle{Directory Tags}\label{section:directory-tags}
+  \frametitle{Directory Tags}
 
 The {\tt dirtag} attribute: distinguish different builds with different prerequisite packages.
 \begin{verbatim}
@@ -419,7 +419,7 @@ Useful for creating an environment for use; when building it you are on your own
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{The Prerequisites System}\label{section:prerequisites-system}
+  \frametitle{The Prerequisites System}
 \bi
 \I At build time, a version xml file is created in the home directory of
 a package if that package has dependencies on others in the
