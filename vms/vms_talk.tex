@@ -170,11 +170,10 @@ sim-recon & {\tt HALLD\_HOME} \\
 around in the environment
 \I Undo script: {\tt gluex\_env\_clean.(c)sh}
 \ei
-\end{frame}\begin{frame}\frametitle{High-Level Environment Set-Up}
-
 \end{frame}
+
 \begin{frame}[fragile]
-  \frametitle{Example Custom Script}
+  \frametitle{High-Level Example: Custom Script}
 \bi
 \I The build of sim-recon in the user's home directory will be used.
 \I All other packages be set up to use with their default builds under {\tt
@@ -190,7 +189,7 @@ around in the environment
 
 \end{frame}
 \begin{frame}[fragile]
-  \frametitle{Example Use of the Versioning System}
+  \frametitle{High-Level Example: Use of the Versioning System}
 \bi
 \I Package version information is contained in the XML file {\tt my\_versions.xml}
 \I Alternate combinations of package versions can be tried by making alternate versions of the version file.
@@ -270,7 +269,7 @@ and {\tt hdds\_build}) use the corresponding package makefile
 \I Instead of a version variable, a URL variable can be used
 \ei
 \begin{verbatim}
-setenv HDDS_URL https://halldsvn.jlab.org/repos/trunk/hdds
+setenv HDDS_URL https://github.com/jeffersonlab/hdds
 \end{verbatim}
 \bi
 \I others: {\tt JANA\_URL}, {\tt SIM\_RECON\_URL}, and {\tt CCDB\_URL}
