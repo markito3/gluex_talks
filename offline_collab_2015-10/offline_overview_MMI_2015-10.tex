@@ -1,4 +1,4 @@
-\documentclass[xcolor=dvipsnames,hyperref={pdfpagelabels=false}]{beamer}
+\documentclass{beamer}
 
 \usetheme{Boadilla}
 
@@ -24,7 +24,7 @@
 
 \f{\titlepage}
 
-\f{\ft{Topics for Following Talks}
+\f{\ft{Topics To Be Left for Others}
 \bi
 \I Offline Monitoring: Kei
 \I Conversion to Geant4: Richard
@@ -81,18 +81,23 @@ Director's Review of 12 GeV Software Computing, June~7-8,~2012, Committee Recomm
 
 \f{\ft{Notes on Git/GitHub}
   \bi
-  \I Everyone needs an account on GitHub.
-  \I Anyone can update the master branch.
-  \I Changes should go onto topic branches, but enforced only administratively.
-  \I Nightly builds working from the Git Repositories
-  \I ``git\_update'' simple email list: daily digest of changes
-  \I Team Maintainers and Team Administrators
+  \I You need an account on GitHub to contribute to code.
+  \I Changes go onto a branch at GitHub
+    \bi
+    \I then issue a pull request
+    \I then wait for someone else to merge the changes onto the master branch
+    \ei
+  \I Nightly builds now working from the Git repositories
+  \I ``git\_update'' simple email list created: daily digest of changes
+  \I Team Maintainers and Team Administrators appointed: administrative duties distributed
   \ei
 }
 
 \f{\ft{Spring 2015 Simulations Complete}
+$$
+  \includegraphics[width=3.0in]{spring_sim_conditions.png}
+  $$
 \bi
-\I \includegraphics[width=3.5in]{spring_sim_conditions.png}
 \I Used sim-recon-1.3.0
 \I Run 9306 redone with sim-recon-1.5.1 (BCAL ``raw'' data generated)
 \ei
@@ -102,11 +107,11 @@ Director's Review of 12 GeV Software Computing, June~7-8,~2012, Committee Recomm
 
 \bi
 \I new naming scheme, the next effort will be ``sim1''
-\I the current state of thinking:
+\I the current state of sim1:
   \bi
   \I use the "mc\_sim1" variation and run 9001
-  \I 1350A solenoid field that we decided was the default
-  \I For EM background, will the nominal BGRATE=1.1
+  \I 1350~A solenoid field that we decided was the default
+  \I For EM background, use the nominal BGRATE=1.1
   \ei
 \ei
 }
@@ -121,13 +126,15 @@ $$}
 }
 
 \begin{frame}[fragile]
-\scriptsize
 settings-Sp15/top.txt:
+\small
 \begin{verbatim}
 # top   build-tag
 default Sp15
 \end{verbatim}
+\normalsize
 settings-Sp15/vers.txt:
+\small
 \begin{verbatim}
 xerces-c  3.1.2
 cernlib   2005	
@@ -138,7 +145,9 @@ jana      0.7.3
 hdds      latest
 sim-recon latest
 \end{verbatim}
+\normalsize
 settings-Sp15/commands.txt:
+\small
 \begin{verbatim}
 hdds      "scons -u install"
 sim-recon "scons -u -j8 install"
@@ -146,8 +155,8 @@ sim-recon "scons -u -j8 install"
 \end{frame}
 
 \begin{frame}[fragile]
-\scriptsize
 settings-Sp15/paths.txt:
+\scriptsize
 \begin{verbatim}
 xerces-c  /group/halld/Software/builds/[OS]/xerces-c/xerces-c-[VER]
 cernlib   /group/halld/Software/builds/[OS]/cernlib
@@ -158,7 +167,9 @@ jana      /group/halld/Software/builds/[OS]/jana/jana_[VER]
 hdds      hdds
 sim-recon sim-recon
 \end{verbatim}
+\normalsize
 settings-Sp15/urls.txt:
+\scriptsize
 \begin{verbatim}
 xerces-c  http://www.motorlogy.com/apache/xerces/c/3/sources/xerces-c-[VER].tar.gz
 cernlib   http://www-zeuthen.desy.de/linear_collider/cernlib/new/cernlib.2005.corr.2014.04.17.tgz
@@ -235,7 +246,7 @@ David studied the effects. Findings are:
 \I New work disk hardware: traditional fileserver to Lustre
 \I Offline style build on gluon cluster: already there on the group disk
 \I ROOT 6: Beni demonstrated compatibility, still some work to do
-\I Turning the Fine-Mesh Field Map into a Resource: Sean did the work
+\I Turning the Fine-Mesh Field Map into a JANA Resource: Sean did the work
 \I Moving the Plug-Ins from online tree to offline: done by David for use by Offline Monitoring
 \I Policy on CCDB Variations for Reconstructing Simulated Data: we have one
 \ei
@@ -249,6 +260,19 @@ David studied the effects. Findings are:
 \I F125 algorithms: Mike S. found problem, corrupt times for small pulses
 \I Auto-Build on Pull Request: working version in place, almost ready for roll-out
 \ei
+}
+
+\f{\ft{Summary}
+  \bi
+  \I New Offline Software wiki page launched
+  \I Subversion-to-Git conversion implemented
+  \I Spring 2015 simulations complete
+  \I Future simulations being planned
+  \I New build method developed: HDPM
+  \I Compression for mcsmear probably not worth it
+  \I Mixing of simulated EM background events with simulated physics events demonstrated
+  \I Using real PS trigger to mix with simulated physics events needs study (prompt component?)
+  \ei
 }
 
 \end{document}
