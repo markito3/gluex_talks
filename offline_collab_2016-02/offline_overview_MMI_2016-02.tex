@@ -60,8 +60,10 @@
 
 \f{\ft{C++ Code Analyzer}
 \bi
+\I David implemented this
 \I based on Clang/LLVM
 \I reports questionable passages of code
+\I runs nightly: {\tt https://halldweb.jlab.org/scan-build/LATEST/}
 \ei
 }
 
@@ -73,29 +75,67 @@
 \includegraphics[width=4.5in]{code_analyzer_2.png}
 }
 
+\f{\ft{RCDB vs. CCDB for Offline Reconstruction/Analysis}
+  \be
+  \I Write a C++ API for the RCDB
+  \I Copy data from the RCDB to the CCDB for offline use
+  \ee
+}
+
 \f{\ft{Compiler Upgrade}
+\bc
+\begin{tabular}{ll}
+\bf Site & \bf GCC version \\
+\hline
+JLab &			4.4.7, 4.9.2 available \\
+UConn &			4.4.7 \\
+Northwestern &		4.4, could go to 4.8 \\
+MEPhI	&		4.9 \\
+CMU	&		4.4.7, could go to 4.9.2 \\
+Athens	&		4.8.4 \\
+Regina	&		4.4.7 \\
+Open Science Grid &	4.4.7, option for 4.9.2
+\end{tabular}
+\ec
+\bi
+\I New C++11 language features available in 4.8 and higher
+\I Some developers would like to use modern features
+\I Each computer used to compile code would have to upgrade
+\I Proposal: go to 4.9.2
+\I When?
+\ei
+}
+
+\f{\ft{New releases}
+  \bi
+  \I sim-recon 1.6.0, 1.7.0, 1.8.0, 1.9.0
+  \I HDDS 3.4, 3.5
+  \I JANA 0.7.4p2
+  \I CCDB 1.06.01
+  \I Xerces-C++ 3.1.2
+  \ei
 }
 
 \f{\ft{Odds and Ends}
   \bi
-  \I New releases
-    \bi
-    \I sim-recon 1.6.0, 1.7.0
-    \I HDDS 3.4, 3.5
-    \I JANA 0.7.4p2
-    \I CCDB 1.06.01
-    \ei
+  \I JANA status bits: identify event source
+  \I DL1Trigger bits: identify which trigger(s) fired
+  \I No more farm62 nodes (CentOS 6.2), using 6.5 exclusively
   \I New Lustre-based work disk: /work/halld
   \I New Traditional work disk: /work/halld2
-  \I New Private Wiki
-  \I New ``Dumb offline question'' hypernews forum
-  \ei
-}
-
-\f{\ft{Summary}
-  \bi
-  \I point 1
-  \I point 2
+  \I Volatile space: 10 TB to 20 TB
+  \I New Private Wiki: {\tt https://halldweb.jlab.org/wiki-private/}
+  \I New hypernews forum coming
+    \bi
+    \I Forum naming contest underway:
+      \bi
+      \I ``GlueX Software Help''
+      \I ``Dumb Offline Software Questions''
+      \I ``Seg-Fault of the Day''
+      \I ``The Clueless on the Farm Forum''
+      \I ``Free Video Streaming Suggestions''
+      \ei
+    \ei
   \ei
 }
 
