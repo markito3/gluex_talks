@@ -30,7 +30,7 @@
   \I halld\_recon version control and launches
   \I XROOTD server
   \I Crash fixes
-  \I EvtGen facility
+  \I Event Generator Realism (EvtGen)
   \I Time-History Plots
   \I Upgraded Time-of-Flight software
   \I New database servers for use on the farm
@@ -77,7 +77,7 @@
 
 \f{\ft{Crash Fixes}
   \bi
-  \I Started as ``the crash in ST matching''
+  \I Started as the ``crash in ST matching''
   \I Alex A. reported the problem. Sean, Beni, Simon, Justin, and David studied it. David diagnosed it.
     \bi
     \I Create an object from the heap in brun
@@ -88,8 +88,56 @@
     \I Party ends abruptly (segfault)
     \I Blame assigned to the innocent
     \ei
-  \I Bug pattern found in many plugins. Appears to have propagated via copy-and-paste. Sean scanned through plugins and fixed them.
+  \I Bug pattern found in many plugins. Appears to have propagated via
+  copy-and-paste. Sean scanned through plugins and fixed them.
+  \I Crashes from multi-run analysis jobs similar: objects created at
+  beginning of each run not propagated correctly. --Sean
   \ei
+}
+
+\f{\ft{Event Generator Realism (EvtGen)}
+  \bi
+  \I Sean brings in the EvtGen package ``industry standard''
+  \I Better models for particle decays
+  \I Uses text configuration files
+  \I Implemented as post-processor for HDDM-formatted event files
+  \ei
+}
+
+\f{\ft{Time-History Plots}
+  \bi
+  \I New package to keep track of time dependent quantities
+  \I CSV files for data (this is on you)
+  \I Text configuration files for plotting
+  \ei
+}
+
+\f{\ft{Number of MySQL Server Connections}
+$$
+\includegraphics[width=3.5in]{mysql_servers_1.png}
+$$
+}
+
+\f{\ft{Job Count, Currently Active Users}
+$$
+\includegraphics[width=3.5in]{user_jobs_1.png}
+$$
+}
+
+\f{\ft{New Database Servers for Use on the Farm}
+\bi
+\I hallddb-farm.jlab.org
+\I DNS alias for pair of new servers
+\I Went into production this week
+\ei
+}
+
+\f{\ft{Summary and Conclusions}
+\bi
+\I HDGeant4 in widespread use by the Collaboration
+\I Need to get XROOTD streaming going
+\I Documentation...
+\ei
 }
 
 \end{document}
