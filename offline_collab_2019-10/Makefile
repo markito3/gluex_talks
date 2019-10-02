@@ -1,4 +1,5 @@
-all: offline_overview_MMI_2016-02.pdf
+all: offline_status_MMI_2019-10.pdf
 
 %.pdf: %.tex
+	pdflatex $<
 	pdflatex $<
